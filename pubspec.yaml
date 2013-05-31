@@ -1,5 +1,6 @@
 name: papyrus
 description: A sample command-line application
 dependencies:
-  args: any
   analyzer_experimental: any
+  args: any
+  intl: any
