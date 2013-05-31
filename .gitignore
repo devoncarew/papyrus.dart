@@ -1,0 +1,7 @@
+.project
+*.dart.js.deps
+*.dart.js.map
+*.dart.js
+out
+packages
+pubspec.lock
