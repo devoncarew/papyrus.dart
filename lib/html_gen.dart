@@ -30,7 +30,30 @@ class HtmlGenerator {
     }
     
     println('<link href="${css.getCssName()}" rel="stylesheet" media="screen">');
+    println("""<style>
+.left-nav {
+  margin-top: 20px;
+}
 
+.left-nav > .active > a, .left-nav > .active > a:hover, .left-nav > .active > a:focus {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #0088cc;
+}
+
+.icon-chevron-right {
+  float: right;
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: .25;
+}
+
+.active .icon-chevron-right, .active a:hover .icon-chevron-right {
+  background-image: url(glyphicons-halflings-white.png);
+  opacity: 1;
+}
+</style>""");
+    
     // head
     endTag();
     
