@@ -1,8 +1,6 @@
 
 library css;
 
-final CSS css = new CSS();
-
 class CSS {
   
   String getCssName() => 'bootstrap.css';
