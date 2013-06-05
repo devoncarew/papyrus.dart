@@ -9,6 +9,8 @@ class HtmlGenerator {
   StringBuffer buffer = new StringBuffer();  
   bool startOfLine = true;
   List<String> tags = [];
+  List<bool> indents = [];
+  String indent = '';
   
   HtmlGenerator() {
     writeln('<!DOCTYPE html>');
@@ -19,7 +21,8 @@ class HtmlGenerator {
   }
   
   void start({String title, String cssRef}) {
-    startTag('html');
+    startTag('html', newLine: false);
+    writeln();
     startTag('head');
     
     writeln('<meta charset="utf-8">');
@@ -34,38 +37,37 @@ class HtmlGenerator {
     }
     
     writeln("""<style>
-.left-nav {
-  margin-top: 20px;
-}
-
-.left-nav > .active > a, .left-nav > .active > a:hover, .left-nav > .active > a:focus {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
-}
-
-.icon-chevron-right {
-  float: right;
-  margin-top: 2px;
-  margin-right: -6px;
-  opacity: .25;
-}
-
-.active .icon-chevron-right, .active a:hover .icon-chevron-right {
-  background-image: url(glyphicons-halflings-white.png);
-  opacity: 1;
-}
-
-.indent {
-  margin-left: 1em;
-  margin-bottom: 0.5em;
-}
-</style>""");
+\t\t.left-nav {
+\t\t\tmargin-top: 20px;
+\t\t}
+\t\t.left-nav > .active > a, .left-nav > .active > a:hover, .left-nav > .active > a:focus {
+\t\t\tcolor: #ffffff;
+\t\t\ttext-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+\t\t\tbackground-color: #0088cc;
+\t\t}
+\t\t.icon-chevron-right {
+\t\t\tfloat: right;
+\t\t\tmargin-top: 2px;
+\t\t\tmargin-right: -6px;
+\t\t\topacity: .25;
+\t\t}
+\t\t.active .icon-chevron-right, .active a:hover .icon-chevron-right {
+\t\t\tbackground-image: url(glyphicons-halflings-white.png);
+\t\t\topacity: 1;
+\t\t}
+\t\t.indent {
+\t\t\tmargin-left: 1em;
+\t\t\tmargin-bottom: 0.5em;
+\t\t}
+\t\t</style>""");
     
     // head
     endTag();
     
-    startTag('body');
+    writeln();
+    
+    startTag('body', newLine: false);
+    writeln();
   }
   
   void startTag(String tag, {String attributes, bool newLine: true}) {
@@ -81,6 +83,12 @@ class HtmlGenerator {
       } else {
         write('<${tag}>');
       }
+    }
+    
+    indents.add(newLine);
+    
+    if (newLine) {
+      indent = '$indent\t';
     }
     
     tags.add(tag);
@@ -105,6 +113,12 @@ class HtmlGenerator {
   void endTag() {
     String tag = tags.removeLast();
     
+    bool wasIndent = indents.removeLast();
+    
+    if (wasIndent) {
+      indent = indent.substring(0, indent.length - 1);
+    }
+    
     writeln('</${tag}>');
   }
   
@@ -114,14 +128,6 @@ class HtmlGenerator {
     
     // html
     endTag();
-  }
-  
-  String get indent {
-    StringBuffer buf = new StringBuffer();
-    for (int i = 0; i < tags.length; i++) {
-      buf.write('\t');
-    }
-    return buf.toString();
   }
   
   String toString() {

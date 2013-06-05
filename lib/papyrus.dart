@@ -21,8 +21,6 @@ part 'helpers.dart';
 
 // TODO: --package-root?
 
-// TODO: class getters/setters
-
 // TODO: generics
 
 // TODO: const values
@@ -43,6 +41,7 @@ class Papyrus {
   
   Directory out;
   List<String> excludeLibraries = [];
+  List<String> includedLibraries = [];
   List<String> libraryFiles;
   
   List<LibraryElement> libraries;
@@ -84,8 +83,10 @@ class Papyrus {
     }
     
     out = new Directory(results['out']);
-    excludeLibraries = results['excludes'] == null ?
-        [] : results['excludes'].split(',');
+    excludeLibraries = results['exclude'] == null ?
+        [] : results['exclude'].split(',');
+    includedLibraries = results['include'] == null ?
+        [] : results['include'].split(',');
     libraryFiles = results.rest;
     
     return true;
@@ -96,12 +97,15 @@ class Papyrus {
   ArgParser _createArgsParser() {
     ArgParser parser = new ArgParser();
     parser.addOption(
-        'excludes',
+        'exclude',
         help: 'a comma-separated list of library names to ignore');
     parser.addFlag('help',
         abbr: 'h',
         negatable: false,
         help: 'show command help');
+    parser.addOption(
+        'include',
+        help: 'a comma-separated list of library names to include');
     parser.addOption(
         'out',
         defaultsTo: 'out',
@@ -122,16 +126,23 @@ class Papyrus {
     
     // process the given libraries
     libraries = parseLibraries(libraryFiles);
-    libraries.sort(elementCompare);
     
     // create the out directory
     if (!out.existsSync()) {
       out.createSync(recursive: true);
     }
     
+    addIncluded(libraries, includedLibraries);
+    
     // remove excluded libraries
+    for (String pattern in excludeLibraries) {
+      libraries.removeWhere((l) => l.name.startsWith(pattern));
+    }
+    
     libraries.removeWhere(
         (LibraryElement library) => excludeLibraries.contains(library.name));
+    
+    libraries.sort(elementCompare);
     
     // generate the html files
     for (LibraryElement library in libraries) {
@@ -150,6 +161,22 @@ class Papyrus {
     "${seconds.toStringAsFixed(1)} seconds.");
   }
   
+  void addIncluded(List<LibraryElement> libraries, List<String> includedLibraries) {
+    AnalysisContext context = libraries[0].context;
+    
+    for (Source libSource in context.librarySources) {
+      LibraryElement element = context.getLibraryElement(libSource);
+      
+      for (String pattern in includedLibraries) {
+        if (element.name.startsWith(pattern)) {
+          if (!libraries.contains(element)) {
+            libraries.add(element);
+          }
+        }
+      }
+    }
+  }
+  
   void generateLibrary(LibraryElement library) {
     File f = new File.fromPath(new Path(out.path).append(getFileNameFor(library)));
     
@@ -160,20 +187,22 @@ class Papyrus {
     
     generateHeader(library);
     
-    html.startTag('div', attributes: "class='container'");
-    html.startTag('div', attributes: "class='row'");
+    html.startTag('div', attributes: "class='container'", newLine: false);
+    html.writeln();
+    html.startTag('div', attributes: "class='row'", newLine: false);
+    html.writeln();
     
     // left nav
     html.startTag('div', attributes: "class='span3'");
     html.startTag('ul', attributes: 'class="nav nav-tabs nav-stacked left-nav"');
     for (LibraryElement lib in libraries) {
       if (lib == library) {
-        html.startTag('li', attributes: 'class="active"');
+        html.startTag('li', attributes: 'class="active"', newLine: false);
       } else {
-        html.startTag('li');
+        html.startTag('li', newLine: false);
       }
-      html.writeln('<a href="${getFileNameFor(lib)}">'
-      '<i class="icon-chevron-right"></i> ${lib.name}</a>');
+      html.write('<a href="${getFileNameFor(lib)}">'
+          '<i class="icon-chevron-right"></i> ${lib.name}</a>');
       html.endTag(); // li
     }
     html.endTag(); // ul.nav
@@ -188,7 +217,7 @@ class Papyrus {
     
     LibraryHelper lib = new LibraryHelper(library);
     
-    html.startTag('dl', attributes: 'class="dl-horizontal"');
+    html.startTag('dl', attributes: "class=dl-horizontal");
     
     List<VariableHelper> variables = lib.getVariables();
     List<AccessorHelper> accessors = lib.getAccessors();
@@ -286,7 +315,7 @@ class Papyrus {
     if (!elements.isEmpty) {
       html.tag('h4', contents: elements[0].typeName);
       if (header) {
-        html.startTag('div', attributes: "class='indent'");
+        html.startTag('div', attributes: "class=indent");
       }
       elements.forEach(generateElement);
       if (header) {
@@ -296,32 +325,12 @@ class Papyrus {
   }
   
   void generateElement(ElementHelper f) {
-    html.startTag('strong', newLine: false);
+    html.startTag('b', newLine: false);
     html.write('${createAnchor(f.element)}');
     html.write(f.createLinkedDescription(this));    
     html.endTag();
     
     printComments(f.element);
-  }
-
-  void printComments(Element e, [bool indent = true]) {
-    String comments = e.computeDocumentationComment();
-    
-    if (comments != null) {
-      if (indent) {
-        html.startTag('div', attributes: "class='indent'");
-      }
-      
-      html.tag('p', contents: prettifyDocs(comments));
-      
-      if (indent) {
-        html.endTag();
-      }
-    } else {
-      if (indent) {
-        html.tag('div', attributes: "class='indent'");
-      }
-    }
   }
 
   void generateClass(ClassElement c) {
@@ -359,9 +368,10 @@ class Papyrus {
     
     html.endTag();
     
-    html.startTag('dl', attributes: 'class="dl-horizontal"');
+    html.startTag('dl', attributes: 'class=dl-horizontal');
     createToc(helper.getStaticFields());
     createToc(helper.getInstanceFields());
+    createToc(helper.getAccessors());
     createToc(helper.getCtors());
     createToc(helper.getMethods());
     html.endTag();
@@ -370,69 +380,29 @@ class Papyrus {
     
     generateElements(helper.getStaticFields(), false);
     generateElements(helper.getInstanceFields(), false);
+    generateElements(helper.getAccessors(), false);
     generateElements(helper.getCtors(), false);
     generateElements(helper.getMethods(), false);
   }
 
-  void generateField(FieldElement f) {
-    html.startTag('dt');
-    html.writeln('${createAnchor(f)}Field ${f.name}');
-    html.endTag();
+  void printComments(Element e, [bool indent = true]) {
+    String comments = e.computeDocumentationComment();
     
-    html.startTag('dd');
-    html.startTag('p');
-    if (f.isStatic()) {
-      html.write('static ');
+    if (comments != null) {
+      if (indent) {
+        html.startTag('div', attributes: "class=indent");
+      }
+      
+      html.tag('p', contents: prettifyDocs(comments));
+      
+      if (indent) {
+        html.endTag();
+      }
+    } else {
+      if (indent) {
+        html.tag('div', attributes: "class=indent");
+      }
     }
-    if (f.isFinal()) {
-      html.write('final ');
-    }
-    if (f.isConst()) {
-      html.write('const ');
-    }
-    html.write(createLinkedName(f.type.element));
-    html.writeln(' ${f.name}');
-    html.endTag();
-    
-    printComments(f);
-    
-    html.endTag();
-  }
-
-  void generateConstructor(ConstructorElement ctor) {
-    html.startTag('dt');
-    html.writeln('${createAnchor(ctor)}Constructor ${ctor.name}()');
-    html.endTag();
-    
-    html.startTag('dd');
-    html.startTag('p');
-    if (ctor.isStatic()) {
-      html.write('static ');
-    }
-    html.write(createLinkedName(ctor.type.element));
-    html.writeln(' ${ctor.name}(${printParams(ctor.parameters)})');
-    html.endTag();
-    
-    printComments(ctor);
-    
-    html.endTag();  
-  }
-
-  void generateMethod(MethodElement m) {
-    html.startTag('strong', newLine: false);
-    html.write('${createAnchor(m)}');
-    
-    if (m.isStatic()) {
-      html.write('static ');
-    }
-    if (m.isAbstract()) {
-      html.write('abstract ');
-    }
-    html.write(createLinkedReturnTypeName(m.type));
-    html.write(' ${m.name}(${printParams(m.parameters)})');
-    html.endTag();
-    
-    printComments(m);    
   }
 
   String createLinkedName(Element e) {
@@ -458,12 +428,12 @@ class Papyrus {
         } else {
           name = '${c.name}.${e.name}';
         }
-        return "<a href='${getFileNameFor(e.library)}#${c.name}.${e.name}'>${name}</a>";
+        return "<a href=${getFileNameFor(e.library)}#${c.name}.${e.name}>${name}</a>";
       } else {
-        return "<a href='${getFileNameFor(e.library)}#${c.name}.${e.name}'>${e.name}</a>";
+        return "<a href=${getFileNameFor(e.library)}#${c.name}.${e.name}>${e.name}</a>";
       }
     } else {
-      return "<a href='${getFileNameFor(e.library)}#${e.name}'>${e.name}</a>";
+      return "<a href=${getFileNameFor(e.library)}#${e.name}>${e.name}</a>";
     }
   }
   
@@ -525,7 +495,7 @@ List<LibraryElement> parseLibraries(List<String> files) {
     CompilationUnit unit = context.resolveCompilationUnit(librarySource, library);
     
     libraries.add(library);
-    libraries.addAll(library.importedLibraries);
+    //libraries.addAll(library.importedLibraries);
     libraries.addAll(library.exportedLibraries);
   }
   
@@ -536,9 +506,9 @@ String createAnchor(Element e) {
   ClassElement c = getEnclosingElement(e);
   
   if (c != null) {
-    return '<a id="${c.name}.${e.name}"></a>';
+    return '<a id=${c.name}.${e.name}></a>';
   } else {
-    return '<a id="${e.name}"></a>';
+    return '<a id=${e.name}></a>';
   }
 }
 
