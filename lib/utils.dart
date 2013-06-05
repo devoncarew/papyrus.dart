@@ -1,4 +1,7 @@
 
+/**
+ * General String and dartdoc parsing untilities.
+ */
 library utils;
 
 String prettifyDocs(String docs) {

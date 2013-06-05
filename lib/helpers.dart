@@ -98,6 +98,13 @@ class ClassHelper {
     return fields.map((e) => new FieldHelper(e)).toList();
   }
   
+  List<AccessorHelper> getAccessors() {
+    List<PropertyAccessorElement> accessors = 
+        cls.accessors.toList()..removeWhere(isPrivate)..sort(elementCompare);
+    accessors.removeWhere((e) => e.isSynthetic());
+    return accessors.map((e) => new AccessorHelper(e)).toList();
+  }
+  
   List<ConstructorHelper> getCtors() {
     List<ConstructorElement> c = cls.constructors.toList()..removeWhere(isPrivate)..sort(elementCompare);
     return c.map((e) => new ConstructorHelper(e)).toList();
@@ -145,6 +152,9 @@ abstract class PropertyInducingHelper extends ElementHelper {
   String createLinkedDescription(Papyrus papyrus) {
     StringBuffer buf = new StringBuffer();
     
+    if (_var is PropertyInducingElement && (_var as PropertyInducingElement).isStatic()) {
+      buf.write('static ');      
+    }
     if (_var.isFinal()) {
       buf.write('final ');
     }
@@ -201,6 +211,10 @@ class AccessorHelper extends ElementHelper {
   
   String createLinkedDescription(Papyrus papyrus) {
     StringBuffer buf = new StringBuffer();
+    
+    if (_acc.isStatic()) {
+      buf.write('static ');
+    }
     
     if (_acc.isGetter()) {
       buf.write('${papyrus.createLinkedReturnTypeName(_acc.type)} get ${element.name}');
