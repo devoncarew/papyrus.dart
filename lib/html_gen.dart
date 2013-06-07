@@ -6,12 +6,12 @@ import 'package:intl/intl.dart';
 import 'css.dart';
 
 class HtmlGenerator {
-  StringBuffer buffer = new StringBuffer();  
+  StringBuffer buffer = new StringBuffer();
   bool startOfLine = true;
   List<String> tags = [];
   List<bool> indents = [];
   String indent = '';
-  
+
   HtmlGenerator() {
     writeln('<!DOCTYPE html>');
     writeln();
@@ -19,57 +19,32 @@ class HtmlGenerator {
        '${new DateFormat.yMd().format(new DateTime.now())} -->');
     writeln();
   }
-  
+
   void start({String title, String cssRef}) {
     startTag('html', newLine: false);
     writeln();
     startTag('head');
-    
+
     writeln('<meta charset="utf-8">');
     writeln('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
-    
+
     if (title != null) {
       writeln('<title>${title}</title>');
     }
-    
+
     if (cssRef != null) {
       writeln('<link href="${cssRef}" rel="stylesheet" media="screen">');
     }
-    
-    writeln("""<style>
-\t\t.left-nav {
-\t\t\tmargin-top: 20px;
-\t\t}
-\t\t.left-nav > .active > a, .left-nav > .active > a:hover, .left-nav > .active > a:focus {
-\t\t\tcolor: #ffffff;
-\t\t\ttext-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-\t\t\tbackground-color: #0088cc;
-\t\t}
-\t\t.icon-chevron-right {
-\t\t\tfloat: right;
-\t\t\tmargin-top: 2px;
-\t\t\tmargin-right: -6px;
-\t\t\topacity: .25;
-\t\t}
-\t\t.active .icon-chevron-right, .active a:hover .icon-chevron-right {
-\t\t\tbackground-image: url(glyphicons-halflings-white.png);
-\t\t\topacity: 1;
-\t\t}
-\t\t.indent {
-\t\t\tmargin-left: 1em;
-\t\t\tmargin-bottom: 0.5em;
-\t\t}
-\t\t</style>""");
-    
+
     // head
     endTag();
-    
+
     writeln();
-    
+
     startTag('body', newLine: false);
     writeln();
   }
-  
+
   void startTag(String tag, {String attributes, bool newLine: true}) {
     if (attributes != null) {
       if (newLine) {
@@ -84,72 +59,72 @@ class HtmlGenerator {
         write('<${tag}>');
       }
     }
-    
+
     indents.add(newLine);
-    
+
     if (newLine) {
       indent = '$indent\t';
     }
-    
+
     tags.add(tag);
   }
-  
+
   void tag(String tag, {String attributes, String contents}) {
     if (attributes != null) {
       if (contents != null) {
-        writeln('<$tag $attributes>$contents</$tag>');      
+        writeln('<$tag $attributes>$contents</$tag>');
       } else {
         writeln('<$tag $attributes></$tag>');
       }
     } else {
       if (contents != null) {
-        writeln('<$tag>$contents</$tag>');      
+        writeln('<$tag>$contents</$tag>');
       } else {
         writeln('<$tag></$tag>');
       }
     }
   }
-  
+
   void endTag() {
     String tag = tags.removeLast();
-    
+
     bool wasIndent = indents.removeLast();
-    
+
     if (wasIndent) {
       indent = indent.substring(0, indent.length - 1);
     }
-    
+
     writeln('</${tag}>');
   }
-  
+
   void end() {
     // body
     endTag();
-    
+
     // html
     endTag();
   }
-  
+
   String toString() {
     return buffer.toString();
   }
-  
+
   void write(String str) {
     if (startOfLine) {
       buffer.write(indent);
       startOfLine = false;
     }
-    
+
     buffer.write(str);
   }
-  
+
   void writeln([String str]) {
     if (str == null) {
       write('\n');
     } else {
       write('${str}\n');
     }
-    
+
     startOfLine = true;
   }
 

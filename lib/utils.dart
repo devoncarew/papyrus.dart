@@ -8,18 +8,16 @@ String prettifyDocs(String docs) {
   if (docs == null) {
     return '';
   }
-  
+
   docs = htmlEscape(docs);
-  
+
   docs = stripComments(docs);
-  
+
   StringBuffer buf = new StringBuffer();
-  
+
   bool inCode = false;
-  
+
   for (String line in docs.split('\n')) {
-    // TODO: handle code sections
-    
     if (inCode && !(line.startsWith('    ') || line.trim().isEmpty)) {
       inCode = false;
       buf.write('</pre>');
@@ -27,21 +25,20 @@ String prettifyDocs(String docs) {
       inCode = true;
       buf.write('<pre>');
     }
-    
+
     if (inCode) {
       buf.write('$line\n');
     } else if (line.trim().length == 0) {
-      // TODO: less ws or more?
-      buf.write('</p><p>'); //buf.write('<br>');
+      buf.write('</p><p>');
     } else {
       buf.write('$line ');
     }
   }
-  
+
   if (inCode) {
     buf.write('</pre>');
   }
-  
+
   return buf.toString().trim();
 }
 
@@ -50,9 +47,21 @@ String htmlEscape(String text) {
       replaceAll('>', '&gt;').replaceAll('<', '&lt;');
 }
 
+/**
+ * [quoteType] should be ' or ".
+ */
+String stringEscape(String text, String quoteType) {
+  return text.replaceAll(quoteType, "\\${quoteType}").
+      replaceAll('\n', '\\n').replaceAll('\r', '\\r').replaceAll('\t', '\\t');
+}
+
+String escapeBrackets(String text) {
+  return text.replaceAll('>', '_').replaceAll('<', '_');
+}
+
 String stripComments(String str) {
   StringBuffer buf = new StringBuffer();
-  
+
   if (str.startsWith('///')) {
     for (String line in str.split('\n')) {
       if (line.startsWith('/// ')) {
@@ -67,16 +76,16 @@ String stripComments(String str) {
     if (str.startsWith('/**')) {
       str = str.substring(3);
     }
-    
+
     if (str.endsWith('*/')) {
       str = str.substring(0, str.length - 2);
     }
-    
+
     str = str.trim();
-    
+
     for (String line in str.split('\n')) {
       line = ltrim(line);
-      
+
       if (line.startsWith('* ')) {
         buf.write('${line.substring(2)}\n');
       } else if (line.startsWith('*')) {
@@ -86,7 +95,7 @@ String stripComments(String str) {
       }
     }
   }
-  
+
   return buf.toString().trim();
 }
 
@@ -94,6 +103,6 @@ String ltrim(String str) {
   while (str.length > 0 && (str[0] == ' ' || str[0] == '\t')) {
     str = str.substring(1);
   }
-  
+
   return str;
 }

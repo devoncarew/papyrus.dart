@@ -15,19 +15,12 @@ import 'package:analyzer_experimental/src/generated/source_io.dart';
 
 import 'css.dart';
 import 'html_gen.dart';
+import 'model_utils.dart';
 import 'utils.dart';
 
 part 'helpers.dart';
 
-// TODO: --package-root?
-
 // TODO: generics
-
-// TODO: const values
-
-// TODO: overridden methods
-
-// TODO: icons?
 
 Path get sdkBinPath => new Path(new Options().executable).directoryPath;
 Path get sdkPath => sdkBinPath.join(new Path('..')).canonicalize();
@@ -38,16 +31,16 @@ Path get sdkPath => sdkBinPath.join(new Path('..')).canonicalize();
 class Papyrus {
   HtmlGenerator html;
   final CSS css = new CSS();
-  
+
   Directory out;
   List<String> excludeLibraries = [];
   List<String> includedLibraries = [];
   List<String> libraryFiles;
-  
+
   List<LibraryElement> libraries;
-  
+
   Papyrus();
-  
+
   /**
    * Parse the given list of command-line arguments and set up the state of this
    * object.
@@ -60,40 +53,40 @@ class Papyrus {
       _printUsage(parser);
       return false;
     }
-    
+
     if (results.rest.isEmpty) {
       _printUsage(parser);
       return false;
     }
-    
+
     bool allFilesExist = true;
-    
+
     for (String str in results.rest) {
       File file = new File(str);
-      
+
       if (!file.existsSync()) {
         allFilesExist = false;
-        
+
         print('unable to locate ${str}');
       }
     }
-    
+
     if (!allFilesExist) {
       return false;
     }
-    
+
     out = new Directory(results['out']);
     excludeLibraries = results['exclude'] == null ?
         [] : results['exclude'].split(',');
     includedLibraries = results['include'] == null ?
         [] : results['include'].split(',');
     libraryFiles = results.rest;
-    
+
     return true;
   }
-  
+
   // args handling
-  
+
   ArgParser _createArgsParser() {
     ArgParser parser = new ArgParser();
     parser.addOption(
@@ -110,7 +103,7 @@ class Papyrus {
         'out',
         defaultsTo: 'out',
         help: 'the output directory');
-    return parser;  
+    return parser;
   }
 
   void _printUsage(ArgParser parser) {
@@ -123,50 +116,50 @@ class Papyrus {
   void generate() {
     Stopwatch stopwatch = new Stopwatch();
     stopwatch.start();
-    
+
     // process the given libraries
     libraries = parseLibraries(libraryFiles);
-    
+
     // create the out directory
     if (!out.existsSync()) {
       out.createSync(recursive: true);
     }
-    
+
     addIncluded(libraries, includedLibraries);
-    
+
     // remove excluded libraries
     for (String pattern in excludeLibraries) {
       libraries.removeWhere((l) => l.name.startsWith(pattern));
     }
-    
+
     libraries.removeWhere(
         (LibraryElement library) => excludeLibraries.contains(library.name));
-    
+
     libraries.sort(elementCompare);
-    
+
     // generate the html files
     for (LibraryElement library in libraries) {
       generateLibrary(library);
     }
-    
+
     // copy the css resource into 'out'
     File f = new File.fromPath(new Path(out.path).append(css.getCssName()));
     f.writeAsStringSync(css.getCssContent());
-    
+
     double seconds = stopwatch.elapsedMilliseconds / 1000.0;
-    
+
     print('');
     print("Documented ${libraries.length} "
     "librar${libraries.length == 1 ? 'y' : 'ies'} in "
     "${seconds.toStringAsFixed(1)} seconds.");
   }
-  
+
   void addIncluded(List<LibraryElement> libraries, List<String> includedLibraries) {
     AnalysisContext context = libraries[0].context;
-    
+
     for (Source libSource in context.librarySources) {
       LibraryElement element = context.getLibraryElement(libSource);
-      
+
       for (String pattern in includedLibraries) {
         if (element.name.startsWith(pattern)) {
           if (!libraries.contains(element)) {
@@ -176,83 +169,88 @@ class Papyrus {
       }
     }
   }
-  
+
   void generateLibrary(LibraryElement library) {
     File f = new File.fromPath(new Path(out.path).append(getFileNameFor(library)));
-    
+
     print('generating ${f.path}');
-    
+
     html = new HtmlGenerator();
     html.start(title: library.name, cssRef: css.getCssName());
-    
+
     generateHeader(library);
-    
+
     html.startTag('div', attributes: "class='container'", newLine: false);
     html.writeln();
     html.startTag('div', attributes: "class='row'", newLine: false);
     html.writeln();
-    
+
     // left nav
     html.startTag('div', attributes: "class='span3'");
     html.startTag('ul', attributes: 'class="nav nav-tabs nav-stacked left-nav"');
     for (LibraryElement lib in libraries) {
       if (lib == library) {
         html.startTag('li', attributes: 'class="active"', newLine: false);
+        html.write('<a href="${getFileNameFor(lib)}">'
+        '<i class="chevron-nav icon-white icon-chevron-right">'
+        '</i> ${lib.name}</a>');
       } else {
         html.startTag('li', newLine: false);
+        html.write('<a href="${getFileNameFor(lib)}">'
+        '<i class="chevron-nav icon-chevron-right">'
+        '</i> ${lib.name}</a>');
       }
-      html.write('<a href="${getFileNameFor(lib)}">'
-          '<i class="icon-chevron-right"></i> ${lib.name}</a>');
       html.endTag(); // li
     }
     html.endTag(); // ul.nav
     html.endTag(); // div.span3
-    
+
     // main content
     html.startTag('div', attributes: "class='span9'");
 
     html.tag('h1', contents: library.name);
-    
+
     html.writeln('<hr>');
-    
+
     LibraryHelper lib = new LibraryHelper(library);
-    
+
     html.startTag('dl', attributes: "class=dl-horizontal");
-    
+
     List<VariableHelper> variables = lib.getVariables();
     List<AccessorHelper> accessors = lib.getAccessors();
     List<FunctionHelper> functions = lib.getFunctions();
     List<TypedefHelper> typedefs = lib.getTypedefs();
-    
+    List<ClassHelper> types = lib.getTypes();
+
     createToc(variables);
     createToc(accessors);
     createToc(functions);
     createToc(typedefs);
-    createTocEntry('Classes', lib.types);
-    
+    createToc(types);
+
     html.endTag(); // dl
-    
+
     printComments(library);
-    
+
     generateElements(variables);
     generateElements(accessors);
     generateElements(functions);
     generateElements(typedefs);
-    
-    lib.types.forEach(generateClass);
-    
+
+    types.forEach(generateClass);
+
     html.writeln('<hr>');
-    
+
     html.endTag(); // div.span9
 
     html.endTag(); // div.row
-    
+
     html.endTag(); // div.container
-    
+
     generateFooter(library);
-    
+
     html.end();
-    
+
     // write the file contents
     f.writeAsStringSync(html.toString());
   }
@@ -262,7 +260,7 @@ class Papyrus {
     html.startTag('header');
     html.endTag();
   }
-  
+
   void generateFooter(LibraryElement library) {
     // footer
     html.startTag('footer');
@@ -276,37 +274,19 @@ class Papyrus {
 //        html.endTag();
 //      html.endTag();
 //    html.endTag();
-    html.endTag();    
-  }
-  
-  void createTocEntry(String name, List elements, [var f]) {
-    if (!elements.isEmpty) {
-      html.tag('dt', contents: name);
-      
-      html.startTag('dd');
-      
-      for (Element e in elements) {
-        if (f != null) {
-          html.writeln('${f(e)}<br>');
-        } else {
-          html.writeln('${createLinkedName(e)}<br>');
-        }
-      }
-      
-      html.endTag();
-    }
+    html.endTag();
   }
 
   void createToc(List<ElementHelper> elements) {
     if (!elements.isEmpty) {
       html.tag('dt', contents: elements[0].typeName);
-      
+
       html.startTag('dd');
-      
+
       for (ElementHelper e in elements) {
-        html.writeln('${e.createLinkedSummary(this)}<br>');
+        html.writeln('${createIconFor(e.element)}${e.createLinkedSummary(this)}<br>');
       }
-      
+
       html.endTag();
     }
   }
@@ -323,51 +303,107 @@ class Papyrus {
       }
     }
   }
-  
+
   void generateElement(ElementHelper f) {
     html.startTag('b', newLine: false);
     html.write('${createAnchor(f.element)}');
-    html.write(f.createLinkedDescription(this));    
+    html.write(createIconFor(f.element));
+    if (f.element is MethodElement) {
+      html.write(generateOverrideIcon(f.element as MethodElement));
+    }
+    html.write(f.createLinkedDescription(this));
     html.endTag();
-    
+
     printComments(f.element);
   }
 
-  void generateClass(ClassElement c) {
-    ClassHelper helper = new ClassHelper(c);
-    
+  String createIconFor(Element e) {
+    if (e is PropertyAccessorElement) {
+      PropertyAccessorElement a = (e as PropertyAccessorElement);
+
+      if (a.isGetter()) {
+        return '<i class=icon-circle-arrow-right></i> ';
+      } else {
+        return '<i class=icon-circle-arrow-left></i> ';
+      }
+    } else if (e is ClassElement) {
+      return '<i class=icon-leaf></i> ';
+    } else if (e is FunctionTypeAliasElement) {
+      return '<i class=icon-cog></i> ';
+    } else if (e is PropertyInducingElement) {
+      return '<i class=icon-minus-sign></i> ';
+    } else if (e is ConstructorElement) {
+      return '<i class=icon-plus-sign></i> ';
+    } else if (e is ExecutableElement) {
+      return '<i class=icon-ok-sign></i> ';
+    } else {
+      return '';
+    }
+  }
+
+  String generateOverrideIcon(MethodElement element) {
+    Element o = getOverriddenElement(element);
+
+    if (o == null) {
+      return '';
+    } else if (!isDocumented(o)) {
+      return "<i title='Overrides ${getNameFor(o)}' "
+          "class='icon-circle-arrow-up icon-disabled'></i> ";
+    } else {
+      return "<a href='${createHrefFor(o)}'>"
+          "<i title='Overrides ${getNameFor(o)}' "
+          "class='icon-circle-arrow-up'></i></a> ";
+    }
+  }
+
+  void generateClass(ClassHelper helper) {
+    ClassElement c = helper.element;
+
     html.writeln('<hr>');
     html.writeln(createAnchor(c));
-    
+
     html.startTag('h4');
-    //html.write('<i class="icon-leaf"></i>');
+    html.write(createIconFor(c));
     if (c.isAbstract()) {
-      html.write('abstract ');
+      html.write('Abstract class ${c.name}');
+    } else {
+      html.write('Class ${c.name}');
     }
-    html.write('class ${c.name}');
-    
+
     if (c.supertype != null && c.supertype.element.supertype != null) {
       html.write(' extends ${createLinkedName(c.supertype.element)}');
     }
-    
+
+    if (!c.mixins.isEmpty) {
+      html.write(' with');
+
+      for (int i = 0; i < c.mixins.length; i++) {
+        if (i == 0) {
+          html.write(' ');
+        } else {
+          html.write(', ');
+        }
+
+        html.write(createLinkedName(c.mixins[i].element));
+      }
+    }
+
     if (!c.interfaces.isEmpty) {
       html.write(' implements');
-      
+
       for (int i = 0; i < c.interfaces.length; i++) {
         if (i == 0) {
           html.write(' ');
         } else {
           html.write(', ');
         }
-        
+
         html.write(createLinkedName(c.interfaces[i].element));
       }
     }
-    
-    // TODO: mixins
-    
+
     html.endTag();
-    
+
     html.startTag('dl', attributes: 'class=dl-horizontal');
     createToc(helper.getStaticFields());
     createToc(helper.getInstanceFields());
@@ -375,9 +411,9 @@ class Papyrus {
     createToc(helper.getCtors());
     createToc(helper.getMethods());
     html.endTag();
-    
+
     printComments(c);
-    
+
     generateElements(helper.getStaticFields(), false);
     generateElements(helper.getInstanceFields(), false);
     generateElements(helper.getAccessors(), false);
@@ -386,15 +422,15 @@ class Papyrus {
   }
 
   void printComments(Element e, [bool indent = true]) {
-    String comments = e.computeDocumentationComment();
-    
+    String comments = getDocumentationFor(e);
+
     if (comments != null) {
       if (indent) {
         html.startTag('div', attributes: "class=indent");
       }
-      
+
       html.tag('p', contents: prettifyDocs(comments));
-      
+
       if (indent) {
         html.endTag();
       }
@@ -405,38 +441,79 @@ class Papyrus {
     }
   }
 
+  String getDocumentationFor(Element e) {
+    if (e == null) {
+      return null;
+    }
+
+    String comments = e.computeDocumentationComment();
+
+    if (comments != null) {
+      return comments;
+    }
+
+    if (canOverride(e)) {
+      return getDocumentationFor(getOverriddenElement(e));
+    } else {
+      return null;
+    }
+  }
+
+  bool isDocumented(Element e) {
+    return libraries.contains(e.library);
+  }
+
+  String createHrefFor(Element e) {
+    if (!isDocumented(e)) {
+      return '';
+    }
+
+    ClassElement c = getEnclosingElement(e);
+
+    if (c != null) {
+      return '${getFileNameFor(e.library)}#${c.name}.${escapeBrackets(e.name)}';
+    } else {
+      return '${getFileNameFor(e.library)}#${e.name}';
+    }
+  }
+
   String createLinkedName(Element e) {
-    if (!libraries.contains(e.library)) {
-      return e.name;    
+    if (!isDocumented(e)) {
+      return htmlEscape(e.name);
     }
-    
+
     if (e.name.startsWith('_')) {
-      return e.name;    
+      return htmlEscape(e.name);
     }
-    
+
     ClassElement c = getEnclosingElement(e);
 
     if (c != null && c.name.startsWith('_')) {
-      return '${c.name}.${e.name}';
+      return '${c.name}.${htmlEscape(e.name)}';
     }
-    
-    if (c != null) {
-      if (e is ConstructorElement) {
-        String name;
-        if (e.name.isEmpty) {
-          name = c.name;
-        } else {
-          name = '${c.name}.${e.name}';
-        }
-        return "<a href=${getFileNameFor(e.library)}#${c.name}.${e.name}>${name}</a>";
+
+    if (c != null && e is ConstructorElement) {
+      String name;
+      if (e.name.isEmpty) {
+        name = c.name;
       } else {
-        return "<a href=${getFileNameFor(e.library)}#${c.name}.${e.name}>${e.name}</a>";
+        name = '${c.name}.${htmlEscape(e.name)}';
       }
+      return "<a href=${createHrefFor(e)}>${name}</a>";
     } else {
-      return "<a href=${getFileNameFor(e.library)}#${e.name}>${e.name}</a>";
+      return "<a href=${createHrefFor(e)}>${htmlEscape(e.name)}</a>";
     }
   }
-  
+
+  String getNameFor(Element e) {
+    ClassElement c = getEnclosingElement(e);
+
+    // TODO: upscale this! handle ctors
+    String ext = (e is ExecutableElement) ? '()' : '';
+
+    return '${c.name}.${htmlEscape(e.name)}${ext}';
+  }
+
   String createLinkedReturnTypeName(FunctionType type) {
     if (type.returnType.element == null) {
       if (type.returnType.name != null) {
@@ -448,25 +525,25 @@ class Papyrus {
       return createLinkedName(type.returnType.element);
     }
   }
-  
+
   String printParams(List<ParameterElement> params) {
     StringBuffer buf = new StringBuffer();
-    
+
     for (ParameterElement p in params) {
       if (buf.length > 0) {
         buf.write(', ');
       }
-      
+
       if (p.type != null && p.type.name != null) {
         buf.write(createLinkedName(p.type.element));
         buf.write(' ');
       }
-      
+
       buf.write(p.name);
     }
-    
+
     return buf.toString();
-  }  
+  }
 }
 
 String getFileNameFor(LibraryElement library) {
@@ -475,51 +552,38 @@ String getFileNameFor(LibraryElement library) {
 
 List<LibraryElement> parseLibraries(List<String> files) {
   DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(sdkPath.toString()));
-  
+
   ContentCache contentCache = new ContentCache();
-  
+
   SourceFactory sourceFactory = new SourceFactory.con1(
       contentCache, [new DartUriResolver(sdk), new FileUriResolver()]);
-  
+
   AnalysisContext context = AnalysisEngine.instance.createAnalysisContext();
   context.sourceFactory = sourceFactory;
-  
+
   Set<LibraryElement> libraries = new Set();
-  
+
   for (String filePath in files) {
     print('parsing ${filePath}...');
-    
+
     Source librarySource = new FileBasedSource.con1(
         contentCache, new JavaFile(filePath));
     LibraryElement library = context.computeLibraryElement(librarySource);
     CompilationUnit unit = context.resolveCompilationUnit(librarySource, library);
-    
+
     libraries.add(library);
-    //libraries.addAll(library.importedLibraries);
     libraries.addAll(library.exportedLibraries);
   }
-  
+
   return libraries.toList();
 }
 
 String createAnchor(Element e) {
   ClassElement c = getEnclosingElement(e);
-  
+
   if (c != null) {
-    return '<a id=${c.name}.${e.name}></a>';
+    return '<a id=${c.name}.${escapeBrackets(e.name)}></a>';
   } else {
     return '<a id=${e.name}></a>';
-  }
-}
-
-ClassElement getEnclosingElement(Element e) {
-  if (e is MethodElement) {
-    return (e as MethodElement).enclosingElement;
-  } else if (e is FieldElement) {
-    return (e as FieldElement).enclosingElement;
-  } else if (e is ConstructorElement) {
-    return (e as ConstructorElement).enclosingElement;
-  } else {
-    return null;
   }
 }

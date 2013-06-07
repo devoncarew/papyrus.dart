@@ -1,6 +1,9 @@
 name: papyrus
-description: A sample command-line application
+version: 0.1.0
+description: A Dart documentation generator
 dependencies:
   analyzer_experimental: any
   args: any
   intl: any
+dev_dependencies:
+  unittest: any
