@@ -4,9 +4,12 @@
  */
 library cmd_test;
 
+import 'package:meta/meta.dart';
+
 import 'pets.dart' as pets;
 
 num petCount = 0;
+@deprecated
 double fooCount = 10.0;
 
 void main() {
@@ -28,15 +31,15 @@ void main() {
 
   cat.performAction();
 
-  var fooBarBaz = 1 + 2 + 3 
+  var fooBarBaz = 1 + 2 + 3
       + 4 + 5;
-  
+
   pets.checkTypes();
 
   pets.createARealBigArray();
 
   pets.Ferret ferret = new pets.Ferret("Fanny");
-  
+
   var dog = new pets.Dog("Scooter");
 
   dog.performAction();
@@ -50,4 +53,9 @@ void main() {
   var m = pets.getMapOfAnimals();
 
   print(m);
+}
+
+@deprecated
+void bar(List<pets.Cat> foo) {
+
 }

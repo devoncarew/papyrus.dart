@@ -14,7 +14,7 @@ Element getOverriddenElement(Element element) {
   if (element is MethodElement) {
     return getOverriddenElementMethod(element as MethodElement);
   } else {
-    // TODO:
+    // TODO: ctors, fields, accessors -
 
     return null;
   }

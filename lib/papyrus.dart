@@ -7,6 +7,7 @@ import 'package:args/args.dart';
 
 import 'package:analyzer_experimental/src/generated/ast.dart';
 import 'package:analyzer_experimental/src/generated/element.dart';
+import 'package:analyzer_experimental/src/generated/element.dart' as element show Annotation;
 import 'package:analyzer_experimental/src/generated/engine.dart';
 import 'package:analyzer_experimental/src/generated/java_io.dart';
 import 'package:analyzer_experimental/src/generated/sdk.dart';
@@ -20,7 +21,7 @@ import 'utils.dart';
 
 part 'helpers.dart';
 
-// TODO: generics
+// TODO: clean up generics support
 
 Path get sdkBinPath => new Path(new Options().executable).directoryPath;
 Path get sdkPath => sdkBinPath.join(new Path('..')).canonicalize();
@@ -210,6 +211,24 @@ class Papyrus {
 
     html.tag('h1', contents: library.name);
 
+    if (!library.exportedLibraries.isEmpty) {
+      html.startTag('p');
+      html.write('exports ');
+      for (int i = 0; i < library.exportedLibraries.length; i++) {
+        if (i > 0) {
+          html.write(', ');
+        }
+
+        LibraryElement lib = library.exportedLibraries[i];
+        if (libraries.contains(lib)) {
+          html.write('<a href="${getFileNameFor(lib)}">${lib.name}</a>');
+        } else {
+          html.write(lib.name);
+        }
+      }
+      html.endTag();
+    }
+
     html.writeln('<hr>');
 
     LibraryHelper lib = new LibraryHelper(library);
@@ -307,6 +326,17 @@ class Papyrus {
   void generateElement(ElementHelper f) {
     html.startTag('b', newLine: false);
     html.write('${createAnchor(f.element)}');
+
+    // print annotations
+    if (!f.element.metadata.isEmpty) {
+      //html.write('<i class="icon-info-sign"></i> ');
+      for (element.Annotation a in f.element.metadata) {
+        Element e = a.element;
+        html.writeln('@${e.name} ');
+      }
+      html.writeln('<br>');
+    }
+
     html.write(createIconFor(f.element));
     if (f.element is MethodElement) {
       html.write(generateOverrideIcon(f.element as MethodElement));
@@ -359,10 +389,20 @@ class Papyrus {
   void generateClass(ClassHelper helper) {
     ClassElement c = helper.element;
 
+    html.write(createAnchor(c));
     html.writeln('<hr>');
-    html.writeln(createAnchor(c));
-
     html.startTag('h4');
+
+    // print annotations
+    if (!c.metadata.isEmpty) {
+      //html.write('<i class="icon-info-sign"></i> ');
+      for (var a in c.metadata) {
+        Element e = a.element;
+        html.writeln('@${e.name} ');
+      }
+      html.writeln('<br>');
+    }
+
     html.write(createIconFor(c));
     if (c.isAbstract()) {
       html.write('Abstract class ${c.name}');
@@ -371,7 +411,7 @@ class Papyrus {
     }
 
     if (c.supertype != null && c.supertype.element.supertype != null) {
-      html.write(' extends ${createLinkedName(c.supertype.element)}');
+      html.write(' extends ${createLinkedTypeName(c.supertype)}');
     }
 
     if (!c.mixins.isEmpty) {
@@ -384,7 +424,7 @@ class Papyrus {
           html.write(', ');
         }
 
-        html.write(createLinkedName(c.mixins[i].element));
+        html.write(createLinkedTypeName(c.mixins[i]));
       }
     }
 
@@ -398,7 +438,7 @@ class Papyrus {
           html.write(', ');
         }
 
-        html.write(createLinkedName(c.interfaces[i].element));
+        html.write(createLinkedTypeName(c.interfaces[i]));
       }
     }
 
@@ -477,7 +517,44 @@ class Papyrus {
     }
   }
 
+//  String createLinkedName(Element e) {
+//    if (e is ClassElement) {
+//      ClassElement c = e as ClassElement;
+//
+//      if (c.type.typeArguments.isEmpty) {
+//        return _createLinkedName(e);
+//      } else {
+//        return '${_createLinkedName(e)}${printLinkedTypeArgs(c.type.typeArguments)}';
+//      }
+//    } else {
+//      return _createLinkedName(e);
+//    }
+//  }
+//
+//  String printLinkedTypeArgs(List<Type2> typeArguments) {
+//    StringBuffer buf = new StringBuffer();
+//    buf.write('&lt;');
+//    for (int i = 0; i < typeArguments.length; i++) {
+//      if (i > 0) {
+//        buf.write(', ');
+//      }
+//      Type2 t = typeArguments[i];
+//
+//      //if (t.bound != null) {
+//        buf.write(createLinkedName(t.element));
+//      //} else {
+//      //  buf.write(t.name);
+//      //}
+//    }
+//    buf.write('&gt;');
+//    return buf.toString();
+//  }
+
   String createLinkedName(Element e) {
+    if (e == null) {
+      return '';
+    }
+    
     if (!isDocumented(e)) {
       return htmlEscape(e.name);
     }
@@ -505,6 +582,34 @@ class Papyrus {
     }
   }
 
+  String createLinkedTypeName(Type2 type) {
+    StringBuffer buf = new StringBuffer();
+    
+    if (type is TypeVariableType) {
+      buf.write(type.element.name);
+    } else {
+      buf.write(createLinkedName(type.element));
+    }
+    
+    if (type is ParameterizedType) {
+      ParameterizedType pType = type as ParameterizedType;
+      
+      if (!pType.typeArguments.isEmpty) {
+        buf.write('&lt;');
+        for (int i = 0; i < pType.typeArguments.length; i++) {
+          if (i > 0) {
+            buf.write(', ');
+          }
+          Type2 t = pType.typeArguments[i];
+          buf.write(createLinkedTypeName(t));
+        }
+        buf.write('&gt;');        
+      }
+    }
+        
+    return buf.toString();
+  }
+
   String getNameFor(Element e) {
     ClassElement c = getEnclosingElement(e);
 
@@ -522,7 +627,7 @@ class Papyrus {
         return '';
       }
     } else {
-      return createLinkedName(type.returnType.element);
+      return createLinkedTypeName(type.returnType);
     }
   }
 
@@ -535,7 +640,7 @@ class Papyrus {
       }
 
       if (p.type != null && p.type.name != null) {
-        buf.write(createLinkedName(p.type.element));
+        buf.write(createLinkedTypeName(p.type));
         buf.write(' ');
       }
 
@@ -550,13 +655,22 @@ String getFileNameFor(LibraryElement library) {
   return '${library.name}.html';
 }
 
+// TODO: --package-root
+
 List<LibraryElement> parseLibraries(List<String> files) {
   DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(sdkPath.toString()));
 
   ContentCache contentCache = new ContentCache();
 
-  SourceFactory sourceFactory = new SourceFactory.con1(
-      contentCache, [new DartUriResolver(sdk), new FileUriResolver()]);
+  List<UriResolver> resolvers = [new DartUriResolver(sdk), new FileUriResolver()];
+
+  JavaFile packagesDir = new JavaFile('packages');
+
+  if (packagesDir.exists()) {
+    resolvers.add(new PackageUriResolver([packagesDir]));
+  }
+
+  SourceFactory sourceFactory = new SourceFactory.con1(contentCache, resolvers);
 
   AnalysisContext context = AnalysisEngine.instance.createAnalysisContext();
   context.sourceFactory = sourceFactory;

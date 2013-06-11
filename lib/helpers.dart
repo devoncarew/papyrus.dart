@@ -139,7 +139,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
   String createLinkedSummary(Papyrus papyrus) {
     StringBuffer buf = new StringBuffer();
 
-    buf.write('${papyrus.createLinkedName(element)}');
+    buf.write('${papyrus.createLinkedName(_var)}');
 
     String type = papyrus.createLinkedName(_var.type.element);
 
@@ -164,7 +164,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
     }
 
     buf.write(papyrus.createLinkedName(_var.type.element));
-    buf.write(' ${element.name}');
+    buf.write(' ${_var.name}');
 
     // write out any constant value
     Object value = getConstantValue(_var);
@@ -231,9 +231,9 @@ class AccessorHelper extends ElementHelper {
     }
 
     if (_acc.isGetter()) {
-      buf.write('${papyrus.createLinkedReturnTypeName(_acc.type)} get ${element.name}');
+      buf.write('${papyrus.createLinkedReturnTypeName(_acc.type)} get ${_acc.name}');
     } else {
-      buf.write('set ${element.name}(${papyrus.printParams(_acc.parameters)})');
+      buf.write('set ${_acc.name}(${papyrus.printParams(_acc.parameters)})');
     }
 
     return buf.toString();
@@ -263,7 +263,7 @@ class FunctionHelper extends ElementHelper {
     }
 
     buf.write(papyrus.createLinkedReturnTypeName(_func.type));
-    buf.write(' ${element.name}(${papyrus.printParams(_func.parameters)})');
+    buf.write(' ${_func.name}(${papyrus.printParams(_func.parameters)})');
 
     return buf.toString();
   }
@@ -302,7 +302,7 @@ class TypedefHelper extends ElementHelper {
 
     StringBuffer buf = new StringBuffer();
 
-    buf.write('typedef ${papyrus.createLinkedReturnTypeName(_typedef.type)} ${element.name}');
+    buf.write('typedef ${papyrus.createLinkedReturnTypeName(_typedef.type)} ${_typedef.name}');
     if (!_typedef.typeVariables.isEmpty) {
       buf.write('&lt;');
       for (int i = 0; i < _typedef.typeVariables.length; i++) {
@@ -340,7 +340,7 @@ abstract class ExecutableHelper extends ElementHelper {
     }
 
     buf.write(papyrus.createLinkedReturnTypeName(_ex.type));
-    buf.write(' ${element.name}(${papyrus.printParams(_ex.parameters)})');
+    buf.write(' ${_ex.name}(${papyrus.printParams(_ex.parameters)})');
 
     return buf.toString();
   }
@@ -368,8 +368,8 @@ class ConstructorHelper extends ExecutableHelper {
       buf.write('factory ');
     }
 
-    buf.write('${_ctor.type.returnType.name}${element.name.isEmpty?'':'.'}'
-        '${element.name}(${papyrus.printParams(_ex.parameters)})');
+    buf.write('${_ctor.type.returnType.name}${_ctor.name.isEmpty?'':'.'}'
+        '${_ctor.name}(${papyrus.printParams(_ex.parameters)})');
 
     return buf.toString();
   }

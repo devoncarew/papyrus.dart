@@ -16,22 +16,37 @@ String prettifyDocs(String docs) {
   StringBuffer buf = new StringBuffer();
 
   bool inCode = false;
+  bool inList = false;
 
   for (String line in docs.split('\n')) {
+    if (inList && !line.startsWith("* ")) {
+      inList = false;
+      buf.write('</ul>');
+    }
+    
     if (inCode && !(line.startsWith('    ') || line.trim().isEmpty)) {
       inCode = false;
       buf.write('</pre>');
     } else if (line.startsWith('    ') && !inCode) {
       inCode = true;
       buf.write('<pre>');
+    } else if (line.trim().startsWith('* ') && !inList) {
+      inList = true;
+      buf.write('<ul>');
     }
 
     if (inCode) {
-      buf.write('$line\n');
+      if (line.startsWith('    ')) {
+        buf.write('${line.substring(4)}\n');
+      } else {
+        buf.write('${line}\n');
+      }
+    } else if (inList) {
+      buf.write('<li>${_processMarkdown(line.trim().substring(2))}</li>');
     } else if (line.trim().length == 0) {
-      buf.write('</p><p>');
+      buf.write('</p>\n<p>');
     } else {
-      buf.write('$line ');
+      buf.write('${_processMarkdown(line)} ');
     }
   }
 
@@ -39,7 +54,7 @@ String prettifyDocs(String docs) {
     buf.write('</pre>');
   }
 
-  return buf.toString().trim();
+  return buf.toString().replaceAll('\n\n</pre>', '\n</pre>').trim();
 }
 
 String htmlEscape(String text) {
@@ -105,4 +120,64 @@ String ltrim(String str) {
   }
 
   return str;
+}
+
+String _processMarkdown(String line) {
+  // TODO: fix this - we need better markdown handling
+  line = ltrim(line);
+  
+  if (line.startsWith("##")) {
+    line = line.substring(2);
+    
+    if (line.endsWith("##")) {
+      line = line.substring(0, line.length - 2);
+    }
+    
+    line = "<h5>$line</h5>";
+  } else {
+    line = _replaceAll(line, ['[:', ':]'], 'code');
+    line = _replaceAll(line, ['`', '`'], 'code');
+    line = _replaceAll(line, ['*', '*'], 'i');
+    line = _replaceAll(line, ['__', '__'], 'b');
+    line = _replaceAll(line, ['[', ']'], 'a', 'code');
+  }
+  
+  
+  return line;
+}
+
+String _replaceAll(String str, List<String> matchChars, String htmlEntity, [String cssClass]) {
+  int lastWritten = 0;
+  int index = str.indexOf(matchChars[0]);
+  StringBuffer buf = new StringBuffer();
+  
+  while (index != -1) {
+    int end = str.indexOf(matchChars[1], index + 1);
+    
+    if (end != -1) {
+      if (index - lastWritten > 0) {
+        buf.write(str.substring(lastWritten, index));
+      }
+      
+      if (cssClass == null) {
+        buf.write('<$htmlEntity>');
+      } else {
+        buf.write('<$htmlEntity class=$cssClass>');
+      }
+      buf.write(str.substring(index + matchChars[0].length, end));
+      buf.write('</$htmlEntity>');
+      
+      lastWritten = end + matchChars[1].length;
+    } else {
+      break;
+    }
+    
+    index = str.indexOf(matchChars[0], end + 1);
+  }
+  
+  if (lastWritten < str.length) {
+    buf.write(str.substring(lastWritten, str.length));
+  }
+  
+  return buf.toString();
 }

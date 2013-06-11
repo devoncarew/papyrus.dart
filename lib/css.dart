@@ -47,6 +47,14 @@ li.active .chevron-nav {
 h4 i.icon-leaf {
   margin-bottom: 3px;
 }
+code {
+  color: #333;
+  padding: 0px 2px;
+}
+a.code {
+  color: #333;
+  /*text-decoration: underline;*/
+}
 .icon-disabled {
   opacity: 0.25;
 }""";

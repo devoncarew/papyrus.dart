@@ -6,6 +6,8 @@ import 'dart:collection';
 import 'dart:isolate';
 import 'dart:math';
 
+import 'package:meta/meta.dart';
+
 final num MAX_CATS = 10;
 
 final SPARKY = const Cat("Sparky");
@@ -41,6 +43,7 @@ class Cat implements Animal {
     val = "${val}";
   }
 
+  @override
   void performAction() {
     print("m${_eo()}w");
   }
@@ -136,18 +139,19 @@ class Dog extends FloppyEars implements Animal {
 /**
  * Ferrets return null for their toString().
  */
+@deprecated
 class Ferret extends Animal {
   String name;
   int clawCount;
-  
+
   Ferret(this.name) {
     clawCount = 4;
   }
-  
+
   bool livesWith(Animal other) => false;
-  
+
   void performAction() {
-    
+
   }
 
   String toString() {
@@ -205,7 +209,7 @@ void _spawnAnimals() {
   int count = new Random().nextInt(10);
 
   print("isolate started");
-      
+
   new Timer(new Duration(seconds: count), () {
     print("isolate finished after ${count} seconds");
   });
