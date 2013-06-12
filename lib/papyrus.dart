@@ -29,7 +29,7 @@ Path get sdkPath => sdkBinPath.join(new Path('..')).canonicalize();
 /**
  * A Dart documentation generator.
  */
-class Papyrus {
+class Papyrus implements Generator {
   HtmlGenerator html;
   final CSS css = new CSS();
 
@@ -466,7 +466,8 @@ class Papyrus {
         html.startTag('div', attributes: "class=indent");
       }
 
-      html.tag('p', contents: prettifyDocs(comments));
+      html.tag('p', contents: prettifyDocs(
+          new PapyrusResolver(this, e), comments));
 
       if (indent) {
         html.endTag();
@@ -547,7 +548,7 @@ class Papyrus {
 //    return buf.toString();
 //  }
 
-  String createLinkedName(Element e) {
+  String createLinkedName(Element e, [bool appendParens = false]) {
     if (e == null) {
       return '';
     }
@@ -573,9 +574,19 @@ class Papyrus {
       } else {
         name = '${c.name}.${htmlEscape(e.name)}';
       }
-      return "<a href=${createHrefFor(e)}>${name}</a>";
+      if (appendParens) {
+        return "<a href=${createHrefFor(e)}>${name}()</a>";
+      } else {
+        return "<a href=${createHrefFor(e)}>${name}</a>";
+      }
     } else {
-      return "<a href=${createHrefFor(e)}>${htmlEscape(e.name)}</a>";
+      String append = '';
+      
+      if (appendParens && (e is MethodElement || e is FunctionElement)) {
+        append = '()';
+      }
+      
+      return "<a href=${createHrefFor(e)}>${htmlEscape(e.name)}$append</a>";
     }
   }
 
@@ -645,6 +656,34 @@ class Papyrus {
     }
 
     return buf.toString();
+  }
+}
+
+abstract class Generator {
+  String createLinkedName(Element e, [bool appendParens = false]);
+  String createLinkedReturnTypeName(FunctionType type);
+  String printParams(List<ParameterElement> params);
+}
+
+class PapyrusResolver extends CodeResolver {
+  Generator generator;
+  Element element;
+  
+  PapyrusResolver(this.generator, this.element);
+  
+  String resolveCodeReference(String reference) {
+    Element e = element.getChild(reference);
+    
+    if (e is LocalElement || e is TypeVariableElement) {
+      e = null;
+    }
+    
+    if (e != null) {
+      return generator.createLinkedName(e, true);
+    } else {
+      //return "<a>$reference</a>";
+      return "$reference";
+    }
   }
 }
 

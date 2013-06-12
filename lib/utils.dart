@@ -4,7 +4,11 @@
  */
 library utils;
 
-String prettifyDocs(String docs) {
+abstract class CodeResolver {
+  String resolveCodeReference(String reference);
+}
+
+String prettifyDocs(CodeResolver resolver, String docs) {
   if (docs == null) {
     return '';
   }
@@ -23,7 +27,7 @@ String prettifyDocs(String docs) {
       inList = false;
       buf.write('</ul>');
     }
-    
+
     if (inCode && !(line.startsWith('    ') || line.trim().isEmpty)) {
       inCode = false;
       buf.write('</pre>');
@@ -42,11 +46,11 @@ String prettifyDocs(String docs) {
         buf.write('${line}\n');
       }
     } else if (inList) {
-      buf.write('<li>${_processMarkdown(line.trim().substring(2))}</li>');
+      buf.write('<li>${_processMarkdown(resolver, line.trim().substring(2))}</li>');
     } else if (line.trim().length == 0) {
       buf.write('</p>\n<p>');
     } else {
-      buf.write('${_processMarkdown(line)} ');
+      buf.write('${_processMarkdown(resolver, line)} ');
     }
   }
 
@@ -122,62 +126,63 @@ String ltrim(String str) {
   return str;
 }
 
-String _processMarkdown(String line) {
-  // TODO: fix this - we need better markdown handling
+String _processMarkdown(CodeResolver resolver, String line) {
   line = ltrim(line);
-  
+
   if (line.startsWith("##")) {
     line = line.substring(2);
-    
+
     if (line.endsWith("##")) {
       line = line.substring(0, line.length - 2);
     }
-    
+
     line = "<h5>$line</h5>";
   } else {
-    line = _replaceAll(line, ['[:', ':]'], 'code');
-    line = _replaceAll(line, ['`', '`'], 'code');
-    line = _replaceAll(line, ['*', '*'], 'i');
-    line = _replaceAll(line, ['__', '__'], 'b');
-    line = _replaceAll(line, ['[', ']'], 'a', 'code');
+    line = _replaceAll(line, ['[:', ':]'], htmlEntity: 'code');
+    line = _replaceAll(line, ['`', '`'], htmlEntity: 'code');
+    line = _replaceAll(line, ['*', '*'], htmlEntity: 'i');
+    line = _replaceAll(line, ['__', '__'], htmlEntity: 'b');
+    line = _replaceAll(line, ['[', ']'], replaceFunction: (String ref) {
+      return resolver.resolveCodeReference(ref);
+    });
   }
-  
-  
+
   return line;
 }
 
-String _replaceAll(String str, List<String> matchChars, String htmlEntity, [String cssClass]) {
+String _replaceAll(String str, List<String> matchChars, 
+                   {String htmlEntity, var replaceFunction}) {
   int lastWritten = 0;
   int index = str.indexOf(matchChars[0]);
   StringBuffer buf = new StringBuffer();
-  
+
   while (index != -1) {
     int end = str.indexOf(matchChars[1], index + 1);
-    
+
     if (end != -1) {
       if (index - lastWritten > 0) {
         buf.write(str.substring(lastWritten, index));
       }
+  
+      String codeRef = str.substring(index + matchChars[0].length, end);
       
-      if (cssClass == null) {
-        buf.write('<$htmlEntity>');
+      if (htmlEntity != null) {
+        buf.write('<$htmlEntity>$codeRef</$htmlEntity>');
       } else {
-        buf.write('<$htmlEntity class=$cssClass>');
+        buf.write(replaceFunction(codeRef));
       }
-      buf.write(str.substring(index + matchChars[0].length, end));
-      buf.write('</$htmlEntity>');
       
       lastWritten = end + matchChars[1].length;
     } else {
       break;
     }
-    
+
     index = str.indexOf(matchChars[0], end + 1);
   }
-  
+
   if (lastWritten < str.length) {
     buf.write(str.substring(lastWritten, str.length));
   }
-  
+
   return buf.toString();
 }

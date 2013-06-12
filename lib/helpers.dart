@@ -80,11 +80,11 @@ abstract class ElementHelper {
 
   String get typeName;
 
-  String createLinkedSummary(Papyrus papyrus) {
-    return papyrus.createLinkedName(element);
+  String createLinkedSummary(Generator generator) {
+    return generator.createLinkedName(element);
   }
 
-  String createLinkedDescription(Papyrus papyrus);
+  String createLinkedDescription(Generator generator);
 }
 
 class ClassHelper extends ElementHelper {
@@ -95,7 +95,7 @@ class ClassHelper extends ElementHelper {
 
   ClassElement get _cls => element as ClassElement;
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     return '';
   }
 
@@ -136,12 +136,12 @@ abstract class PropertyInducingHelper extends ElementHelper {
 
   PropertyInducingElement get _var => (element as PropertyInducingElement);
 
-  String createLinkedSummary(Papyrus papyrus) {
+  String createLinkedSummary(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    buf.write('${papyrus.createLinkedName(_var)}');
+    buf.write('${generator.createLinkedName(_var)}');
 
-    String type = papyrus.createLinkedName(_var.type.element);
+    String type = generator.createLinkedName(_var.type.element);
 
     if (!type.isEmpty) {
       buf.write(': $type');
@@ -150,7 +150,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
     return buf.toString();
   }
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
     if (_var.isStatic()) {
@@ -163,7 +163,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
       buf.write('const ');
     }
 
-    buf.write(papyrus.createLinkedName(_var.type.element));
+    buf.write(generator.createLinkedName(_var.type.element));
     buf.write(' ${_var.name}');
 
     // write out any constant value
@@ -208,22 +208,22 @@ class AccessorHelper extends ElementHelper {
 
   PropertyAccessorElement get _acc => (element as PropertyAccessorElement);
 
-  String createLinkedSummary(Papyrus papyrus) {
+  String createLinkedSummary(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
     if (_acc.isGetter()) {
-      buf.write(papyrus.createLinkedName(element));
+      buf.write(generator.createLinkedName(element));
       buf.write(': ');
-      buf.write(papyrus.createLinkedReturnTypeName(_acc.type));
+      buf.write(generator.createLinkedReturnTypeName(_acc.type));
     } else {
-      buf.write('${papyrus.createLinkedName(element)}('
-          '${papyrus.printParams(_acc.parameters)})');
+      buf.write('${generator.createLinkedName(element)}('
+          '${generator.printParams(_acc.parameters)})');
     }
 
     return buf.toString();
   }
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
     if (_acc.isStatic()) {
@@ -231,9 +231,9 @@ class AccessorHelper extends ElementHelper {
     }
 
     if (_acc.isGetter()) {
-      buf.write('${papyrus.createLinkedReturnTypeName(_acc.type)} get ${_acc.name}');
+      buf.write('${generator.createLinkedReturnTypeName(_acc.type)} get ${_acc.name}');
     } else {
-      buf.write('set ${_acc.name}(${papyrus.printParams(_acc.parameters)})');
+      buf.write('set ${_acc.name}(${generator.printParams(_acc.parameters)})');
     }
 
     return buf.toString();
@@ -247,23 +247,23 @@ class FunctionHelper extends ElementHelper {
 
   FunctionElement get _func => (element as FunctionElement);
 
-  String createLinkedSummary(Papyrus papyrus) {
-    String retType = papyrus.createLinkedReturnTypeName(_func.type);
+  String createLinkedSummary(Generator generator) {
+    String retType = generator.createLinkedReturnTypeName(_func.type);
 
-    return '${papyrus.createLinkedName(element)}'
-        '(${papyrus.printParams(_func.parameters)})'
+    return '${generator.createLinkedName(element)}'
+        '(${generator.printParams(_func.parameters)})'
         '${retType.isEmpty ? '' : ': $retType'}';
   }
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
     if (_func.isStatic()) {
       buf.write('static ');
     }
 
-    buf.write(papyrus.createLinkedReturnTypeName(_func.type));
-    buf.write(' ${_func.name}(${papyrus.printParams(_func.parameters)})');
+    buf.write(generator.createLinkedReturnTypeName(_func.type));
+    buf.write(' ${_func.name}(${generator.printParams(_func.parameters)})');
 
     return buf.toString();
   }
@@ -276,11 +276,11 @@ class TypedefHelper extends ElementHelper {
 
   FunctionTypeAliasElement get _typedef => (element as FunctionTypeAliasElement);
 
-  String createLinkedSummary(Papyrus papyrus) {
+  String createLinkedSummary(Generator generator) {
     // Comparator<T>(T a, T b): int
     StringBuffer buf = new StringBuffer();
 
-    buf.write(papyrus.createLinkedName(element));
+    buf.write(generator.createLinkedName(element));
     if (!_typedef.typeVariables.isEmpty) {
       buf.write('&lt;');
       for (int i = 0; i < _typedef.typeVariables.length; i++) {
@@ -291,18 +291,18 @@ class TypedefHelper extends ElementHelper {
       }
       buf.write('&gt;');
     }
-    buf.write('(${papyrus.printParams(_typedef.parameters)}): ');
-    buf.write(papyrus.createLinkedReturnTypeName(_typedef.type));
+    buf.write('(${generator.printParams(_typedef.parameters)}): ');
+    buf.write(generator.createLinkedReturnTypeName(_typedef.type));
 
     return buf.toString();
   }
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     // typedef int Comparator<T>(T a, T b)
 
     StringBuffer buf = new StringBuffer();
 
-    buf.write('typedef ${papyrus.createLinkedReturnTypeName(_typedef.type)} ${_typedef.name}');
+    buf.write('typedef ${generator.createLinkedReturnTypeName(_typedef.type)} ${_typedef.name}');
     if (!_typedef.typeVariables.isEmpty) {
       buf.write('&lt;');
       for (int i = 0; i < _typedef.typeVariables.length; i++) {
@@ -313,7 +313,7 @@ class TypedefHelper extends ElementHelper {
       }
       buf.write('&gt;');
     }
-    buf.write('(${papyrus.printParams(_typedef.parameters)}): ');
+    buf.write('(${generator.printParams(_typedef.parameters)}): ');
 
     return buf.toString();
   }
@@ -324,23 +324,23 @@ abstract class ExecutableHelper extends ElementHelper {
 
   ExecutableElement get _ex => (element as ExecutableElement);
 
-  String createLinkedSummary(Papyrus papyrus) {
-    String retType = papyrus.createLinkedReturnTypeName(_ex.type);
+  String createLinkedSummary(Generator generator) {
+    String retType = generator.createLinkedReturnTypeName(_ex.type);
 
-    return '${papyrus.createLinkedName(element)}'
-        '(${papyrus.printParams(_ex.parameters)})'
+    return '${generator.createLinkedName(element)}'
+        '(${generator.printParams(_ex.parameters)})'
         '${retType.isEmpty ? '' : ': $retType'}';
   }
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
     if (_ex.isStatic()) {
       buf.write('static ');
     }
 
-    buf.write(papyrus.createLinkedReturnTypeName(_ex.type));
-    buf.write(' ${_ex.name}(${papyrus.printParams(_ex.parameters)})');
+    buf.write(generator.createLinkedReturnTypeName(_ex.type));
+    buf.write(' ${_ex.name}(${generator.printParams(_ex.parameters)})');
 
     return buf.toString();
   }
@@ -353,12 +353,12 @@ class ConstructorHelper extends ExecutableHelper {
 
   ConstructorElement get _ctor => (element as ConstructorElement);
 
-  String createLinkedSummary(Papyrus papyrus) {
-    return '${papyrus.createLinkedName(element)}'
-        '(${papyrus.printParams(_ex.parameters)})';
+  String createLinkedSummary(Generator generator) {
+    return '${generator.createLinkedName(element)}'
+        '(${generator.printParams(_ex.parameters)})';
   }
 
-  String createLinkedDescription(Papyrus papyrus) {
+  String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
     if (_ex.isStatic()) {
@@ -369,7 +369,7 @@ class ConstructorHelper extends ExecutableHelper {
     }
 
     buf.write('${_ctor.type.returnType.name}${_ctor.name.isEmpty?'':'.'}'
-        '${_ctor.name}(${papyrus.printParams(_ex.parameters)})');
+        '${_ctor.name}(${generator.printParams(_ex.parameters)})');
 
     return buf.toString();
   }

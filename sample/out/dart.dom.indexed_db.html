@@ -544,13 +544,13 @@
 	<div class=indent>
 		<p>Creates a stream of cursors over the records in this object store. </p>
 <p>See also: </p>
-<p><ul><li><a class=code>ObjectStore.openCursor</a></li></p>
+<p><ul><li>ObjectStore.openCursor</li></p>
 	</div>
 	<b><a id=Index.openKeyCursor></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.dom.indexed_db.html#Cursor>Cursor</a>&gt; openKeyCursor(dynamic key, <a href=dart.dom.indexed_db.html#KeyRange>KeyRange</a> range, <a href=dart.core.html#String>String</a> direction, <a href=dart.core.html#bool>bool</a> autoAdvance)</b>
 	<div class=indent>
 		<p>Creates a stream of cursors over the records in this object store. </p>
 <p>See also: </p>
-<p><ul><li><a class=code>ObjectStore.openCursor</a></li></p>
+<p><ul><li>ObjectStore.openCursor</li></p>
 	</div>
 	<a id=KeyRange></a><hr>
 	<h4>
@@ -819,7 +819,7 @@
 	<i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.dom.indexed_db.html#CursorWithValue>CursorWithValue</a>&gt; openCursor(dynamic key, <a href=dart.dom.indexed_db.html#KeyRange>KeyRange</a> range, <a href=dart.core.html#String>String</a> direction, <a href=dart.core.html#bool>bool</a> autoAdvance)</b>
 	<div class=indent>
 		<p>Creates a stream of cursors over the records in this object store. </p>
-<p><i></i>The stream must be manually advanced by calling <a class=code>Cursor.next</a> after each item or by specifying autoAdvance to be true.<i></i> </p>
+<p><i></i>The stream must be manually advanced by calling Cursor.next after each item or by specifying autoAdvance to be true.<i></i> </p>
 <p><pre>var cursors = objectStore.openCursor().listen(
   (cursor) {
     // ...some processing with the cursor

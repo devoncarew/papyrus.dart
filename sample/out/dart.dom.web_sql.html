@@ -58,8 +58,8 @@
 	</dl>
 	<div class=indent>
 		<p>An API for storing data in the browser that can be queried with SQL. </p>
-<p><i></i>Caution:<i></i> this specification is no longer actively maintained by the Web Applications Working Group and may be removed at any time. See <a class=code>the W3C Web SQL Database specification</a>(http://www.w3.org/TR/webdatabase/) for more information. </p>
-<p>The <a class=code>dart:indexed_db</a> APIs is a recommended alternatives.</p>
+<p><i></i>Caution:<i></i> this specification is no longer actively maintained by the Web Applications Working Group and may be removed at any time. See the W3C Web SQL Database specification(http://www.w3.org/TR/webdatabase/) for more information. </p>
+<p>The dart:indexed_db APIs is a recommended alternatives.</p>
 	</div>
 	<h4>Typedefs</h4>
 	<div class=indent>
@@ -145,10 +145,10 @@
 	<br>
 	<i class=icon-ok-sign></i> void changeVersion(<a href=dart.core.html#String>String</a> oldVersion, <a href=dart.core.html#String>String</a> newVersion, <a href=dart.dom.web_sql.html#SqlTransactionCallback>SqlTransactionCallback</a> callback, <a href=dart.dom.web_sql.html#SqlTransactionErrorCallback>SqlTransactionErrorCallback</a> errorCallback, <a href=dart.dom.html.html#VoidCallback>VoidCallback</a> successCallback)</b>
 	<div class=indent>
-		<p>Atomically update the database version to <a class=code>newVersion</a>, asynchronously running <a class=code>callback</a> on the <a class=code>SqlTransaction</a> representing this <a class=code>changeVersion</a> transaction. </p>
-<p>If <a class=code>callback</a> runs successfully, then <a class=code>successCallback</a> is called. Otherwise, <a class=code>errorCallback</a> is called. </p>
-<p><a class=code>oldVersion</a> should match the database's current <a class=code>version</a> exactly. </p>
-<p><ul><li><a class=code>Database.changeVersion</a>(http://www.w3.org/TR/webdatabase/#dom-database-changeversion) from W3C.</li></p>
+		<p>Atomically update the database version to newVersion, asynchronously running callback on the SqlTransaction representing this changeVersion transaction. </p>
+<p>If callback runs successfully, then successCallback is called. Otherwise, errorCallback is called. </p>
+<p>oldVersion should match the database's current version exactly. </p>
+<p><ul><li>Database.changeVersion(http://www.w3.org/TR/webdatabase/#dom-database-changeversion) from W3C.</li></p>
 	</div>
 	<b><a id=SqlDatabase.readTransaction></a><i class="icon-info-sign icon-hidden"></i> @DomName 
 	@DocsEditable 
@@ -467,18 +467,18 @@
 	<h4>Methods</h4>
 	<b><a id=SqlResultSetRowList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Map>Map</a>&lt;dynamic, dynamic&gt; [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the element at the given <a class=code>index</a> in the list or throws an <a class=code>RangeError</a> if <a class=code>index</a> is out of bounds.</p>
+		<p>Returns the element at the given index in the list or throws an RangeError if index is out of bounds.</p>
 	</div>
 	<b><a id=SqlResultSetRowList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.core.html#Map>Map</a>&lt;dynamic, dynamic&gt; value)</b>
 	<div class=indent>
-		<p>Sets the entry at the given <a class=code>index</a> in the list to <a class=code>value</a>. </p>
-<p>Throws an <a class=code>RangeError</a> if <a class=code>index</a> is out of bounds.</p>
+		<p>Sets the entry at the given index in the list to value. </p>
+<p>Throws an RangeError if index is out of bounds.</p>
 	</div>
 	<b><a id=SqlResultSetRowList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Map>Map</a>&lt;dynamic, dynamic&gt; elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the <a class=code>index</a>th element. </p>
-<p>If <code>this</code> has fewer than <a class=code>index</a> elements throws a <a class=code>RangeError</a>. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <a class=code>index</a> elements in <code>this</code>.</p>
+		<p>Returns the indexth element. </p>
+<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
 	</div>
 	<b><a id=SqlResultSetRowList.item></a><i class="icon-info-sign icon-hidden"></i> @DomName 
 	@DocsEditable 

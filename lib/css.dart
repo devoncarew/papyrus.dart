@@ -51,10 +51,6 @@ code {
   color: #333;
   padding: 0px 2px;
 }
-a.code {
-  color: #333;
-  /*text-decoration: underline;*/
-}
 .icon-hidden {
   opacity: 0;
 }

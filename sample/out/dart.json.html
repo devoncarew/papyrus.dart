@@ -60,25 +60,25 @@
 	<div class=indent>
 		<b><a id=parse></a><i class=icon-ok-sign></i> static dynamic parse(<a href=dart.core.html#String>String</a> json, reviver)</b>
 		<div class=indent>
-			<p>Parses <a class=code>json</a> and build the corresponding parsed JSON value. </p>
-<p>Parsed JSON values are of the types <a class=code>num</a>, <a class=code>String</a>, <a class=code>bool</a>, <a class=code>Null</a>, <a class=code>List</a>s of parsed JSON values or <a class=code>Map</a>s from <a class=code>String</a> to parsed JSON values. </p>
-<p>The optional <a class=code>revivier</a> function, if provided, is called once for each object or list property parsed. The arguments are the property name (<a class=code>String</a>) or list index (<a class=code>int</a>), and the value is the parsed value. The return value of the revivier will be used as the value of that property instead the parsed value. </p>
-<p>Throws <a class=code>FormatException</a> if the input is not valid JSON text.</p>
+			<p>Parses json and build the corresponding parsed JSON value. </p>
+<p>Parsed JSON values are of the types num, String, bool, Null, Lists of parsed JSON values or Maps from String to parsed JSON values. </p>
+<p>The optional revivier function, if provided, is called once for each object or list property parsed. The arguments are the property name (String) or list index (int), and the value is the parsed value. The return value of the revivier will be used as the value of that property instead the parsed value. </p>
+<p>Throws FormatException if the input is not valid JSON text.</p>
 		</div>
 		<b><a id=printOn></a><i class=icon-ok-sign></i> static void printOn(<a href=dart.core.html#Object>Object</a> object, <a href=dart.core.html#StringBuffer>StringBuffer</a> output)</b>
 		<div class=indent>
-			<p>Serializes <a class=code>object</a> into <a class=code>output</a> stream. </p>
-<p>Performs the same operations as <a class=code>stringify</a> but outputs the resulting string to an existing <a class=code>StringBuffer</a> instead of creating a new <a class=code>String</a>. </p>
-<p>If serialization fails by throwing, some data might have been added to <a class=code>output</a>, but it won't contain valid JSON text.</p>
+			<p>Serializes object into output stream. </p>
+<p>Performs the same operations as stringify but outputs the resulting string to an existing StringBuffer instead of creating a new String. </p>
+<p>If serialization fails by throwing, some data might have been added to output, but it won't contain valid JSON text.</p>
 		</div>
 		<b><a id=stringify></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> stringify(<a href=dart.core.html#Object>Object</a> object)</b>
 		<div class=indent>
-			<p>Serializes <a class=code>object</a> into a JSON string. </p>
-<p>Directly serializable values are <a class=code>num</a>, <a class=code>String</a>, <a class=code>bool</a>, and <a class=code>Null</a>, as well as some <a class=code>List</a> and <a class=code>Map</a> values. For <a class=code>List</a>, the elements must all be serializable. For <a class=code>Map</a>, the keys must be <a class=code>String</a> and the values must be serializable. </p>
+			<p>Serializes object into a JSON string. </p>
+<p>Directly serializable values are num, String, bool, and Null, as well as some List and Map values. For List, the elements must all be serializable. For Map, the keys must be String and the values must be serializable. </p>
 <p>If a value is any other type is attempted serialized, a "toJson()" method is invoked on the object and the result, which must be a directly serializable value, is serialized instead of the original value. </p>
-<p>If the object does not support this method, throws, or returns a value that is not directly serializable, a <a class=code>JsonUnsupportedObjectError</a> exception is thrown. If the call throws (including the case where there is no nullary "toJson" method, the error is caught and stored in the <a class=code>JsonUnsupportedObjectError</a>'s <code>cause</code> field. </p>
-<p>If a <a class=code>List</a> or <a class=code>Map</a> contains a reference to itself, directly or through other lists or maps, it cannot be serialized and a <a class=code>JsonCyclicError</a> is thrown. </p>
-<p>Json Objects should not change during serialization. If an object is serialized more than once, <a class=code>stringify</a> is allowed to cache the JSON text for it. I.e., if an object changes after it is first serialized, the new values may or may not be reflected in the result.</p>
+<p>If the object does not support this method, throws, or returns a value that is not directly serializable, a JsonUnsupportedObjectError exception is thrown. If the call throws (including the case where there is no nullary "toJson" method, the error is caught and stored in the JsonUnsupportedObjectError's <code>cause</code> field. </p>
+<p>If a List or Map contains a reference to itself, directly or through other lists or maps, it cannot be serialized and a JsonCyclicError is thrown. </p>
+<p>Json Objects should not change during serialization. If an object is serialized more than once, stringify is allowed to cache the JSON text for it. I.e., if an object changes after it is first serialized, the new values may or may not be reflected in the result.</p>
 		</div>
 	</div>
 	<a id=BuildJsonListener></a><hr>
@@ -119,13 +119,13 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>JsonListener</a> that builds data objects from the parser events. </p>
+		<p>A JsonListener that builds data objects from the parser events. </p>
 <p>This is a simple stack-based object builder. It keeps the most recently seen value in a variable, and uses it depending on the following event.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=BuildJsonListener.currentContainer></a><i class=icon-minus-sign></i> dynamic currentContainer</b>
 	<div class=indent>
-		<p>The current <a class=code>Map</a> or <a class=code>List</a> being built.</p>
+		<p>The current Map or List being built.</p>
 	</div>
 	<b><a id=BuildJsonListener.key></a><i class=icon-minus-sign></i> <a href=dart.core.html#String>String</a> key</b>
 	<div class=indent>
@@ -136,7 +136,7 @@
 	<b><a id=BuildJsonListener.stack></a><i class=icon-minus-sign></i> <a href=dart.core.html#List>List</a> stack</b>
 	<div class=indent>
 		<p>Stack used to handle nested containers. </p>
-<p>The current container is pushed on the stack when a new one is started. If the container is a <a class=code>Map</a>, there is also a current <a class=code>key</a> which is also stored on the stack.</p>
+<p>The current container is pushed on the stack when a new one is started. If the container is a Map, there is also a current key which is also stored on the stack.</p>
 	</div>
 	<b><a id=BuildJsonListener.value></a><i class=icon-minus-sign></i> dynamic value</b>
 	<div class=indent>
@@ -171,7 +171,7 @@
 	<div class=indent></div>
 	<b><a id=BuildJsonListener.popContainer></a><i class=icon-ok-sign></i> void popContainer()</b>
 	<div class=indent>
-		<p>Pops the top container from the <a class=code>stack</a>, including a key if applicable.</p>
+		<p>Pops the top container from the stack, including a key if applicable.</p>
 	</div>
 	<b><a id=BuildJsonListener.propertyName></a><i class=icon-ok-sign></i> <a href='dart.json.html#JsonListener.propertyName'><i title='Overrides JsonListener.propertyName()' class='icon-circle-arrow-up'></i></a> void propertyName()</b>
 	<div class=indent></div>
@@ -179,7 +179,7 @@
 	<div class=indent></div>
 	<b><a id=BuildJsonListener.pushContainer></a><i class=icon-ok-sign></i> void pushContainer()</b>
 	<div class=indent>
-		<p>Pushes the currently active container (and key, if a <a class=code>Map</a>).</p>
+		<p>Pushes the currently active container (and key, if a Map).</p>
 	</div>
 	<a id=JsonCyclicError></a><hr>
 	<h4>
@@ -196,7 +196,7 @@
 	</dl>
 	<div class=indent>
 		<p>Reports that an object could not be stringified due to cyclic references. </p>
-<p>An object that references itself cannot be serialized by <a class=code>stringify</a>. When the cycle is detected, a <a class=code>JsonCyclicError</a> is thrown.</p>
+<p>An object that references itself cannot be serialized by stringify. When the cycle is detected, a JsonCyclicError is thrown.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=JsonCyclicError.></a><i class=icon-plus-sign></i> JsonCyclicError(<a href=dart.core.html#Object>Object</a> object)</b>
@@ -251,7 +251,7 @@
 	<div class=indent></div>
 	<b><a id=JsonListener.fail></a><i class=icon-ok-sign></i> void fail(<a href=dart.core.html#String>String</a> source, <a href=dart.core.html#int>int</a> position, <a href=dart.core.html#String>String</a> message)</b>
 	<div class=indent>
-		<p>Called on failure to parse <a class=code>source</a>.</p>
+		<p>Called on failure to parse source.</p>
 	</div>
 	<b><a id=JsonListener.handleBool></a><i class=icon-ok-sign></i> void handleBool(<a href=dart.core.html#bool>bool</a> value)</b>
 	<div class=indent></div>
@@ -466,17 +466,17 @@
 	<div class=indent></div>
 	<b><a id=JsonParser.parse></a><i class=icon-ok-sign></i> void parse()</b>
 	<div class=indent>
-		<p>Parses <a class=code>source</a>, or throws if it fails.</p>
+		<p>Parses source, or throws if it fails.</p>
 	</div>
 	<b><a id=JsonParser.parseFalse></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> parseFalse(<a href=dart.core.html#int>int</a> position)</b>
 	<div class=indent>
-		<p>Parses a "false" literal starting at <a class=code>position</a>. </p>
-<p><code>source<a class=code>position</a></code> must be "f".</p>
+		<p>Parses a "false" literal starting at position. </p>
+<p><code>sourceposition</code> must be "f".</p>
 	</div>
 	<b><a id=JsonParser.parseNull></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> parseNull(<a href=dart.core.html#int>int</a> position)</b>
 	<div class=indent>
-		<p>Parses a "null" literal starting at <a class=code>position</a>. </p>
-<p><code>source<a class=code>position</a></code> must be "n".</p>
+		<p>Parses a "null" literal starting at position. </p>
+<p><code>sourceposition</code> must be "n".</p>
 	</div>
 	<b><a id=JsonParser.parseNumber></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> parseNumber(<a href=dart.core.html#int>int</a> char, <a href=dart.core.html#int>int</a> position)</b>
 	<div class=indent></div>
@@ -484,8 +484,8 @@
 	<div class=indent></div>
 	<b><a id=JsonParser.parseTrue></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> parseTrue(<a href=dart.core.html#int>int</a> position)</b>
 	<div class=indent>
-		<p>Parses a "true" literal starting at <a class=code>position</a>. </p>
-<p><code>source<a class=code>position</a></code> must be "t".</p>
+		<p>Parses a "true" literal starting at position. </p>
+<p><code>sourceposition</code> must be "t".</p>
 	</div>
 	<a id=JsonUnsupportedObjectError></a><hr>
 	<h4>
@@ -507,8 +507,8 @@
 	</dl>
 	<div class=indent>
 		<p>Error thrown by JSON serialization if an object cannot be serialized. </p>
-<p>The <a class=code>unsupportedObject</a> field holds that object that failed to be serialized. </p>
-<p>If an object isn't directly serializable, the serializer calls the 'toJson' method on the object. If that call fails, the error will be stored in the <a class=code>cause</a> field. If the call returns an object that isn't directly serializable, the <a class=code>cause</a> will be null.</p>
+<p>The <a href=dart.json.html#unsupportedObject>unsupportedObject</a> field holds that object that failed to be serialized. </p>
+<p>If an object isn't directly serializable, the serializer calls the 'toJson' method on the object. If that call fails, the error will be stored in the <a href=dart.json.html#cause>cause</a> field. If the call returns an object that isn't directly serializable, the <a href=dart.json.html#cause>cause</a> will be null.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=JsonUnsupportedObjectError.cause></a><i class=icon-minus-sign></i> final dynamic cause</b>

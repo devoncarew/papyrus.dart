@@ -77,7 +77,7 @@
 <p>Introspection is that subset of reflection by which a running program can examine its own structure. For example, a function that prints out the names of all the members of an arbitrary object. </p>
 <p>Dynamic evaluation refers the ability to evaluate code that has not been literally specified at compile time, such as calling a method whose name is provided as an argument (because it is looked up in a database, or provided interactively by the user). </p>
 <p>How to Interpret the Dartdoc specifications below </p>
-<p>As a rule, the names of Dart declarations are represented using instances of class <a class=code>Symbol</a>. Whenever we speak of an object <i>s</i> of class <a class=code>Symbol</a> denoting a name, we mean the string that was used to construct <i>s</i>. </p>
+<p>As a rule, the names of Dart declarations are represented using instances of class Symbol. Whenever we speak of an object <i>s</i> of class Symbol denoting a name, we mean the string that was used to construct <i>s</i>. </p>
 <p>We will also frequently abuse notation and write Dart pseudo-code such as <code>o.x(a)</code>, where we have defined o and a to be objects; what is actually meant in these cases is <code>o'.x(a')</code> where <i>o'</i> and <i>a'</i> are Dart variables bound to <i>o</i> and <i>a</i> respectively. Furthermore, <i>o'</i> and <i>a'</i> are assumed to be fresh variables (meaning that they are distinct from any other variables in the program). </p>
 <p>An object is serializable across isolates if and only if it is an instance of either num, bool, String, a list of objects that are serializable across isolates or a map whose keys and values are all serializable across isolates.</p>
 	</div>
@@ -85,20 +85,20 @@
 	<div class=indent>
 		<b><a id=currentMirrorSystem></a><i class=icon-ok-sign></i> static <a href=dart.mirrors.html#MirrorSystem>MirrorSystem</a> currentMirrorSystem()</b>
 		<div class=indent>
-			<p>Returns a <a class=code>MirrorSystem</a> for the current isolate.</p>
+			<p>Returns a MirrorSystem for the current isolate.</p>
 		</div>
 		<b><a id=mirrorSystemOf></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#MirrorSystem>MirrorSystem</a>&gt; mirrorSystemOf(<a href=dart.isolate.html#SendPort>SendPort</a> port)</b>
 		<div class=indent>
-			<p>Creates a <a class=code>MirrorSystem</a> for the isolate which is listening on the <a class=code>SendPort</a>.</p>
+			<p>Creates a MirrorSystem for the isolate which is listening on the SendPort.</p>
 		</div>
 		<b><a id=reflect></a><i class=icon-ok-sign></i> static <a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a> reflect(<a href=dart.core.html#Object>Object</a> reflectee)</b>
 		<div class=indent>
-			<p>Returns an <a class=code>InstanceMirror</a> for some Dart language object. </p>
+			<p>Returns an InstanceMirror for some Dart language object. </p>
 <p>This only works if this mirror system is associated with the current running isolate.</p>
 		</div>
 		<b><a id=reflectClass></a><i class=icon-ok-sign></i> static <a href=dart.mirrors.html#ClassMirror>ClassMirror</a> reflectClass(<a href=dart.core.html#Type>Type</a> key)</b>
 		<div class=indent>
-			<p>Returns a <a class=code>ClassMirror</a> for the class represented by a Dart Type object. </p>
+			<p>Returns a ClassMirror for the class represented by a Dart Type object. </p>
 <p>This only works with objects local to the current isolate.</p>
 		</div>
 	</div>
@@ -151,7 +151,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>ClassMirror</a> reflects a Dart language class.</p>
+		<p>A ClassMirror reflects a Dart language class.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=ClassMirror.constructors></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Map>Map</a> constructors</b>
@@ -255,12 +255,12 @@
 	<b><a id=ClassMirror.newInstance></a><i class=icon-ok-sign></i> <a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a> newInstance(<a href=dart.core.html#Symbol>Symbol</a> constructorName, <a href=dart.core.html#List>List</a>&lt;dynamic&gt; positionalArguments, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, dynamic&gt; namedArguments)</b>
 	<div class=indent>
 		<p>Invokes the named constructor and returns a mirror on the result. </p>
-<p>Let <i>c</i> be the class reflected by this mirror let <i>a1, ..., an</i> be the elements of <a class=code>positionalArguments</a> let <i>k1, ..., km</i> be the identifiers denoted by the elements of <a class=code>namedArguments.keys</a> and let <i>v1, ..., vm</i> be the elements of <a class=code>namedArguments.values</a>. If <a class=code>constructorName</a> was created from the empty string Then this method will execute the instance creation expression <i>new c(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. Otherwise, let <i>f</i> be the simple name of the constructor denoted by <a class=code>constructorName</a> Then this method will execute the instance creation expression <i>new c.f(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. In either case: If the expression evaluates to a result <i>r</i>, this method returns the result of calling <a class=code>reflect</a>(<i>r</i>). If evaluating the expression throws an exception <i>e</i> (that it does not catch) the the result is a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+<p>Let <i>c</i> be the class reflected by this mirror let <i>a1, ..., an</i> be the elements of positionalArguments let <i>k1, ..., km</i> be the identifiers denoted by the elements of namedArguments.keys and let <i>v1, ..., vm</i> be the elements of namedArguments.values. If constructorName was created from the empty string Then this method will execute the instance creation expression <i>new c(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. Otherwise, let <i>f</i> be the simple name of the constructor denoted by constructorName Then this method will execute the instance creation expression <i>new c.f(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. In either case: If the expression evaluates to a result <i>r</i>, this method returns the result of calling reflect(<i>r</i>). If evaluating the expression throws an exception <i>e</i> (that it does not catch) the the result is a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ClassMirror.newInstanceAsync></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a>&gt; newInstanceAsync(<a href=dart.core.html#Symbol>Symbol</a> constructorName, <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; positionalArguments, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.core.html#Object>Object</a>&gt; namedArguments)</b>
 	<div class=indent>
-		<p>Invokes the named function and returns a mirror on the result. The arguments must be instances of <a class=code>InstanceMirror</a>, or of a type that is serializable across isolates (currently <a class=code>num</a>, <a class=code>String</a>, or <a class=code>bool</a>). </p>
-<p>Let <i>c</i> be the class reflected by this mirror, let <i>a1, ..., an</i> be the elements of <a class=code>positionalArguments</a> let <i>k1, ..., km</i> be the identifiers denoted by the elements of <a class=code>namedArguments.keys</a> and let <i>v1, ..., vm</i> be the elements of <a class=code>namedArguments.values</a>. For each <i>ai</i>, if <i>ai</i> is an instance of <a class=code>InstanceMirror</a>, let <i>pi</i> be the object reflected by <i>ai</i>; otherwise let <i>pi = ai,  i in 1 ...n</i>. Likewise, for each <i>vj</i>, if <i>vj</i> is an instance of <a class=code>InstanceMirror</a>, let <i>qj</i> be the object reflected by <i>vj</i>; otherwise let <i>qj = vj,  j in 1 ...m</i>. If any of the <i>pi, qj</i> is not an instance of <a class=code>InstanceMirror</a> and is not serializable across isolates, an exception is thrown. If <a class=code>constructorName</a> was created from the empty string Then this method will execute the instance creation expression <i>new c(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. Otherwise, let <i>f</i> be the simple name of the constructor denoted by <a class=code>constructorName</a> Then this method will execute the instance creation expression <i>new c.f(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. In either case: The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+		<p>Invokes the named function and returns a mirror on the result. The arguments must be instances of InstanceMirror, or of a type that is serializable across isolates (currently num, String, or bool). </p>
+<p>Let <i>c</i> be the class reflected by this mirror, let <i>a1, ..., an</i> be the elements of positionalArguments let <i>k1, ..., km</i> be the identifiers denoted by the elements of namedArguments.keys and let <i>v1, ..., vm</i> be the elements of namedArguments.values. For each <i>ai</i>, if <i>ai</i> is an instance of InstanceMirror, let <i>pi</i> be the object reflected by <i>ai</i>; otherwise let <i>pi = ai,  i in 1 ...n</i>. Likewise, for each <i>vj</i>, if <i>vj</i> is an instance of InstanceMirror, let <i>qj</i> be the object reflected by <i>vj</i>; otherwise let <i>qj = vj,  j in 1 ...m</i>. If any of the <i>pi, qj</i> is not an instance of InstanceMirror and is not serializable across isolates, an exception is thrown. If constructorName was created from the empty string Then this method will execute the instance creation expression <i>new c(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. Otherwise, let <i>f</i> be the simple name of the constructor denoted by constructorName Then this method will execute the instance creation expression <i>new c.f(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>c</i>. In either case: The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<a id=ClosureMirror></a><hr>
 	<h4>
@@ -288,8 +288,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>ClosureMirror</a> reflects a closure. </p>
-<p>A <a class=code>ClosureMirror</a> provides access to its captured variables and provides the ability to execute its reflectee.</p>
+		<p>A ClosureMirror reflects a closure. </p>
+<p>A ClosureMirror provides access to its captured variables and provides the ability to execute its reflectee.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=ClosureMirror.function></a><i class=icon-minus-sign></i> final <a href=dart.mirrors.html#MethodMirror>MethodMirror</a> function</b>
@@ -312,20 +312,20 @@
 	<h4>Methods</h4>
 	<b><a id=ClosureMirror.apply></a><i class=icon-ok-sign></i> <a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a> apply(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; positionalArguments, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.core.html#Object>Object</a>&gt; namedArguments)</b>
 	<div class=indent>
-		<p>Executes the closure and returns a mirror on the result. Let <i>f</i> be the closure reflected by this mirror, let <i>a1, ..., an</i> be the elements of <a class=code>positionalArguments</a> let <i>k1, ..., km</i> be the identifiers denoted by the elements of <a class=code>namedArguments.keys</a> and let <i>v1, ..., vm</i> be the elements of <a class=code>namedArguments.values</a>. Then this method will perform the method invocation <i>f(a1, ..., an, k1: v1, ..., km: vm)</i> If the invocation returns a result <i>r</i>, this method returns the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+		<p>Executes the closure and returns a mirror on the result. Let <i>f</i> be the closure reflected by this mirror, let <i>a1, ..., an</i> be the elements of positionalArguments let <i>k1, ..., km</i> be the identifiers denoted by the elements of namedArguments.keys and let <i>v1, ..., vm</i> be the elements of namedArguments.values. Then this method will perform the method invocation <i>f(a1, ..., an, k1: v1, ..., km: vm)</i> If the invocation returns a result <i>r</i>, this method returns the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ClosureMirror.applyAsync></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a>&gt; applyAsync(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; positionalArguments, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.core.html#Object>Object</a>&gt; namedArguments)</b>
 	<div class=indent>
 		<p>Executes the closure and returns a mirror on the result. </p>
-<p>Let <i>f</i> be the closure reflected by this mirror, let <i>a1, ..., an</i> be the elements of <a class=code>positionalArguments</a> let <i>k1, ..., km</i> be the identifiers denoted by the elements of <a class=code>namedArguments.keys</a> and let <i>v1, ..., vm</i> be the elements of <a class=code>namedArguments.values</a>. For each <i>ai</i>, if <i>ai</i> is an instance of <a class=code>InstanceMirror</a>, let <i>pi</i> be the object reflected by <i>ai</i>; otherwise let <i>pi = ai,  i in 1 ...n</i>. Likewise, for each <i>vj</i>, if <i>vj</i> is an instance of <a class=code>InstanceMirror</a>, let <i>qj</i> be the object reflected by <i>vj</i>; otherwise let <i>qj = vj,  j in 1 ...m</i>. If any of the <i>pi, qj</i> is not an instance of <a class=code>InstanceMirror</a> and is not serializable across isolates, an exception is thrown. Then this method will perform the function invocation <i>f(p1, ..., pn, k1: q1, ..., km: qm)</i> The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a <a class=code>MirrorError</a> wrapping <i>e</i>. </p>
-<p>The arguments must be instances of <a class=code>InstanceMirror</a>, or of a type that is serializable across isolates (currently <a class=code>num</a>, <a class=code>String</a>, or <a class=code>bool</a>).</p>
+<p>Let <i>f</i> be the closure reflected by this mirror, let <i>a1, ..., an</i> be the elements of positionalArguments let <i>k1, ..., km</i> be the identifiers denoted by the elements of namedArguments.keys and let <i>v1, ..., vm</i> be the elements of namedArguments.values. For each <i>ai</i>, if <i>ai</i> is an instance of InstanceMirror, let <i>pi</i> be the object reflected by <i>ai</i>; otherwise let <i>pi = ai,  i in 1 ...n</i>. Likewise, for each <i>vj</i>, if <i>vj</i> is an instance of InstanceMirror, let <i>qj</i> be the object reflected by <i>vj</i>; otherwise let <i>qj = vj,  j in 1 ...m</i>. If any of the <i>pi, qj</i> is not an instance of InstanceMirror and is not serializable across isolates, an exception is thrown. Then this method will perform the function invocation <i>f(p1, ..., pn, k1: q1, ..., km: qm)</i> The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a MirrorError wrapping <i>e</i>. </p>
+<p>The arguments must be instances of InstanceMirror, or of a type that is serializable across isolates (currently num, String, or bool).</p>
 	</div>
 	<b><a id=ClosureMirror.findInContext></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a>&gt; findInContext(<a href=dart.core.html#Symbol>Symbol</a> name)</b>
 	<div class=indent>
 		<p>Looks up the value of a name in the scope of the closure. The result is a mirror on that value. </p>
-<p>Let <i>s</i> be the contents of the string used to construct the symbol <a class=code>name</a>. </p>
+<p>Let <i>s</i> be the contents of the string used to construct the symbol name. </p>
 <p>If the expression <i>s</i> occurs within the source code of the reflectee, and that any such occurrence refers to a declaration outside the reflectee, then let <i>v</i> be the result of evaluating the expression <i>s</i> at such an occurrence. If <i>s = this</i>, and the reflectee was defined within the instance scope of an object <i>o</i>, then let <i>v</i> be <i>o</i>. </p>
-<p>The returned value is the result of invoking the method <a class=code>reflect</a> on <i>v</i>.</p>
+<p>The returned value is the result of invoking the method reflect on <i>v</i>.</p>
 	</div>
 	<a id=Comment></a><hr>
 	<h4>
@@ -358,7 +358,7 @@
 	<b><a id=Comment.trimmedText></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> trimmedText</b>
 	<div class=indent>
 		<p>The comment text without the start, end, and padding text. </p>
-<p>For example, if <a class=code>text</a> is <code> /<i></i> Comment text. */ </code> then the <a class=code>trimmedText</a> is <code> Comment text. </code>.</p>
+<p>For example, if text is <code> /<i></i> Comment text. */ </code> then the trimmedText is <code> Comment text. </code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Comment.></a><i class=icon-plus-sign></i> Comment(<a href=dart.core.html#String>String</a> text, <a href=dart.core.html#String>String</a> trimmedText, <a href=dart.core.html#bool>bool</a> isDocComment)</b>
@@ -393,7 +393,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>DeclarationMirror</a> reflects some entity declared in a Dart program.</p>
+		<p>A DeclarationMirror reflects some entity declared in a Dart program.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=DeclarationMirror.isPrivate></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isPrivate</b>
@@ -438,7 +438,7 @@
 	<div class=indent>
 		<p>The fully-qualified name for this Dart language entity. </p>
 <p>This name is qualified by the name of the owner. For instance, the qualified name of a method 'method' in class 'Class' in library 'library' is 'library.Class.method'. </p>
-<p>Returns a <a class=code>Symbol</a> constructed from a string representing the fully qualified name of the reflectee. Let <i>o</i> be the <a class=code>owner</a> of this mirror, let <i>r</i> be the reflectee of this mirror, let <i>p</i> be the fully qualified name of the reflectee of <i>o</i>, and let <i>s</i> be the simple name of <i>r</i> computed by <a class=code>simpleName</a>. The fully qualified name of <i>r</i> is the concatenation of <i>p</i>, '.', and <i>s</i>.</p>
+<p>Returns a Symbol constructed from a string representing the fully qualified name of the reflectee. Let <i>o</i> be the owner of this mirror, let <i>r</i> be the reflectee of this mirror, let <i>p</i> be the fully qualified name of the reflectee of <i>o</i>, and let <i>s</i> be the simple name of <i>r</i> computed by simpleName. The fully qualified name of <i>r</i> is the concatenation of <i>p</i>, '.', and <i>s</i>.</p>
 	</div>
 	<b><a id=simpleName></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Symbol>Symbol</a> get simpleName</b>
 	<div class=indent>
@@ -470,7 +470,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>FunctionTypeMirror</a> represents the type of a function in the Dart language.</p>
+		<p>A FunctionTypeMirror represents the type of a function in the Dart language.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=FunctionTypeMirror.callMethod></a><i class=icon-minus-sign></i> final <a href=dart.mirrors.html#MethodMirror>MethodMirror</a> callMethod</b>
@@ -522,7 +522,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An <a class=code>InstanceMirror</a> reflects an instance of a Dart language object.</p>
+		<p>An InstanceMirror reflects an instance of a Dart language object.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=InstanceMirror.hasReflectee></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> hasReflectee</b>
@@ -534,18 +534,18 @@
 	<h4>Getters and Setters</h4>
 	<b><a id=hasReflectee></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get hasReflectee</b>
 	<div class=indent>
-		<p>Does <a class=code>reflectee</a> contain the instance reflected by this mirror? This will always be true in the local case (reflecting instances in the same isolate), but only true in the remote case if this mirror reflects a simple value. </p>
-<p>A value is simple if one of the following holds: - the value is null - the value is of type <a class=code>num</a> - the value is of type <a class=code>bool</a> - the value is of type <a class=code>String</a></p>
+		<p>Does reflectee contain the instance reflected by this mirror? This will always be true in the local case (reflecting instances in the same isolate), but only true in the remote case if this mirror reflects a simple value. </p>
+<p>A value is simple if one of the following holds: - the value is null - the value is of type num - the value is of type bool - the value is of type String</p>
 	</div>
 	<b><a id=reflectee></a><i class=icon-circle-arrow-right></i> dynamic get reflectee</b>
 	<div class=indent>
-		<p>If the <a class=code>InstanceMirror</a> reflects an instance it is meaningful to have a local reference to, we provide access to the actual instance here. </p>
-<p>If you access <a class=code>reflectee</a> when <a class=code>hasReflectee</a> is false, an exception is thrown.</p>
+		<p>If the InstanceMirror reflects an instance it is meaningful to have a local reference to, we provide access to the actual instance here. </p>
+<p>If you access reflectee when hasReflectee is false, an exception is thrown.</p>
 	</div>
 	<b><a id=type></a><i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#ClassMirror>ClassMirror</a> get type</b>
 	<div class=indent>
 		<p>A mirror on the type of the reflectee. </p>
-<p>Returns a mirror on the actual class of the reflectee. The class of the reflectee may differ from the object returned by invoking <a class=code>runtimeType</a> on the reflectee.</p>
+<p>Returns a mirror on the actual class of the reflectee. The class of the reflectee may differ from the object returned by invoking runtimeType on the reflectee.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=InstanceMirror.></a><i class=icon-plus-sign></i> InstanceMirror()</b>
@@ -553,7 +553,7 @@
 	<h4>Methods</h4>
 	<b><a id=InstanceMirror.delegate></a><i class=icon-ok-sign></i> dynamic delegate(<a href=dart.core.html#Invocation>Invocation</a> invocation)</b>
 	<div class=indent>
-		<p>Perform <a class=code>invocation</a> on <a class=code>reflectee</a>. Equivalent to </p>
+		<p>Perform invocation on reflectee. Equivalent to </p>
 <p>this.invoke(invocation.memberName, <pre>        invocation.positionalArguments,
         invocation.namedArguments);
 </pre></p>
@@ -580,7 +580,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An <a class=code>IsolateMirror</a> reflects an isolate.</p>
+		<p>An IsolateMirror reflects an isolate.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=IsolateMirror.debugName></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> debugName</b>
@@ -635,7 +635,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>LibraryMirror</a> reflects a Dart language library, providing access to the variables, functions, and classes of the library.</p>
+		<p>A LibraryMirror reflects a Dart language library, providing access to the variables, functions, and classes of the library.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=LibraryMirror.classes></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Map>Map</a> classes</b>
@@ -729,7 +729,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>MethodMirror</a> reflects a Dart language function, method, constructor, getter, or setter.</p>
+		<p>A MethodMirror reflects a Dart language function, method, constructor, getter, or setter.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=MethodMirror.constructorName></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Symbol>Symbol</a> constructorName</b>
@@ -842,8 +842,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>Mirror</a> reflects some Dart language entity. </p>
-<p>Every <a class=code>Mirror</a> originates from some <a class=code>MirrorSystem</a>.</p>
+		<p>A Mirror reflects some Dart language entity. </p>
+<p>Every Mirror originates from some MirrorSystem.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Mirror.mirrors></a><i class=icon-minus-sign></i> final <a href=dart.mirrors.html#MirrorSystem>MirrorSystem</a> mirrors</b>
@@ -851,7 +851,7 @@
 	<h4>Getters and Setters</h4>
 	<b><a id=mirrors></a><i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#MirrorSystem>MirrorSystem</a> get mirrors</b>
 	<div class=indent>
-		<p>The <a class=code>MirrorSystem</a> that contains this mirror.</p>
+		<p>The MirrorSystem that contains this mirror.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Mirror.></a><i class=icon-plus-sign></i> Mirror()</b>
@@ -870,7 +870,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>MirrorException</a> is used to indicate errors within the mirrors framework.</p>
+		<p>A MirrorException is used to indicate errors within the mirrors framework.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=MirrorException.></a><i class=icon-plus-sign></i> MirrorException(<a href=dart.core.html#String>String</a> _message)</b>
@@ -909,9 +909,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>MirrorSystem</a> is the main interface used to reflect on a set of associated libraries. </p>
-<p>At runtime each running isolate has a distinct <a class=code>MirrorSystem</a>. </p>
-<p>It is also possible to have a <a class=code>MirrorSystem</a> which represents a set of libraries which are not running -- perhaps at compile-time.  In this case, all available reflective functionality would be supported, but runtime functionality (such as invoking a function or inspecting the contents of a variable) would fail dynamically.</p>
+		<p>A MirrorSystem is the main interface used to reflect on a set of associated libraries. </p>
+<p>At runtime each running isolate has a distinct MirrorSystem. </p>
+<p>It is also possible to have a MirrorSystem which represents a set of libraries which are not running -- perhaps at compile-time.  In this case, all available reflective functionality would be supported, but runtime functionality (such as invoking a function or inspecting the contents of a variable) would fail dynamically.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=MirrorSystem.dynamicType></a><i class=icon-minus-sign></i> final <a href=dart.mirrors.html#TypeMirror>TypeMirror</a> dynamicType</b>
@@ -929,7 +929,7 @@
 	</div>
 	<b><a id=isolate></a><i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#IsolateMirror>IsolateMirror</a> get isolate</b>
 	<div class=indent>
-		<p>A mirror on the isolate associated with this <a class=code>MirrorSystem</a>. This may be null if this mirror system is not running.</p>
+		<p>A mirror on the isolate associated with this MirrorSystem. This may be null if this mirror system is not running.</p>
 	</div>
 	<b><a id=libraries></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Uri>Uri</a>, <a href=dart.mirrors.html#LibraryMirror>LibraryMirror</a>&gt; get libraries</b>
 	<div class=indent>
@@ -945,7 +945,7 @@
 	<h4>Methods</h4>
 	<b><a id=MirrorSystem.findLibrary></a><i class=icon-ok-sign></i> <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.mirrors.html#LibraryMirror>LibraryMirror</a>&gt; findLibrary(<a href=dart.core.html#Symbol>Symbol</a> libraryName)</b>
 	<div class=indent>
-		<p>Returns an iterable of all libraries in the mirror system whose library name is <a class=code>libraryName</a>.</p>
+		<p>Returns an iterable of all libraries in the mirror system whose library name is libraryName.</p>
 	</div>
 	<b><a id=MirrorSystem.getName></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> getName(<a href=dart.core.html#Symbol>Symbol</a> symbol)</b>
 	<div class=indent></div>
@@ -967,7 +967,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>When a compile-time error occurs during the mirrored execution of code, a <a class=code>MirroredCompilationError</a> is thrown. </p>
+		<p>When a compile-time error occurs during the mirrored execution of code, a MirroredCompilationError is thrown. </p>
 <p>This exception includes the compile-time error message that would have been displayed to the user, if the function had not been invoked via mirror.</p>
 	</div>
 	<h4>Fields</h4>
@@ -991,10 +991,10 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>When an error occurs during the mirrored execution of code, a <a class=code>MirroredError</a> is thrown. </p>
+		<p>When an error occurs during the mirrored execution of code, a MirroredError is thrown. </p>
 <p>In general, there are three main classes of failure that can happen during mirrored execution of code in some isolate: </p>
-<p>- An exception is thrown but not caught.  This is caught by the mirrors framework and a <a class=code>MirroredUncaughtExceptionError</a> is created and thrown. </p>
-<p>- A compile-time error occurs, such as a syntax error.  This is suppressed by the mirrors framework and a <a class=code>MirroredCompilationError</a> is created and thrown. </p>
+<p>- An exception is thrown but not caught.  This is caught by the mirrors framework and a MirroredUncaughtExceptionError is created and thrown. </p>
+<p>- A compile-time error occurs, such as a syntax error.  This is suppressed by the mirrors framework and a MirroredCompilationError is created and thrown. </p>
 <p>- A truly fatal error occurs, causing the isolate to be exited.  If the reflector and reflectee share the same isolate, then they will both suffer.  If the reflector and reflectee are in distinct isolates, then we hope to provide some information about the isolate death, but this has yet to be implemented. </p>
 <p>TODO(turnidge): Specify the behavior for remote fatal errors.</p>
 	</div>
@@ -1021,7 +1021,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>When an uncaught exception occurs during the mirrored execution of code, a <a class=code>MirroredUncaughtExceptionError</a> is thrown. </p>
+		<p>When an uncaught exception occurs during the mirrored execution of code, a MirroredUncaughtExceptionError is thrown. </p>
 <p>This exception contains a mirror on the original exception object. It also contains an object which can be used to recover the stacktrace.</p>
 	</div>
 	<h4>Fields</h4>
@@ -1064,9 +1064,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An <a class=code>ObjectMirror</a> is a common superinterface of <a class=code>InstanceMirror</a>, <a class=code>ClassMirror</a>, and <a class=code>LibraryMirror</a> that represents their shared functionality. </p>
-<p>For the purposes of the mirrors library, these types are all object-like, in that they support method invocation and field access.  Real Dart objects are represented by the <a class=code>InstanceMirror</a> type. </p>
-<p>See <a class=code>InstanceMirror</a>, <a class=code>ClassMirror</a>, and <a class=code>LibraryMirror</a>.</p>
+		<p>An ObjectMirror is a common superinterface of InstanceMirror, ClassMirror, and LibraryMirror that represents their shared functionality. </p>
+<p>For the purposes of the mirrors library, these types are all object-like, in that they support method invocation and field access.  Real Dart objects are represented by the InstanceMirror type. </p>
+<p>See InstanceMirror, ClassMirror, and LibraryMirror.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=ObjectMirror.></a><i class=icon-plus-sign></i> ObjectMirror()</b>
@@ -1075,32 +1075,32 @@
 	<b><a id=ObjectMirror.getField></a><i class=icon-ok-sign></i> <a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a> getField(<a href=dart.core.html#Symbol>Symbol</a> fieldName)</b>
 	<div class=indent>
 		<p>Invokes a getter and returns a mirror on the result. The getter can be the implicit getter for a field or a user-defined getter method. </p>
-<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by <a class=code>fieldName</a>, Then this method will perform the getter invocation <i>o.f</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i> (otherwise). If the invocation returns a result <i>r</i>, this method returns the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by fieldName, Then this method will perform the getter invocation <i>o.f</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i> (otherwise). If the invocation returns a result <i>r</i>, this method returns the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ObjectMirror.getFieldAsync></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a>&gt; getFieldAsync(<a href=dart.core.html#Symbol>Symbol</a> fieldName)</b>
 	<div class=indent>
 		<p>Invokes a getter and returns a mirror on the result. The getter can be the implicit getter for a field or a user-defined getter method. </p>
-<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by <a class=code>fieldName</a>, Then this method will perform the getter invocation <i>o.f</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i>(otherwise). The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by fieldName, Then this method will perform the getter invocation <i>o.f</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i>(otherwise). The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ObjectMirror.invoke></a><i class=icon-ok-sign></i> <a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a> invoke(<a href=dart.core.html#Symbol>Symbol</a> memberName, <a href=dart.core.html#List>List</a>&lt;dynamic&gt; positionalArguments, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, dynamic&gt; namedArguments)</b>
 	<div class=indent>
 		<p>Invokes the named function and returns a mirror on the result. </p>
-<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the member denoted by <a class=code>memberName</a>, let <i>a1, ..., an</i> be the elements of <a class=code>positionalArguments</a> let <i>k1, ..., km</i> be the identifiers denoted by the elements of <a class=code>namedArguments.keys</a> and let <i>v1, ..., vm</i> be the elements of <a class=code>namedArguments.values</a>. Then this method will perform the method invocation <i>o.f(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i> (otherwise). If the invocation returns a result <i>r</i>, this method returns the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the member denoted by memberName, let <i>a1, ..., an</i> be the elements of positionalArguments let <i>k1, ..., km</i> be the identifiers denoted by the elements of namedArguments.keys and let <i>v1, ..., vm</i> be the elements of namedArguments.values. Then this method will perform the method invocation <i>o.f(a1, ..., an, k1: v1, ..., km: vm)</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i> (otherwise). If the invocation returns a result <i>r</i>, this method returns the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ObjectMirror.invokeAsync></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a>&gt; invokeAsync(<a href=dart.core.html#Symbol>Symbol</a> memberName, <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; positionalArguments, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.core.html#Object>Object</a>&gt; namedArguments)</b>
 	<div class=indent>
-		<p>Invokes the named function and returns a mirror on the result. The arguments must be instances of <a class=code>InstanceMirror</a>, or of a type that is serializable across isolates (currently <a class=code>num</a>, <a class=code>String</a>, or <a class=code>bool</a>). </p>
-<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the member denoted by <a class=code>memberName</a>, let <i>a1, ..., an</i> be the elements of <a class=code>positionalArguments</a> let <i>k1, ..., km</i> be the identifiers denoted by the elements of <a class=code>namedArguments.keys</a> and let <i>v1, ..., vm</i> be the elements of <a class=code>namedArguments.values</a>. For each <i>ai</i>, if <i>ai</i> is an instance of <a class=code>InstanceMirror</a>, let <i>pi</i> be the object reflected by <i>ai</i>; otherwise let <i>pi = ai,  i in 1 ...n</i>. Likewise, for each <i>vj</i>, if <i>vj</i> is an instance of <a class=code>InstanceMirror</a>, let <i>qj</i> be the object reflected by <i>vj</i>; otherwise let <i>qj = vj,  j in 1 ...m</i>. If any of the <i>pi, qj</i> is not an instance of <a class=code>InstanceMirror</a> and is not serializable across isolates, an exception is thrown. Then this method will perform the method invocation <i>o.f(p1, ..., pn, k1: q1, ..., km: qm)</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i>(otherwise). The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+		<p>Invokes the named function and returns a mirror on the result. The arguments must be instances of InstanceMirror, or of a type that is serializable across isolates (currently num, String, or bool). </p>
+<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the member denoted by memberName, let <i>a1, ..., an</i> be the elements of positionalArguments let <i>k1, ..., km</i> be the identifiers denoted by the elements of namedArguments.keys and let <i>v1, ..., vm</i> be the elements of namedArguments.values. For each <i>ai</i>, if <i>ai</i> is an instance of InstanceMirror, let <i>pi</i> be the object reflected by <i>ai</i>; otherwise let <i>pi = ai,  i in 1 ...n</i>. Likewise, for each <i>vj</i>, if <i>vj</i> is an instance of InstanceMirror, let <i>qj</i> be the object reflected by <i>vj</i>; otherwise let <i>qj = vj,  j in 1 ...m</i>. If any of the <i>pi, qj</i> is not an instance of InstanceMirror and is not serializable across isolates, an exception is thrown. Then this method will perform the method invocation <i>o.f(p1, ..., pn, k1: q1, ..., km: qm)</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i>(otherwise). The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ObjectMirror.setField></a><i class=icon-ok-sign></i> <a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a> setField(<a href=dart.core.html#Symbol>Symbol</a> fieldName, <a href=dart.core.html#Object>Object</a> arg)</b>
 	<div class=indent>
 		<p>Invokes a setter and returns a mirror on the result. The setter may be either the implicit setter for a non-final field or a user-defined setter method. </p>
-<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by <a class=code>fieldName</a>, and let <i>a</i> be the object bound to <a class=code>value</a>. Then this method will perform the setter invocation <i>o.f = a</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i> (otherwise). If the invocation returns a result <i>r</i>, this method returns the result of calling <a class=code>reflect</a>(<a class=code>value</a>). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a <a class=code>MirrorError</a> wrapping <i>e</i>.</p>
+<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by fieldName, and let <i>a</i> be the object bound to value. Then this method will perform the setter invocation <i>o.f = a</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i> (otherwise). If the invocation returns a result <i>r</i>, this method returns the result of calling reflect(value). If the invocation throws an exception <i>e</i> (that it does not catch) the the result is a MirrorError wrapping <i>e</i>.</p>
 	</div>
 	<b><a id=ObjectMirror.setFieldAsync></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.mirrors.html#InstanceMirror>InstanceMirror</a>&gt; setFieldAsync(<a href=dart.core.html#Symbol>Symbol</a> fieldName, <a href=dart.core.html#Object>Object</a> value)</b>
 	<div class=indent>
-		<p>Invokes a setter and returns a mirror on the result. The setter may be either the implicit setter for a non-final field or a user-defined setter method. The argument must be an instance of <a class=code>InstanceMirror</a>, or of a type that is serializable across isolates (currently <a class=code>num</a>, <a class=code>String</a>, or <a class=code>bool</a>). </p>
-<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by <a class=code>fieldName</a>, and let a be the object bound to <a class=code>value</a>. If <i>a</i> is an instance of <a class=code>InstanceMirror</a>  let <i>p</i> be the object reflected by <i>a</i>, otherwise let <i>p =a</i>. If <i>p</i> is not an instance of <a class=code>InstanceMirror</a>, <i>p</i> must be serializable across isolates or an exception is thrown. Then this method will perform the setter invocation <i>o.f = a</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i>(otherwise). The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling <a class=code>reflect</a>(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a [MirrorError} wrapping <i>e</i>.</p>
+		<p>Invokes a setter and returns a mirror on the result. The setter may be either the implicit setter for a non-final field or a user-defined setter method. The argument must be an instance of InstanceMirror, or of a type that is serializable across isolates (currently num, String, or bool). </p>
+<p>Let <i>o</i> be the object reflected by this mirror, let <i>f</i> be the simple name of the getter denoted by fieldName, and let a be the object bound to value. If <i>a</i> is an instance of InstanceMirror  let <i>p</i> be the object reflected by <i>a</i>, otherwise let <i>p =a</i>. If <i>p</i> is not an instance of InstanceMirror, <i>p</i> must be serializable across isolates or an exception is thrown. Then this method will perform the setter invocation <i>o.f = a</i> in a scope that has access to the private members of <i>o</i> (if <i>o</i> is a class or library) or the private members of the class of <i>o</i>(otherwise). The method returns a future <i>k</i>. If the invocation returns a result <i>r</i>, <i>k</i> will be completed with the result of calling reflect(<i>r</i>). If the invocation throws an exception <i>e</i> (that it does not catch) then <i>k</i> is completed with a [MirrorError} wrapping <i>e</i>.</p>
 	</div>
 	<a id=ParameterMirror></a><hr>
 	<h4>
@@ -1128,7 +1128,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>ParameterMirror</a> reflects a Dart formal parameter declaration.</p>
+		<p>A ParameterMirror reflects a Dart formal parameter declaration.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=ParameterMirror.defaultValue></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> defaultValue</b>
@@ -1175,7 +1175,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>SourceLocation</a> describes the span of an entity in Dart source code.</p>
+		<p>A SourceLocation describes the span of an entity in Dart source code.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=SourceLocation.></a><i class=icon-plus-sign></i> SourceLocation()</b>
@@ -1190,7 +1190,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>TypeMirror</a> reflects a Dart language class, typedef, or type variable.</p>
+		<p>A TypeMirror reflects a Dart language class, typedef, or type variable.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=TypeMirror.></a><i class=icon-plus-sign></i> TypeMirror()</b>
@@ -1213,7 +1213,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>TypeVariableMirror</a> represents a type parameter of a generic type.</p>
+		<p>A TypeVariableMirror represents a type parameter of a generic type.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=TypeVariableMirror.upperBound></a><i class=icon-minus-sign></i> final <a href=dart.mirrors.html#TypeMirror>TypeMirror</a> upperBound</b>
@@ -1244,7 +1244,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>TypedefMirror</a> represents a typedef in a Dart language program.</p>
+		<p>A TypedefMirror represents a typedef in a Dart language program.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=TypedefMirror.value></a><i class=icon-minus-sign></i> final <a href=dart.mirrors.html#TypeMirror>TypeMirror</a> value</b>
@@ -1280,7 +1280,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <a class=code>VariableMirror</a> reflects a Dart language variable declaration.</p>
+		<p>A VariableMirror reflects a Dart language variable declaration.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=VariableMirror.isFinal></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isFinal</b>
