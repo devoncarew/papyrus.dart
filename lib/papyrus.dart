@@ -323,19 +323,24 @@ class Papyrus {
     }
   }
 
+  void generateAnnotations(List<element.Annotation> annotations) {
+    if (!annotations.isEmpty) {
+      html.write('<i class="icon-info-sign icon-hidden"></i> ');
+      for (element.Annotation a in annotations) {
+        Element e = a.element;
+        // TODO: I don't believe we get back the right elements for const
+        // ctor annotations
+        html.writeln('@${e.name} ');
+      }
+      html.writeln('<br>');
+    }    
+  }
+  
   void generateElement(ElementHelper f) {
     html.startTag('b', newLine: false);
     html.write('${createAnchor(f.element)}');
 
-    // print annotations
-    if (!f.element.metadata.isEmpty) {
-      //html.write('<i class="icon-info-sign"></i> ');
-      for (element.Annotation a in f.element.metadata) {
-        Element e = a.element;
-        html.writeln('@${e.name} ');
-      }
-      html.writeln('<br>');
-    }
+    generateAnnotations(f.element.metadata);
 
     html.write(createIconFor(f.element));
     if (f.element is MethodElement) {
@@ -393,15 +398,7 @@ class Papyrus {
     html.writeln('<hr>');
     html.startTag('h4');
 
-    // print annotations
-    if (!c.metadata.isEmpty) {
-      //html.write('<i class="icon-info-sign"></i> ');
-      for (var a in c.metadata) {
-        Element e = a.element;
-        html.writeln('@${e.name} ');
-      }
-      html.writeln('<br>');
-    }
+    generateAnnotations(c.metadata);
 
     html.write(createIconFor(c));
     if (c.isAbstract()) {

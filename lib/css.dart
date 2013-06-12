@@ -55,6 +55,9 @@ a.code {
   color: #333;
   /*text-decoration: underline;*/
 }
+.icon-hidden {
+  opacity: 0;
+}
 .icon-disabled {
   opacity: 0.25;
 }""";
