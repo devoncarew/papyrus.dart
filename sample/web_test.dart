@@ -4,7 +4,13 @@
  */
 library web_test;
 
+//import 'dart:chrome' as chrome;
 import 'dart:html';
+import 'dart:mirrors';
+import 'dart:web_audio';
+import 'dart:web_gl';
+import 'dart:web_sql';
+
 import 'pets.dart';
 
 num rotatePos = 0;

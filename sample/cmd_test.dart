@@ -4,6 +4,8 @@
  */
 library cmd_test;
 
+import 'dart:io';
+
 import 'package:meta/meta.dart';
 
 import 'pets.dart' as pets;
