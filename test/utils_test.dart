@@ -13,8 +13,8 @@ main() {
     });
 
     test('htmlEscape', () {
-      // TODO:
-
+      expect('a', htmlEscape('a'));
+      expect('&lt;a&gt;', htmlEscape('<a>'));
     });
 
     test('stringEscape', () {
@@ -23,8 +23,8 @@ main() {
     });
 
     test('escapeBrackets', () {
-      // TODO:
-
+      expect('a', escapeBrackets('a'));
+      expect('_a_', escapeBrackets('<a>'));
     });
 
     test('stripComments', () {
@@ -33,8 +33,10 @@ main() {
     });
 
     test('ltrim', () {
-      // TODO:
-
+      expect('a', ltrim('a'));
+      expect('a', ltrim(' a'));
+      expect('a ', ltrim('a '));
+      expect('a ', ltrim(' a '));
     });
   });
 }

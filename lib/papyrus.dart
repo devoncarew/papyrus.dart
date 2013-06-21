@@ -7,7 +7,6 @@ import 'package:args/args.dart';
 
 import 'package:analyzer_experimental/src/generated/ast.dart';
 import 'package:analyzer_experimental/src/generated/element.dart';
-import 'package:analyzer_experimental/src/generated/element.dart' as element show Annotation;
 import 'package:analyzer_experimental/src/generated/engine.dart';
 import 'package:analyzer_experimental/src/generated/java_io.dart';
 import 'package:analyzer_experimental/src/generated/sdk.dart';
@@ -22,6 +21,14 @@ import 'utils.dart';
 part 'helpers.dart';
 
 // TODO: clean up generics support
+
+// TODO: --title paramater
+
+// TODO: --footer parameter
+
+// TODO: generate a type hierarchy
+
+// TODO: generate an element index
 
 Path get sdkBinPath => new Path(new Options().executable).directoryPath;
 Path get sdkPath => sdkBinPath.join(new Path('..')).canonicalize();
@@ -193,13 +200,13 @@ class Papyrus implements Generator {
       if (lib == library) {
         html.startTag('li', attributes: 'class="active"', newLine: false);
         html.write('<a href="${getFileNameFor(lib)}">'
-        '<i class="chevron-nav icon-white icon-chevron-right">'
-        '</i> ${lib.name}</a>');
+        '<i class="chevron-nav icon-white icon-chevron-right"></i> '
+        '${lib.name}</a>');
       } else {
         html.startTag('li', newLine: false);
         html.write('<a href="${getFileNameFor(lib)}">'
-        '<i class="chevron-nav icon-chevron-right">'
-        '</i> ${lib.name}</a>');
+        '<i class="chevron-nav icon-chevron-right"></i> '
+        '${lib.name}</a>');
       }
       html.endTag(); // li
     }
@@ -323,10 +330,10 @@ class Papyrus implements Generator {
     }
   }
 
-  void generateAnnotations(List<element.Annotation> annotations) {
+  void generateAnnotations(List<ElementAnnotation> annotations) {
     if (!annotations.isEmpty) {
       html.write('<i class="icon-info-sign icon-hidden"></i> ');
-      for (element.Annotation a in annotations) {
+      for (ElementAnnotation a in annotations) {
         Element e = a.element;
         // TODO: I don't believe we get back the right elements for const
         // ctor annotations
@@ -672,7 +679,7 @@ class PapyrusResolver extends CodeResolver {
   PapyrusResolver(this.generator, this.element);
   
   String resolveCodeReference(String reference) {
-    Element e = element.getChild(reference);
+    Element e = (element as ElementImpl).getChild(reference);
     
     if (e is LocalElement || e is TypeVariableElement) {
       e = null;

@@ -66,7 +66,7 @@ String htmlEscape(String text) {
       replaceAll('>', '&gt;').replaceAll('<', '&lt;');
 }
 
-/**
+/** 
  * [quoteType] should be ' or ".
  */
 String stringEscape(String text, String quoteType) {
