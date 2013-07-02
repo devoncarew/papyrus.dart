@@ -153,13 +153,13 @@ abstract class PropertyInducingHelper extends ElementHelper {
   String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    if (_var.isStatic()) {
+    if (_var.isStatic) {
       buf.write('static ');
     }
-    if (_var.isFinal()) {
+    if (_var.isFinal) {
       buf.write('final ');
     }
-    if (_var.isConst()) {
+    if (_var.isConst) {
       buf.write('const ');
     }
 
@@ -211,7 +211,7 @@ class AccessorHelper extends ElementHelper {
   String createLinkedSummary(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    if (_acc.isGetter()) {
+    if (_acc.isGetter) {
       buf.write(generator.createLinkedName(element));
       buf.write(': ');
       buf.write(generator.createLinkedReturnTypeName(_acc.type));
@@ -226,11 +226,11 @@ class AccessorHelper extends ElementHelper {
   String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    if (_acc.isStatic()) {
+    if (_acc.isStatic) {
       buf.write('static ');
     }
 
-    if (_acc.isGetter()) {
+    if (_acc.isGetter) {
       buf.write('${generator.createLinkedReturnTypeName(_acc.type)} get ${_acc.name}');
     } else {
       buf.write('set ${_acc.name}(${generator.printParams(_acc.parameters)})');
@@ -258,7 +258,7 @@ class FunctionHelper extends ElementHelper {
   String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    if (_func.isStatic()) {
+    if (_func.isStatic) {
       buf.write('static ');
     }
 
@@ -335,7 +335,7 @@ abstract class ExecutableHelper extends ElementHelper {
   String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    if (_ex.isStatic()) {
+    if (_ex.isStatic) {
       buf.write('static ');
     }
 
@@ -361,10 +361,10 @@ class ConstructorHelper extends ExecutableHelper {
   String createLinkedDescription(Generator generator) {
     StringBuffer buf = new StringBuffer();
 
-    if (_ex.isStatic()) {
+    if (_ex.isStatic) {
       buf.write('static ');
     }
-    if (_ctor.isFactory()) {
+    if (_ctor.isFactory) {
       buf.write('factory ');
     }
 
@@ -381,7 +381,7 @@ class MethodHelper extends ExecutableHelper {
   String get typeName => 'Methods';
 }
 
-bool isStatic(PropertyInducingElement e) => e.isStatic();
+bool isStatic(PropertyInducingElement e) => e.isStatic;
 
 bool isPrivate(Element e) => e.name.startsWith('_');
 

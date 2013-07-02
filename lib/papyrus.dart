@@ -363,7 +363,7 @@ class Papyrus implements Generator {
     if (e is PropertyAccessorElement) {
       PropertyAccessorElement a = (e as PropertyAccessorElement);
 
-      if (a.isGetter()) {
+      if (a.isGetter) {
         return '<i class=icon-circle-arrow-right></i> ';
       } else {
         return '<i class=icon-circle-arrow-left></i> ';
@@ -408,7 +408,7 @@ class Papyrus implements Generator {
     generateAnnotations(c.metadata);
 
     html.write(createIconFor(c));
-    if (c.isAbstract()) {
+    if (c.isAbstract) {
       html.write('Abstract class ${c.name}');
     } else {
       html.write('Class ${c.name}');

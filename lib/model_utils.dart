@@ -54,17 +54,11 @@ MethodElement getOverriddenElementMethod(MethodElement element) {
   return null;
 }
 
-bool canOverride(Element e) {
-  return getEnclosingElement(e) != null;
-}
+bool canOverride(Element e) => e is ClassMemberElement;
 
 ClassElement getEnclosingElement(Element e) {
-  if (e is MethodElement) {
-    return (e as MethodElement).enclosingElement;
-  } else if (e is FieldElement) {
-    return (e as FieldElement).enclosingElement;
-  } else if (e is ConstructorElement) {
-    return (e as ConstructorElement).enclosingElement;
+  if (e is ClassMemberElement) {
+    return (e as ClassMemberElement).enclosingElement;
   } else {
     return null;
   }
