@@ -5,5 +5,6 @@ dependencies:
   analyzer_experimental: any
   args: any
   intl: any
+  path: any
 dev_dependencies:
   unittest: any

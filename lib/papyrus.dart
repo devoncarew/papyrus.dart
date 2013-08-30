@@ -4,6 +4,8 @@ library papyrus;
 import 'dart:io';
 
 import 'package:args/args.dart';
+// TODO: convert over to path
+//import 'package:path/path.dart';
 
 import 'package:analyzer_experimental/src/generated/ast.dart';
 import 'package:analyzer_experimental/src/generated/element.dart';
@@ -340,9 +342,9 @@ class Papyrus implements Generator {
         html.writeln('@${e.name} ');
       }
       html.writeln('<br>');
-    }    
+    }
   }
-  
+
   void generateElement(ElementHelper f) {
     html.startTag('b', newLine: false);
     html.write('${createAnchor(f.element)}');
@@ -559,7 +561,7 @@ class Papyrus implements Generator {
     if (e == null) {
       return '';
     }
-    
+
     if (!isDocumented(e)) {
       return htmlEscape(e.name);
     }
@@ -588,27 +590,27 @@ class Papyrus implements Generator {
       }
     } else {
       String append = '';
-      
+
       if (appendParens && (e is MethodElement || e is FunctionElement)) {
         append = '()';
       }
-      
+
       return "<a href=${createHrefFor(e)}>${htmlEscape(e.name)}$append</a>";
     }
   }
 
   String createLinkedTypeName(Type2 type) {
     StringBuffer buf = new StringBuffer();
-    
+
     if (type is TypeVariableType) {
       buf.write(type.element.name);
     } else {
       buf.write(createLinkedName(type.element));
     }
-    
+
     if (type is ParameterizedType) {
       ParameterizedType pType = type as ParameterizedType;
-      
+
       if (!pType.typeArguments.isEmpty) {
         buf.write('&lt;');
         for (int i = 0; i < pType.typeArguments.length; i++) {
@@ -618,10 +620,10 @@ class Papyrus implements Generator {
           Type2 t = pType.typeArguments[i];
           buf.write(createLinkedTypeName(t));
         }
-        buf.write('&gt;');        
+        buf.write('&gt;');
       }
     }
-        
+
     return buf.toString();
   }
 
@@ -675,16 +677,16 @@ abstract class Generator {
 class PapyrusResolver extends CodeResolver {
   Generator generator;
   Element element;
-  
+
   PapyrusResolver(this.generator, this.element);
-  
+
   String resolveCodeReference(String reference) {
     Element e = (element as ElementImpl).getChild(reference);
-    
+
     if (e is LocalElement || e is TypeVariableElement) {
       e = null;
     }
-    
+
     if (e != null) {
       return generator.createLinkedName(e, true);
     } else {
