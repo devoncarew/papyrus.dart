@@ -10,3 +10,6 @@ Design goals:
 - generate simple, clean html
 
 Sample [output](sample/out/dart.core.html)
+
+[![Build Status](https://drone.io/github.com/devoncarew/papyrus.dart/status.png)](https://drone.io/github.com/devoncarew/papyrus.dart/latest)
+
