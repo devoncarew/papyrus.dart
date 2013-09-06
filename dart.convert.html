@@ -36,6 +36,7 @@
 		<dt>Top-Level Variables</dt>
 		<dd>
 			<i class=icon-minus-sign></i> <a href=dart.convert.html#ASCII>ASCII</a>: dynamic<br>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HTML_ESCAPE>HTML_ESCAPE</a>: dynamic<br>
 			<i class=icon-minus-sign></i> <a href=dart.convert.html#JSON>JSON</a>: dynamic<br>
 			<i class=icon-minus-sign></i> <a href=dart.convert.html#LATIN1>LATIN1</a>: dynamic<br>
 			<i class=icon-minus-sign></i> <a href=dart.convert.html#UNICODE_REPLACEMENT_CHARACTER_RUNE>UNICODE_REPLACEMENT_CHARACTER_RUNE</a>: dynamic<br>
@@ -53,6 +54,8 @@
 			<i class=icon-leaf></i> <a href=dart.convert.html#Codec>Codec</a><br>
 			<i class=icon-leaf></i> <a href=dart.convert.html#Converter>Converter</a><br>
 			<i class=icon-leaf></i> <a href=dart.convert.html#Encoding>Encoding</a><br>
+			<i class=icon-leaf></i> <a href=dart.convert.html#HtmlEscape>HtmlEscape</a><br>
+			<i class=icon-leaf></i> <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a><br>
 			<i class=icon-leaf></i> <a href=dart.convert.html#JsonCodec>JsonCodec</a><br>
 			<i class=icon-leaf></i> <a href=dart.convert.html#JsonCyclicError>JsonCyclicError</a><br>
 			<i class=icon-leaf></i> <a href=dart.convert.html#JsonDecoder>JsonDecoder</a><br>
@@ -85,6 +88,8 @@ var decoded = ASCII.decode([0x54, 0x68, 0x69, 0x73, 0x20, 0x69, 0x73,
                             0x20, 0x41, 0x53, 0x43, 0x49, 0x49, 0x21]);
 </pre></p>
 		</div>
+		<b><a id=HTML_ESCAPE></a><i class=icon-minus-sign></i> static const dynamic HTML_ESCAPE</b>
+		<div class=indent></div>
 		<b><a id=JSON></a><i class=icon-minus-sign></i> static const dynamic JSON</b>
 		<div class=indent>
 			<p>An instance of the default implementation of the JsonCodec. </p>
@@ -512,6 +517,81 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 		<p>Gets an Encoding object from the name of the character set name. The names used are the IANA official names for the character set (see http://www.iana.org/assignments/character-sets/character-sets.xml). </p>
 <p>The name passed is case insensitive. </p>
 <p>If character set is not supported <code>null</code> is returned.</p>
+	</div>
+	<a id=HtmlEscape></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class HtmlEscape extends <a href=dart.convert.html#Converter>Converter</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt;</h4>
+	<dl class=dl-horizontal>
+		<dt>Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscape.mode>mode</a>: <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a><br>
+		</dd>
+		<dt>Constructors</dt>
+		<dd>
+			<i class=icon-plus-sign></i> <a href=dart.convert.html#HtmlEscape.>HtmlEscape</a>(<a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a> mode)<br>
+		</dd>
+		<dt>Methods</dt>
+		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.convert.html#HtmlEscape.convert>convert</a>(<a href=dart.core.html#String>String</a> text): <a href=dart.core.html#String>String</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.convert.html#HtmlEscape.startChunkedConversion>startChunkedConversion</a>(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink): <a href=dart.convert.html#StringConversionSink>StringConversionSink</a><br>
+		</dd>
+	</dl>
+	<div class=indent></div>
+	<h4>Fields</h4>
+	<b><a id=HtmlEscape.mode></a><i class=icon-minus-sign></i> final <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a> mode</b>
+	<div class=indent></div>
+	<h4>Constructors</h4>
+	<b><a id=HtmlEscape.></a><i class=icon-plus-sign></i> HtmlEscape(<a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a> mode)</b>
+	<div class=indent></div>
+	<h4>Methods</h4>
+	<b><a id=HtmlEscape.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> convert(<a href=dart.core.html#String>String</a> text)</b>
+	<div class=indent>
+		<p>Converts input and returns the result of the conversion.</p>
+	</div>
+	<b><a id=HtmlEscape.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#StringConversionSink>StringConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
+	<div class=indent>
+		<p>Starts a chunked conversion.</p>
+	</div>
+	<a id=HtmlEscapeMode></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class HtmlEscapeMode</h4>
+	<dl class=dl-horizontal>
+		<dt>Static Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscapeMode.ATTRIBUTE>ATTRIBUTE</a>: <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscapeMode.ELEMENT>ELEMENT</a>: <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscapeMode.UNKNOWN>UNKNOWN</a>: <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a><br>
+		</dd>
+		<dt>Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscapeMode.escapeApos>escapeApos</a>: <a href=dart.core.html#bool>bool</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscapeMode.escapeLtGt>escapeLtGt</a>: <a href=dart.core.html#bool>bool</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.convert.html#HtmlEscapeMode.escapeQuot>escapeQuot</a>: <a href=dart.core.html#bool>bool</a><br>
+		</dd>
+		<dt>Methods</dt>
+		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.convert.html#HtmlEscapeMode.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
+		</dd>
+	</dl>
+	<div class=indent></div>
+	<h4>Static Fields</h4>
+	<b><a id=HtmlEscapeMode.ATTRIBUTE></a><i class=icon-minus-sign></i> static const <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a> ATTRIBUTE</b>
+	<div class=indent></div>
+	<b><a id=HtmlEscapeMode.ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a> ELEMENT</b>
+	<div class=indent></div>
+	<b><a id=HtmlEscapeMode.UNKNOWN></a><i class=icon-minus-sign></i> static const <a href=dart.convert.html#HtmlEscapeMode>HtmlEscapeMode</a> UNKNOWN</b>
+	<div class=indent></div>
+	<h4>Fields</h4>
+	<b><a id=HtmlEscapeMode.escapeApos></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> escapeApos</b>
+	<div class=indent></div>
+	<b><a id=HtmlEscapeMode.escapeLtGt></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> escapeLtGt</b>
+	<div class=indent></div>
+	<b><a id=HtmlEscapeMode.escapeQuot></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> escapeQuot</b>
+	<div class=indent></div>
+	<h4>Methods</h4>
+	<b><a id=HtmlEscapeMode.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
+	<div class=indent>
+		<p>Returns a string representation of this object.</p>
 	</div>
 	<a id=JsonCodec></a><hr>
 	<h4>

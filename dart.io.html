@@ -69,8 +69,13 @@
 			<i class=icon-leaf></i> <a href=dart.io.html#FileException>FileException</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#FileMode>FileMode</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#FileStat>FileStat</a><br>
+			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemCreateEvent>FileSystemCreateEvent</a><br>
+			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemDeleteEvent>FileSystemDeleteEvent</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemEntityType>FileSystemEntityType</a><br>
+			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemEvent>FileSystemEvent</a><br>
+			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemModifyEvent>FileSystemModifyEvent</a><br>
+			<i class=icon-leaf></i> <a href=dart.io.html#FileSystemMoveEvent>FileSystemMoveEvent</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#GZipCodec>GZipCodec</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#HandshakeException>HandshakeException</a><br>
 			<i class=icon-leaf></i> <a href=dart.io.html#HeaderValue>HeaderValue</a><br>
@@ -493,8 +498,6 @@
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.createSync>createSync</a>(dynamic recursive): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.createTemp>createTemp</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Directory>Directory</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.createTempSync>createTempSync</a>(): <a href=dart.io.html#Directory>Directory</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.delete>delete</a>(dynamic recursive): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Directory>Directory</a>&gt;<br>
-			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.deleteSync>deleteSync</a>(dynamic recursive): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.list>list</a>(<a href=dart.core.html#bool>bool</a> recursive, <a href=dart.core.html#bool>bool</a> followLinks): <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.listSync>listSync</a>(<a href=dart.core.html#bool>bool</a> recursive, <a href=dart.core.html#bool>bool</a> followLinks): <a href=dart.core.html#List>List</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.rename>rename</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Directory>Directory</a>&gt;<br>
@@ -551,22 +554,6 @@
 	<b><a id=Directory.createTempSync></a><i class=icon-ok-sign></i> <a href=dart.io.html#Directory>Directory</a> createTempSync()</b>
 	<div class=indent>
 		<p>Synchronously creates a temporary directory with a name based on the current path. The path is used as a template, and additional characters are appended to it to make a unique temporary directory name. If the path is the empty string, a default system temp directory and name are used for the template. Returns the newly created temporary directory.</p>
-	</div>
-	<b><a id=Directory.delete></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Directory>Directory</a>&gt; delete(dynamic recursive)</b>
-	<div class=indent>
-		<p>Deletes this directory. </p>
-<p>If recursive is false, the directory must be empty.  Only directories and links to directories will be deleted. </p>
-<p>If recursive is true, this directory and all sub-directories and files in the directories are deleted. Links are not followed when deleting recursively. Only the link is deleted, not its target. </p>
-<p>If recursive is true, the target is deleted even if it is a file, or a link to a file, not only if it is a directory.  This behavior allows delete to be used to unconditionally delete any file system object. </p>
-<p>Returns a <code>Future&lt;Directory&gt;</code> that completes with this directory when the deletion is done. If the directory cannot be deleted, the future completes with an exception.</p>
-	</div>
-	<b><a id=Directory.deleteSync></a><i class=icon-ok-sign></i> void deleteSync(dynamic recursive)</b>
-	<div class=indent>
-		<p>Synchronously deletes this directory. </p>
-<p>If recursive is false, the directory must be empty. </p>
-<p>If recursive is true, this directory and all sub-directories and files in the directories are deleted. Links are not followed when deleting recursively. Only the link is deleted, not its target. </p>
-<p>If recursive is true, the target is deleted even if it is a file, or a link to a file, not only if it is a directory.  This behavior allows delete to be used to unconditionally delete any file system object. </p>
-<p>Throws an exception if the directory cannot be deleted.</p>
 	</div>
 	<b><a id=Directory.list></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt; list(<a href=dart.core.html#bool>bool</a> recursive, <a href=dart.core.html#bool>bool</a> followLinks)</b>
 	<div class=indent>
@@ -653,8 +640,6 @@
 		<dd>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#File.create>create</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#File>File</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#File.createSync>createSync</a>(): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.io.html#File.delete>delete</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#File>File</a>&gt;<br>
-			<i class=icon-ok-sign></i> <a href=dart.io.html#File.deleteSync>deleteSync</a>(): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#File.fullPath>fullPath</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#File.fullPathSync>fullPathSync</a>(): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#File.lastModified>lastModified</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#DateTime>DateTime</a>&gt;<br>
@@ -713,15 +698,6 @@
 	<b><a id=File.createSync></a><i class=icon-ok-sign></i> void createSync()</b>
 	<div class=indent>
 		<p>Synchronously create the file. Existing files are left untouched by createSync. Calling createSync on an existing file might fail if there are restrictive permissions on the file. </p>
-<p>Throws a FileException if the operation fails.</p>
-	</div>
-	<b><a id=File.delete></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#File>File</a>&gt; delete()</b>
-	<div class=indent>
-		<p>Delete the file. Returns a <code>Future&lt;File&gt;</code> that completes with the file when it has been deleted. Only a file or a link to a file can be deleted with this method, not a directory or a broken link.</p>
-	</div>
-	<b><a id=File.deleteSync></a><i class=icon-ok-sign></i> void deleteSync()</b>
-	<div class=indent>
-		<p>Synchronously delete the file. Only a file or a link to a file can be deleted with this method, not a directory or a broken link. </p>
 <p>Throws a FileException if the operation fails.</p>
 	</div>
 	<b><a id=File.fullPath></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; fullPath()</b>
@@ -966,16 +942,55 @@
 	<div class=indent>
 		<p>Returns a string representation of this object.</p>
 	</div>
+	<a id=FileSystemCreateEvent></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class FileSystemCreateEvent extends <a href=dart.io.html#FileSystemEvent>FileSystemEvent</a></h4>
+	<dl class=dl-horizontal>
+		<dt>Methods</dt>
+		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemCreateEvent.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
+		</dd>
+	</dl>
+	<div class=indent>
+		<p>File system event for newly created file system objects.</p>
+	</div>
+	<h4>Methods</h4>
+	<b><a id=FileSystemCreateEvent.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
+	<div class=indent>
+		<p>Returns a string representation of this object.</p>
+	</div>
+	<a id=FileSystemDeleteEvent></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class FileSystemDeleteEvent extends <a href=dart.io.html#FileSystemEvent>FileSystemEvent</a></h4>
+	<dl class=dl-horizontal>
+		<dt>Methods</dt>
+		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemDeleteEvent.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
+		</dd>
+	</dl>
+	<div class=indent>
+		<p>File system event for deletion of file system objects.</p>
+	</div>
+	<h4>Methods</h4>
+	<b><a id=FileSystemDeleteEvent.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
+	<div class=indent>
+		<p>Returns a string representation of this object.</p>
+	</div>
 	<a id=FileSystemEntity></a><hr>
 	<h4>
 		<i class=icon-leaf></i> Abstract class FileSystemEntity</h4>
 	<dl class=dl-horizontal>
+		<dt>Static Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEntity.isWatchSupported>isWatchSupported</a>: <a href=dart.core.html#bool>bool</a><br>
+		</dd>
 		<dt>Fields</dt>
 		<dd>
 			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEntity.path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
 		<dt>Getters and Setters</dt>
 		<dd>
+			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#isWatchSupported>isWatchSupported</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
 		<dt>Constructors</dt>
@@ -984,6 +999,8 @@
 		</dd>
 		<dt>Methods</dt>
 		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.delete>delete</a>(dynamic recursive): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt;<br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.deleteSync>deleteSync</a>(dynamic recursive): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.exists>exists</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.existsSync>existsSync</a>(): <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.identical>identical</a>(<a href=dart.core.html#String>String</a> path1, <a href=dart.core.html#String>String</a> path2): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt;<br>
@@ -1000,6 +1017,7 @@
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.statSync>statSync</a>(): <a href=dart.io.html#FileStat>FileStat</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.type>type</a>(<a href=dart.core.html#String>String</a> path, <a href=dart.core.html#bool>bool</a> followLinks): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileSystemEntityType>FileSystemEntityType</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.typeSync>typeSync</a>(<a href=dart.core.html#String>String</a> path, <a href=dart.core.html#bool>bool</a> followLinks): <a href=dart.io.html#FileSystemEntityType>FileSystemEntityType</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.watch>watch</a>(<a href=dart.core.html#int>int</a> events, <a href=dart.core.html#bool>bool</a> recursive): <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.io.html#FileSystemEvent>FileSystemEvent</a>&gt;<br>
 		</dd>
 	</dl>
 	<div class=indent>
@@ -1008,16 +1026,38 @@
 <p><pre>if (entity is File) (entity as File).readAsStringSync();
 </pre></p>
 	</div>
+	<h4>Static Fields</h4>
+	<b><a id=FileSystemEntity.isWatchSupported></a><i class=icon-minus-sign></i> static final <a href=dart.core.html#bool>bool</a> isWatchSupported</b>
+	<div class=indent></div>
 	<h4>Fields</h4>
 	<b><a id=FileSystemEntity.path></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> path</b>
 	<div class=indent></div>
 	<h4>Getters and Setters</h4>
+	<b><a id=isWatchSupported></a><i class=icon-circle-arrow-right></i> static <a href=dart.core.html#bool>bool</a> get isWatchSupported</b>
+	<div class=indent>
+		<p>Test if watch is supported on the current system. </p>
+<p>Mac OS 10.6 and below is not supported.</p>
+	</div>
 	<b><a id=path></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#String>String</a> get path</b>
 	<div class=indent></div>
 	<h4>Constructors</h4>
 	<b><a id=FileSystemEntity.></a><i class=icon-plus-sign></i> FileSystemEntity()</b>
 	<div class=indent></div>
 	<h4>Methods</h4>
+	<b><a id=FileSystemEntity.delete></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt; delete(dynamic recursive)</b>
+	<div class=indent>
+		<p>Deletes this FileSystemEntity. </p>
+<p>If the FileSystemEntity is a directory, and if recursive is false, the directory must be empty. Otherwise, if recursive is true, the directory and all sub-directories and files in the directories are deleted. Links are not followed when deleting recursively. Only the link is deleted, not its target. </p>
+<p>If recursive is true, the FileSystemEntity is deleted even if the type of the FileSystemEntity doesn't match the content of the file system. This behavior allows delete to be used to unconditionally delete any file system object. </p>
+<p>Returns a <code>Future&lt;FileSystemEntity&gt;</code> that completes with this FileSystemEntity when the deletion is done. If the FileSystemEntity cannot be deleted, the future completes with an exception.</p>
+	</div>
+	<b><a id=FileSystemEntity.deleteSync></a><i class=icon-ok-sign></i> void deleteSync(dynamic recursive)</b>
+	<div class=indent>
+		<p>Synchronously deletes this FileSystemEntity. </p>
+<p>If the FileSystemEntity is a directory, and if recursive is false, the directory must be empty. Otherwise, if recursive is true, the directory and all sub-directories and files in the directories are deleted. Links are not followed when deleting recursively. Only the link is deleted, not its target. </p>
+<p>If recursive is true, the FileSystemEntity is deleted even if the type of the FileSystemEntity doesn't match the content of the file system. This behavior allows deleteSync to be used to unconditionally delete any file system object. </p>
+<p>Throws an exception if the FileSystemEntity cannot be deleted.</p>
+	</div>
 	<b><a id=FileSystemEntity.exists></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; exists()</b>
 	<div class=indent>
 		<p>Checks whether the file system entity with this path exists. Returns a <code>Future&lt;bool&gt;</code> that completes with the result. </p>
@@ -1096,6 +1136,17 @@
 		<p>Synchronously finds the type of file system object that a path points to. Returns a FileSystemEntityType. </p>
 <p>FileSystemEntityType has the constant instances FILE, DIRECTORY, LINK, and NOT_FOUND.  type will return LINK only if the optional named argument followLinks is false, and path points to a link. If the path does not point to a file system object, or any other error occurs in looking up the path, NOT_FOUND is returned.  The only error or exception that may be thrown is ArgumentError, caused by passing the wrong type of arguments to the function.</p>
 	</div>
+	<b><a id=FileSystemEntity.watch></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.io.html#FileSystemEvent>FileSystemEvent</a>&gt; watch(<a href=dart.core.html#int>int</a> events, <a href=dart.core.html#bool>bool</a> recursive)</b>
+	<div class=indent>
+		<p>Start watch the FileSystemEntity for changes. </p>
+<p>The implementation uses platform-depending event-based APIs for receiving file-system notifixations, thus behvaiour depends on the platform. </p>
+<p><ul><li><code>Windows</code>: Uses <code>ReadDirectoryChangesW</code>. The implementation supports</li></ul><pre>only watching dirctories but supports recursive watching.
+</pre>* <code>Linux</code>: Uses <code>inotify</code>. The implementation supports watching both <pre>files and dirctories, but doesn't support recursive watching.
+</pre>* <code>Mac OS</code>: Uses <code>FSEvents</code>. The implementation supports watching both <pre>files and dirctories, and also recursive watching. Note that FSEvents
+always use recursion internally, so when disabled, some events are
+ignored.
+</pre>The system will start listen for events once the returned Stream is being listened to, not when the call to watch is issued. Note that the returned Stream is endless. To stop the Stream, simply cancel the subscription.</p>
+	</div>
 	<a id=FileSystemEntityType></a><hr>
 	<h4>
 		<i class=icon-leaf></i> Class FileSystemEntityType</h4>
@@ -1124,6 +1175,99 @@
 	<div class=indent></div>
 	<h4>Methods</h4>
 	<b><a id=FileSystemEntityType.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
+	<div class=indent>
+		<p>Returns a string representation of this object.</p>
+	</div>
+	<a id=FileSystemEvent></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class FileSystemEvent</h4>
+	<dl class=dl-horizontal>
+		<dt>Static Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.ALL>ALL</a>: <a href=dart.core.html#int>int</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.CREATE>CREATE</a>: <a href=dart.core.html#int>int</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.DELETE>DELETE</a>: <a href=dart.core.html#int>int</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.MODIFY>MODIFY</a>: <a href=dart.core.html#int>int</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.MOVE>MOVE</a>: <a href=dart.core.html#int>int</a><br>
+		</dd>
+		<dt>Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.path>path</a>: <a href=dart.core.html#String>String</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEvent.type>type</a>: <a href=dart.core.html#int>int</a><br>
+		</dd>
+	</dl>
+	<div class=indent>
+		<p>Base event class emitted by FileSystemWatcher.</p>
+	</div>
+	<h4>Static Fields</h4>
+	<b><a id=FileSystemEvent.ALL></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> ALL = 15</b>
+	<div class=indent></div>
+	<b><a id=FileSystemEvent.CREATE></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> CREATE = 1</b>
+	<div class=indent></div>
+	<b><a id=FileSystemEvent.DELETE></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> DELETE = 4</b>
+	<div class=indent></div>
+	<b><a id=FileSystemEvent.MODIFY></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> MODIFY = 2</b>
+	<div class=indent></div>
+	<b><a id=FileSystemEvent.MOVE></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> MOVE = 8</b>
+	<div class=indent></div>
+	<h4>Fields</h4>
+	<b><a id=FileSystemEvent.path></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> path</b>
+	<div class=indent>
+		<p>The path that triggered the event. Depending on the platform and the FileSystemEntity, the path may be relative.</p>
+	</div>
+	<b><a id=FileSystemEvent.type></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> type</b>
+	<div class=indent>
+		<p>The type of event. See FileSystemEvent for a list of events.</p>
+	</div>
+	<a id=FileSystemModifyEvent></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class FileSystemModifyEvent extends <a href=dart.io.html#FileSystemEvent>FileSystemEvent</a></h4>
+	<dl class=dl-horizontal>
+		<dt>Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemModifyEvent.contentChanged>contentChanged</a>: <a href=dart.core.html#bool>bool</a><br>
+		</dd>
+		<dt>Methods</dt>
+		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemModifyEvent.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
+		</dd>
+	</dl>
+	<div class=indent>
+		<p>File system event for modifications of file system objects.</p>
+	</div>
+	<h4>Fields</h4>
+	<b><a id=FileSystemModifyEvent.contentChanged></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> contentChanged</b>
+	<div class=indent>
+		<p>If the content was changed and not only the attributes, contentChanged is <code>true</code>.</p>
+	</div>
+	<h4>Methods</h4>
+	<b><a id=FileSystemModifyEvent.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
+	<div class=indent>
+		<p>Returns a string representation of this object.</p>
+	</div>
+	<a id=FileSystemMoveEvent></a><hr>
+	<h4>
+		<i class=icon-leaf></i> Class FileSystemMoveEvent extends <a href=dart.io.html#FileSystemEvent>FileSystemEvent</a></h4>
+	<dl class=dl-horizontal>
+		<dt>Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemMoveEvent.destination>destination</a>: <a href=dart.core.html#String>String</a><br>
+		</dd>
+		<dt>Methods</dt>
+		<dd>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemMoveEvent.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
+		</dd>
+	</dl>
+	<div class=indent>
+		<p>File system event for moving of file system objects.</p>
+	</div>
+	<h4>Fields</h4>
+	<b><a id=FileSystemMoveEvent.destination></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> destination</b>
+	<div class=indent>
+		<p>If the underlaying implementation is able to identify the destination of the moved file, destination will be set. Otherwise, it will be <code>null</code>.</p>
+	</div>
+	<h4>Methods</h4>
+	<b><a id=FileSystemMoveEvent.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
 		<p>Returns a string representation of this object.</p>
 	</div>
@@ -2958,8 +3102,6 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 		<dd>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.create>create</a>(<a href=dart.core.html#String>String</a> target): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.createSync>createSync</a>(<a href=dart.core.html#String>String</a> target): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.delete>delete</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt;<br>
-			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.deleteSync>deleteSync</a>(): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.rename>rename</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.renameSync>renameSync</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.io.html#Link>Link</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.target>target</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt;<br>
@@ -2988,14 +3130,6 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 		<p>Synchronously create the link. Calling createSync on an existing link will throw an exception. </p>
 <p>On the Windows platform, this will only work with directories, and the target directory must exist. The link will be created as a Junction. Only absolute links will be created, and relative paths to the target will be converted to absolute paths. </p>
 <p>On other platforms, the posix symlink() call is used to make a symbolic link containing the string target.  If target is a relative path, it will be interpreted relative to the directory containing the link.</p>
-	</div>
-	<b><a id=Link.delete></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt; delete()</b>
-	<div class=indent>
-		<p>Deletes the link. Returns a <code>Future&lt;Link&gt;</code> that completes with the link when it has been deleted. This does not delete, or otherwise affect, the target of the link. It also works on broken links, but if the link does not exist or is not actually a link, it completes the future with a LinkException.</p>
-	</div>
-	<b><a id=Link.deleteSync></a><i class=icon-ok-sign></i> void deleteSync()</b>
-	<div class=indent>
-		<p>Synchronously deletes the link. This does not delete, or otherwise affect, the target of the link.  It also works on broken links, but if the link does not exist or is not actually a link, it throws a LinkException.</p>
 	</div>
 	<b><a id=Link.rename></a><i class=icon-ok-sign></i> <a href='dart.io.html#FileSystemEntity.rename'><i title='Overrides FileSystemEntity.rename()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt; rename(<a href=dart.core.html#String>String</a> newPath)</b>
 	<div class=indent>
