@@ -28,7 +28,7 @@ class LibraryHelper {
     }
 
     accessors..removeWhere(isPrivate)..sort(elementCompare);
-    accessors.removeWhere((e) => e.isSynthetic());
+    accessors.removeWhere((e) => e.isSynthetic);
 
     return accessors.map((e) => new AccessorHelper(e)).toList();
   }
@@ -116,7 +116,7 @@ class ClassHelper extends ElementHelper {
   List<AccessorHelper> getAccessors() {
     List<PropertyAccessorElement> accessors =
         _cls.accessors.toList()..removeWhere(isPrivate)..sort(elementCompare);
-    accessors.removeWhere((e) => e.isSynthetic());
+    accessors.removeWhere((e) => e.isSynthetic);
     return accessors.map((e) => new AccessorHelper(e)).toList();
   }
 

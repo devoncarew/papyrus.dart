@@ -1,8 +1,6 @@
 
 library css;
 
-import 'img.dart';
-
 class CSS {
 
   String getCssName() => 'bootstrap.css';

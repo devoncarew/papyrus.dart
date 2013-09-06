@@ -1,14 +1,8 @@
 
 library model_utils;
 
-import 'package:analyzer_experimental/src/generated/ast.dart';
 import 'package:analyzer_experimental/src/generated/element.dart';
-import 'package:analyzer_experimental/src/generated/engine.dart';
 import 'package:analyzer_experimental/src/generated/constant.dart';
-import 'package:analyzer_experimental/src/generated/java_io.dart';
-import 'package:analyzer_experimental/src/generated/sdk.dart';
-import 'package:analyzer_experimental/src/generated/sdk_io.dart';
-import 'package:analyzer_experimental/src/generated/source_io.dart';
 
 Element getOverriddenElement(Element element) {
   if (element is MethodElement) {

@@ -3,8 +3,6 @@ library html_gen;
 
 import 'package:intl/intl.dart';
 
-import 'css.dart';
-
 class HtmlGenerator {
   StringBuffer buffer = new StringBuffer();
   bool startOfLine = true;

@@ -4,8 +4,6 @@ library papyrus;
 import 'dart:io';
 
 import 'package:args/args.dart';
-// TODO: convert over to path
-//import 'package:path/path.dart';
 
 import 'package:analyzer_experimental/src/generated/ast.dart';
 import 'package:analyzer_experimental/src/generated/element.dart';
@@ -32,8 +30,22 @@ part 'helpers.dart';
 
 // TODO: generate an element index
 
-Path get sdkBinPath => new Path(new Options().executable).directoryPath;
-Path get sdkPath => sdkBinPath.join(new Path('..')).canonicalize();
+Directory get sdkDir {
+  // look for --dart-sdk on the command line
+  List<String> args = new Options().arguments;
+  if (args.contains('--dart-sdk')) {
+    return new Directory(args[args.indexOf('dart-sdk') + 1]);
+  }
+
+  // look in env['DART_SDK']
+  if (Platform.environment['DART_SDK'] != null) {
+    return new Directory(Platform.environment['DART_SDK']);
+  }
+
+  // look relative to the dart executable
+  // TODO: file a bug re: the path to the executable and the cwd
+  return getParent(new File(Platform.executable).directory);
+}
 
 /**
  * A Dart documentation generator.
@@ -153,7 +165,7 @@ class Papyrus implements Generator {
     }
 
     // copy the css resource into 'out'
-    File f = new File.fromPath(new Path(out.path).append(css.getCssName()));
+    File f = joinFile(new Directory(out.path), [css.getCssName()]);
     f.writeAsStringSync(css.getCssContent());
 
     double seconds = stopwatch.elapsedMilliseconds / 1000.0;
@@ -181,7 +193,7 @@ class Papyrus implements Generator {
   }
 
   void generateLibrary(LibraryElement library) {
-    File f = new File.fromPath(new Path(out.path).append(getFileNameFor(library)));
+    File f = joinFile(new Directory(out.path), [getFileNameFor(library)]);
 
     print('generating ${f.path}');
 
@@ -703,7 +715,7 @@ String getFileNameFor(LibraryElement library) {
 // TODO: --package-root
 
 List<LibraryElement> parseLibraries(List<String> files) {
-  DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(sdkPath.toString()));
+  DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(sdkDir.path));
 
   ContentCache contentCache = new ContentCache();
 

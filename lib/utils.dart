@@ -4,6 +4,8 @@
  */
 library utils;
 
+import 'dart:io';
+
 abstract class CodeResolver {
   String resolveCodeReference(String reference);
 }
@@ -66,7 +68,7 @@ String htmlEscape(String text) {
       replaceAll('>', '&gt;').replaceAll('<', '&lt;');
 }
 
-/** 
+/**
  * [quoteType] should be ' or ".
  */
 String stringEscape(String text, String quoteType) {
@@ -126,6 +128,36 @@ String ltrim(String str) {
   return str;
 }
 
+File joinFile(Directory dir, List<String> files) {
+  String pathFragment = files.join(Platform.pathSeparator);
+  return new File("${dir.path}${Platform.pathSeparator}${pathFragment}");
+}
+
+Directory joinDir(Directory dir, List<String> files) {
+  String pathFragment = files.join(Platform.pathSeparator);
+  return new Directory("${dir.path}${Platform.pathSeparator}${pathFragment}");
+}
+
+String getBase(FileSystemEntity entity) {
+  String name = entity.path;
+  int index = name.lastIndexOf(Platform.pathSeparator);
+  if (index != -1) {
+    return name.substring(0, index);
+  } else {
+    return null;
+  }
+}
+
+Directory getParent(Directory dir) {
+  String base = getBase(dir);
+
+  if (base == null) {
+    return null;
+  } else {
+    return new Directory(base);
+  }
+}
+
 String _processMarkdown(CodeResolver resolver, String line) {
   line = ltrim(line);
 
@@ -150,7 +182,7 @@ String _processMarkdown(CodeResolver resolver, String line) {
   return line;
 }
 
-String _replaceAll(String str, List<String> matchChars, 
+String _replaceAll(String str, List<String> matchChars,
                    {String htmlEntity, var replaceFunction}) {
   int lastWritten = 0;
   int index = str.indexOf(matchChars[0]);
@@ -163,15 +195,15 @@ String _replaceAll(String str, List<String> matchChars,
       if (index - lastWritten > 0) {
         buf.write(str.substring(lastWritten, index));
       }
-  
+
       String codeRef = str.substring(index + matchChars[0].length, end);
-      
+
       if (htmlEntity != null) {
         buf.write('<$htmlEntity>$codeRef</$htmlEntity>');
       } else {
         buf.write(replaceFunction(codeRef));
       }
-      
+
       lastWritten = end + matchChars[1].length;
     } else {
       break;
