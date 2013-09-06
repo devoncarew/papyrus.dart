@@ -7,3 +7,4 @@ out
 packages
 pubspec.lock
 docs/
+dist/
