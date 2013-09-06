@@ -6,5 +6,11 @@
 out
 packages
 pubspec.lock
+assets/
+bin/
 docs/
 dist/
+example/
+lib/
+test/
+tool/
