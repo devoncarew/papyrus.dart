@@ -5,7 +5,7 @@ papyrus.dart
 
 ### Description
 
-A Dart documentation generator
+A Dart documentation generator.
 
 ### Design Goals
 
@@ -20,15 +20,14 @@ View the documentation for the Dart SDK libraries [here](http://devoncarew.githu
 
 ### Download and Run
 
-Download a Dart snapshot of the command-line tool [here](https://drone.io/github.com/devoncarew/papyrus.dart/files/dist/papyrus.snap).
+You can download a Dart snapshot of the command-line tool [here](https://drone.io/github.com/devoncarew/papyrus.dart/files/dist/papyrus.snap).
 
 The tool can then be invoked like a normal Dart script (`dart papyrus.snap`). Usage:
 
-    usage: dart papyrus <options> path/to/library1 path/to/library2
+    usage: dart papyrus.snap <options> path/to/library1 path/to/library2
 
     where <options> is one or more of:
+        --out        the output directory (defaults to "out")
+        --include    a comma-separated list of library names to include
         --exclude    a comma-separated list of library names to ignore
     -h, --help       show command help
-        --include    a comma-separated list of library names to include
-        --out        the output directory
-                     (defaults to "out")
