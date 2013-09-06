@@ -14,4 +14,4 @@ A Dart documentation generator
 - generate small files
 - generate simple, clean html
 
-Sample [output](sample/out/dart.core.html)
+Sample [output](http://devoncarew.github.io/papyrus.dart/)
