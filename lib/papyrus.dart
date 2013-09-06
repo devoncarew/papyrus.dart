@@ -30,21 +30,12 @@ part 'helpers.dart';
 
 // TODO: generate an element index
 
-Directory get sdkDir {
-  // look for --dart-sdk on the command line
-  List<String> args = new Options().arguments;
-  if (args.contains('--dart-sdk')) {
-    return new Directory(args[args.indexOf('dart-sdk') + 1]);
-  }
+void main() {
+  Papyrus generator = new Papyrus();
 
-  // look in env['DART_SDK']
-  if (Platform.environment['DART_SDK'] != null) {
-    return new Directory(Platform.environment['DART_SDK']);
+  if (generator.parseArgs(new Options().arguments)) {
+    generator.generate();
   }
-
-  // look relative to the dart executable
-  // TODO: file a bug re: the path to the executable and the cwd
-  return getParent(new File(Platform.executable).directory);
 }
 
 /**
@@ -198,7 +189,7 @@ class Papyrus implements Generator {
     print('generating ${f.path}');
 
     html = new HtmlGenerator();
-    html.start(title: library.name, cssRef: css.getCssName());
+    html.start(title: 'Library ${library.name}', cssRef: css.getCssName());
 
     generateHeader(library);
 
@@ -708,6 +699,23 @@ class PapyrusResolver extends CodeResolver {
   }
 }
 
+Directory getSdkDir() {
+  // look for --dart-sdk on the command line
+  List<String> args = new Options().arguments;
+  if (args.contains('--dart-sdk')) {
+    return new Directory(args[args.indexOf('dart-sdk') + 1]);
+  }
+
+  // look in env['DART_SDK']
+  if (Platform.environment['DART_SDK'] != null) {
+    return new Directory(Platform.environment['DART_SDK']);
+  }
+
+  // look relative to the dart executable
+  // TODO: file a bug re: the path to the executable and the cwd
+  return getParent(new File(Platform.executable).directory);
+}
+
 String getFileNameFor(LibraryElement library) {
   return '${library.name}.html';
 }
@@ -715,7 +723,7 @@ String getFileNameFor(LibraryElement library) {
 // TODO: --package-root
 
 List<LibraryElement> parseLibraries(List<String> files) {
-  DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(sdkDir.path));
+  DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(getSdkDir().path));
 
   ContentCache contentCache = new ContentCache();
 
