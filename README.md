@@ -17,17 +17,3 @@ A Dart documentation generator.
 ### Sample Output
 
 View the documentation for the Dart SDK libraries [here](http://devoncarew.github.io/papyrus.dart/).
-
-### Download and Run
-
-You can download a Dart snapshot of the command-line tool [here](https://drone.io/github.com/devoncarew/papyrus.dart/files/dist/papyrus.snap).
-
-The tool can then be invoked like a normal Dart script (`dart papyrus.snap`). Usage:
-
-    usage: dart papyrus.snap <options> path/to/library1 path/to/library2
-
-    where <options> is one or more of:
-        --out        the output directory (defaults to "out")
-        --include    a comma-separated list of library names to include
-        --exclude    a comma-separated list of library names to ignore
-    -h, --help       show command help
