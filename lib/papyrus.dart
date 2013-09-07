@@ -59,7 +59,7 @@ class Papyrus implements Generator {
    */
   bool parseArgs(List<String> args) {
     ArgParser parser = _createArgsParser();
-    ArgResults results = parser.parse(new Options().arguments);
+    ArgResults results = parser.parse(args);
 
     if (results['help']) {
       _printUsage(parser);
