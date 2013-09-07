@@ -3,8 +3,6 @@ library papyrus;
 
 import 'dart:io';
 
-import 'package:args/args.dart';
-
 import 'package:analyzer_experimental/src/generated/ast.dart';
 import 'package:analyzer_experimental/src/generated/element.dart';
 import 'package:analyzer_experimental/src/generated/engine.dart';
@@ -12,6 +10,7 @@ import 'package:analyzer_experimental/src/generated/java_io.dart';
 import 'package:analyzer_experimental/src/generated/sdk.dart';
 import 'package:analyzer_experimental/src/generated/sdk_io.dart';
 import 'package:analyzer_experimental/src/generated/source_io.dart';
+import 'package:args/args.dart';
 
 import 'css.dart';
 import 'html_gen.dart';
