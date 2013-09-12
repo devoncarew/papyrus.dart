@@ -693,7 +693,7 @@ class PapyrusResolver extends CodeResolver {
       return generator.createLinkedName(e, true);
     } else {
       //return "<a>$reference</a>";
-      return "$reference";
+      return "<code>$reference</code>";
     }
   }
 }
