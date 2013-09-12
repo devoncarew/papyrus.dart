@@ -60,19 +60,19 @@
 	</dl>
 	<div class=indent>
 		<p>The js.dart library provides simple JavaScript invocation from Dart that works on both Dartium and on other modern browsers via Dart2JS. </p>
-<p>It provides a model based on scoped JsObject objects.  Proxies give Dart code access to JavaScript objects, fields, and functions as well as the ability to pass Dart objects and functions to JavaScript functions.  Scopes enable developers to use proxies without memory leaks - a common challenge with cross-runtime interoperation. </p>
-<p>The top-level context getter provides a JsObject to the global JavaScript context for the page your Dart code is running on.  In the following example: </p>
+<p>It provides a model based on scoped <code>JsObject</code> objects.  Proxies give Dart code access to JavaScript objects, fields, and functions as well as the ability to pass Dart objects and functions to JavaScript functions.  Scopes enable developers to use proxies without memory leaks - a common challenge with cross-runtime interoperation. </p>
+<p>The top-level <code>context</code> getter provides a <code>JsObject</code> to the global JavaScript context for the page your Dart code is running on.  In the following example: </p>
 <p><pre>import 'dart:js';
 
 void main() {
   context.callMethod('alert', ['Hello from Dart via JavaScript']);
 }
-</pre>context'alert' creates a proxy to the top-level alert function in JavaScript.  It is invoked from Dart as a regular function that forwards to the underlying JavaScript one.  By default, proxies are released when the currently executing event completes, e.g., when main is completes in this example. </p>
+</pre>context<code>'alert'</code> creates a proxy to the top-level alert function in JavaScript.  It is invoked from Dart as a regular function that forwards to the underlying JavaScript one.  By default, proxies are released when the currently executing event completes, e.g., when main is completes in this example. </p>
 <p>The library also enables JavaScript proxies to Dart objects and functions. For example, the following Dart code: </p>
 <p><pre>context['dartCallback'] = new Callback.once((x) =&gt; print(x*2));
-</pre>defines a top-level JavaScript function 'dartCallback' that is a proxy to the corresponding Dart function.  The Callback.once constructor allows the proxy to the Dart function to be retained across multiple events; instead it is released after the first invocation.  (This is a common pattern for asychronous callbacks.) </p>
+</pre>defines a top-level JavaScript function 'dartCallback' that is a proxy to the corresponding Dart function.  The <code>Callback.once</code> constructor allows the proxy to the Dart function to be retained across multiple events; instead it is released after the first invocation.  (This is a common pattern for asychronous callbacks.) </p>
 <p>Note, parameters and return values are intuitively passed by value for primitives and by reference for non-primitives.  In the latter case, the references are automatically wrapped and unwrapped as proxies by the library. </p>
-<p>This library also allows construction of JavaScripts objects given a JsObject to a corresponding JavaScript constructor.  For example, if the following JavaScript is loaded on the page: </p>
+<p>This library also allows construction of JavaScripts objects given a <code>JsObject</code> to a corresponding JavaScript constructor.  For example, if the following JavaScript is loaded on the page: </p>
 <p><pre>function Foo(x) {
   this.x = x;
 }
@@ -84,7 +84,7 @@ Foo.prototype.add = function(other) {
 <p><pre>var foo = new JsObject(context['Foo'], [42]);
 var foo2 = foo.callMethod('add', [foo]);
 print(foo2['x']);
-</pre>will construct a JavaScript Foo object with the parameter 42, invoke its add method, and return a JsObject to a new Foo object whose x field is 84.</p>
+</pre>will construct a JavaScript Foo object with the parameter 42, invoke its add method, and return a <code>JsObject</code> to a new Foo object whose x field is 84.</p>
 	</div>
 	<h4>Getters and Setters</h4>
 	<div class=indent>
@@ -97,7 +97,7 @@ print(foo2['x']);
 	<div class=indent>
 		<b><a id=jsify></a><i class=icon-ok-sign></i> static <a href=dart.js.html#JsObject>JsObject</a> jsify(dynamic data)</b>
 		<div class=indent>
-			<p>Converts a json-like data to a JavaScript map or array and return a JsObject to it.</p>
+			<p>Converts a json-like <code>data</code> to a JavaScript map or array and return a <code>JsObject</code> to it.</p>
 		</div>
 	</div>
 	<a id=Callback></a><hr>
@@ -135,7 +135,7 @@ print(foo2['x']);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A JsObject subtype to JavaScript functions.</p>
+		<p>A <code>JsObject</code> subtype to JavaScript functions.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=JsFunction.apply></a><i class=icon-ok-sign></i> dynamic apply(dynamic thisArg, <a href=dart.core.html#List>List</a>&lt;dynamic&gt; args)</b>
@@ -181,20 +181,20 @@ print(foo2['x']);
 	<h4>Constructors</h4>
 	<b><a id=JsObject.></a><i class=icon-plus-sign></i> factory JsObject(<a href=dart.js.html#Serializable>Serializable</a>&lt;<a href=dart.js.html#JsFunction>JsFunction</a>&gt; constructor, <a href=dart.core.html#List>List</a>&lt;dynamic&gt; arguments)</b>
 	<div class=indent>
-		<p>Constructs a JsObject to a new JavaScript object by invoking a (proxy to a) JavaScript constructor.  The arguments list should contain either primitive values, DOM elements, or Proxies.</p>
+		<p>Constructs a <code>JsObject</code> to a new JavaScript object by invoking a (proxy to a) JavaScript <code>constructor</code>.  The <code>arguments</code> list should contain either primitive values, DOM elements, or Proxies.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=JsObject.==></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.=='><i title='Overrides Object.==()' class='icon-circle-arrow-up'></i></a> dynamic ==(dynamic other)</b>
 	<div class=indent>
 		<p>The equality operator. </p>
-<p>The default behavior for all Objects is to return true if and only if <code>this</code> and other are the same object. </p>
+<p>The default behavior for all <code>Object</code>s is to return true if and only if <code>this</code> and <code>other</code> are the same object. </p>
 <p>Override this method to specify a different equality relation on a class. The overriding method must still be an equivalence relation. That is, it must be: </p>
 <p><ul><li>Total: It must return a boolean for all arguments. It should never throw</li></ul>or return <code>null</code>. </p>
 <p><ul><li>Reflexive: For all objects <code>o</code>, <code>o == o</code> must be true.</li></ul></p>
 <p><ul><li>Symmetric: For all objects <code>o1</code> and <code>o2</code>, <code>o1 == o2</code> and <code>o2 == o1</code> must</li></ul>either both be true, or both be false. </p>
 <p><ul><li>Transitive: For all objects <code>o1</code>, <code>o2</code>, and <code>o3</code>, if <code>o1 == o2</code> and</li></ul><code>o2 == o3</code> are true, then <code>o1 == o3</code> must be true. </p>
 <p>The method should also be consistent over time, so equality of two objects should not change over time, or at least only change if one of the objects was modified. </p>
-<p>If a subclass overrides the equality operator it should override the hashCode method as well to maintain consistency.</p>
+<p>If a subclass overrides the equality operator it should override the <code>hashCode</code> method as well to maintain consistency.</p>
 	</div>
 	<b><a id=JsObject.[]></a><i class=icon-ok-sign></i> dynamic [](dynamic arg)</b>
 	<div class=indent></div>
@@ -204,15 +204,15 @@ print(foo2['x']);
 	<div class=indent></div>
 	<b><a id=JsObject.deleteProperty></a><i class=icon-ok-sign></i> void deleteProperty(<a href=dart.core.html#String>String</a> name)</b>
 	<div class=indent>
-		<p>Delete the name property.</p>
+		<p>Delete the <code>name</code> property.</p>
 	</div>
 	<b><a id=JsObject.hasProperty></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> hasProperty(<a href=dart.core.html#String>String</a> name)</b>
 	<div class=indent>
-		<p>Check if this JsObject has a name property.</p>
+		<p>Check if this <code>JsObject</code> has a <code>name</code> property.</p>
 	</div>
 	<b><a id=JsObject.instanceof></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> instanceof(<a href=dart.js.html#Serializable>Serializable</a>&lt;<a href=dart.js.html#JsFunction>JsFunction</a>&gt; type)</b>
 	<div class=indent>
-		<p>Check if this JsObject is instance of type.</p>
+		<p>Check if this <code>JsObject</code> is instance of <code>type</code>.</p>
 	</div>
 	<b><a id=JsObject.toJs></a><i class=icon-ok-sign></i> <a href='dart.js.html#Serializable.toJs'><i title='Overrides Serializable.toJs()' class='icon-circle-arrow-up'></i></a> <a href=dart.js.html#JsObject>JsObject</a> toJs()</b>
 	<div class=indent></div>
@@ -234,7 +234,7 @@ print(foo2['x']);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Marker class used to indicate it is serializable to js. If a class is a Serializable the "toJs" method will be called and the result will be used as value.</p>
+		<p>Marker class used to indicate it is serializable to js. If a class is a <code>Serializable</code> the "toJs" method will be called and the result will be used as value.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Serializable.></a><i class=icon-plus-sign></i> Serializable()</b>

@@ -89,7 +89,7 @@
 	<div class=indent>
 		<b><a id=ASCII></a><i class=icon-minus-sign></i> static const dynamic ASCII</b>
 		<div class=indent>
-			<p>An instance of the default implementation of the AsciiCodec. </p>
+			<p>An instance of the default implementation of the <code>AsciiCodec</code>. </p>
 <p>This instance provides a convenient access to the most common ASCII use cases. </p>
 <p>Examples: </p>
 <p><pre>var encoded = ASCII.encode("This is ASCII!");
@@ -101,7 +101,7 @@ var decoded = ASCII.decode([0x54, 0x68, 0x69, 0x73, 0x20, 0x69, 0x73,
 		<div class=indent></div>
 		<b><a id=JSON></a><i class=icon-minus-sign></i> static const dynamic JSON</b>
 		<div class=indent>
-			<p>An instance of the default implementation of the JsonCodec. </p>
+			<p>An instance of the default implementation of the <code>JsonCodec</code>. </p>
 <p>This instance provides a convenient access to the most common JSON use cases. </p>
 <p>Examples: </p>
 <p><pre>var encoded = JSON.encode([1, 2, { "a": null }]);
@@ -110,7 +110,7 @@ var decoded = JSON.decode('["foo", { "bar": 499 }]');
 		</div>
 		<b><a id=LATIN1></a><i class=icon-minus-sign></i> static const dynamic LATIN1</b>
 		<div class=indent>
-			<p>An instance of the default implementation of the Latin1Codec. </p>
+			<p>An instance of the default implementation of the <code>Latin1Codec</code>. </p>
 <p>This instance provides a convenient access to the most common ISO Latin 1 use cases. </p>
 <p>Examples: </p>
 <p><pre>var encoded = LATIN1.encode("blåbærgrød");
@@ -124,7 +124,7 @@ var decoded = LATIN1.decode([0x62, 0x6c, 0xe5, 0x62, 0xe6,
 		</div>
 		<b><a id=UTF8></a><i class=icon-minus-sign></i> static const dynamic UTF8</b>
 		<div class=indent>
-			<p>An instance of the default implementation of the Utf8Codec. </p>
+			<p>An instance of the default implementation of the <code>Utf8Codec</code>. </p>
 <p>This instance provides a convenient access to the most common UTF-8 use cases. </p>
 <p>Examples: </p>
 <p><pre>var encoded = UTF8.encode("Îñţérñåţîöñåļîžåţîờñ");
@@ -159,7 +159,7 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An AsciiCodec allows encoding strings as ASCII bytes and decoding ASCII bytes to strings.</p>
+		<p>An <code>AsciiCodec</code> allows encoding strings as ASCII bytes and decoding ASCII bytes to strings.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=AsciiCodec.decoder></a><i class=icon-minus-sign></i> final <a href=dart.convert.html#Converter>Converter</a> decoder</b>
@@ -178,16 +178,16 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<h4>Constructors</h4>
 	<b><a id=AsciiCodec.></a><i class=icon-plus-sign></i> AsciiCodec(<a href=dart.core.html#bool>bool</a> allowInvalid)</b>
 	<div class=indent>
-		<p>Instantiates a new AsciiCodec. </p>
-<p>If allowInvalid is true, the decode method and the converter returned by decoder will default to allowing invalid values. If allowing invalid values, the values will be decoded into the Unicode Replacement character (U+FFFD). If not, an exception will be thrown. Calls to the decode method can choose to override this default. </p>
+		<p>Instantiates a new <code>AsciiCodec</code>. </p>
+<p>If <code>allowInvalid</code> is true, the <code>decode</code> method and the converter returned by <code>decoder</code> will default to allowing invalid values. If allowing invalid values, the values will be decoded into the Unicode Replacement character (U+FFFD). If not, an exception will be thrown. Calls to the <code>decode</code> method can choose to override this default. </p>
 <p>Encoders will not accept invalid (non Latin-1) characters.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=AsciiCodec.decode></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Codec.decode'><i title='Overrides Codec.decode()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> decode(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#bool>bool</a> allowInvalid)</b>
 	<div class=indent>
-		<p>Decodes the ASCII bytes (a list of unsigned 7-bit integers) to the corresponding string. </p>
-<p>If bytes contains values that are not in the range 0 .. 127, the decoder will eventually throw a FormatException. </p>
-<p>If allowInvalid is not provided, it defaults to the value used to create this AsciiCodec.</p>
+		<p>Decodes the ASCII <code>bytes</code> (a list of unsigned 7-bit integers) to the corresponding string. </p>
+<p>If <code>bytes</code> contains values that are not in the range 0 .. 127, the decoder will eventually throw a <code>FormatException</code>. </p>
+<p>If <code>allowInvalid</code> is not provided, it defaults to the value used to create this <code>AsciiCodec</code>.</p>
 	</div>
 	<a id=AsciiDecoder></a><hr>
 	<h4>
@@ -210,7 +210,7 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<b><a id=AsciiDecoder.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#_UnicodeSubsetDecoder.startChunkedConversion'><i title='Overrides _UnicodeSubsetDecoder.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#ByteConversionSink>ByteConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
 	<div class=indent>
 		<p>Starts a chunked conversion. </p>
-<p>The converter works more efficiently if the given sink is a StringConversionSink.</p>
+<p>The converter works more efficiently if the given <code>sink</code> is a <code>StringConversionSink</code>.</p>
 	</div>
 	<a id=AsciiEncoder></a><hr>
 	<h4>
@@ -243,7 +243,7 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The ByteConversionSink provides an interface for converters to efficiently transmit byte data. </p>
+		<p>The <code>ByteConversionSink</code> provides an interface for converters to efficiently transmit byte data. </p>
 <p>Instead of limiting the interface to one non-chunked list of bytes it accepts its input in chunks (themselves being lists of bytes).</p>
 	</div>
 	<h4>Constructors</h4>
@@ -256,10 +256,10 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<h4>Methods</h4>
 	<b><a id=ByteConversionSink.addSlice></a><i class=icon-ok-sign></i> void addSlice(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; chunk, <a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#bool>bool</a> isLast)</b>
 	<div class=indent>
-		<p>Adds the next chunk to <code>this</code>. </p>
-<p>Adds the bytes defined by start and end-exclusive to <code>this</code>. </p>
-<p>If isLast is <code>true</code> closes <code>this</code>. </p>
-<p>Contrary to <code>add</code> the given chunk must not be held onto. Once the method returns, it is safe to overwrite the data in it.</p>
+		<p>Adds the next <code>chunk</code> to <code>this</code>. </p>
+<p>Adds the bytes defined by <code>start</code> and <code>end</code>-exclusive to <code>this</code>. </p>
+<p>If <code>isLast</code> is <code>true</code> closes <code>this</code>. </p>
+<p>Contrary to <code>add</code> the given <code>chunk</code> must not be held onto. Once the method returns, it is safe to overwrite the data in it.</p>
 	</div>
 	<a id=ByteConversionSinkBase></a><hr>
 	<h4>
@@ -286,19 +286,19 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<b><a id=ByteConversionSinkBase.add></a><i class=icon-ok-sign></i> <a href='dart.convert.html#ChunkedConversionSink.add'><i title='Overrides ChunkedConversionSink.add()' class='icon-circle-arrow-up'></i></a> void add(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; chunk)</b>
 	<div class=indent>
 		<p>Adds chunked data to this sink. </p>
-<p>This method is also used when converters are used as StreamTransformers.</p>
+<p>This method is also used when converters are used as <code>StreamTransformer</code>s.</p>
 	</div>
 	<b><a id=ByteConversionSinkBase.addSlice></a><i class=icon-ok-sign></i> <a href='dart.convert.html#ByteConversionSink.addSlice'><i title='Overrides ByteConversionSink.addSlice()' class='icon-circle-arrow-up'></i></a> void addSlice(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; chunk, <a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#bool>bool</a> isLast)</b>
 	<div class=indent>
-		<p>Adds the next chunk to <code>this</code>. </p>
-<p>Adds the bytes defined by start and end-exclusive to <code>this</code>. </p>
-<p>If isLast is <code>true</code> closes <code>this</code>. </p>
-<p>Contrary to <code>add</code> the given chunk must not be held onto. Once the method returns, it is safe to overwrite the data in it.</p>
+		<p>Adds the next <code>chunk</code> to <code>this</code>. </p>
+<p>Adds the bytes defined by <code>start</code> and <code>end</code>-exclusive to <code>this</code>. </p>
+<p>If <code>isLast</code> is <code>true</code> closes <code>this</code>. </p>
+<p>Contrary to <code>add</code> the given <code>chunk</code> must not be held onto. Once the method returns, it is safe to overwrite the data in it.</p>
 	</div>
 	<b><a id=ByteConversionSinkBase.close></a><i class=icon-ok-sign></i> <a href='dart.convert.html#ChunkedConversionSink.close'><i title='Overrides ChunkedConversionSink.close()' class='icon-circle-arrow-up'></i></a> void close()</b>
 	<div class=indent>
 		<p>Closes the sink. </p>
-<p>This signals the end of the chunked conversion. This method is called when converters are used as StreamTransformer's.</p>
+<p>This signals the end of the chunked conversion. This method is called when converters are used as <code>StreamTransformer</code>'s.</p>
 	</div>
 	<a id=ChunkedConversionSink></a><hr>
 	<h4>
@@ -316,7 +316,7 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A ChunkedConversionSink is used to transmit data more efficiently between two converters during chunked conversions.</p>
+		<p>A <code>ChunkedConversionSink</code> is used to transmit data more efficiently between two converters during chunked conversions.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=ChunkedConversionSink.></a><i class=icon-plus-sign></i> ChunkedConversionSink()</b>
@@ -327,12 +327,12 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<b><a id=ChunkedConversionSink.add></a><i class=icon-ok-sign></i> void add(T chunk)</b>
 	<div class=indent>
 		<p>Adds chunked data to this sink. </p>
-<p>This method is also used when converters are used as StreamTransformers.</p>
+<p>This method is also used when converters are used as <code>StreamTransformer</code>s.</p>
 	</div>
 	<b><a id=ChunkedConversionSink.close></a><i class=icon-ok-sign></i> void close()</b>
 	<div class=indent>
 		<p>Closes the sink. </p>
-<p>This signals the end of the chunked conversion. This method is called when converters are used as StreamTransformer's.</p>
+<p>This signals the end of the chunked conversion. This method is called when converters are used as <code>StreamTransformer</code>'s.</p>
 	</div>
 	<a id=ClosableStringSink></a><hr>
 	<h4>
@@ -348,12 +348,12 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A ClosableStringSink extends the StringSink interface by adding a <code>close</code> method.</p>
+		<p>A <code>ClosableStringSink</code> extends the <code>StringSink</code> interface by adding a <code>close</code> method.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=ClosableStringSink.fromStringSink></a><i class=icon-plus-sign></i> factory ClosableStringSink.fromStringSink(<a href=dart.core.html#StringSink>StringSink</a> sink,  onClose)</b>
 	<div class=indent>
-		<p>Creates a new instance combining a StringSink sink and a callback onClose which is invoked when the returned instance is closed.</p>
+		<p>Creates a new instance combining a <code>StringSink</code> <code>sink</code> and a callback <code>onClose</code> which is invoked when the returned instance is closed.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=ClosableStringSink.close></a><i class=icon-ok-sign></i> void close()</b>
@@ -388,8 +388,8 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Codec encodes and (if supported) decodes data. </p>
-<p>Codecs can be fused. For example fusing JSON and UTF8 produces an encoder that can convert Json objects directly to bytes, or can decode bytes directly to json objects. </p>
+		<p>A <code>Codec</code> encodes and (if supported) decodes data. </p>
+<p>Codecs can be fused. For example fusing <code>JSON</code> and <code>UTF8</code> produces an encoder that can convert Json objects directly to bytes, or can decode bytes directly to json objects. </p>
 <p>Fused codecs generally attempt to optimize the operations and can be faster than executing each step of an encoding separately. </p>
 <p><i>Codecs are still experimental and are subject to change without notice.</i></p>
 	</div>
@@ -403,18 +403,18 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<h4>Getters and Setters</h4>
 	<b><a id=decoder></a><i class=icon-circle-arrow-right></i> <a href=dart.convert.html#Converter>Converter</a>&lt;T, S&gt; get decoder</b>
 	<div class=indent>
-		<p>Returns the decoder of <code>this</code>, converting from T to S. </p>
+		<p>Returns the decoder of <code>this</code>, converting from <code>T</code> to <code>S</code>. </p>
 <p>It may be stateful an should not be reused.</p>
 	</div>
 	<b><a id=encoder></a><i class=icon-circle-arrow-right></i> <a href=dart.convert.html#Converter>Converter</a>&lt;S, T&gt; get encoder</b>
 	<div class=indent>
-		<p>Returns the encoder from S to T. </p>
+		<p>Returns the encoder from <code>S</code> to <code>T</code>. </p>
 <p>It may be stateful and should not be reused.</p>
 	</div>
 	<b><a id=inverted></a><i class=icon-circle-arrow-right></i> <a href=dart.convert.html#Codec>Codec</a>&lt;T, S&gt; get inverted</b>
 	<div class=indent>
 		<p>Inverts <code>this</code>. </p>
-<p>The encoder and decoder of the resulting codec are swapped.</p>
+<p>The <code>encoder</code> and <code>decoder</code> of the resulting codec are swapped.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Codec.></a><i class=icon-plus-sign></i> Codec()</b>
@@ -427,9 +427,9 @@ var decoded = UTF8.decode([0x62, 0x6c, 0xc3, 0xa5, 0x62, 0xc3, 0xa6,
 	<b><a id=Codec.fuse></a><i class=icon-ok-sign></i> <a href=dart.convert.html#Codec>Codec</a>&lt;S, dynamic&gt; fuse(<a href=dart.convert.html#Codec>Codec</a>&lt;T, dynamic&gt; other)</b>
 	<div class=indent>
 		<p>Fuses <code>this</code> with <code>other</code>. </p>
-<p>When encoding, the resulting codec encodes with <code>this</code> before encoding with other. </p>
-<p>When decoding, the resulting codec decodes with other before decoding with <code>this</code>. </p>
-<p>In some cases one needs to use the inverted codecs to be able to fuse them correctly. That is, the output type of <code>this</code> (T) must match the input type of the second codec other. </p>
+<p>When encoding, the resulting codec encodes with <code>this</code> before encoding with <code>other</code>. </p>
+<p>When decoding, the resulting codec decodes with <code>other</code> before decoding with <code>this</code>. </p>
+<p>In some cases one needs to use the <code>inverted</code> codecs to be able to fuse them correctly. That is, the output type of <code>this</code> (<code>T</code>) must match the input type of the second codec <code>other</code>. </p>
 <p>Examples: </p>
 <p><pre>final JSON_TO_BYTES = JSON.fuse(UTF8);
 List&lt;int&gt; bytes = JSON_TO_BYTES.encode(["json-object"]);
@@ -459,7 +459,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Converter converts data from one representation into another. </p>
+		<p>A <code>Converter</code> converts data from one representation into another. </p>
 <p><i>Converters are still experimental and are subject to change without notice.</i></p>
 	</div>
 	<h4>Constructors</h4>
@@ -470,11 +470,11 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<div class=indent></div>
 	<b><a id=Converter.convert></a><i class=icon-ok-sign></i> T convert(S input)</b>
 	<div class=indent>
-		<p>Converts input and returns the result of the conversion.</p>
+		<p>Converts <code>input</code> and returns the result of the conversion.</p>
 	</div>
 	<b><a id=Converter.fuse></a><i class=icon-ok-sign></i> <a href=dart.convert.html#Converter>Converter</a>&lt;S, dynamic&gt; fuse(<a href=dart.convert.html#Converter>Converter</a>&lt;T, dynamic&gt; other)</b>
 	<div class=indent>
-		<p>Fuses <code>this</code> with other. </p>
+		<p>Fuses <code>this</code> with <code>other</code>. </p>
 <p>Encoding with the resulting converter is equivalent to converting with <code>this</code> before converting with <code>other</code>.</p>
 	</div>
 	<b><a id=Converter.startChunkedConversion></a><i class=icon-ok-sign></i> <a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;dynamic&gt; startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;dynamic&gt; sink)</b>
@@ -523,8 +523,8 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<div class=indent></div>
 	<b><a id=Encoding.getByName></a><i class=icon-ok-sign></i> static <a href=dart.convert.html#Encoding>Encoding</a> getByName(<a href=dart.core.html#String>String</a> name)</b>
 	<div class=indent>
-		<p>Gets an Encoding object from the name of the character set name. The names used are the IANA official names for the character set (see http://www.iana.org/assignments/character-sets/character-sets.xml). </p>
-<p>The name passed is case insensitive. </p>
+		<p>Gets an <code>Encoding</code> object from the name of the character set name. The names used are the IANA official names for the character set (see http://www.iana.org/assignments/character-sets/character-sets.xml). </p>
+<p>The <code>name</code> passed is case insensitive. </p>
 <p>If character set is not supported <code>null</code> is returned.</p>
 	</div>
 	<a id=HtmlEscape></a><hr>
@@ -555,7 +555,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<h4>Methods</h4>
 	<b><a id=HtmlEscape.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> convert(<a href=dart.core.html#String>String</a> text)</b>
 	<div class=indent>
-		<p>Converts input and returns the result of the conversion.</p>
+		<p>Converts <code>input</code> and returns the result of the conversion.</p>
 	</div>
 	<b><a id=HtmlEscape.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#StringConversionSink>StringConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
 	<div class=indent>
@@ -627,7 +627,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A JsonCodec encodes JSON objects to strings and decodes strings to JSON objects.</p>
+		<p>A <code>JsonCodec</code> encodes JSON objects to strings and decodes strings to JSON objects.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=JsonCodec.decoder></a><i class=icon-minus-sign></i> final <a href=dart.convert.html#JsonDecoder>JsonDecoder</a> decoder</b>
@@ -645,14 +645,14 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<b><a id=JsonCodec.withReviver></a><i class=icon-plus-sign></i> factory JsonCodec.withReviver( reviver)</b>
 	<div class=indent>
 		<p>Creates a <code>JsonCodec</code> with the given reviver. </p>
-<p>The reviver function is called once for each object or list property that has been parsed during decoding. The <code>key</code> argument is either the integer list index for a list property, the map string for object properties, or <code>null</code> for the final result.</p>
+<p>The <code>reviver</code> function is called once for each object or list property that has been parsed during decoding. The <code>key</code> argument is either the integer list index for a list property, the map string for object properties, or <code>null</code> for the final result.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=JsonCodec.decode></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Codec.decode'><i title='Overrides Codec.decode()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Object>Object</a> decode(<a href=dart.core.html#String>String</a> str,  reviver)</b>
 	<div class=indent>
 		<p>Parses the string and returns the resulting Json object. </p>
-<p>The optional reviver function is called once for each object or list property that has been parsed during decoding. The <code>key</code> argument is either the integer list index for a list property, the map string for object properties, or <code>null</code> for the final result. </p>
-<p>The default reviver (when not provided) is the identity function.</p>
+<p>The optional <code>reviver</code> function is called once for each object or list property that has been parsed during decoding. The <code>key</code> argument is either the integer list index for a list property, the map string for object properties, or <code>null</code> for the final result. </p>
+<p>The default <code>reviver</code> (when not provided) is the identity function.</p>
 	</div>
 	<a id=JsonCyclicError></a><hr>
 	<h4>
@@ -669,7 +669,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	</dl>
 	<div class=indent>
 		<p>Reports that an object could not be stringified due to cyclic references. </p>
-<p>An object that references itself cannot be serialized by stringify. When the cycle is detected, a JsonCyclicError is thrown.</p>
+<p>An object that references itself cannot be serialized by <code>stringify</code>. When the cycle is detected, a <code>JsonCyclicError</code> is thrown.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=JsonCyclicError.></a><i class=icon-plus-sign></i> JsonCyclicError(<a href=dart.core.html#Object>Object</a> object)</b>
@@ -703,22 +703,22 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<b><a id=JsonDecoder.></a><i class=icon-plus-sign></i> JsonDecoder( reviver)</b>
 	<div class=indent>
 		<p>Constructs a new JsonDecoder. </p>
-<p>The reviver may be <code>null</code>.</p>
+<p>The <code>reviver</code> may be <code>null</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=JsonDecoder.bind></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.bind'><i title='Overrides Converter.bind()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; bind(<a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.core.html#String>String</a>&gt; stream)</b>
 	<div class=indent></div>
 	<b><a id=JsonDecoder.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Object>Object</a> convert(<a href=dart.core.html#String>String</a> input)</b>
 	<div class=indent>
-		<p>Converts the given JSON-string input to its corresponding object. </p>
-<p>Parsed JSON values are of the types num, String, bool, Null, Lists of parsed JSON values or Maps from String to parsed JSON values. </p>
-<p>If <code>this</code> was initialized with a reviver, then the parsing operation invokes the reviver on every object or list property that has been parsed. The arguments are the property name (String) or list index (int), and the value is the parsed value. The return value of the reviver is used as the value of that property instead the parsed value. </p>
-<p>Throws FormatException if the input is not valid JSON text.</p>
+		<p>Converts the given JSON-string <code>input</code> to its corresponding object. </p>
+<p>Parsed JSON values are of the types <code>num</code>, <code>String</code>, <code>bool</code>, <code>Null</code>, <code>List</code>s of parsed JSON values or <code>Map</code>s from <code>String</code> to parsed JSON values. </p>
+<p>If <code>this</code> was initialized with a reviver, then the parsing operation invokes the reviver on every object or list property that has been parsed. The arguments are the property name (<code>String</code>) or list index (<code>int</code>), and the value is the parsed value. The return value of the reviver is used as the value of that property instead the parsed value. </p>
+<p>Throws <code>FormatException</code> if the input is not valid JSON text.</p>
 	</div>
 	<b><a id=JsonDecoder.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#StringConversionSink>StringConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; sink)</b>
 	<div class=indent>
 		<p>Starts a conversion from a chunked JSON string to its corresponding object. </p>
-<p>The output sink receives exactly one decoded element through <code>add</code>.</p>
+<p>The output <code>sink</code> receives exactly one decoded element through <code>add</code>.</p>
 	</div>
 	<a id=JsonEncoder></a><hr>
 	<h4>
@@ -746,17 +746,17 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<div class=indent></div>
 	<b><a id=JsonEncoder.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> convert(<a href=dart.core.html#Object>Object</a> o)</b>
 	<div class=indent>
-		<p>Converts the given object o to its JSON representation. </p>
-<p>Directly serializable values are num, String, bool, and Null, as well as some List and Map values. For List, the elements must all be serializable. For Map, the keys must be String and the values must be serializable. </p>
+		<p>Converts the given object <code>o</code> to its JSON representation. </p>
+<p>Directly serializable values are <code>num</code>, <code>String</code>, <code>bool</code>, and <code>Null</code>, as well as some <code>List</code> and <code>Map</code> values. For <code>List</code>, the elements must all be serializable. For <code>Map</code>, the keys must be <code>String</code> and the values must be serializable. </p>
 <p>If a value is any other type is attempted serialized, a "toJson()" method is invoked on the object and the result, which must be a directly serializable value, is serialized instead of the original value. </p>
-<p>If the object does not support this method, throws, or returns a value that is not directly serializable, a JsonUnsupportedObjectError exception is thrown. If the call throws (including the case where there is no nullary "toJson" method, the error is caught and stored in the JsonUnsupportedObjectError's <code>cause</code> field. </p>
-<p>If a List or Map contains a reference to itself, directly or through other lists or maps, it cannot be serialized and a JsonCyclicError is thrown. </p>
-<p>Json Objects should not change during serialization. If an object is serialized more than once, stringify is allowed to cache the JSON text for it. I.e., if an object changes after it is first serialized, the new values may or may not be reflected in the result.</p>
+<p>If the object does not support this method, throws, or returns a value that is not directly serializable, a <code>JsonUnsupportedObjectError</code> exception is thrown. If the call throws (including the case where there is no nullary "toJson" method, the error is caught and stored in the <code>JsonUnsupportedObjectError</code>'s <code>cause</code> field. </p>
+<p>If a <code>List</code> or <code>Map</code> contains a reference to itself, directly or through other lists or maps, it cannot be serialized and a <code>JsonCyclicError</code> is thrown. </p>
+<p>Json Objects should not change during serialization. If an object is serialized more than once, <code>stringify</code> is allowed to cache the JSON text for it. I.e., if an object changes after it is first serialized, the new values may or may not be reflected in the result.</p>
 	</div>
 	<b><a id=JsonEncoder.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
 	<div class=indent>
 		<p>Starts a chunked conversion. </p>
-<p>The converter works more efficiently if the given sink is a StringConversionSink. </p>
+<p>The converter works more efficiently if the given <code>sink</code> is a <code>StringConversionSink</code>. </p>
 <p>Returns a chunked-conversion sink that accepts at most one object. It is an error to invoke <code>add</code> more than once on the returned sink.</p>
 	</div>
 	<a id=JsonUnsupportedObjectError></a><hr>
@@ -825,7 +825,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A LatinCodec encodes strings to ISO Latin-1 (aka ISO-8859-1) bytes and decodes Latin-1 bytes to strings.</p>
+		<p>A <code>LatinCodec</code> encodes strings to ISO Latin-1 (aka ISO-8859-1) bytes and decodes Latin-1 bytes to strings.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Latin1Codec.decoder></a><i class=icon-minus-sign></i> final <a href=dart.convert.html#Converter>Converter</a> decoder</b>
@@ -844,16 +844,16 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<h4>Constructors</h4>
 	<b><a id=Latin1Codec.></a><i class=icon-plus-sign></i> Latin1Codec(<a href=dart.core.html#bool>bool</a> allowInvalid)</b>
 	<div class=indent>
-		<p>Instantiates a new Latin1Codec. </p>
-<p>If allowInvalid is true, the decode method and the converter returned by decoder will default to allowing invalid values. Invalid values are decoded into the Unicode Replacement character (U+FFFD). Calls to the decode method can override this default. </p>
+		<p>Instantiates a new <code>Latin1Codec</code>. </p>
+<p>If <code>allowInvalid</code> is true, the <code>decode</code> method and the converter returned by <code>decoder</code> will default to allowing invalid values. Invalid values are decoded into the Unicode Replacement character (U+FFFD). Calls to the <code>decode</code> method can override this default. </p>
 <p>Encoders will not accept invalid (non Latin-1) characters.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Latin1Codec.decode></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Codec.decode'><i title='Overrides Codec.decode()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> decode(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#bool>bool</a> allowInvalid)</b>
 	<div class=indent>
-		<p>Decodes the Latin-1 bytes (a list of unsigned 8-bit integers) to the corresponding string. </p>
-<p>If bytes contains values that are not in the range 0 .. 255, the decoder will eventually throw a FormatException. </p>
-<p>If allowInvalid is not provided, it defaults to the value used to create this Latin1Codec.</p>
+		<p>Decodes the Latin-1 <code>bytes</code> (a list of unsigned 8-bit integers) to the corresponding string. </p>
+<p>If <code>bytes</code> contains values that are not in the range 0 .. 255, the decoder will eventually throw a <code>FormatException</code>. </p>
+<p>If <code>allowInvalid</code> is not provided, it defaults to the value used to create this <code>Latin1Codec</code>.</p>
 	</div>
 	<a id=Latin1Decoder></a><hr>
 	<h4>
@@ -874,15 +874,15 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<h4>Constructors</h4>
 	<b><a id=Latin1Decoder.></a><i class=icon-plus-sign></i> Latin1Decoder(<a href=dart.core.html#bool>bool</a> allowInvalid)</b>
 	<div class=indent>
-		<p>Instantiates a new Latin1Decoder. </p>
-<p>The optional allowInvalid argument defines how convert deals with invalid bytes. </p>
-<p>If it is <code>true</code>, convert replaces invalid bytes with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise it throws a FormatException.</p>
+		<p>Instantiates a new <code>Latin1Decoder</code>. </p>
+<p>The optional <code>allowInvalid</code> argument defines how <code>convert</code> deals with invalid bytes. </p>
+<p>If it is <code>true</code>, <code>convert</code> replaces invalid bytes with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise it throws a <code>FormatException</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Latin1Decoder.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#_UnicodeSubsetDecoder.startChunkedConversion'><i title='Overrides _UnicodeSubsetDecoder.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#ByteConversionSink>ByteConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
 	<div class=indent>
 		<p>Starts a chunked conversion. </p>
-<p>The converter works more efficiently if the given sink is a StringConversionSink.</p>
+<p>The converter works more efficiently if the given <code>sink</code> is a <code>StringConversionSink</code>.</p>
 	</div>
 	<a id=Latin1Encoder></a><hr>
 	<h4>
@@ -914,7 +914,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>This class splits String values into individual lines.</p>
+		<p>This class splits <code>String</code> values into individual lines.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=LineSplitter.></a><i class=icon-plus-sign></i> LineSplitter()</b>
@@ -922,7 +922,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<h4>Methods</h4>
 	<b><a id=LineSplitter.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#String>String</a>&gt; convert(<a href=dart.core.html#String>String</a> data)</b>
 	<div class=indent>
-		<p>Converts input and returns the result of the conversion.</p>
+		<p>Converts <code>input</code> and returns the result of the conversion.</p>
 	</div>
 	<b><a id=LineSplitter.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#StringConversionSink>StringConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
 	<div class=indent>
@@ -957,21 +957,21 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<div class=indent></div>
 	<b><a id=StringConversionSink.fromStringSink></a><i class=icon-plus-sign></i> factory StringConversionSink.fromStringSink(<a href=dart.core.html#StringSink>StringSink</a> sink)</b>
 	<div class=indent>
-		<p>Creates a new instance wrapping the given sink. </p>
-<p>Every string that is added to the returned instance is forwarded to the sink. The instance is allowed to buffer and is not required to forward immediately.</p>
+		<p>Creates a new instance wrapping the given <code>sink</code>. </p>
+<p>Every string that is added to the returned instance is forwarded to the <code>sink</code>. The instance is allowed to buffer and is not required to forward immediately.</p>
 	</div>
 	<b><a id=StringConversionSink.withCallback></a><i class=icon-plus-sign></i> factory StringConversionSink.withCallback( callback)</b>
 	<div class=indent></div>
 	<h4>Methods</h4>
 	<b><a id=StringConversionSink.addSlice></a><i class=icon-ok-sign></i> void addSlice(<a href=dart.core.html#String>String</a> chunk, <a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#bool>bool</a> isLast)</b>
 	<div class=indent>
-		<p>Adds the next chunk to <code>this</code>. </p>
-<p>Adds the substring defined by start and end-exclusive to <code>this</code>. </p>
-<p>If isLast is <code>true</code> closes <code>this</code>.</p>
+		<p>Adds the next <code>chunk</code> to <code>this</code>. </p>
+<p>Adds the substring defined by <code>start</code> and <code>end</code>-exclusive to <code>this</code>. </p>
+<p>If <code>isLast</code> is <code>true</code> closes <code>this</code>.</p>
 	</div>
 	<b><a id=StringConversionSink.asStringSink></a><i class=icon-ok-sign></i> <a href=dart.convert.html#ClosableStringSink>ClosableStringSink</a> asStringSink()</b>
 	<div class=indent>
-		<p>Returns <code>this</code> as a ClosableStringSink. </p>
+		<p>Returns <code>this</code> as a <code>ClosableStringSink</code>. </p>
 <p>If used, this method must be the first and only call to <code>this</code>. It invalidates <code>this</code>. All further operations must be performed on the result.</p>
 	</div>
 	<b><a id=StringConversionSink.asUtf8Sink></a><i class=icon-ok-sign></i> <a href=dart.convert.html#ByteConversionSink>ByteConversionSink</a> asUtf8Sink(<a href=dart.core.html#bool>bool</a> allowMalformed)</b>
@@ -1021,17 +1021,17 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<b><a id=StringConversionSinkMixin.add></a><i class=icon-ok-sign></i> <a href='dart.convert.html#ChunkedConversionSink.add'><i title='Overrides ChunkedConversionSink.add()' class='icon-circle-arrow-up'></i></a> void add(<a href=dart.core.html#String>String</a> str)</b>
 	<div class=indent>
 		<p>Adds chunked data to this sink. </p>
-<p>This method is also used when converters are used as StreamTransformers.</p>
+<p>This method is also used when converters are used as <code>StreamTransformer</code>s.</p>
 	</div>
 	<b><a id=StringConversionSinkMixin.addSlice></a><i class=icon-ok-sign></i> <a href='dart.convert.html#StringConversionSink.addSlice'><i title='Overrides StringConversionSink.addSlice()' class='icon-circle-arrow-up'></i></a> void addSlice(<a href=dart.core.html#String>String</a> str, <a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#bool>bool</a> isLast)</b>
 	<div class=indent>
-		<p>Adds the next chunk to <code>this</code>. </p>
-<p>Adds the substring defined by start and end-exclusive to <code>this</code>. </p>
-<p>If isLast is <code>true</code> closes <code>this</code>.</p>
+		<p>Adds the next <code>chunk</code> to <code>this</code>. </p>
+<p>Adds the substring defined by <code>start</code> and <code>end</code>-exclusive to <code>this</code>. </p>
+<p>If <code>isLast</code> is <code>true</code> closes <code>this</code>.</p>
 	</div>
 	<b><a id=StringConversionSinkMixin.asStringSink></a><i class=icon-ok-sign></i> <a href='dart.convert.html#StringConversionSink.asStringSink'><i title='Overrides StringConversionSink.asStringSink()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#ClosableStringSink>ClosableStringSink</a> asStringSink()</b>
 	<div class=indent>
-		<p>Returns <code>this</code> as a ClosableStringSink. </p>
+		<p>Returns <code>this</code> as a <code>ClosableStringSink</code>. </p>
 <p>If used, this method must be the first and only call to <code>this</code>. It invalidates <code>this</code>. All further operations must be performed on the result.</p>
 	</div>
 	<b><a id=StringConversionSinkMixin.asUtf8Sink></a><i class=icon-ok-sign></i> <a href='dart.convert.html#StringConversionSink.asUtf8Sink'><i title='Overrides StringConversionSink.asUtf8Sink()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#ByteConversionSink>ByteConversionSink</a> asUtf8Sink(<a href=dart.core.html#bool>bool</a> allowMalformed)</b>
@@ -1042,7 +1042,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<b><a id=StringConversionSinkMixin.close></a><i class=icon-ok-sign></i> <a href='dart.convert.html#ChunkedConversionSink.close'><i title='Overrides ChunkedConversionSink.close()' class='icon-circle-arrow-up'></i></a> void close()</b>
 	<div class=indent>
 		<p>Closes the sink. </p>
-<p>This signals the end of the chunked conversion. This method is called when converters are used as StreamTransformer's.</p>
+<p>This signals the end of the chunked conversion. This method is called when converters are used as <code>StreamTransformer</code>'s.</p>
 	</div>
 	<a id=Utf8Codec></a><hr>
 	<h4>
@@ -1070,7 +1070,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Utf8Codec encodes strings to utf-8 code units (bytes) and decodes UTF-8 code units to strings.</p>
+		<p>A <code>Utf8Codec</code> encodes strings to utf-8 code units (bytes) and decodes UTF-8 code units to strings.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Utf8Codec.decoder></a><i class=icon-minus-sign></i> final <a href=dart.convert.html#Converter>Converter</a> decoder</b>
@@ -1089,16 +1089,16 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<h4>Constructors</h4>
 	<b><a id=Utf8Codec.></a><i class=icon-plus-sign></i> Utf8Codec(<a href=dart.core.html#bool>bool</a> allowMalformed)</b>
 	<div class=indent>
-		<p>Instantiates a new Utf8Codec. </p>
-<p>The optional allowMalformed argument defines how decoder (and decode) deal with invalid or unterminated character sequences. </p>
-<p>If it is <code>true</code> (and not overriden at the method invocation) decode and the decoder replace invalid (or unterminated) octet sequences with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise they throw a FormatException.</p>
+		<p>Instantiates a new <code>Utf8Codec</code>. </p>
+<p>The optional <code>allowMalformed</code> argument defines how <code>decoder</code> (and <code>decode</code>) deal with invalid or unterminated character sequences. </p>
+<p>If it is <code>true</code> (and not overriden at the method invocation) <code>decode</code> and the <code>decoder</code> replace invalid (or unterminated) octet sequences with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise they throw a <code>FormatException</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Utf8Codec.decode></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Codec.decode'><i title='Overrides Codec.decode()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> decode(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; codeUnits, <a href=dart.core.html#bool>bool</a> allowMalformed)</b>
 	<div class=indent>
-		<p>Decodes the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the corresponding string. </p>
-<p>If allowMalformed is <code>true</code> the decoder replaces invalid (or unterminated) character sequences with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise it throws a FormatException. </p>
-<p>If allowMalformed is not given, it defaults to the <code>allowMalformed</code> that was used to instantiate <code>this</code>.</p>
+		<p>Decodes the UTF-8 <code>codeUnits</code> (a list of unsigned 8-bit integers) to the corresponding string. </p>
+<p>If <code>allowMalformed</code> is <code>true</code> the decoder replaces invalid (or unterminated) character sequences with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise it throws a <code>FormatException</code>. </p>
+<p>If <code>allowMalformed</code> is not given, it defaults to the <code>allowMalformed</code> that was used to instantiate <code>this</code>.</p>
 	</div>
 	<a id=Utf8Decoder></a><hr>
 	<h4>
@@ -1121,21 +1121,21 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<h4>Constructors</h4>
 	<b><a id=Utf8Decoder.></a><i class=icon-plus-sign></i> Utf8Decoder(<a href=dart.core.html#bool>bool</a> allowMalformed)</b>
 	<div class=indent>
-		<p>Instantiates a new Utf8Decoder. </p>
-<p>The optional allowMalformed argument defines how convert deals with invalid or unterminated character sequences. </p>
-<p>If it is <code>true</code> convert replaces invalid (or unterminated) character sequences with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise it throws a FormatException.</p>
+		<p>Instantiates a new <code>Utf8Decoder</code>. </p>
+<p>The optional <code>allowMalformed</code> argument defines how <code>convert</code> deals with invalid or unterminated character sequences. </p>
+<p>If it is <code>true</code> <code>convert</code> replaces invalid (or unterminated) character sequences with the Unicode Replacement character <code>U+FFFD</code> (�). Otherwise it throws a <code>FormatException</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Utf8Decoder.bind></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.bind'><i title='Overrides Converter.bind()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.core.html#String>String</a>&gt; bind(<a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt;&gt; stream)</b>
 	<div class=indent></div>
 	<b><a id=Utf8Decoder.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> convert(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; codeUnits)</b>
 	<div class=indent>
-		<p>Converts the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the corresponding string.</p>
+		<p>Converts the UTF-8 <code>codeUnits</code> (a list of unsigned 8-bit integers) to the corresponding string.</p>
 	</div>
 	<b><a id=Utf8Decoder.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#ByteConversionSink>ByteConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#String>String</a>&gt; sink)</b>
 	<div class=indent>
 		<p>Starts a chunked conversion. </p>
-<p>The converter works more efficiently if the given sink is a StringConversionSink.</p>
+<p>The converter works more efficiently if the given <code>sink</code> is a <code>StringConversionSink</code>.</p>
 	</div>
 	<a id=Utf8Encoder></a><hr>
 	<h4>
@@ -1163,12 +1163,12 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 	<div class=indent></div>
 	<b><a id=Utf8Encoder.convert></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.convert'><i title='Overrides Converter.convert()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; convert(<a href=dart.core.html#String>String</a> string)</b>
 	<div class=indent>
-		<p>Converts string to its UTF-8 code units (a list of unsigned 8-bit integers).</p>
+		<p>Converts <code>string</code> to its UTF-8 code units (a list of unsigned 8-bit integers).</p>
 	</div>
 	<b><a id=Utf8Encoder.startChunkedConversion></a><i class=icon-ok-sign></i> <a href='dart.convert.html#Converter.startChunkedConversion'><i title='Overrides Converter.startChunkedConversion()' class='icon-circle-arrow-up'></i></a> <a href=dart.convert.html#StringConversionSink>StringConversionSink</a> startChunkedConversion(<a href=dart.convert.html#ChunkedConversionSink>ChunkedConversionSink</a>&lt;<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt;&gt; sink)</b>
 	<div class=indent>
 		<p>Starts a chunked conversion. </p>
-<p>The converter works more efficiently if the given sink is a ByteConversionSink.</p>
+<p>The converter works more efficiently if the given <code>sink</code> is a <code>ByteConversionSink</code>.</p>
 	</div>
 	<hr>
 </div>

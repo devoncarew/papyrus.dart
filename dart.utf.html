@@ -158,7 +158,7 @@
 		<b><a id=codepointsToString></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> codepointsToString(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; codepoints)</b>
 		<div class=indent>
 			<p>Generate a string from the provided Unicode codepoints. </p>
-<p><i>Deprecated</i> Use String.fromCharCodes instead.</p>
+<p><i>Deprecated</i> Use <code>String.fromCharCodes</code> instead.</p>
 		</div>
 		<b><a id=codepointsToUtf8></a><i class=icon-ok-sign></i> static <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; codepointsToUtf8(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; codepoints, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length)</b>
 		<div class=indent>
@@ -166,27 +166,27 @@
 		</div>
 		<b><a id=decodeUtf16></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeUtf16(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Produce a String from a sequence of UTF-16 encoded bytes. This method always strips a leading BOM. Set the replacementCodepoint to null to throw  an ArgumentError rather than replace the bad value. The default value for the replacementCodepoint is U+FFFD.</p>
+			<p>Produce a String from a sequence of UTF-16 encoded bytes. This method always strips a leading BOM. Set the <code>replacementCodepoint</code> to null to throw  an ArgumentError rather than replace the bad value. The default value for the <code>replacementCodepoint</code> is U+FFFD.</p>
 		</div>
 		<b><a id=decodeUtf16AsIterable></a><i class=icon-ok-sign></i> static <a href=dart.utf.html#IterableUtf16Decoder>IterableUtf16Decoder</a> decodeUtf16AsIterable(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Decodes the UTF-16 bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. Determines the byte order from the BOM, or uses big-endian as a default. This method always strips a leading BOM. Set the replacementCodepoint to null to throw an ArgumentError rather than replace the bad value. The default value for replacementCodepoint is U+FFFD.</p>
+			<p>Decodes the UTF-16 bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. Determines the byte order from the BOM, or uses big-endian as a default. This method always strips a leading BOM. Set the <code>replacementCodepoint</code> to null to throw an ArgumentError rather than replace the bad value. The default value for <code>replacementCodepoint</code> is U+FFFD.</p>
 		</div>
 		<b><a id=decodeUtf16be></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeUtf16be(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Produce a String from a sequence of UTF-16BE encoded bytes. This method strips a leading BOM by default, but can be overridden by setting the optional parameter stripBom to false. Set the replacementCodepoint to null to throw an ArgumentError rather than replace the bad value. The default value for the replacementCodepoint is U+FFFD.</p>
+			<p>Produce a String from a sequence of UTF-16BE encoded bytes. This method strips a leading BOM by default, but can be overridden by setting the optional parameter <code>stripBom</code> to false. Set the <code>replacementCodepoint</code> to null to throw an ArgumentError rather than replace the bad value. The default value for the <code>replacementCodepoint</code> is U+FFFD.</p>
 		</div>
 		<b><a id=decodeUtf16beAsIterable></a><i class=icon-ok-sign></i> static <a href=dart.utf.html#IterableUtf16Decoder>IterableUtf16Decoder</a> decodeUtf16beAsIterable(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Decodes the UTF-16BE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter stripBom to false. Set the replacementCodepoint to null to throw an ArgumentError rather than replace the bad value. The default value for the replacementCodepoint is U+FFFD.</p>
+			<p>Decodes the UTF-16BE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter <code>stripBom</code> to false. Set the <code>replacementCodepoint</code> to null to throw an ArgumentError rather than replace the bad value. The default value for the <code>replacementCodepoint</code> is U+FFFD.</p>
 		</div>
 		<b><a id=decodeUtf16le></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeUtf16le(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Produce a String from a sequence of UTF-16LE encoded bytes. This method strips a leading BOM by default, but can be overridden by setting the optional parameter stripBom to false. Set the replacementCodepoint to null to throw an ArgumentError rather than replace the bad value. The default value for the replacementCodepoint is U+FFFD.</p>
+			<p>Produce a String from a sequence of UTF-16LE encoded bytes. This method strips a leading BOM by default, but can be overridden by setting the optional parameter <code>stripBom</code> to false. Set the <code>replacementCodepoint</code> to null to throw an ArgumentError rather than replace the bad value. The default value for the <code>replacementCodepoint</code> is U+FFFD.</p>
 		</div>
 		<b><a id=decodeUtf16leAsIterable></a><i class=icon-ok-sign></i> static <a href=dart.utf.html#IterableUtf16Decoder>IterableUtf16Decoder</a> decodeUtf16leAsIterable(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Decodes the UTF-16LE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter stripBom to false. Set the replacementCodepoint to null to throw an ArgumentError rather than replace the bad value. The default value for the replacementCodepoint is U+FFFD.</p>
+			<p>Decodes the UTF-16LE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter <code>stripBom</code> to false. Set the <code>replacementCodepoint</code> to null to throw an ArgumentError rather than replace the bad value. The default value for the <code>replacementCodepoint</code> is U+FFFD.</p>
 		</div>
 		<b><a id=decodeUtf32></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeUtf32(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
@@ -202,7 +202,7 @@
 		</div>
 		<b><a id=decodeUtf32beAsIterable></a><i class=icon-ok-sign></i> static <a href=dart.utf.html#IterableUtf32Decoder>IterableUtf32Decoder</a> decodeUtf32beAsIterable(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Decodes the UTF-32BE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter stripBom to false. Set the replacementCharacter to null to throw an ArgumentError rather than replace the bad value.</p>
+			<p>Decodes the UTF-32BE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter <code>stripBom</code> to false. Set the replacementCharacter to null to throw an ArgumentError rather than replace the bad value.</p>
 		</div>
 		<b><a id=decodeUtf32le></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeUtf32le(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
@@ -210,7 +210,7 @@
 		</div>
 		<b><a id=decodeUtf32leAsIterable></a><i class=icon-ok-sign></i> static <a href=dart.utf.html#IterableUtf32Decoder>IterableUtf32Decoder</a> decodeUtf32leAsIterable(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#bool>bool</a> stripBom, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
-			<p>Decodes the UTF-32LE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter stripBom to false. Set the replacementCharacter to null to throw an ArgumentError rather than replace the bad value.</p>
+			<p>Decodes the UTF-32LE bytes as an iterable. Thus, the consumer can only convert as much of the input as needed. This method strips a leading BOM by default, but can be overridden by setting the optional parameter <code>stripBom</code> to false. Set the replacementCharacter to null to throw an ArgumentError rather than replace the bad value.</p>
 		</div>
 		<b><a id=decodeUtf8></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeUtf8(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; bytes, <a href=dart.core.html#int>int</a> offset, <a href=dart.core.html#int>int</a> length, <a href=dart.core.html#int>int</a> replacementCodepoint)</b>
 		<div class=indent>
@@ -300,7 +300,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Return type of decodeUtf16AsIterable and variants. The Iterable type provides an iterator on demand and the iterator will only translate bytes as requested by the user of the iterator. (Note: results are not cached.)</p>
+		<p>Return type of <code>decodeUtf16AsIterable</code> and variants. The Iterable type provides an iterator on demand and the iterator will only translate bytes as requested by the user of the iterator. (Note: results are not cached.)</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=IterableUtf16Decoder.codeunitsProvider></a><i class=icon-minus-sign></i> final _CodeUnitsProvider codeunitsProvider</b>
@@ -327,7 +327,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Return type of decodeUtf32AsIterable and variants. The Iterable type provides an iterator on demand and the iterator will only translate bytes as requested by the user of the iterator. (Note: results are not cached.)</p>
+		<p>Return type of <code>decodeUtf32AsIterable</code> and variants. The Iterable type provides an iterator on demand and the iterator will only translate bytes as requested by the user of the iterator. (Note: results are not cached.)</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=IterableUtf32Decoder.codeunitsProvider></a><i class=icon-minus-sign></i> final <a href=dart.utf.html#Utf32BytesDecoderProvider>Utf32BytesDecoderProvider</a> codeunitsProvider</b>
@@ -359,7 +359,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Return type of decodeUtf8AsIterable and variants. The Iterable type provides an iterator on demand and the iterator will only translate bytes as requested by the user of the iterator. (Note: results are not cached.)</p>
+		<p>Return type of <code>decodeUtf8AsIterable</code> and variants. The Iterable type provides an iterator on demand and the iterator will only translate bytes as requested by the user of the iterator. (Note: results are not cached.)</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=IterableUtf8Decoder.bytes></a><i class=icon-minus-sign></i> final <a href=dart.core.html#List>List</a> bytes</b>
@@ -444,8 +444,8 @@
 	</div>
 	<b><a id=Utf16BytesToCodeUnitsDecoder.moveNext></a><i class=icon-ok-sign></i> <a href='dart.utf.html#_ListRangeIterator.moveNext'><i title='Overrides _ListRangeIterator.moveNext()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> moveNext()</b>
 	<div class=indent>
-		<p>Moves to the next element. Returns true if current contains the next element. Returns false, if no element was left. </p>
-<p>It is safe to invoke moveNext even when the iterator is already positioned after the last element. In this case moveNext has no effect.</p>
+		<p>Moves to the next element. Returns true if <code>current</code> contains the next element. Returns false, if no element was left. </p>
+<p>It is safe to invoke <code>moveNext</code> even when the iterator is already positioned after the last element. In this case <code>moveNext</code> has no effect.</p>
 	</div>
 	<b><a id=Utf16BytesToCodeUnitsDecoder.skip></a><i class=icon-ok-sign></i> <a href='dart.utf.html#_ListRangeIterator.skip'><i title='Overrides _ListRangeIterator.skip()' class='icon-circle-arrow-up'></i></a> void skip(<a href=dart.core.html#int>int</a> count)</b>
 	<div class=indent></div>
@@ -500,8 +500,8 @@
 	<h4>Methods</h4>
 	<b><a id=Utf16CodeUnitDecoder.moveNext></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterator.moveNext'><i title='Overrides Iterator.moveNext()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> moveNext()</b>
 	<div class=indent>
-		<p>Moves to the next element. Returns true if current contains the next element. Returns false, if no element was left. </p>
-<p>It is safe to invoke moveNext even when the iterator is already positioned after the last element. In this case moveNext has no effect.</p>
+		<p>Moves to the next element. Returns true if <code>current</code> contains the next element. Returns false, if no element was left. </p>
+<p>It is safe to invoke <code>moveNext</code> even when the iterator is already positioned after the last element. In this case <code>moveNext</code> has no effect.</p>
 	</div>
 	<a id=Utf16beBytesToCodeUnitsDecoder></a><hr>
 	<h4>
@@ -611,8 +611,8 @@
 	<div class=indent></div>
 	<b><a id=Utf32BytesDecoder.moveNext></a><i class=icon-ok-sign></i> <a href='dart.utf.html#_ListRangeIterator.moveNext'><i title='Overrides _ListRangeIterator.moveNext()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> moveNext()</b>
 	<div class=indent>
-		<p>Moves to the next element. Returns true if current contains the next element. Returns false, if no element was left. </p>
-<p>It is safe to invoke moveNext even when the iterator is already positioned after the last element. In this case moveNext has no effect.</p>
+		<p>Moves to the next element. Returns true if <code>current</code> contains the next element. Returns false, if no element was left. </p>
+<p>It is safe to invoke <code>moveNext</code> even when the iterator is already positioned after the last element. In this case <code>moveNext</code> has no effect.</p>
 	</div>
 	<b><a id=Utf32BytesDecoder.skip></a><i class=icon-ok-sign></i> <a href='dart.utf.html#_ListRangeIterator.skip'><i title='Overrides _ListRangeIterator.skip()' class='icon-circle-arrow-up'></i></a> void skip(<a href=dart.core.html#int>int</a> count)</b>
 	<div class=indent></div>
@@ -703,12 +703,12 @@
 	<h4>Methods</h4>
 	<b><a id=Utf8Decoder.decodeRest></a><i class=icon-ok-sign></i> <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; decodeRest()</b>
 	<div class=indent>
-		<p>Decode the remaininder of the characters in this decoder into a List&lt;int&gt;.</p>
+		<p>Decode the remaininder of the characters in this decoder into a <code>List&lt;int&gt;</code>.</p>
 	</div>
 	<b><a id=Utf8Decoder.moveNext></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterator.moveNext'><i title='Overrides Iterator.moveNext()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> moveNext()</b>
 	<div class=indent>
-		<p>Moves to the next element. Returns true if current contains the next element. Returns false, if no element was left. </p>
-<p>It is safe to invoke moveNext even when the iterator is already positioned after the last element. In this case moveNext has no effect.</p>
+		<p>Moves to the next element. Returns true if <code>current</code> contains the next element. Returns false, if no element was left. </p>
+<p>It is safe to invoke <code>moveNext</code> even when the iterator is already positioned after the last element. In this case <code>moveNext</code> has no effect.</p>
 	</div>
 	<a id=Utf8DecoderTransformer></a><hr>
 	<h4>

@@ -113,9 +113,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Queue implementation based on a double-linked list. </p>
+		<p>A <code>Queue</code> implementation based on a double-linked list. </p>
 <p>Allows constant time add, remove-at-ends and peek operations. </p>
-<p>Can do removeAll and retainAll in linear time.</p>
+<p>Can do <code>removeAll</code> and <code>retainAll</code> in linear time.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=DoubleLinkedQueue.first></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> first</b>
@@ -151,19 +151,19 @@
 	<h4>Methods</h4>
 	<b><a id=DoubleLinkedQueue.add></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.add'><i title='Overrides Queue.add()' class='icon-circle-arrow-up'></i></a> void add(E value)</b>
 	<div class=indent>
-		<p>Adds value at the end of the queue.</p>
+		<p>Adds <code>value</code> at the end of the queue.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.addAll></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.addAll'><i title='Overrides Queue.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Adds all elements of iterable at the end of the queue. The length of the queue is extended by the length of iterable.</p>
+		<p>Adds all elements of <code>iterable</code> at the end of the queue. The length of the queue is extended by the length of <code>iterable</code>.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.addFirst></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.addFirst'><i title='Overrides Queue.addFirst()' class='icon-circle-arrow-up'></i></a> void addFirst(E value)</b>
 	<div class=indent>
-		<p>Adds value at the beginning of the queue.</p>
+		<p>Adds <code>value</code> at the beginning of the queue.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.addLast></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.addLast'><i title='Overrides Queue.addLast()' class='icon-circle-arrow-up'></i></a> void addLast(E value)</b>
 	<div class=indent>
-		<p>Adds value at the end of the queue.</p>
+		<p>Adds <code>value</code> at the end of the queue.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.clear></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.clear'><i title='Overrides Queue.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -177,16 +177,16 @@
 	<div class=indent></div>
 	<b><a id=DoubleLinkedQueue.remove></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.remove'><i title='Overrides Queue.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> o)</b>
 	<div class=indent>
-		<p>Remove a single instance of value from the queue. </p>
-<p>Returns <code>true</code> if a value was removed, or <code>false</code> if the queue contained no element equal to value.</p>
+		<p>Remove a single instance of <code>value</code> from the queue. </p>
+<p>Returns <code>true</code> if a value was removed, or <code>false</code> if the queue contained no element equal to <code>value</code>.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.removeFirst></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.removeFirst'><i title='Overrides Queue.removeFirst()' class='icon-circle-arrow-up'></i></a> E removeFirst()</b>
 	<div class=indent>
-		<p>Removes and returns the first element of this queue. Throws an StateError exception if this queue is empty.</p>
+		<p>Removes and returns the first element of this queue. Throws an <code>StateError</code> exception if this queue is empty.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.removeLast></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.removeLast'><i title='Overrides Queue.removeLast()' class='icon-circle-arrow-up'></i></a> E removeLast()</b>
 	<div class=indent>
-		<p>Removes and returns the last element of the queue. Throws an StateError exception if this queue is empty.</p>
+		<p>Removes and returns the last element of the queue. Throws an <code>StateError</code> exception if this queue is empty.</p>
 	</div>
 	<b><a id=DoubleLinkedQueue.removeWhere></a><i class=icon-ok-sign></i> void removeWhere(&lt;E&gt; test)</b>
 	<div class=indent></div>
@@ -270,8 +270,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The HasNextIterator class wraps an Iterator and provides methods to iterate over an object using <code>hasNext</code> and <code>next</code>. </p>
-<p>An HasNextIterator does not implement the Iterator interface.</p>
+		<p>The <code>HasNextIterator</code> class wraps an <code>Iterator</code> and provides methods to iterate over an object using <code>hasNext</code> and <code>next</code>. </p>
+<p>An <code>HasNextIterator</code> does not implement the <code>Iterator</code> interface.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=HasNextIterator.hasNext></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> hasNext</b>
@@ -298,37 +298,37 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A hash-table based implementation of Map. </p>
-<p>The keys of a <code>HashMap</code> must have consistent Object.operator== and Object.hashCode implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the keys (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
+		<p>A hash-table based implementation of <code>Map</code>. </p>
+<p>The keys of a <code>HashMap</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the keys (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
 <p>The map allows <code>null</code> as a key.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=HashMap.></a><i class=icon-plus-sign></i> factory HashMap(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode)</b>
 	<div class=indent>
-		<p>Creates a hash-table based Map. </p>
+		<p>Creates a hash-table based <code>Map</code>. </p>
 <p>The created map is not ordered in any way. When iterating the keys or values, the iteration order is unspecified except that it will stay the same as long as the map isn't changed. </p>
-<p>If equals is provided, it is used to compare the keys in the table with new keys. If equals is omitted, the key's own Object.operator== is used instead. </p>
-<p>Similar, if hashCode is provided, it is used to produce a hash value for keys in order to place them in the hash table. If it is omitted, the key's own Object.hashCode is used. </p>
+<p>If <code>equals</code> is provided, it is used to compare the keys in the table with new keys. If <code>equals</code> is omitted, the key's own <code>Object.operator==</code> is used instead. </p>
+<p>Similar, if <code>hashCode</code> is provided, it is used to produce a hash value for keys in order to place them in the hash table. If it is omitted, the key's own <code>Object.hashCode</code> is used. </p>
 <p>The used <code>equals</code> and <code>hashCode</code> method should always be consistent, so that if <code>equals(a, b)</code> then <code>hashCode(a) == hashCode(b)</code>. The hash of an object, or what it compares equal to, should not change while the object is in the table. If it does change, the result is unpredictable. </p>
-<p>It is generally the case that if you supply one of equals and hashCode, you also want to supply the other. The only common exception is to pass identical as the equality and use the default hash code.</p>
+<p>It is generally the case that if you supply one of <code>equals</code> and <code>hashCode</code>, you also want to supply the other. The only common exception is to pass <code>identical</code> as the equality and use the default hash code.</p>
 	</div>
 	<b><a id=HashMap.from></a><i class=icon-plus-sign></i> factory HashMap.from(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)</b>
 	<div class=indent>
-		<p>Creates a HashMap that contains all key value pairs of other.</p>
+		<p>Creates a <code>HashMap</code> that contains all key value pairs of <code>other</code>.</p>
 	</div>
 	<b><a id=HashMap.fromIterable></a><i class=icon-plus-sign></i> factory HashMap.fromIterable(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value)</b>
 	<div class=indent>
-		<p>Creates a HashMap where the keys and values are computed from the iterable. </p>
-<p>For each element of the iterable this constructor computes a key/value pair, by applying key and value respectively. </p>
+		<p>Creates a <code>HashMap</code> where the keys and values are computed from the <code>iterable</code>. </p>
+<p>For each element of the <code>iterable</code> this constructor computes a key/value pair, by applying <code>key</code> and <code>value</code> respectively. </p>
 <p>The keys of the key/value pairs do not need to be unique. The last occurrence of a key will simply overwrite any previous value. </p>
-<p>If no values are specified for key and value the default is the identity function.</p>
+<p>If no values are specified for <code>key</code> and <code>value</code> the default is the identity function.</p>
 	</div>
 	<b><a id=HashMap.fromIterables></a><i class=icon-plus-sign></i> factory HashMap.fromIterables(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values)</b>
 	<div class=indent>
-		<p>Creates a HashMap associating the given keys to values. </p>
-<p>This constructor iterates over keys and values and maps each element of keys to the corresponding element of values. </p>
-<p>If keys contains the same object multiple times, the last occurrence overwrites the previous value. </p>
-<p>It is an error if the two Iterables don't have the same length.</p>
+		<p>Creates a <code>HashMap</code> associating the given <code>keys</code> to <code>values</code>. </p>
+<p>This constructor iterates over <code>keys</code> and <code>values</code> and maps each element of <code>keys</code> to the corresponding element of <code>values</code>. </p>
+<p>If <code>keys</code> contains the same object multiple times, the last occurrence overwrites the previous value. </p>
+<p>It is an error if the two <code>Iterable</code>s don't have the same length.</p>
 	</div>
 	<a id=HashSet></a><hr>
 	<h4>
@@ -366,8 +366,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A HashSet is a hash-table based Set implementation. </p>
-<p>The elements of a <code>HashSet</code> must have consistent Object.operator== and Object.hashCode implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
+		<p>A <code>HashSet</code> is a hash-table based <code>Set</code> implementation. </p>
+<p>The elements of a <code>HashSet</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
 <p>The set allows <code>null</code> as an element. </p>
 <p>Most simple operations on <code>HashSet</code> are done in constant time: <a href=dart.collection.html#HashSet.add>add()</a>, <a href=dart.collection.html#HashSet.contains>contains()</a>, <a href=dart.collection.html#HashSet.remove>remove()</a>, and <a href=dart.collection.html#length>length</a>.</p>
 	</div>
@@ -397,13 +397,13 @@
 	<h4>Methods</h4>
 	<b><a id=HashSet.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.add'><i title='Overrides Set.add()' class='icon-circle-arrow-up'></i></a> void add(E element)</b>
 	<div class=indent>
-		<p>Adds value into the set. </p>
-<p>The method has no effect if value is already in the set.</p>
+		<p>Adds <code>value</code> into the set. </p>
+<p>The method has no effect if <code>value</code> is already in the set.</p>
 	</div>
 	<b><a id=HashSet.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.addAll'><i title='Overrides Set.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; objects)</b>
 	<div class=indent>
-		<p>Adds all of elements to this Set. </p>
-<p>Equivalent to adding each element in elements using add, but some collections may be able to optimize it.</p>
+		<p>Adds all of <code>elements</code> to this Set. </p>
+<p>Equivalent to adding each element in <code>elements</code> using <code>add</code>, but some collections may be able to optimize it.</p>
 	</div>
 	<b><a id=HashSet.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.clear'><i title='Overrides Set.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -411,23 +411,23 @@
 	</div>
 	<b><a id=HashSet.contains></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.contains'><i title='Overrides IterableBase.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Returns true if the collection contains an element equal to element.</p>
+		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
 	</div>
 	<b><a id=HashSet.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.remove'><i title='Overrides Set.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Removes value from the set. Returns true if value was in the set. Returns false otherwise. The method has no effect if value value was not in the set.</p>
+		<p>Removes <code>value</code> from the set. Returns true if <code>value</code> was in the set. Returns false otherwise. The method has no effect if <code>value</code> value was not in the set.</p>
 	</div>
 	<b><a id=HashSet.removeAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeAll'><i title='Overrides Set.removeAll()' class='icon-circle-arrow-up'></i></a> void removeAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; objectsToRemove)</b>
 	<div class=indent>
-		<p>Removes each element of elements from this set.</p>
+		<p>Removes each element of <code>elements</code> from this set.</p>
 	</div>
 	<b><a id=HashSet.removeWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeWhere'><i title='Overrides Set.removeWhere()' class='icon-circle-arrow-up'></i></a> void removeWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all elements of this set that satisfy test.</p>
+		<p>Removes all elements of this set that satisfy <code>test</code>.</p>
 	</div>
 	<b><a id=HashSet.retainWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.retainWhere'><i title='Overrides Set.retainWhere()' class='icon-circle-arrow-up'></i></a> void retainWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all elements of this set that fail to satisfy test.</p>
+		<p>Removes all elements of this set that fail to satisfy <code>test</code>.</p>
 	</div>
 	<a id=IterableBase></a><hr>
 	<h4>
@@ -480,8 +480,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Base class for implementing Iterable. </p>
-<p>This class implements all methods of Iterable except Iterable.iterator in terms of <code>iterator</code>.</p>
+		<p>Base class for implementing <code>Iterable</code>. </p>
+<p>This class implements all methods of <code>Iterable</code> except <code>Iterable.iterator</code> in terms of <code>iterator</code>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=IterableBase.first></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> first</b>
@@ -515,59 +515,59 @@
 	<h4>Methods</h4>
 	<b><a id=IterableBase.any></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.any'><i title='Overrides Iterable.any()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> any(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns true if one element of this collection satisfies the predicate test. Returns false otherwise.</p>
+		<p>Returns true if one element of this collection satisfies the predicate <code>test</code>. Returns false otherwise.</p>
 	</div>
 	<b><a id=IterableBase.contains></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.contains'><i title='Overrides Iterable.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> element)</b>
 	<div class=indent>
-		<p>Returns true if the collection contains an element equal to element.</p>
+		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
 	</div>
 	<b><a id=IterableBase.elementAt></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.elementAt'><i title='Overrides Iterable.elementAt()' class='icon-circle-arrow-up'></i></a> E elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=IterableBase.every></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.every'><i title='Overrides Iterable.every()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> every(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns true if every elements of this collection satisify the predicate test. Returns <code>false</code> otherwise.</p>
+		<p>Returns true if every elements of this collection satisify the predicate <code>test</code>. Returns <code>false</code> otherwise.</p>
 	</div>
 	<b><a id=IterableBase.expand></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.expand'><i title='Overrides Iterable.expand()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; expand(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Expands each element of this Iterable into zero or more elements. </p>
-<p>The resulting Iterable runs through the elements returned by f for each element of this, in order. </p>
-<p>The returned Iterable is lazy, and calls f for each element of this every time it's iterated.</p>
+		<p>Expands each element of this <code>Iterable</code> into zero or more elements. </p>
+<p>The resulting Iterable runs through the elements returned by <code>f</code> for each element of this, in order. </p>
+<p>The returned <code>Iterable</code> is lazy, and calls <code>f</code> for each element of this every time it's iterated.</p>
 	</div>
 	<b><a id=IterableBase.firstWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.firstWhere'><i title='Overrides Iterable.firstWhere()' class='icon-circle-arrow-up'></i></a> dynamic firstWhere(&lt;E&gt; test, &lt;E&gt; orElse)</b>
 	<div class=indent>
-		<p>Returns the first element that satisfies the given predicate test. </p>
-<p>If none matches, the result of invoking the orElse function is returned. By default, when orElse is <code>null</code>, a StateError is thrown.</p>
+		<p>Returns the first element that satisfies the given predicate <code>test</code>. </p>
+<p>If none matches, the result of invoking the <code>orElse</code> function is returned. By default, when <code>orElse</code> is <code>null</code>, a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=IterableBase.fold></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.fold'><i title='Overrides Iterable.fold()' class='icon-circle-arrow-up'></i></a> dynamic fold(dynamic initialValue, &lt;E&gt; combine)</b>
 	<div class=indent>
 		<p>Reduces a collection to a single value by iteratively combining each element of the collection with an existing value using the provided function. </p>
-<p>Use initialValue as the initial value, and the function combine to create a new value from the previous one and an element. </p>
+<p>Use <code>initialValue</code> as the initial value, and the function <code>combine</code> to create a new value from the previous one and an element. </p>
 <p>Example of calculating the sum of an iterable: </p>
 <p><pre>iterable.fold(0, (prev, element) =&gt; prev + element);
 </pre></p>
 	</div>
 	<b><a id=IterableBase.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.forEach'><i title='Overrides Iterable.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Applies the function f to each element of this collection.</p>
+		<p>Applies the function <code>f</code> to each element of this collection.</p>
 	</div>
 	<b><a id=IterableBase.join></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.join'><i title='Overrides Iterable.join()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> join(<a href=dart.core.html#String>String</a> separator)</b>
 	<div class=indent>
-		<p>Converts each element to a String and concatenates the strings. </p>
-<p>Converts each element to a String by calling Object.toString on it. Then concatenates the strings, optionally separated by the separator string.</p>
+		<p>Converts each element to a <code>String</code> and concatenates the strings. </p>
+<p>Converts each element to a <code>String</code> by calling <code>Object.toString</code> on it. Then concatenates the strings, optionally separated by the <code>separator</code> string.</p>
 	</div>
 	<b><a id=IterableBase.lastWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.lastWhere'><i title='Overrides Iterable.lastWhere()' class='icon-circle-arrow-up'></i></a> dynamic lastWhere(&lt;E&gt; test, &lt;E&gt; orElse)</b>
 	<div class=indent>
-		<p>Returns the last element that satisfies the given predicate test. </p>
-<p>If none matches, the result of invoking the orElse function is returned. By default, when orElse is <code>null</code>, a StateError is thrown.</p>
+		<p>Returns the last element that satisfies the given predicate <code>test</code>. </p>
+<p>If none matches, the result of invoking the <code>orElse</code> function is returned. By default, when <code>orElse</code> is <code>null</code>, a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=IterableBase.map></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.map'><i title='Overrides Iterable.map()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; map(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns a lazy Iterable where each element <code>e</code> of <code>this</code> is replaced by the result of <code>f(e)</code>. </p>
-<p>This method returns a view of the mapped elements. As long as the returned Iterable is not iterated over, the supplied function f will not be invoked. The transformed elements will not be cached. Iterating multiple times over the the returned Iterable will invoke the supplied function f multiple times on the same element.</p>
+		<p>Returns a lazy <code>Iterable</code> where each element <code>e</code> of <code>this</code> is replaced by the result of <code>f(e)</code>. </p>
+<p>This method returns a view of the mapped elements. As long as the returned <code>Iterable</code> is not iterated over, the supplied function <code>f</code> will not be invoked. The transformed elements will not be cached. Iterating multiple times over the the returned <code>Iterable</code> will invoke the supplied function <code>f</code> multiple times on the same element.</p>
 	</div>
 	<b><a id=IterableBase.reduce></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.reduce'><i title='Overrides Iterable.reduce()' class='icon-circle-arrow-up'></i></a> E reduce(&lt;E&gt; combine)</b>
 	<div class=indent>
@@ -578,45 +578,45 @@
 	</div>
 	<b><a id=IterableBase.singleWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.singleWhere'><i title='Overrides Iterable.singleWhere()' class='icon-circle-arrow-up'></i></a> E singleWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns the single element that satisfies test. If no or more than one element match then a StateError is thrown.</p>
+		<p>Returns the single element that satisfies <code>test</code>. If no or more than one element match then a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=IterableBase.skip></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.skip'><i title='Overrides Iterable.skip()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; skip(<a href=dart.core.html#int>int</a> n)</b>
 	<div class=indent>
-		<p>Returns an Iterable that skips the first n elements. </p>
-<p>If <code>this</code> has fewer than n elements, then the resulting Iterable is  empty. </p>
-<p>It is an error if n is negative.</p>
+		<p>Returns an Iterable that skips the first <code>n</code> elements. </p>
+<p>If <code>this</code> has fewer than <code>n</code> elements, then the resulting Iterable is  empty. </p>
+<p>It is an error if <code>n</code> is negative.</p>
 	</div>
 	<b><a id=IterableBase.skipWhile></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.skipWhile'><i title='Overrides Iterable.skipWhile()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; skipWhile(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns an Iterable that skips elements while test is satisfied. </p>
+		<p>Returns an Iterable that skips elements while <code>test</code> is satisfied. </p>
 <p>The filtering happens lazily. Every new Iterator of the returned Iterable iterates over all elements of <code>this</code>. </p>
-<p>As long as the iterator's elements satisfy test they are discarded. Once an element does not satisfy the test the iterator stops testing and uses every later element unconditionally. That is, the elements of the returned Iterable are the elements of <code>this</code> starting from the first element that does not satisfy test.</p>
+<p>As long as the iterator's elements satisfy <code>test</code> they are discarded. Once an element does not satisfy the <code>test</code> the iterator stops testing and uses every later element unconditionally. That is, the elements of the returned Iterable are the elements of <code>this</code> starting from the first element that does not satisfy <code>test</code>.</p>
 	</div>
 	<b><a id=IterableBase.take></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.take'><i title='Overrides Iterable.take()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; take(<a href=dart.core.html#int>int</a> n)</b>
 	<div class=indent>
-		<p>Returns an Iterable with at most n elements. </p>
-<p>The returned Iterable may contain fewer than n elements, if <code>this</code> contains fewer than n elements. </p>
-<p>It is an error if n is negative.</p>
+		<p>Returns an <code>Iterable</code> with at most <code>n</code> elements. </p>
+<p>The returned <code>Iterable</code> may contain fewer than <code>n</code> elements, if <code>this</code> contains fewer than <code>n</code> elements. </p>
+<p>It is an error if <code>n</code> is negative.</p>
 	</div>
 	<b><a id=IterableBase.takeWhile></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.takeWhile'><i title='Overrides Iterable.takeWhile()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; takeWhile(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns an Iterable that stops once test is not satisfied anymore. </p>
+		<p>Returns an Iterable that stops once <code>test</code> is not satisfied anymore. </p>
 <p>The filtering happens lazily. Every new Iterator of the returned Iterable starts iterating over the elements of <code>this</code>. </p>
-<p>When the iterator encounters an element <code>e</code> that does not satisfy test, it discards <code>e</code> and moves into the finished state. That is, it does not get or provide any more elements.</p>
+<p>When the iterator encounters an element <code>e</code> that does not satisfy <code>test</code>, it discards <code>e</code> and moves into the finished state. That is, it does not get or provide any more elements.</p>
 	</div>
 	<b><a id=IterableBase.toList></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.toList'><i title='Overrides Iterable.toList()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;E&gt; toList(<a href=dart.core.html#bool>bool</a> growable)</b>
 	<div class=indent>
-		<p>Creates a List containing the elements of this Iterable. </p>
-<p>The elements are in iteration order. The list is fixed-length if growable is false.</p>
+		<p>Creates a <code>List</code> containing the elements of this <code>Iterable</code>. </p>
+<p>The elements are in iteration order. The list is fixed-length if <code>growable</code> is false.</p>
 	</div>
 	<b><a id=IterableBase.toSet></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.toSet'><i title='Overrides Iterable.toSet()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Set>Set</a>&lt;E&gt; toSet()</b>
 	<div class=indent>
-		<p>Creates a Set containing the elements of this Iterable.</p>
+		<p>Creates a <code>Set</code> containing the elements of this <code>Iterable</code>.</p>
 	</div>
 	<b><a id=IterableBase.where></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.where'><i title='Overrides Iterable.where()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; where(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns a lazy Iterable with all elements that satisfy the predicate test. </p>
-<p>This method returns a view of the mapped elements. As long as the returned Iterable is not iterated over, the supplied function test will not be invoked. Iterating will not cache results, and thus iterating multiple times over the returned Iterable will invoke the supplied function test multiple times on the same element.</p>
+		<p>Returns a lazy <code>Iterable</code> with all elements that satisfy the predicate <code>test</code>. </p>
+<p>This method returns a view of the mapped elements. As long as the returned <code>Iterable</code> is not iterated over, the supplied function <code>test</code> will not be invoked. Iterating will not cache results, and thus iterating multiple times over the returned <code>Iterable</code> will invoke the supplied function <code>test</code> multiple times on the same element.</p>
 	</div>
 	<a id=IterableMixin></a><hr>
 	<h4>
@@ -669,7 +669,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>This Iterable mixin implements all Iterable members except <code>iterator</code>. </p>
+		<p>This <code>Iterable</code> mixin implements all <code>Iterable</code> members except <code>iterator</code>. </p>
 <p>All other methods are implemented in terms of <code>iterator</code>.</p>
 	</div>
 	<h4>Fields</h4>
@@ -704,59 +704,59 @@
 	<h4>Methods</h4>
 	<b><a id=IterableMixin.any></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.any'><i title='Overrides Iterable.any()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> any(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns true if one element of this collection satisfies the predicate test. Returns false otherwise.</p>
+		<p>Returns true if one element of this collection satisfies the predicate <code>test</code>. Returns false otherwise.</p>
 	</div>
 	<b><a id=IterableMixin.contains></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.contains'><i title='Overrides Iterable.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> element)</b>
 	<div class=indent>
-		<p>Returns true if the collection contains an element equal to element.</p>
+		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
 	</div>
 	<b><a id=IterableMixin.elementAt></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.elementAt'><i title='Overrides Iterable.elementAt()' class='icon-circle-arrow-up'></i></a> E elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=IterableMixin.every></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.every'><i title='Overrides Iterable.every()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> every(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns true if every elements of this collection satisify the predicate test. Returns <code>false</code> otherwise.</p>
+		<p>Returns true if every elements of this collection satisify the predicate <code>test</code>. Returns <code>false</code> otherwise.</p>
 	</div>
 	<b><a id=IterableMixin.expand></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.expand'><i title='Overrides Iterable.expand()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; expand(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Expands each element of this Iterable into zero or more elements. </p>
-<p>The resulting Iterable runs through the elements returned by f for each element of this, in order. </p>
-<p>The returned Iterable is lazy, and calls f for each element of this every time it's iterated.</p>
+		<p>Expands each element of this <code>Iterable</code> into zero or more elements. </p>
+<p>The resulting Iterable runs through the elements returned by <code>f</code> for each element of this, in order. </p>
+<p>The returned <code>Iterable</code> is lazy, and calls <code>f</code> for each element of this every time it's iterated.</p>
 	</div>
 	<b><a id=IterableMixin.firstWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.firstWhere'><i title='Overrides Iterable.firstWhere()' class='icon-circle-arrow-up'></i></a> dynamic firstWhere(&lt;E&gt; test, &lt;E&gt; orElse)</b>
 	<div class=indent>
-		<p>Returns the first element that satisfies the given predicate test. </p>
-<p>If none matches, the result of invoking the orElse function is returned. By default, when orElse is <code>null</code>, a StateError is thrown.</p>
+		<p>Returns the first element that satisfies the given predicate <code>test</code>. </p>
+<p>If none matches, the result of invoking the <code>orElse</code> function is returned. By default, when <code>orElse</code> is <code>null</code>, a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=IterableMixin.fold></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.fold'><i title='Overrides Iterable.fold()' class='icon-circle-arrow-up'></i></a> dynamic fold(dynamic initialValue, &lt;E&gt; combine)</b>
 	<div class=indent>
 		<p>Reduces a collection to a single value by iteratively combining each element of the collection with an existing value using the provided function. </p>
-<p>Use initialValue as the initial value, and the function combine to create a new value from the previous one and an element. </p>
+<p>Use <code>initialValue</code> as the initial value, and the function <code>combine</code> to create a new value from the previous one and an element. </p>
 <p>Example of calculating the sum of an iterable: </p>
 <p><pre>iterable.fold(0, (prev, element) =&gt; prev + element);
 </pre></p>
 	</div>
 	<b><a id=IterableMixin.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.forEach'><i title='Overrides Iterable.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Applies the function f to each element of this collection.</p>
+		<p>Applies the function <code>f</code> to each element of this collection.</p>
 	</div>
 	<b><a id=IterableMixin.join></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.join'><i title='Overrides Iterable.join()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> join(<a href=dart.core.html#String>String</a> separator)</b>
 	<div class=indent>
-		<p>Converts each element to a String and concatenates the strings. </p>
-<p>Converts each element to a String by calling Object.toString on it. Then concatenates the strings, optionally separated by the separator string.</p>
+		<p>Converts each element to a <code>String</code> and concatenates the strings. </p>
+<p>Converts each element to a <code>String</code> by calling <code>Object.toString</code> on it. Then concatenates the strings, optionally separated by the <code>separator</code> string.</p>
 	</div>
 	<b><a id=IterableMixin.lastWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.lastWhere'><i title='Overrides Iterable.lastWhere()' class='icon-circle-arrow-up'></i></a> dynamic lastWhere(&lt;E&gt; test, &lt;E&gt; orElse)</b>
 	<div class=indent>
-		<p>Returns the last element that satisfies the given predicate test. </p>
-<p>If none matches, the result of invoking the orElse function is returned. By default, when orElse is <code>null</code>, a StateError is thrown.</p>
+		<p>Returns the last element that satisfies the given predicate <code>test</code>. </p>
+<p>If none matches, the result of invoking the <code>orElse</code> function is returned. By default, when <code>orElse</code> is <code>null</code>, a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=IterableMixin.map></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.map'><i title='Overrides Iterable.map()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; map(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns a lazy Iterable where each element <code>e</code> of <code>this</code> is replaced by the result of <code>f(e)</code>. </p>
-<p>This method returns a view of the mapped elements. As long as the returned Iterable is not iterated over, the supplied function f will not be invoked. The transformed elements will not be cached. Iterating multiple times over the the returned Iterable will invoke the supplied function f multiple times on the same element.</p>
+		<p>Returns a lazy <code>Iterable</code> where each element <code>e</code> of <code>this</code> is replaced by the result of <code>f(e)</code>. </p>
+<p>This method returns a view of the mapped elements. As long as the returned <code>Iterable</code> is not iterated over, the supplied function <code>f</code> will not be invoked. The transformed elements will not be cached. Iterating multiple times over the the returned <code>Iterable</code> will invoke the supplied function <code>f</code> multiple times on the same element.</p>
 	</div>
 	<b><a id=IterableMixin.reduce></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.reduce'><i title='Overrides Iterable.reduce()' class='icon-circle-arrow-up'></i></a> E reduce(&lt;E&gt; combine)</b>
 	<div class=indent>
@@ -767,45 +767,45 @@
 	</div>
 	<b><a id=IterableMixin.singleWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.singleWhere'><i title='Overrides Iterable.singleWhere()' class='icon-circle-arrow-up'></i></a> E singleWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns the single element that satisfies test. If no or more than one element match then a StateError is thrown.</p>
+		<p>Returns the single element that satisfies <code>test</code>. If no or more than one element match then a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=IterableMixin.skip></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.skip'><i title='Overrides Iterable.skip()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; skip(<a href=dart.core.html#int>int</a> n)</b>
 	<div class=indent>
-		<p>Returns an Iterable that skips the first n elements. </p>
-<p>If <code>this</code> has fewer than n elements, then the resulting Iterable is  empty. </p>
-<p>It is an error if n is negative.</p>
+		<p>Returns an Iterable that skips the first <code>n</code> elements. </p>
+<p>If <code>this</code> has fewer than <code>n</code> elements, then the resulting Iterable is  empty. </p>
+<p>It is an error if <code>n</code> is negative.</p>
 	</div>
 	<b><a id=IterableMixin.skipWhile></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.skipWhile'><i title='Overrides Iterable.skipWhile()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; skipWhile(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns an Iterable that skips elements while test is satisfied. </p>
+		<p>Returns an Iterable that skips elements while <code>test</code> is satisfied. </p>
 <p>The filtering happens lazily. Every new Iterator of the returned Iterable iterates over all elements of <code>this</code>. </p>
-<p>As long as the iterator's elements satisfy test they are discarded. Once an element does not satisfy the test the iterator stops testing and uses every later element unconditionally. That is, the elements of the returned Iterable are the elements of <code>this</code> starting from the first element that does not satisfy test.</p>
+<p>As long as the iterator's elements satisfy <code>test</code> they are discarded. Once an element does not satisfy the <code>test</code> the iterator stops testing and uses every later element unconditionally. That is, the elements of the returned Iterable are the elements of <code>this</code> starting from the first element that does not satisfy <code>test</code>.</p>
 	</div>
 	<b><a id=IterableMixin.take></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.take'><i title='Overrides Iterable.take()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; take(<a href=dart.core.html#int>int</a> n)</b>
 	<div class=indent>
-		<p>Returns an Iterable with at most n elements. </p>
-<p>The returned Iterable may contain fewer than n elements, if <code>this</code> contains fewer than n elements. </p>
-<p>It is an error if n is negative.</p>
+		<p>Returns an <code>Iterable</code> with at most <code>n</code> elements. </p>
+<p>The returned <code>Iterable</code> may contain fewer than <code>n</code> elements, if <code>this</code> contains fewer than <code>n</code> elements. </p>
+<p>It is an error if <code>n</code> is negative.</p>
 	</div>
 	<b><a id=IterableMixin.takeWhile></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.takeWhile'><i title='Overrides Iterable.takeWhile()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; takeWhile(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns an Iterable that stops once test is not satisfied anymore. </p>
+		<p>Returns an Iterable that stops once <code>test</code> is not satisfied anymore. </p>
 <p>The filtering happens lazily. Every new Iterator of the returned Iterable starts iterating over the elements of <code>this</code>. </p>
-<p>When the iterator encounters an element <code>e</code> that does not satisfy test, it discards <code>e</code> and moves into the finished state. That is, it does not get or provide any more elements.</p>
+<p>When the iterator encounters an element <code>e</code> that does not satisfy <code>test</code>, it discards <code>e</code> and moves into the finished state. That is, it does not get or provide any more elements.</p>
 	</div>
 	<b><a id=IterableMixin.toList></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.toList'><i title='Overrides Iterable.toList()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;E&gt; toList(<a href=dart.core.html#bool>bool</a> growable)</b>
 	<div class=indent>
-		<p>Creates a List containing the elements of this Iterable. </p>
-<p>The elements are in iteration order. The list is fixed-length if growable is false.</p>
+		<p>Creates a <code>List</code> containing the elements of this <code>Iterable</code>. </p>
+<p>The elements are in iteration order. The list is fixed-length if <code>growable</code> is false.</p>
 	</div>
 	<b><a id=IterableMixin.toSet></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.toSet'><i title='Overrides Iterable.toSet()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Set>Set</a>&lt;E&gt; toSet()</b>
 	<div class=indent>
-		<p>Creates a Set containing the elements of this Iterable.</p>
+		<p>Creates a <code>Set</code> containing the elements of this <code>Iterable</code>.</p>
 	</div>
 	<b><a id=IterableMixin.where></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.where'><i title='Overrides Iterable.where()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; where(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns a lazy Iterable with all elements that satisfy the predicate test. </p>
-<p>This method returns a view of the mapped elements. As long as the returned Iterable is not iterated over, the supplied function test will not be invoked. Iterating will not cache results, and thus iterating multiple times over the returned Iterable will invoke the supplied function test multiple times on the same element.</p>
+		<p>Returns a lazy <code>Iterable</code> with all elements that satisfy the predicate <code>test</code>. </p>
+<p>This method returns a view of the mapped elements. As long as the returned <code>Iterable</code> is not iterated over, the supplied function <code>test</code> will not be invoked. Iterating will not cache results, and thus iterating multiple times over the returned <code>Iterable</code> will invoke the supplied function <code>test</code> multiple times on the same element.</p>
 	</div>
 	<a id=LinkedHashMap></a><hr>
 	<h4>
@@ -849,9 +849,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A hash-table based implementation of Map. </p>
+		<p>A hash-table based implementation of <code>Map</code>. </p>
 <p>Keys insertion order is remembered, and keys are iterated in insertion order. Values are iterated in their corresponding key's order. </p>
-<p>The keys of a <code>LinkedHashMap</code> must have consistent Object.operator== and Object.hashCode implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the keys (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
+<p>The keys of a <code>LinkedHashMap</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the keys (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
 <p>The map allows <code>null</code> as a key.</p>
 	</div>
 	<h4>Fields</h4>
@@ -878,43 +878,43 @@
 	<div class=indent></div>
 	<b><a id=values></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; get values</b>
 	<div class=indent>
-		<p>The values of the map, in the order of their corresponding keys.</p>
+		<p>The values of the map, in the order of their corresponding <code>keys</code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=LinkedHashMap.></a><i class=icon-plus-sign></i> LinkedHashMap()</b>
 	<div class=indent></div>
 	<b><a id=LinkedHashMap.from></a><i class=icon-plus-sign></i> factory LinkedHashMap.from(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)</b>
 	<div class=indent>
-		<p>Creates a LinkedHashMap that contains all key value pairs of other.</p>
+		<p>Creates a <code>LinkedHashMap</code> that contains all key value pairs of <code>other</code>.</p>
 	</div>
 	<b><a id=LinkedHashMap.fromIterable></a><i class=icon-plus-sign></i> factory LinkedHashMap.fromIterable(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value)</b>
 	<div class=indent>
-		<p>Creates a LinkedHashMap where the keys and values are computed from the iterable. </p>
-<p>For each element of the iterable this constructor computes a key/value pair, by applying key and value respectively. </p>
+		<p>Creates a <code>LinkedHashMap</code> where the keys and values are computed from the <code>iterable</code>. </p>
+<p>For each element of the <code>iterable</code> this constructor computes a key/value pair, by applying <code>key</code> and <code>value</code> respectively. </p>
 <p>The keys of the key/value pairs do not need to be unique. The last occurrence of a key will simply overwrite any previous value. </p>
-<p>If no values are specified for key and value the default is the identity function.</p>
+<p>If no values are specified for <code>key</code> and <code>value</code> the default is the identity function.</p>
 	</div>
 	<b><a id=LinkedHashMap.fromIterables></a><i class=icon-plus-sign></i> factory LinkedHashMap.fromIterables(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values)</b>
 	<div class=indent>
-		<p>Creates a LinkedHashMap associating the given keys to values. </p>
-<p>This constructor iterates over keys and values and maps each element of keys to the corresponding element of values. </p>
-<p>If keys contains the same object multiple times, the last occurrence overwrites the previous value. </p>
-<p>It is an error if the two Iterables don't have the same length.</p>
+		<p>Creates a <code>LinkedHashMap</code> associating the given <code>keys</code> to <code>values</code>. </p>
+<p>This constructor iterates over <code>keys</code> and <code>values</code> and maps each element of <code>keys</code> to the corresponding element of <code>values</code>. </p>
+<p>If <code>keys</code> contains the same object multiple times, the last occurrence overwrites the previous value. </p>
+<p>It is an error if the two <code>Iterable</code>s don't have the same length.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=LinkedHashMap.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]'><i title='Overrides Map.[]()' class='icon-circle-arrow-up'></i></a> V [](<a href=dart.core.html#Object>Object</a> key)</b>
 	<div class=indent>
-		<p>Returns the value for the given key or null if key is not in the map. Because null values are supported, one should either use containsKey to distinguish between an absent key and a null value, or use the putIfAbsent method.</p>
+		<p>Returns the value for the given <code>key</code> or null if <code>key</code> is not in the map. Because null values are supported, one should either use <code>containsKey</code> to distinguish between an absent key and a null value, or use the <code>putIfAbsent</code> method.</p>
 	</div>
 	<b><a id=LinkedHashMap.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]='><i title='Overrides Map.[]=()' class='icon-circle-arrow-up'></i></a> void []=(K key, V value)</b>
 	<div class=indent>
-		<p>Associates the key with the given value.</p>
+		<p>Associates the <code>key</code> with the given <code>value</code>.</p>
 	</div>
 	<b><a id=LinkedHashMap.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.addAll'><i title='Overrides Map.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)</b>
 	<div class=indent>
-		<p>Adds all key-value pairs of other to this map. </p>
-<p>If a key of other is already in this map, its value is overwritten. </p>
-<p>The operation is equivalent to doing <code>thiskey = value</code> for each key and associated value in other. It iterates over other, which must therefore not change during the iteration.</p>
+		<p>Adds all key-value pairs of <code>other</code> to this map. </p>
+<p>If a key of <code>other</code> is already in this map, its value is overwritten. </p>
+<p>The operation is equivalent to doing <code>this<code>key</code> = value</code> for each key and associated value in other. It iterates over <code>other</code>, which must therefore not change during the iteration.</p>
 	</div>
 	<b><a id=LinkedHashMap.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.clear'><i title='Overrides Map.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -930,17 +930,17 @@
 	</div>
 	<b><a id=LinkedHashMap.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.forEach'><i title='Overrides Map.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;K, V&gt; action)</b>
 	<div class=indent>
-		<p>Applies f to each {key, value} pair of the map. </p>
+		<p>Applies <code>f</code> to each {key, value} pair of the map. </p>
 <p>It is an error to add or remove keys from the map during iteration.</p>
 	</div>
 	<b><a id=LinkedHashMap.putIfAbsent></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.putIfAbsent'><i title='Overrides Map.putIfAbsent()' class='icon-circle-arrow-up'></i></a> V putIfAbsent(K key, &lt;K, V&gt; ifAbsent)</b>
 	<div class=indent>
-		<p>If key is not associated to a value, calls ifAbsent and updates the map by mapping key to the value returned by ifAbsent. Returns the value in the map. </p>
-<p>It is an error to add or remove keys from the map during the call to ifAbsent.</p>
+		<p>If <code>key</code> is not associated to a value, calls <code>ifAbsent</code> and updates the map by mapping <code>key</code> to the value returned by <code>ifAbsent</code>. Returns the value in the map. </p>
+<p>It is an error to add or remove keys from the map during the call to <code>ifAbsent</code>.</p>
 	</div>
 	<b><a id=LinkedHashMap.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.remove'><i title='Overrides Map.remove()' class='icon-circle-arrow-up'></i></a> V remove(<a href=dart.core.html#Object>Object</a> key)</b>
 	<div class=indent>
-		<p>Removes the association for the given key. Returns the value for key in the map or null if key is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
+		<p>Removes the association for the given <code>key</code>. Returns the value for <code>key</code> in the map or null if <code>key</code> is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
 	</div>
 	<b><a id=LinkedHashMap.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -989,9 +989,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A LinkedHashSet is a hash-table based Set implementation. </p>
+		<p>A <code>LinkedHashSet</code> is a hash-table based <code>Set</code> implementation. </p>
 <p>The <code>LinkedHashSet</code> also keep track of the order that elements were inserted in, and iteration happens in first-to-last insertion order. </p>
-<p>The elements of a <code>LinkedHashSet</code> must have consistent Object.operator== and Object.hashCode implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
+<p>The elements of a <code>LinkedHashSet</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
 <p>The set allows <code>null</code> as an element. </p>
 <p>Most simple operations on <code>HashSet</code> are done in constant time: <a href=dart.collection.html#LinkedHashSet.add>add()</a>, <a href=dart.collection.html#LinkedHashSet.contains>contains()</a>, <a href=dart.collection.html#LinkedHashSet.remove>remove()</a>, and <a href=dart.collection.html#length>length</a>.</p>
 	</div>
@@ -1035,13 +1035,13 @@
 	<h4>Methods</h4>
 	<b><a id=LinkedHashSet.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.add'><i title='Overrides Set.add()' class='icon-circle-arrow-up'></i></a> void add(E element)</b>
 	<div class=indent>
-		<p>Adds value into the set. </p>
-<p>The method has no effect if value is already in the set.</p>
+		<p>Adds <code>value</code> into the set. </p>
+<p>The method has no effect if <code>value</code> is already in the set.</p>
 	</div>
 	<b><a id=LinkedHashSet.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.addAll'><i title='Overrides Set.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; objects)</b>
 	<div class=indent>
-		<p>Adds all of elements to this Set. </p>
-<p>Equivalent to adding each element in elements using add, but some collections may be able to optimize it.</p>
+		<p>Adds all of <code>elements</code> to this Set. </p>
+<p>Equivalent to adding each element in <code>elements</code> using <code>add</code>, but some collections may be able to optimize it.</p>
 	</div>
 	<b><a id=LinkedHashSet.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.clear'><i title='Overrides Set.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -1049,7 +1049,7 @@
 	</div>
 	<b><a id=LinkedHashSet.contains></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.contains'><i title='Overrides IterableBase.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Returns true if the collection contains an element equal to element.</p>
+		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
 	</div>
 	<b><a id=LinkedHashSet.forEach></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.forEach'><i title='Overrides IterableBase.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; action)</b>
 	<div class=indent>
@@ -1057,19 +1057,19 @@
 	</div>
 	<b><a id=LinkedHashSet.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.remove'><i title='Overrides Set.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Removes value from the set. Returns true if value was in the set. Returns false otherwise. The method has no effect if value value was not in the set.</p>
+		<p>Removes <code>value</code> from the set. Returns true if <code>value</code> was in the set. Returns false otherwise. The method has no effect if <code>value</code> value was not in the set.</p>
 	</div>
 	<b><a id=LinkedHashSet.removeAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeAll'><i title='Overrides Set.removeAll()' class='icon-circle-arrow-up'></i></a> void removeAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; objectsToRemove)</b>
 	<div class=indent>
-		<p>Removes each element of elements from this set.</p>
+		<p>Removes each element of <code>elements</code> from this set.</p>
 	</div>
 	<b><a id=LinkedHashSet.removeWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeWhere'><i title='Overrides Set.removeWhere()' class='icon-circle-arrow-up'></i></a> void removeWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all elements of this set that satisfy test.</p>
+		<p>Removes all elements of this set that satisfy <code>test</code>.</p>
 	</div>
 	<b><a id=LinkedHashSet.retainWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.retainWhere'><i title='Overrides Set.retainWhere()' class='icon-circle-arrow-up'></i></a> void retainWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all elements of this set that fail to satisfy test.</p>
+		<p>Removes all elements of this set that fail to satisfy <code>test</code>.</p>
 	</div>
 	<a id=LinkedList></a><hr>
 	<h4>
@@ -1109,8 +1109,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A linked list implementation, providing O(1) removal(unlink) of elements and manual traversal through next and previous. </p>
-<p>The list elements must extend LinkedListEntry.</p>
+		<p>A linked list implementation, providing O(1) removal(unlink) of elements and manual traversal through <code>next</code> and <code>previous</code>. </p>
+<p>The list elements must extend <code>LinkedListEntry</code>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=LinkedList.first></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> first</b>
@@ -1146,27 +1146,27 @@
 	<h4>Methods</h4>
 	<b><a id=LinkedList.add></a><i class=icon-ok-sign></i> void add(E entry)</b>
 	<div class=indent>
-		<p>Add entry to the end of the list.</p>
+		<p>Add <code>entry</code> to the end of the list.</p>
 	</div>
 	<b><a id=LinkedList.addAll></a><i class=icon-ok-sign></i> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; entries)</b>
 	<div class=indent>
-		<p>Add entries to the end of the list.</p>
+		<p>Add <code>entries</code> to the end of the list.</p>
 	</div>
 	<b><a id=LinkedList.addFirst></a><i class=icon-ok-sign></i> void addFirst(E entry)</b>
 	<div class=indent>
-		<p>Add entry to the beginning of the list.</p>
+		<p>Add <code>entry</code> to the beginning of the list.</p>
 	</div>
 	<b><a id=LinkedList.clear></a><i class=icon-ok-sign></i> void clear()</b>
 	<div class=indent></div>
 	<b><a id=LinkedList.forEach></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.forEach'><i title='Overrides IterableBase.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; action)</b>
 	<div class=indent>
-		<p>Call action with each entry in the list. </p>
-<p>It's an error if action modify the list.</p>
+		<p>Call <code>action</code> with each entry in the list. </p>
+<p>It's an error if <code>action</code> modify the list.</p>
 	</div>
 	<b><a id=LinkedList.remove></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> remove(E entry)</b>
 	<div class=indent>
-		<p>Remove entry from the list. This is the same as calling <code>entry.unlink()</code>. </p>
-<p>If entry is not in the list, <code>false</code> is returned.</p>
+		<p>Remove <code>entry</code> from the list. This is the same as calling <code>entry.unlink()</code>. </p>
+<p>If <code>entry</code> is not in the list, <code>false</code> is returned.</p>
 	</div>
 	<b><a id=LinkedList.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -1200,7 +1200,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Entry element for a LinkedList. Any entry must extend this class.</p>
+		<p>Entry element for a <code>LinkedList</code>. Any entry must extend this class.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=LinkedListEntry.list></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#LinkedList>LinkedList</a> list</b>
@@ -1329,7 +1329,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Base implementation of a List class. </p>
+		<p>Base implementation of a <code>List</code> class. </p>
 <p>This class can be used as a mixin. </p>
 <p>This implements all read operations using only the <code>length</code> and <code>operator<a href=dart.collection.html#ListMixin.>ListMixin()</a></code> members. It implements write operations using those and <code>length=</code> and <code>operator<a href=dart.collection.html#ListMixin.>ListMixin()</a>=</code></p>
 	</div>
@@ -1369,75 +1369,75 @@
 	<h4>Methods</h4>
 	<b><a id=ListMixin.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.add'><i title='Overrides List.add()' class='icon-circle-arrow-up'></i></a> void add(E element)</b>
 	<div class=indent>
-		<p>Adds value to the end of this list, extending the length by one. </p>
-<p>Throws an UnsupportedError if the list is fixed-length.</p>
+		<p>Adds <code>value</code> to the end of this list, extending the length by one. </p>
+<p>Throws an <code>UnsupportedError</code> if the list is fixed-length.</p>
 	</div>
 	<b><a id=ListMixin.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.addAll'><i title='Overrides List.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Appends all objects of iterable to the end of this list. </p>
-<p>Extends the length of the list by the number of objects in iterable. Throws an UnsupportedError if this list is fixed-length.</p>
+		<p>Appends all objects of <code>iterable</code> to the end of this list. </p>
+<p>Extends the length of the list by the number of objects in <code>iterable</code>. Throws an <code>UnsupportedError</code> if this list is fixed-length.</p>
 	</div>
 	<b><a id=ListMixin.any></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.any'><i title='Overrides Iterable.any()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> any(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns true if one element of this collection satisfies the predicate test. Returns false otherwise.</p>
+		<p>Returns true if one element of this collection satisfies the predicate <code>test</code>. Returns false otherwise.</p>
 	</div>
 	<b><a id=ListMixin.asMap></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.asMap'><i title='Overrides List.asMap()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#int>int</a>, E&gt; asMap()</b>
 	<div class=indent>
-		<p>Returns an unmodifiable Map view of <code>this</code>. </p>
-<p>The map uses the indices of this list as keys and the corresponding objects as values. The <code>Map.keys</code> Iterable iterates the indices of this list in numerical order.</p>
+		<p>Returns an unmodifiable <code>Map</code> view of <code>this</code>. </p>
+<p>The map uses the indices of this list as keys and the corresponding objects as values. The <code>Map.keys</code> <code>Iterable</code> iterates the indices of this list in numerical order.</p>
 	</div>
 	<b><a id=ListMixin.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.clear'><i title='Overrides List.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
 		<p>Removes all objects from this list; the length of the list becomes zero. </p>
-<p>Throws an UnsupportedError, and retains all objects, if this  is a fixed-length list.</p>
+<p>Throws an <code>UnsupportedError</code>, and retains all objects, if this  is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.contains></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.contains'><i title='Overrides Iterable.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> element)</b>
 	<div class=indent>
-		<p>Returns true if the collection contains an element equal to element.</p>
+		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
 	</div>
 	<b><a id=ListMixin.elementAt></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.elementAt'><i title='Overrides Iterable.elementAt()' class='icon-circle-arrow-up'></i></a> E elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=ListMixin.every></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.every'><i title='Overrides Iterable.every()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> every(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns true if every elements of this collection satisify the predicate test. Returns <code>false</code> otherwise.</p>
+		<p>Returns true if every elements of this collection satisify the predicate <code>test</code>. Returns <code>false</code> otherwise.</p>
 	</div>
 	<b><a id=ListMixin.expand></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.expand'><i title='Overrides Iterable.expand()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; expand(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Expands each element of this Iterable into zero or more elements. </p>
-<p>The resulting Iterable runs through the elements returned by f for each element of this, in order. </p>
-<p>The returned Iterable is lazy, and calls f for each element of this every time it's iterated.</p>
+		<p>Expands each element of this <code>Iterable</code> into zero or more elements. </p>
+<p>The resulting Iterable runs through the elements returned by <code>f</code> for each element of this, in order. </p>
+<p>The returned <code>Iterable</code> is lazy, and calls <code>f</code> for each element of this every time it's iterated.</p>
 	</div>
 	<b><a id=ListMixin.fillRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.fillRange'><i title='Overrides List.fillRange()' class='icon-circle-arrow-up'></i></a> void fillRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, E fill)</b>
 	<div class=indent>
-		<p>Sets the objects in the range start inclusive to end exclusive to the given fillValue. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>.</p>
+		<p>Sets the objects in the range <code>start</code> inclusive to <code>end</code> exclusive to the given <code>fillValue</code>. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>.</p>
 	</div>
 	<b><a id=ListMixin.firstWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.firstWhere'><i title='Overrides Iterable.firstWhere()' class='icon-circle-arrow-up'></i></a> dynamic firstWhere(&lt;E&gt; test, &lt;E&gt; orElse)</b>
 	<div class=indent>
-		<p>Returns the first element that satisfies the given predicate test. </p>
-<p>If none matches, the result of invoking the orElse function is returned. By default, when orElse is <code>null</code>, a StateError is thrown.</p>
+		<p>Returns the first element that satisfies the given predicate <code>test</code>. </p>
+<p>If none matches, the result of invoking the <code>orElse</code> function is returned. By default, when <code>orElse</code> is <code>null</code>, a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=ListMixin.fold></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.fold'><i title='Overrides Iterable.fold()' class='icon-circle-arrow-up'></i></a> dynamic fold(dynamic initialValue, &lt;E&gt; combine)</b>
 	<div class=indent>
 		<p>Reduces a collection to a single value by iteratively combining each element of the collection with an existing value using the provided function. </p>
-<p>Use initialValue as the initial value, and the function combine to create a new value from the previous one and an element. </p>
+<p>Use <code>initialValue</code> as the initial value, and the function <code>combine</code> to create a new value from the previous one and an element. </p>
 <p>Example of calculating the sum of an iterable: </p>
 <p><pre>iterable.fold(0, (prev, element) =&gt; prev + element);
 </pre></p>
 	</div>
 	<b><a id=ListMixin.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.forEach'><i title='Overrides Iterable.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; action)</b>
 	<div class=indent>
-		<p>Applies the function f to each element of this collection.</p>
+		<p>Applies the function <code>f</code> to each element of this collection.</p>
 	</div>
 	<b><a id=ListMixin.getRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.getRange'><i title='Overrides List.getRange()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; getRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end)</b>
 	<div class=indent>
-		<p>Returns an Iterable that iterates over the objects in the range start inclusive to end exclusive. </p>
-<p>An error occurs if end is before start. </p>
-<p>An error occurs if the start and end are not valid ranges at the time of the call to this method. The returned Iterable behaves like <code>skip(start).take(end - start)</code>. That is, it does not throw exceptions if <code>this</code> changes size. </p>
+		<p>Returns an <code>Iterable</code> that iterates over the objects in the range <code>start</code> inclusive to <code>end</code> exclusive. </p>
+<p>An error occurs if <code>end</code> is before <code>start</code>. </p>
+<p>An error occurs if the <code>start</code> and <code>end</code> are not valid ranges at the time of the call to this method. The returned <code>Iterable</code> behaves like <code>skip(start).take(end - start)</code>. That is, it does not throw exceptions if <code>this</code> changes size. </p>
 <p>Example: </p>
 <p><pre>var list = [1, 2, 3, 4, 5];
 var range = list.getRange(1, 4);
@@ -1448,39 +1448,39 @@ print(range.join(', '));  // =&gt; 2, 3
 	</div>
 	<b><a id=ListMixin.indexOf></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.indexOf'><i title='Overrides List.indexOf()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#int>int</a> indexOf(<a href=dart.core.html#Object>Object</a> element, <a href=dart.core.html#int>int</a> startIndex)</b>
 	<div class=indent>
-		<p>Returns the first index of element in this list. </p>
-<p>Searches the list from index start to the length of the list. The first time an object <code>o</code> is encountered so that <code>o == element</code>, the index of <code>o</code> is returned. Returns -1 if element is not found.</p>
+		<p>Returns the first index of <code>element</code> in this list. </p>
+<p>Searches the list from index <code>start</code> to the length of the list. The first time an object <code>o</code> is encountered so that <code>o == element</code>, the index of <code>o</code> is returned. Returns -1 if <code>element</code> is not found.</p>
 	</div>
 	<b><a id=ListMixin.insert></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.insert'><i title='Overrides List.insert()' class='icon-circle-arrow-up'></i></a> void insert(<a href=dart.core.html#int>int</a> index, E element)</b>
 	<div class=indent>
-		<p>Inserts the object at position index in this list. </p>
+		<p>Inserts the object at position <code>index</code> in this list. </p>
 <p>This increases the length of the list by one and shifts all objects at or after the index towards the end of the list. </p>
-<p>An error occurs if the index is less than 0 or greater than length. An UnsupportedError occurs if the list is fixed-length.</p>
+<p>An error occurs if the <code>index</code> is less than 0 or greater than length. An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
 	</div>
 	<b><a id=ListMixin.insertAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.insertAll'><i title='Overrides List.insertAll()' class='icon-circle-arrow-up'></i></a> void insertAll(<a href=dart.core.html#int>int</a> index, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Inserts all objects of iterable at position index in this list. </p>
-<p>This increases the length of the list by the length of iterable and shifts all later objects towards the end of the list. </p>
-<p>An error occurs if the index is less than 0 or greater than length. An UnsupportedError occurs if the list is fixed-length.</p>
+		<p>Inserts all objects of <code>iterable</code> at position <code>index</code> in this list. </p>
+<p>This increases the length of the list by the length of <code>iterable</code> and shifts all later objects towards the end of the list. </p>
+<p>An error occurs if the <code>index</code> is less than 0 or greater than length. An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
 	</div>
 	<b><a id=ListMixin.join></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.join'><i title='Overrides Iterable.join()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> join(<a href=dart.core.html#String>String</a> separator)</b>
 	<div class=indent>
-		<p>Converts each element to a String and concatenates the strings. </p>
-<p>Converts each element to a String by calling Object.toString on it. Then concatenates the strings, optionally separated by the separator string.</p>
+		<p>Converts each element to a <code>String</code> and concatenates the strings. </p>
+<p>Converts each element to a <code>String</code> by calling <code>Object.toString</code> on it. Then concatenates the strings, optionally separated by the <code>separator</code> string.</p>
 	</div>
 	<b><a id=ListMixin.lastIndexOf></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.lastIndexOf'><i title='Overrides List.lastIndexOf()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#int>int</a> lastIndexOf(<a href=dart.core.html#Object>Object</a> element, <a href=dart.core.html#int>int</a> startIndex)</b>
 	<div class=indent>
-		<p>Returns the last index in the list a of the given element, starting the search at index startIndex to 0. Returns -1 if element is not found.</p>
+		<p>Returns the last index in the list <code>a</code> of the given <code>element</code>, starting the search at index <code>startIndex</code> to 0. Returns -1 if <code>element</code> is not found.</p>
 	</div>
 	<b><a id=ListMixin.lastWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.lastWhere'><i title='Overrides Iterable.lastWhere()' class='icon-circle-arrow-up'></i></a> dynamic lastWhere(&lt;E&gt; test, &lt;E&gt; orElse)</b>
 	<div class=indent>
-		<p>Returns the last element that satisfies the given predicate test. </p>
-<p>If none matches, the result of invoking the orElse function is returned. By default, when orElse is <code>null</code>, a StateError is thrown.</p>
+		<p>Returns the last element that satisfies the given predicate <code>test</code>. </p>
+<p>If none matches, the result of invoking the <code>orElse</code> function is returned. By default, when <code>orElse</code> is <code>null</code>, a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=ListMixin.map></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.map'><i title='Overrides Iterable.map()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; map(&lt;E&gt; f)</b>
 	<div class=indent>
-		<p>Returns a lazy Iterable where each element <code>e</code> of <code>this</code> is replaced by the result of <code>f(e)</code>. </p>
-<p>This method returns a view of the mapped elements. As long as the returned Iterable is not iterated over, the supplied function f will not be invoked. The transformed elements will not be cached. Iterating multiple times over the the returned Iterable will invoke the supplied function f multiple times on the same element.</p>
+		<p>Returns a lazy <code>Iterable</code> where each element <code>e</code> of <code>this</code> is replaced by the result of <code>f(e)</code>. </p>
+<p>This method returns a view of the mapped elements. As long as the returned <code>Iterable</code> is not iterated over, the supplied function <code>f</code> will not be invoked. The transformed elements will not be cached. Iterating multiple times over the the returned <code>Iterable</code> will invoke the supplied function <code>f</code> multiple times on the same element.</p>
 	</div>
 	<b><a id=ListMixin.reduce></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.reduce'><i title='Overrides Iterable.reduce()' class='icon-circle-arrow-up'></i></a> E reduce(&lt;E&gt; combine)</b>
 	<div class=indent>
@@ -1491,38 +1491,38 @@ print(range.join(', '));  // =&gt; 2, 3
 	</div>
 	<b><a id=ListMixin.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.remove'><i title='Overrides List.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> element)</b>
 	<div class=indent>
-		<p>Removes the first occurence of value from this list. </p>
-<p>Returns true if value was in the list. Returns false otherwise. </p>
-<p>The method has no effect if value was not in the list. </p>
-<p>An UnsupportedError occurs if the list is fixed-length.</p>
+		<p>Removes the first occurence of <code>value</code> from this list. </p>
+<p>Returns true if <code>value</code> was in the list. Returns false otherwise. </p>
+<p>The method has no effect if <code>value</code> was not in the list. </p>
+<p>An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
 	</div>
 	<b><a id=ListMixin.removeAt></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeAt'><i title='Overrides List.removeAt()' class='icon-circle-arrow-up'></i></a> E removeAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Removes the object at position index from this list. </p>
+		<p>Removes the object at position <code>index</code> from this list. </p>
 <p>This method reduces the length of <code>this</code> by one and moves all later objects down by one position. </p>
 <p>Returns the removed object. </p>
-<p><ul><li>Throws an ArgumentError if index is not an int.</li><li>Throws a RangeError if the index is out of range for this list.</li><li>Throws an UnsupportedError, and doesn't remove the object,</li></ul>if this is a fixed-length list.</p>
+<p><ul><li>Throws an <code>ArgumentError</code> if <code>index</code> is not an <code>int</code>.</li><li>Throws a <code>RangeError</code> if the <code>index</code> is out of range for this list.</li><li>Throws an <code>UnsupportedError</code>, and doesn't remove the object,</li></ul>if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.removeLast></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeLast'><i title='Overrides List.removeLast()' class='icon-circle-arrow-up'></i></a> E removeLast()</b>
 	<div class=indent>
 		<p>Pops and returns the last object in this list. </p>
-<p>Throws an UnsupportedError if this is a fixed-length list.</p>
+<p>Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.removeRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeRange'><i title='Overrides List.removeRange()' class='icon-circle-arrow-up'></i></a> void removeRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end)</b>
 	<div class=indent>
-		<p>Removes the objects in the range start inclusive to end exclusive. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>. Throws an UnsupportedError if this is a fixed-length list.</p>
+		<p>Removes the objects in the range <code>start</code> inclusive to <code>end</code> exclusive. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>. Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.removeWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeWhere'><i title='Overrides List.removeWhere()' class='icon-circle-arrow-up'></i></a> void removeWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all objects from this list that satisfy test. </p>
-<p>An object <code>o</code> satisfies test if <code>test(o)</code> is true. </p>
-<p>Throws an UnsupportedError if this is a fixed-length list.</p>
+		<p>Removes all objects from this list that satisfy <code>test</code>. </p>
+<p>An object <code>o</code> satisfies <code>test</code> if <code>test(o)</code> is true. </p>
+<p>Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.replaceRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.replaceRange'><i title='Overrides List.replaceRange()' class='icon-circle-arrow-up'></i></a> void replaceRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; newContents)</b>
 	<div class=indent>
-		<p>Removes the objects in the range start inclusive to end exclusive and replaces them with the contents of the iterable. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>. </p>
+		<p>Removes the objects in the range <code>start</code> inclusive to <code>end</code> exclusive and replaces them with the contents of the <code>iterable</code>. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>. </p>
 <p>Example: </p>
 <p><pre>var list = [1, 2, 3, 4, 5];
 list.replaceRange(1, 3, [6, 7, 8, 9]);
@@ -1531,21 +1531,21 @@ print(list);  // [1, 6, 7, 8, 9, 4, 5]
 	</div>
 	<b><a id=ListMixin.retainWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.retainWhere'><i title='Overrides List.retainWhere()' class='icon-circle-arrow-up'></i></a> void retainWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all objects from this list that fail to satisfy test. </p>
-<p>An object <code>o</code> satisfies test if <code>test(o)</code> is true. </p>
-<p>Throws an UnsupportedError if this is a fixed-length list.</p>
+		<p>Removes all objects from this list that fail to satisfy <code>test</code>. </p>
+<p>An object <code>o</code> satisfies <code>test</code> if <code>test(o)</code> is true. </p>
+<p>Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.setAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.setAll'><i title='Overrides List.setAll()' class='icon-circle-arrow-up'></i></a> void setAll(<a href=dart.core.html#int>int</a> index, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Overwrites objects of <code>this</code> with the objects of iterable, starting at position index in this list. </p>
+		<p>Overwrites objects of <code>this</code> with the objects of <code>iterable</code>, starting at position <code>index</code> in this list. </p>
 <p>This operation does not increase the length of <code>this</code>. </p>
-<p>An error occurs if the index is less than 0 or greater than length. An error occurs if the iterable is longer than length - index.</p>
+<p>An error occurs if the <code>index</code> is less than 0 or greater than length. An error occurs if the <code>iterable</code> is longer than <code>length</code> - <code>index</code>.</p>
 	</div>
 	<b><a id=ListMixin.setRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.setRange'><i title='Overrides List.setRange()' class='icon-circle-arrow-up'></i></a> void setRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable, <a href=dart.core.html#int>int</a> skipCount)</b>
 	<div class=indent>
-		<p>Copies the objects of iterable, skipping skipCount objects first, into the range start inclusive to end exclusive of <code>this</code>. </p>
-<p>If start equals end and start..end represents a legal range, this method has no effect. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>. An error occurs if the iterable does not have enough objects after skipping skipCount objects. </p>
+		<p>Copies the objects of <code>iterable</code>, skipping <code>skipCount</code> objects first, into the range <code>start</code> inclusive to <code>end</code> exclusive of <code>this</code>. </p>
+<p>If <code>start</code> equals <code>end</code> and <code>start</code>..<code>end</code> represents a legal range, this method has no effect. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>. An error occurs if the <code>iterable</code> does not have enough objects after skipping <code>skipCount</code> objects. </p>
 <p>Example: </p>
 <p><pre>var list = [1, 2, 3, 4];
 var list2 = [5, 6, 7, 8, 9];
@@ -1555,52 +1555,52 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=ListMixin.singleWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.singleWhere'><i title='Overrides Iterable.singleWhere()' class='icon-circle-arrow-up'></i></a> E singleWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns the single element that satisfies test. If no or more than one element match then a StateError is thrown.</p>
+		<p>Returns the single element that satisfies <code>test</code>. If no or more than one element match then a <code>StateError</code> is thrown.</p>
 	</div>
 	<b><a id=ListMixin.skip></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.skip'><i title='Overrides Iterable.skip()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; skip(<a href=dart.core.html#int>int</a> count)</b>
 	<div class=indent>
-		<p>Returns an Iterable that skips the first n elements. </p>
-<p>If <code>this</code> has fewer than n elements, then the resulting Iterable is  empty. </p>
-<p>It is an error if n is negative.</p>
+		<p>Returns an Iterable that skips the first <code>n</code> elements. </p>
+<p>If <code>this</code> has fewer than <code>n</code> elements, then the resulting Iterable is  empty. </p>
+<p>It is an error if <code>n</code> is negative.</p>
 	</div>
 	<b><a id=ListMixin.skipWhile></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.skipWhile'><i title='Overrides Iterable.skipWhile()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; skipWhile(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns an Iterable that skips elements while test is satisfied. </p>
+		<p>Returns an Iterable that skips elements while <code>test</code> is satisfied. </p>
 <p>The filtering happens lazily. Every new Iterator of the returned Iterable iterates over all elements of <code>this</code>. </p>
-<p>As long as the iterator's elements satisfy test they are discarded. Once an element does not satisfy the test the iterator stops testing and uses every later element unconditionally. That is, the elements of the returned Iterable are the elements of <code>this</code> starting from the first element that does not satisfy test.</p>
+<p>As long as the iterator's elements satisfy <code>test</code> they are discarded. Once an element does not satisfy the <code>test</code> the iterator stops testing and uses every later element unconditionally. That is, the elements of the returned Iterable are the elements of <code>this</code> starting from the first element that does not satisfy <code>test</code>.</p>
 	</div>
 	<b><a id=ListMixin.sort></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.sort'><i title='Overrides List.sort()' class='icon-circle-arrow-up'></i></a> void sort(&lt;E&gt; compare)</b>
 	<div class=indent>
-		<p>Sorts this list according to the order specified by the compare function. </p>
-<p>The compare function must act as a Comparator. </p>
-<p>The default List implementations use Comparable.compare if compare is omitted.</p>
+		<p>Sorts this list according to the order specified by the <code>compare</code> function. </p>
+<p>The <code>compare</code> function must act as a <code>Comparator</code>. </p>
+<p>The default List implementations use <code>Comparable.compare</code> if <code>compare</code> is omitted.</p>
 	</div>
 	<b><a id=ListMixin.sublist></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.sublist'><i title='Overrides List.sublist()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;E&gt; sublist(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end)</b>
 	<div class=indent>
-		<p>Returns a new list containing the objects from start inclusive to end exclusive. </p>
-<p>If end is omitted, the length of <code>this</code> is used. </p>
-<p>An error occurs if start is outside the range <code>0</code> .. <code>length</code> or if end is outside the range <code>start</code> .. <code>length</code>.</p>
+		<p>Returns a new list containing the objects from <code>start</code> inclusive to <code>end</code> exclusive. </p>
+<p>If <code>end</code> is omitted, the <code>length</code> of <code>this</code> is used. </p>
+<p>An error occurs if <code>start</code> is outside the range <code>0</code> .. <code>length</code> or if <code>end</code> is outside the range <code>start</code> .. <code>length</code>.</p>
 	</div>
 	<b><a id=ListMixin.take></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.take'><i title='Overrides Iterable.take()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; take(<a href=dart.core.html#int>int</a> count)</b>
 	<div class=indent>
-		<p>Returns an Iterable with at most n elements. </p>
-<p>The returned Iterable may contain fewer than n elements, if <code>this</code> contains fewer than n elements. </p>
-<p>It is an error if n is negative.</p>
+		<p>Returns an <code>Iterable</code> with at most <code>n</code> elements. </p>
+<p>The returned <code>Iterable</code> may contain fewer than <code>n</code> elements, if <code>this</code> contains fewer than <code>n</code> elements. </p>
+<p>It is an error if <code>n</code> is negative.</p>
 	</div>
 	<b><a id=ListMixin.takeWhile></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.takeWhile'><i title='Overrides Iterable.takeWhile()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; takeWhile(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns an Iterable that stops once test is not satisfied anymore. </p>
+		<p>Returns an Iterable that stops once <code>test</code> is not satisfied anymore. </p>
 <p>The filtering happens lazily. Every new Iterator of the returned Iterable starts iterating over the elements of <code>this</code>. </p>
-<p>When the iterator encounters an element <code>e</code> that does not satisfy test, it discards <code>e</code> and moves into the finished state. That is, it does not get or provide any more elements.</p>
+<p>When the iterator encounters an element <code>e</code> that does not satisfy <code>test</code>, it discards <code>e</code> and moves into the finished state. That is, it does not get or provide any more elements.</p>
 	</div>
 	<b><a id=ListMixin.toList></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.toList'><i title='Overrides Iterable.toList()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;E&gt; toList(<a href=dart.core.html#bool>bool</a> growable)</b>
 	<div class=indent>
-		<p>Creates a List containing the elements of this Iterable. </p>
-<p>The elements are in iteration order. The list is fixed-length if growable is false.</p>
+		<p>Creates a <code>List</code> containing the elements of this <code>Iterable</code>. </p>
+<p>The elements are in iteration order. The list is fixed-length if <code>growable</code> is false.</p>
 	</div>
 	<b><a id=ListMixin.toSet></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.toSet'><i title='Overrides Iterable.toSet()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Set>Set</a>&lt;E&gt; toSet()</b>
 	<div class=indent>
-		<p>Creates a Set containing the elements of this Iterable.</p>
+		<p>Creates a <code>Set</code> containing the elements of this <code>Iterable</code>.</p>
 	</div>
 	<b><a id=ListMixin.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -1608,8 +1608,8 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=ListMixin.where></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.where'><i title='Overrides Iterable.where()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; where(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Returns a lazy Iterable with all elements that satisfy the predicate test. </p>
-<p>This method returns a view of the mapped elements. As long as the returned Iterable is not iterated over, the supplied function test will not be invoked. Iterating will not cache results, and thus iterating multiple times over the returned Iterable will invoke the supplied function test multiple times on the same element.</p>
+		<p>Returns a lazy <code>Iterable</code> with all elements that satisfy the predicate <code>test</code>. </p>
+<p>This method returns a view of the mapped elements. As long as the returned <code>Iterable</code> is not iterated over, the supplied function <code>test</code> will not be invoked. Iterating will not cache results, and thus iterating multiple times over the returned <code>Iterable</code> will invoke the supplied function <code>test</code> multiple times on the same element.</p>
 	</div>
 	<a id=ListQueue></a><hr>
 	<h4>
@@ -1657,10 +1657,10 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>List based Queue. </p>
+		<p>List based <code>Queue</code>. </p>
 <p>Keeps a cyclic buffer of elements, and grows to a larger buffer when it fills up. This guarantees constant time peek and remove operations, and amortized constant time add operations. </p>
 <p>The structure is efficient for any queue or stack usage. </p>
-<p>Operations like removeAll and <a href=dart.collection.html#ListQueue.removeWhere>removeWhere()</a> are very inefficient. If those are needed, use a DoubleLinkedQueue instead.</p>
+<p>Operations like <code>removeAll</code> and <a href=dart.collection.html#ListQueue.removeWhere>removeWhere()</a> are very inefficient. If those are needed, use a <code>DoubleLinkedQueue</code> instead.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=ListQueue.first></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> first</b>
@@ -1692,28 +1692,28 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=ListQueue.></a><i class=icon-plus-sign></i> ListQueue(<a href=dart.core.html#int>int</a> initialCapacity)</b>
 	<div class=indent>
 		<p>Create an empty queue. </p>
-<p>If initialCapacity is given, prepare the queue for at least that many elements.</p>
+<p>If <code>initialCapacity</code> is given, prepare the queue for at least that many elements.</p>
 	</div>
 	<b><a id=ListQueue.from></a><i class=icon-plus-sign></i> factory ListQueue.from(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; source)</b>
 	<div class=indent>
-		<p>Create a queue initially containing the elements of source.</p>
+		<p>Create a queue initially containing the elements of <code>source</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=ListQueue.add></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.add'><i title='Overrides Queue.add()' class='icon-circle-arrow-up'></i></a> void add(E element)</b>
 	<div class=indent>
-		<p>Adds value at the end of the queue.</p>
+		<p>Adds <code>value</code> at the end of the queue.</p>
 	</div>
 	<b><a id=ListQueue.addAll></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.addAll'><i title='Overrides Queue.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; elements)</b>
 	<div class=indent>
-		<p>Adds all elements of iterable at the end of the queue. The length of the queue is extended by the length of iterable.</p>
+		<p>Adds all elements of <code>iterable</code> at the end of the queue. The length of the queue is extended by the length of <code>iterable</code>.</p>
 	</div>
 	<b><a id=ListQueue.addFirst></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.addFirst'><i title='Overrides Queue.addFirst()' class='icon-circle-arrow-up'></i></a> void addFirst(E element)</b>
 	<div class=indent>
-		<p>Adds value at the beginning of the queue.</p>
+		<p>Adds <code>value</code> at the beginning of the queue.</p>
 	</div>
 	<b><a id=ListQueue.addLast></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.addLast'><i title='Overrides Queue.addLast()' class='icon-circle-arrow-up'></i></a> void addLast(E element)</b>
 	<div class=indent>
-		<p>Adds value at the end of the queue.</p>
+		<p>Adds <code>value</code> at the end of the queue.</p>
 	</div>
 	<b><a id=ListQueue.clear></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.clear'><i title='Overrides Queue.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -1721,41 +1721,41 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=ListQueue.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.elementAt'><i title='Overrides IterableBase.elementAt()' class='icon-circle-arrow-up'></i></a> E elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=ListQueue.forEach></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.forEach'><i title='Overrides IterableBase.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; action)</b>
 	<div class=indent>
-		<p>Applies the function f to each element of this collection.</p>
+		<p>Applies the function <code>f</code> to each element of this collection.</p>
 	</div>
 	<b><a id=ListQueue.remove></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.remove'><i title='Overrides Queue.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Remove a single instance of value from the queue. </p>
-<p>Returns <code>true</code> if a value was removed, or <code>false</code> if the queue contained no element equal to value.</p>
+		<p>Remove a single instance of <code>value</code> from the queue. </p>
+<p>Returns <code>true</code> if a value was removed, or <code>false</code> if the queue contained no element equal to <code>value</code>.</p>
 	</div>
 	<b><a id=ListQueue.removeFirst></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.removeFirst'><i title='Overrides Queue.removeFirst()' class='icon-circle-arrow-up'></i></a> E removeFirst()</b>
 	<div class=indent>
-		<p>Removes and returns the first element of this queue. Throws an StateError exception if this queue is empty.</p>
+		<p>Removes and returns the first element of this queue. Throws an <code>StateError</code> exception if this queue is empty.</p>
 	</div>
 	<b><a id=ListQueue.removeLast></a><i class=icon-ok-sign></i> <a href='dart.collection.html#Queue.removeLast'><i title='Overrides Queue.removeLast()' class='icon-circle-arrow-up'></i></a> E removeLast()</b>
 	<div class=indent>
-		<p>Removes and returns the last element of the queue. Throws an StateError exception if this queue is empty.</p>
+		<p>Removes and returns the last element of the queue. Throws an <code>StateError</code> exception if this queue is empty.</p>
 	</div>
 	<b><a id=ListQueue.removeWhere></a><i class=icon-ok-sign></i> void removeWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Remove all elements matched by test. </p>
+		<p>Remove all elements matched by <code>test</code>. </p>
 <p>This method is inefficient since it works by repeatedly removing single elements, each of which can take linear time.</p>
 	</div>
 	<b><a id=ListQueue.retainWhere></a><i class=icon-ok-sign></i> void retainWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Remove all elements not matched by test. </p>
+		<p>Remove all elements not matched by <code>test</code>. </p>
 <p>This method is inefficient since it works by repeatedly removing single elements, each of which can take linear time.</p>
 	</div>
 	<b><a id=ListQueue.toList></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.toList'><i title='Overrides IterableBase.toList()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#List>List</a>&lt;E&gt; toList(<a href=dart.core.html#bool>bool</a> growable)</b>
 	<div class=indent>
-		<p>Creates a List containing the elements of this Iterable. </p>
-<p>The elements are in iteration order. The list is fixed-length if growable is false.</p>
+		<p>Creates a <code>List</code> containing the elements of this <code>Iterable</code>. </p>
+<p>The elements are in iteration order. The list is fixed-length if <code>growable</code> is false.</p>
 	</div>
 	<b><a id=ListQueue.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -1806,9 +1806,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent></div>
 	<b><a id=Maps.mapToString></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> mapToString(<a href=dart.core.html#Map>Map</a>&lt;dynamic, dynamic&gt; m)</b>
 	<div class=indent>
-		<p>Returns a string representing the specified map. The returned string looks like this: <code>'{key0: value0, key1: value1, ... keyN: valueN}'</code>. The value returned by its toString method is used to represent each key or value. </p>
+		<p>Returns a string representing the specified map. The returned string looks like this: <code>'{key0: value0, key1: value1, ... keyN: valueN}'</code>. The value returned by its <code>toString</code> method is used to represent each key or value. </p>
 <p>If the map collection contains a reference to itself, either directly as a key or value, or indirectly through other collections or maps, the contained reference is rendered as <code>'{...}'</code>. This prevents the infinite regress that would otherwise occur. So, for example, calling this method on a map whose sole entry maps the string key 'me' to a reference to the map would return <code>'{me: {...}}'</code>. </p>
-<p>A typical implementation of a map's toString method will simply return the results of this method applied to the collection.</p>
+<p>A typical implementation of a map's <code>toString</code> method will simply return the results of this method applied to the collection.</p>
 	</div>
 	<b><a id=Maps.putIfAbsent></a><i class=icon-ok-sign></i> static dynamic putIfAbsent(<a href=dart.core.html#Map>Map</a>&lt;dynamic, dynamic&gt; map, dynamic key,  ifAbsent)</b>
 	<div class=indent></div>
@@ -1834,7 +1834,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Queue is a collection that can be manipulated at both ends. One can iterate over the elements of a queue through forEach or with an Iterator.</p>
+		<p>A <code>Queue</code> is a collection that can be manipulated at both ends. One can iterate over the elements of a queue through <code>forEach</code> or with an <code>Iterator</code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Queue.></a><i class=icon-plus-sign></i> factory Queue()</b>
@@ -1843,24 +1843,24 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=Queue.from></a><i class=icon-plus-sign></i> factory Queue.from(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; other)</b>
 	<div class=indent>
-		<p>Creates a queue with the elements of other. The order in the queue will be the order provided by the iterator of other.</p>
+		<p>Creates a queue with the elements of <code>other</code>. The order in the queue will be the order provided by the iterator of <code>other</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Queue.add></a><i class=icon-ok-sign></i> void add(E value)</b>
 	<div class=indent>
-		<p>Adds value at the end of the queue.</p>
+		<p>Adds <code>value</code> at the end of the queue.</p>
 	</div>
 	<b><a id=Queue.addAll></a><i class=icon-ok-sign></i> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Adds all elements of iterable at the end of the queue. The length of the queue is extended by the length of iterable.</p>
+		<p>Adds all elements of <code>iterable</code> at the end of the queue. The length of the queue is extended by the length of <code>iterable</code>.</p>
 	</div>
 	<b><a id=Queue.addFirst></a><i class=icon-ok-sign></i> void addFirst(E value)</b>
 	<div class=indent>
-		<p>Adds value at the beginning of the queue.</p>
+		<p>Adds <code>value</code> at the beginning of the queue.</p>
 	</div>
 	<b><a id=Queue.addLast></a><i class=icon-ok-sign></i> void addLast(E value)</b>
 	<div class=indent>
-		<p>Adds value at the end of the queue.</p>
+		<p>Adds <code>value</code> at the end of the queue.</p>
 	</div>
 	<b><a id=Queue.clear></a><i class=icon-ok-sign></i> void clear()</b>
 	<div class=indent>
@@ -1868,16 +1868,16 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=Queue.remove></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Remove a single instance of value from the queue. </p>
-<p>Returns <code>true</code> if a value was removed, or <code>false</code> if the queue contained no element equal to value.</p>
+		<p>Remove a single instance of <code>value</code> from the queue. </p>
+<p>Returns <code>true</code> if a value was removed, or <code>false</code> if the queue contained no element equal to <code>value</code>.</p>
 	</div>
 	<b><a id=Queue.removeFirst></a><i class=icon-ok-sign></i> E removeFirst()</b>
 	<div class=indent>
-		<p>Removes and returns the first element of this queue. Throws an StateError exception if this queue is empty.</p>
+		<p>Removes and returns the first element of this queue. Throws an <code>StateError</code> exception if this queue is empty.</p>
 	</div>
 	<b><a id=Queue.removeLast></a><i class=icon-ok-sign></i> E removeLast()</b>
 	<div class=indent>
-		<p>Removes and returns the last element of the queue. Throws an StateError exception if this queue is empty.</p>
+		<p>Removes and returns the last element of the queue. Throws an <code>StateError</code> exception if this queue is empty.</p>
 	</div>
 	<a id=SplayTreeMap></a><hr>
 	<h4>
@@ -1952,36 +1952,36 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent></div>
 	<b><a id=SplayTreeMap.from></a><i class=icon-plus-sign></i> factory SplayTreeMap.from(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other, &lt;K, V&gt; compare)</b>
 	<div class=indent>
-		<p>Creates a SplayTreeMap that contains all key value pairs of other.</p>
+		<p>Creates a <code>SplayTreeMap</code> that contains all key value pairs of <code>other</code>.</p>
 	</div>
 	<b><a id=SplayTreeMap.fromIterable></a><i class=icon-plus-sign></i> factory SplayTreeMap.fromIterable(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value, &lt;K, V&gt; compare)</b>
 	<div class=indent>
-		<p>Creates a SplayTreeMap where the keys and values are computed from the iterable. </p>
-<p>For each element of the iterable this constructor computes a key/value pair, by applying key and value respectively. </p>
+		<p>Creates a <code>SplayTreeMap</code> where the keys and values are computed from the <code>iterable</code>. </p>
+<p>For each element of the <code>iterable</code> this constructor computes a key/value pair, by applying <code>key</code> and <code>value</code> respectively. </p>
 <p>The keys of the key/value pairs do not need to be unique. The last occurrence of a key will simply overwrite any previous value. </p>
-<p>If no values are specified for key and value the default is the identity function.</p>
+<p>If no values are specified for <code>key</code> and <code>value</code> the default is the identity function.</p>
 	</div>
 	<b><a id=SplayTreeMap.fromIterables></a><i class=icon-plus-sign></i> factory SplayTreeMap.fromIterables(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values, &lt;K, V&gt; compare)</b>
 	<div class=indent>
-		<p>Creates a SplayTreeMap associating the given keys to values. </p>
-<p>This constructor iterates over keys and values and maps each element of keys to the corresponding element of values. </p>
-<p>If keys contains the same object multiple times, the last occurrence overwrites the previous value. </p>
-<p>It is an error if the two Iterables don't have the same length.</p>
+		<p>Creates a <code>SplayTreeMap</code> associating the given <code>keys</code> to <code>values</code>. </p>
+<p>This constructor iterates over <code>keys</code> and <code>values</code> and maps each element of <code>keys</code> to the corresponding element of <code>values</code>. </p>
+<p>If <code>keys</code> contains the same object multiple times, the last occurrence overwrites the previous value. </p>
+<p>It is an error if the two <code>Iterable</code>s don't have the same length.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=SplayTreeMap.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]'><i title='Overrides Map.[]()' class='icon-circle-arrow-up'></i></a> V [](<a href=dart.core.html#Object>Object</a> key)</b>
 	<div class=indent>
-		<p>Returns the value for the given key or null if key is not in the map. Because null values are supported, one should either use containsKey to distinguish between an absent key and a null value, or use the putIfAbsent method.</p>
+		<p>Returns the value for the given <code>key</code> or null if <code>key</code> is not in the map. Because null values are supported, one should either use <code>containsKey</code> to distinguish between an absent key and a null value, or use the <code>putIfAbsent</code> method.</p>
 	</div>
 	<b><a id=SplayTreeMap.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]='><i title='Overrides Map.[]=()' class='icon-circle-arrow-up'></i></a> void []=(K key, V value)</b>
 	<div class=indent>
-		<p>Associates the key with the given value.</p>
+		<p>Associates the <code>key</code> with the given <code>value</code>.</p>
 	</div>
 	<b><a id=SplayTreeMap.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.addAll'><i title='Overrides Map.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)</b>
 	<div class=indent>
-		<p>Adds all key-value pairs of other to this map. </p>
-<p>If a key of other is already in this map, its value is overwritten. </p>
-<p>The operation is equivalent to doing <code>thiskey = value</code> for each key and associated value in other. It iterates over other, which must therefore not change during the iteration.</p>
+		<p>Adds all key-value pairs of <code>other</code> to this map. </p>
+<p>If a key of <code>other</code> is already in this map, its value is overwritten. </p>
+<p>The operation is equivalent to doing <code>this<code>key</code> = value</code> for each key and associated value in other. It iterates over <code>other</code>, which must therefore not change during the iteration.</p>
 	</div>
 	<b><a id=SplayTreeMap.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.clear'><i title='Overrides Map.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -1997,33 +1997,33 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=SplayTreeMap.firstKey></a><i class=icon-ok-sign></i> K firstKey()</b>
 	<div class=indent>
-		<p>Get the first key in the map. Returns null if the map is empty.</p>
+		<p>Get the first key in the map. Returns <code>null</code> if the map is empty.</p>
 	</div>
 	<b><a id=SplayTreeMap.firstKeyAfter></a><i class=icon-ok-sign></i> K firstKeyAfter(K key)</b>
 	<div class=indent>
-		<p>Get the first key in the map that is strictly larger than key. Returns null if no key was not found.</p>
+		<p>Get the first key in the map that is strictly larger than <code>key</code>. Returns <code>null</code> if no key was not found.</p>
 	</div>
 	<b><a id=SplayTreeMap.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.forEach'><i title='Overrides Map.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;K, V&gt; f)</b>
 	<div class=indent>
-		<p>Applies f to each {key, value} pair of the map. </p>
+		<p>Applies <code>f</code> to each {key, value} pair of the map. </p>
 <p>It is an error to add or remove keys from the map during iteration.</p>
 	</div>
 	<b><a id=SplayTreeMap.lastKey></a><i class=icon-ok-sign></i> K lastKey()</b>
 	<div class=indent>
-		<p>Get the last key in the map. Returns null if the map is empty.</p>
+		<p>Get the last key in the map. Returns <code>null</code> if the map is empty.</p>
 	</div>
 	<b><a id=SplayTreeMap.lastKeyBefore></a><i class=icon-ok-sign></i> K lastKeyBefore(K key)</b>
 	<div class=indent>
-		<p>Get the last key in the map that is strictly smaller than key. Returns null if no key was not found.</p>
+		<p>Get the last key in the map that is strictly smaller than <code>key</code>. Returns <code>null</code> if no key was not found.</p>
 	</div>
 	<b><a id=SplayTreeMap.putIfAbsent></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.putIfAbsent'><i title='Overrides Map.putIfAbsent()' class='icon-circle-arrow-up'></i></a> V putIfAbsent(K key, &lt;K, V&gt; ifAbsent)</b>
 	<div class=indent>
-		<p>If key is not associated to a value, calls ifAbsent and updates the map by mapping key to the value returned by ifAbsent. Returns the value in the map. </p>
-<p>It is an error to add or remove keys from the map during the call to ifAbsent.</p>
+		<p>If <code>key</code> is not associated to a value, calls <code>ifAbsent</code> and updates the map by mapping <code>key</code> to the value returned by <code>ifAbsent</code>. Returns the value in the map. </p>
+<p>It is an error to add or remove keys from the map during the call to <code>ifAbsent</code>.</p>
 	</div>
 	<b><a id=SplayTreeMap.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.remove'><i title='Overrides Map.remove()' class='icon-circle-arrow-up'></i></a> V remove(<a href=dart.core.html#Object>Object</a> key)</b>
 	<div class=indent>
-		<p>Removes the association for the given key. Returns the value for key in the map or null if key is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
+		<p>Removes the association for the given <code>key</code>. Returns the value for <code>key</code> in the map or null if <code>key</code> is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
 	</div>
 	<b><a id=SplayTreeMap.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -2051,8 +2051,8 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An unmodifiable List view of another List. </p>
-<p>The source of the elements may be a List or any Iterable with efficient Iterable.length and Iterable.elementAt.</p>
+		<p>An unmodifiable <code>List</code> view of another List. </p>
+<p>The source of the elements may be a <code>List</code> or any <code>Iterable</code> with efficient <code>Iterable.length</code> and <code>Iterable.elementAt</code>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=UnmodifiableListView.length></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> length</b>
@@ -2063,7 +2063,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<h4>Constructors</h4>
 	<b><a id=UnmodifiableListView.></a><i class=icon-plus-sign></i> UnmodifiableListView(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; source)</b>
 	<div class=indent>
-		<p>Create an unmodifiable list backed by source.</p>
+		<p>Create an unmodifiable list backed by <code>source</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=UnmodifiableListView.[]></a><i class=icon-ok-sign></i> E [](<a href=dart.core.html#int>int</a> index)</b>

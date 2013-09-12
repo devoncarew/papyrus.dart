@@ -70,14 +70,14 @@
 	</dl>
 	<div class=indent>
 		<p>Concurrent programming using _isolates_: independent workers that are similar to threads but don't share memory, communicating only via messages. </p>
-<p>See also: dart:isolate - Concurrency with Isolates(https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-dartisolate---concurrency-with-isolates) in the library tour.</p>
+<p>See also: <code>dart:isolate - Concurrency with Isolates</code>(https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-dartisolate---concurrency-with-isolates) in the library tour.</p>
 	</div>
 	<h4>Top-Level Variables</h4>
 	<div class=indent>
 		<b><a id=stream></a><i class=icon-minus-sign></i> static final <a href=dart.isolate.html#IsolateStream>IsolateStream</a> stream</b>
 		<div class=indent>
 			<p>The initial IsolateStream available by default for this isolate. </p>
-<p>This IsolateStream is created automatically and is commonly used to establish the first communication between isolates. (See streamSpawnFunction.)</p>
+<p>This IsolateStream is created automatically and is commonly used to establish the first communication between isolates. (See <code>streamSpawnFunction</code>.)</p>
 		</div>
 	</div>
 	<h4>Getters and Setters</h4>
@@ -85,7 +85,7 @@
 		<b><a id=port></a><i class=icon-circle-arrow-right></i> static <a href=dart.isolate.html#ReceivePort>ReceivePort</a> get port</b>
 		<div class=indent>
 			<p>The initial ReceivePort available by default for this isolate. </p>
-<p>This ReceivePort is created automatically and is commonly used to establish the first communication between isolates. (See spawnFunction and spawnUri.)</p>
+<p>This ReceivePort is created automatically and is commonly used to establish the first communication between isolates. (See <code>spawnFunction</code> and <code>spawnUri</code>.)</p>
 		</div>
 	</div>
 	<h4>Functions</h4>
@@ -93,23 +93,23 @@
 		<b><a id=spawnFunction></a><i class=icon-ok-sign></i> static <a href=dart.isolate.html#SendPort>SendPort</a> spawnFunction( topLevelFunction,  unhandledExceptionCallback)</b>
 		<div class=indent>
 			<p>Creates and spawns an isolate that shares the same code as the current isolate, but that starts from the specified function. </p>
-<p>The topLevelFunction argument must be a static top-level function or a static method that takes no arguments. It is illegal to pass a function closure. </p>
-<p>When any isolate starts (even the main script of the application), a default ReceivePort is created for it. This port is available from the top-level getter port defined in this library. </p>
-<p>This function returns a SendPort derived from the child isolate's default port. </p>
-<p>The optional unhandledExceptionCallback argument is invoked whenever an exception inside the isolate is unhandled. It can be seen as a big <code>try/catch</code> around everything that is executed inside the isolate. The callback should return <code>true</code> if it was able to handle the exception.</p>
+<p>The <code>topLevelFunction</code> argument must be a static top-level function or a static method that takes no arguments. It is illegal to pass a function closure. </p>
+<p>When any isolate starts (even the main script of the application), a default <code>ReceivePort</code> is created for it. This port is available from the top-level getter <code>port</code> defined in this library. </p>
+<p>This function returns a <code>SendPort</code> derived from the child isolate's default port. </p>
+<p>The optional <code>unhandledExceptionCallback</code> argument is invoked whenever an exception inside the isolate is unhandled. It can be seen as a big <code>try/catch</code> around everything that is executed inside the isolate. The callback should return <code>true</code> if it was able to handle the exception.</p>
 		</div>
 		<b><a id=spawnUri></a><i class=icon-ok-sign></i> static <a href=dart.isolate.html#SendPort>SendPort</a> spawnUri(<a href=dart.core.html#String>String</a> uri)</b>
 		<div class=indent>
 			<p>Creates and spawns an isolate that runs the code from the specified URI. </p>
-<p>As with spawnFunction, the child isolate has a default ReceivePort, and this function returns a SendPort derived from it.</p>
+<p>As with <code>spawnFunction</code>, the child isolate has a default <code>ReceivePort</code>, and this function returns a <code>SendPort</code> derived from it.</p>
 		</div>
 		<b><a id=streamSpawnFunction></a><i class=icon-ok-sign></i> static <a href=dart.isolate.html#IsolateSink>IsolateSink</a> streamSpawnFunction( topLevelFunction,  unhandledExceptionCallback)</b>
 		<div class=indent>
 			<p>Creates and spawns an isolate that shares the same code as the current isolate, but that starts from the specified function. </p>
-<p>The topLevelFunction argument must be a static top-level function or a static method that takes no arguments. </p>
-<p>When any isolate starts (even the main script of the application), a default IsolateStream is created for it. This sink is available from the top-level getter stream defined in this library. </p>
-<p>spawnFunction returns an IsolateSink feeding into the child isolate's default stream. </p>
-<p>The optional unhandledExceptionCallback argument is invoked whenever an exception inside the isolate is unhandled. It can be seen as a big <code>try/catch</code> around everything that is executed inside the isolate. The callback should return <code>true</code> if it was able to handle the exception.</p>
+<p>The <code>topLevelFunction</code> argument must be a static top-level function or a static method that takes no arguments. </p>
+<p>When any isolate starts (even the main script of the application), a default <code>IsolateStream</code> is created for it. This sink is available from the top-level getter <code>stream</code> defined in this library. </p>
+<p><code>spawnFunction</code> returns an <code>IsolateSink</code> feeding into the child isolate's default stream. </p>
+<p>The optional <code>unhandledExceptionCallback</code> argument is invoked whenever an exception inside the isolate is unhandled. It can be seen as a big <code>try/catch</code> around everything that is executed inside the isolate. The callback should return <code>true</code> if it was able to handle the exception.</p>
 		</div>
 	</div>
 	<a id=IsolateSink></a><hr>
@@ -129,9 +129,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The feed for an IsolateStream. </p>
-<p>Any message written to this is delivered to its respective IsolateStream. IsolateSinks are created by MessageBoxes. </p>
-<p>IsolateSinks can be transmitted to other isolates.</p>
+		<p>The feed for an <code>IsolateStream</code>. </p>
+<p>Any message written to <code>this</code> is delivered to its respective <code>IsolateStream</code>. <code>IsolateSink</code>s are created by <code>MessageBox</code>es. </p>
+<p><code>IsolateSink</code>s can be transmitted to other isolates.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=IsolateSink.></a><i class=icon-plus-sign></i> IsolateSink()</b>
@@ -139,13 +139,13 @@
 	<h4>Methods</h4>
 	<b><a id=IsolateSink.==></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.=='><i title='Overrides Object.==()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> ==(dynamic other)</b>
 	<div class=indent>
-		<p>Tests whether other is an IsolateSink feeding into the same IsolateStream as this one.</p>
+		<p>Tests whether <code>other</code> is an <code>IsolateSink</code> feeding into the same <code>IsolateStream</code> as this one.</p>
 	</div>
 	<b><a id=IsolateSink.add></a><i class=icon-ok-sign></i> <a href='dart.async.html#EventSink.add'><i title='Overrides EventSink.add()' class='icon-circle-arrow-up'></i></a> void add(dynamic message)</b>
 	<div class=indent>
-		<p>Sends an asynchronous message to the linked IsolateStream; the message is copied to the receiving isolate. </p>
-<p>The content of message can be: primitive values (null, num, bool, double, String), instances of IsolateSinks, and lists and maps whose elements are any of these. List and maps are also allowed to be cyclic. </p>
-<p>In the special circumstances when two isolates share the same code and are running in the same process (e.g. isolates created via spawnFunction), it is also possible to send object instances (which would be copied in the process). This is currently only supported by the dartvm.  For now, the dart2js compiler only supports the restricted messages described above.</p>
+		<p>Sends an asynchronous <code>message</code> to the linked <code>IsolateStream</code>; the message is copied to the receiving isolate. </p>
+<p>The content of <code>message</code> can be: primitive values (null, num, bool, double, String), instances of <code>IsolateSink</code>s, and lists and maps whose elements are any of these. List and maps are also allowed to be cyclic. </p>
+<p>In the special circumstances when two isolates share the same code and are running in the same process (e.g. isolates created via <code>spawnFunction</code>), it is also possible to send object instances (which would be copied in the process). This is currently only supported by the dartvm.  For now, the dart2js compiler only supports the restricted messages described above.</p>
 	</div>
 	<b><a id=IsolateSink.addError></a><i class=icon-ok-sign></i> <a href='dart.async.html#EventSink.addError'><i title='Overrides EventSink.addError()' class='icon-circle-arrow-up'></i></a> void addError(dynamic errorEvent)</b>
 	<div class=indent>
@@ -188,8 +188,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Together with IsolateSink, the only means of communication between isolates. </p>
-<p>Each IsolateStream has a corresponding IsolateSink. Any message written into that sink will be delivered to the stream and then dispatched to the stream's subscribers.</p>
+		<p>Together with <code>IsolateSink</code>, the only means of communication between isolates. </p>
+<p>Each IsolateStream has a corresponding <code>IsolateSink</code>. Any message written into that sink will be delivered to the stream and then dispatched to the stream's subscribers.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=IsolateStream.close></a><i class=icon-ok-sign></i> void close()</b>
@@ -200,10 +200,10 @@
 	<b><a id=IsolateStream.listen></a><i class=icon-ok-sign></i> <a href='dart.async.html#Stream.listen'><i title='Overrides Stream.listen()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#StreamSubscription>StreamSubscription</a>&lt;dynamic&gt; listen( onData,  onError,  onDone, <a href=dart.core.html#bool>bool</a> cancelOnError)</b>
 	<div class=indent>
 		<p>Adds a subscription to this stream. </p>
-<p>On each data event from this stream, the subscriber's onData handler is called. If onData is null, nothing happens. </p>
-<p>On errors from this stream, the onError handler is given a object describing the error. </p>
-<p>If this stream closes, the onDone handler is called. </p>
-<p>If cancelOnError is true, the subscription is ended when the first error is reported. The default is false.</p>
+<p>On each data event from this stream, the subscriber's <code>onData</code> handler is called. If <code>onData</code> is null, nothing happens. </p>
+<p>On errors from this stream, the <code>onError</code> handler is given a object describing the error. </p>
+<p>If this stream closes, the <code>onDone</code> handler is called. </p>
+<p>If <code>cancelOnError</code> is true, the subscription is ended when the first error is reported. The default is false.</p>
 	</div>
 	<a id=IsolateUnhandledException></a><hr>
 	<h4>
@@ -264,7 +264,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The creator of the IsolateStream and IsolateSink that allow an isolate to exchange messages with other isolates. </p>
+		<p>The creator of the <code>IsolateStream</code> and <code>IsolateSink</code> that allow an isolate to exchange messages with other isolates. </p>
 <p>Any message that is written into the <a href=dart.isolate.html#sink>sink</a> (independent of the isolate) is sent to the <a href=dart.isolate.html#stream>stream</a> where its subscribers can react to the messages.</p>
 	</div>
 	<h4>Fields</h4>
@@ -293,19 +293,19 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Together with SendPort, the only means of communication between isolates. </p>
-<p>ReceivePorts have a <code>toSendPort</code> method which returns a SendPort. Any message that is sent through this SendPort is delivered to the ReceivePort it has been created from. There, they are dispatched to the callback that has been registered on the receive port. </p>
-<p>A ReceivePort may have many SendPorts.</p>
+		<p>Together with <code>SendPort</code>, the only means of communication between isolates. </p>
+<p><code>ReceivePort</code>s have a <code>toSendPort</code> method which returns a <code>SendPort</code>. Any message that is sent through this <code>SendPort</code> is delivered to the <code>ReceivePort</code> it has been created from. There, they are dispatched to the callback that has been registered on the receive port. </p>
+<p>A <code>ReceivePort</code> may have many <code>SendPort</code>s.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=ReceivePort.></a><i class=icon-plus-sign></i> factory ReceivePort()</b>
 	<div class=indent>
-		<p>Opens a long-lived port for receiving messages. The returned port must be explicitly closed through ReceivePort.close.</p>
+		<p>Opens a long-lived port for receiving messages. The returned port must be explicitly closed through <code>ReceivePort.close</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=ReceivePort.close></a><i class=icon-ok-sign></i> void close()</b>
 	<div class=indent>
-		<p>Closes this receive port immediately. Pending messages will not be processed and it is impossible to re-open the port. Single-shot reply ports, such as those created through SendPort.call, are automatically closed when the reply has been received. Multiple invocations of close are allowed but ignored.</p>
+		<p>Closes this receive port immediately. Pending messages will not be processed and it is impossible to re-open the port. Single-shot reply ports, such as those created through <code>SendPort.call</code>, are automatically closed when the reply has been received. Multiple invocations of <code>close</code> are allowed but ignored.</p>
 	</div>
 	<b><a id=ReceivePort.receive></a><i class=icon-ok-sign></i> void receive( callback)</b>
 	<div class=indent>
@@ -313,7 +313,7 @@
 	</div>
 	<b><a id=ReceivePort.toSendPort></a><i class=icon-ok-sign></i> <a href=dart.isolate.html#SendPort>SendPort</a> toSendPort()</b>
 	<div class=indent>
-		<p>Creates a new send port that sends to this receive port. It is legal to create several SendPorts from the same ReceivePort.</p>
+		<p>Creates a new send port that sends to this receive port. It is legal to create several <code>SendPort</code>s from the same <code>ReceivePort</code>.</p>
 	</div>
 	<a id=SendPort></a><hr>
 	<h4>
@@ -339,9 +339,9 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Together with ReceivePort, the only means of communication between isolates. </p>
-<p>SendPorts are created from ReceivePorts. Any message sent through a SendPort is delivered to its respective ReceivePort. There might be many SendPorts for the same ReceivePort. </p>
-<p>SendPorts can be transmitted to other isolates.</p>
+		<p>Together with <code>ReceivePort</code>, the only means of communication between isolates. </p>
+<p><code>SendPort</code>s are created from <code>ReceivePort</code>s. Any message sent through a <code>SendPort</code> is delivered to its respective <code>ReceivePort</code>. There might be many <code>SendPort</code>s for the same <code>ReceivePort</code>. </p>
+<p><code>SendPort</code>s can be transmitted to other isolates.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=SendPort.hashCode></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> hashCode</b>
@@ -357,18 +357,18 @@
 	<h4>Methods</h4>
 	<b><a id=SendPort.==></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.=='><i title='Overrides Object.==()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> ==(dynamic other)</b>
 	<div class=indent>
-		<p>Tests whether other is a SendPort pointing to the same ReceivePort as this one.</p>
+		<p>Tests whether <code>other</code> is a <code>SendPort</code> pointing to the same <code>ReceivePort</code> as this one.</p>
 	</div>
 	<b><a id=SendPort.call></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; call(dynamic message)</b>
 	<div class=indent>
-		<p>Sends a message to this send port and returns a Future of the reply. Basically, this internally creates a new receive port, sends a message to this send port with replyTo set to such receive port, and, when a reply is received, it closes the receive port and completes the returned future.</p>
+		<p>Sends a message to this send port and returns a <code>Future</code> of the reply. Basically, this internally creates a new receive port, sends a message to this send port with replyTo set to such receive port, and, when a reply is received, it closes the receive port and completes the returned future.</p>
 	</div>
 	<b><a id=SendPort.send></a><i class=icon-ok-sign></i> void send(dynamic message, <a href=dart.isolate.html#SendPort>SendPort</a> replyTo)</b>
 	<div class=indent>
-		<p>Sends an asynchronous message to this send port. The message is copied to the receiving isolate. If specified, the replyTo port will be provided to the receiver to facilitate exchanging sequences of messages. </p>
-<p>The content of message can be: primitive values (null, num, bool, double, String), instances of SendPort, and lists and maps whose elements are any of these. List and maps are also allowed to be cyclic. </p>
-<p>In the special circumstances when two isolates share the same code and are running in the same process (e.g. isolates created via spawnFunction), it is also possible to send object instances (which would be copied in the process). This is currently only supported by the dartvm.  For now, the dart2js compiler only supports the restricted messages described above. </p>
-<p>Deprecation note: it is no longer valid to transmit a ReceivePort in a message. Previously they were translated to the corresponding send port before being transmitted.</p>
+		<p>Sends an asynchronous <code>message</code> to this send port. The message is copied to the receiving isolate. If specified, the <code>replyTo</code> port will be provided to the receiver to facilitate exchanging sequences of messages. </p>
+<p>The content of <code>message</code> can be: primitive values (null, num, bool, double, String), instances of <code>SendPort</code>, and lists and maps whose elements are any of these. List and maps are also allowed to be cyclic. </p>
+<p>In the special circumstances when two isolates share the same code and are running in the same process (e.g. isolates created via <code>spawnFunction</code>), it is also possible to send object instances (which would be copied in the process). This is currently only supported by the dartvm.  For now, the dart2js compiler only supports the restricted messages described above. </p>
+<p>Deprecation note: it is no longer valid to transmit a <code>ReceivePort</code> in a message. Previously they were translated to the corresponding send port before being transmitted.</p>
 	</div>
 	<a id=SendPortSync></a><hr>
 	<h4>
@@ -393,8 +393,8 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>SendPortSyncs are created from ReceivePortSyncs. Any message sent through a SendPortSync is delivered to its respective ReceivePortSync. There might be many SendPortSyncs for the same ReceivePortSync. </p>
-<p>SendPortSyncs can be transmitted to other isolates.</p>
+		<p><code>SendPortSync</code>s are created from <code>ReceivePortSync</code>s. Any message sent through a <code>SendPortSync</code> is delivered to its respective <code>ReceivePortSync</code>. There might be many <code>SendPortSync</code>s for the same <code>ReceivePortSync</code>. </p>
+<p><code>SendPortSync</code>s can be transmitted to other isolates.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=SendPortSync.hashCode></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> hashCode</b>
@@ -410,7 +410,7 @@
 	<h4>Methods</h4>
 	<b><a id=SendPortSync.==></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.=='><i title='Overrides Object.==()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> ==(dynamic other)</b>
 	<div class=indent>
-		<p>Tests whether other is a SendPortSync pointing to the same ReceivePortSync as this one.</p>
+		<p>Tests whether <code>other</code> is a <code>SendPortSync</code> pointing to the same <code>ReceivePortSync</code> as this one.</p>
 	</div>
 	<b><a id=SendPortSync.callSync></a><i class=icon-ok-sign></i> dynamic callSync(dynamic message)</b>
 	<div class=indent>

@@ -69,21 +69,21 @@
 	</dl>
 	<div class=indent>
 		<p>Support for asynchronous programming, with classes such as Future and Stream. </p>
-<p>For an introduction to using dart:async, see the dart:async section of the language tour (https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-asynchronous-programming). Also see articles(https://www.dartlang.org/articles/) such as Using Future Based APIs (https://www.dartlang.org/articles/using-future-based-apis/).</p>
+<p>For an introduction to using dart:async, see the <code>dart:async section of the language tour</code> (https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-asynchronous-programming). Also see <code>articles</code>(https://www.dartlang.org/articles/) such as <code>Using Future Based APIs</code> (https://www.dartlang.org/articles/using-future-based-apis/).</p>
 	</div>
 	<h4>Functions</h4>
 	<div class=indent>
 		<b><a id=getAttachedStackTrace></a><i class=icon-ok-sign></i> static dynamic getAttachedStackTrace(dynamic o)</b>
 		<div class=indent>
 			<p><i>This is an experimental API.</i> </p>
-<p>Get the StackTrace attached to o. </p>
-<p>If object o was thrown and caught in a dart:async method, a StackTrace object was attached to it. Use getAttachedStackTrace to get that object. </p>
-<p>Returns null if no StackTrace was attached.</p>
+<p>Get the <code>StackTrace</code> attached to <code>o</code>. </p>
+<p>If object <code>o</code> was thrown and caught in a dart:async method, a <code>StackTrace</code> object was attached to it. Use <code>getAttachedStackTrace</code> to get that object. </p>
+<p>Returns <code>null</code> if no <code>StackTrace</code> was attached.</p>
 		</div>
 		<b><a id=runAsync></a><i class=icon-ok-sign></i> static void runAsync( callback)</b>
 		<div class=indent>
-			<p>Runs the given callback asynchronously. </p>
-<p>Callbacks registered through this function are always executed in order and are guaranteed to run before other asynchronous events (like Timer events, or DOM events). </p>
+			<p>Runs the given <code>callback</code> asynchronously. </p>
+<p>Callbacks registered through this function are always executed in order and are guaranteed to run before other asynchronous events (like <code>Timer</code> events, or DOM events). </p>
 <p>Warning: it is possible to starve the DOM by registering asynchronous callbacks through this method. For example the following program will run the callbacks without ever giving the Timer callback a chance to execute: </p>
 <p><pre>Timer.run(() { print("executed"); });  // Will never be executed;
 foo() {
@@ -96,10 +96,10 @@ main() {
 		</div>
 		<b><a id=runZonedExperimental></a><i class=icon-ok-sign></i> static dynamic runZonedExperimental( body,  onRunAsync,  onError,  onDone)</b>
 		<div class=indent>
-			<p>Runs body in its own zone. </p>
-<p>If onError is non-null the zone is considered an error zone. All uncaught errors, synchronous or asynchronous, in the zone are caught and handled by the callback. </p>
-<p>The onDone handler (if non-null) is invoked when the zone has no more outstanding callbacks. <i>Deprecated</i>: this method is less useful than it seems, because it assumes that every registered callback is always invoked. There are, however, many <i>valid</i> reasons not to complete futures or to abort a future-chain. In general it is a bad idea to rely on <code>onDone</code>. </p>
-<p>The onRunAsync handler (if non-null) is invoked when the body executes runAsync.  The handler is invoked in the outer zone and can therefore execute runAsync without recursing. The given callback must be executed eventually. Otherwise the nested zone will not complete. It must be executed only once. </p>
+			<p>Runs <code>body</code> in its own zone. </p>
+<p>If <code>onError</code> is non-null the zone is considered an error zone. All uncaught errors, synchronous or asynchronous, in the zone are caught and handled by the callback. </p>
+<p>The <code>onDone</code> handler (if non-null) is invoked when the zone has no more outstanding callbacks. <i>Deprecated</i>: this method is less useful than it seems, because it assumes that every registered callback is always invoked. There are, however, many <i>valid</i> reasons not to complete futures or to abort a future-chain. In general it is a bad idea to rely on <code>onDone</code>. </p>
+<p>The <code>onRunAsync</code> handler (if non-null) is invoked when the <code>body</code> executes <code>runAsync</code>.  The handler is invoked in the outer zone and can therefore execute <code>runAsync</code> without recursing. The given callback must be executed eventually. Otherwise the nested zone will not complete. It must be executed only once. </p>
 <p>Examples: </p>
 <p><pre>runZonedExperimental(() {
   new Future(() { throw "asynchronous error"; });
@@ -118,7 +118,7 @@ runZonedExperimental(() {
     future = future.catchError((e) { print("Never reached!"); });
   }, onError: (e) { print("unused error handler"); });
 }, onError: (e) { print("catches error of first error-zone."); });
-</pre>The following example prints the stack trace whenever a callback is registered using runAsync (which is also used by Completers and StreamControllers. </p>
+</pre>The following example prints the stack trace whenever a callback is registered using <code>runAsync</code> (which is also used by <code>Completer</code>s and <code>StreamController</code>s. </p>
 <p><pre>printStackTrace() { try { throw 0; } catch(e, s) { print(s); } }
 runZonedExperimental(body, onRunAsync: (callback) {
   printStackTrace();
@@ -153,8 +153,8 @@ runZonedExperimental(body, onRunAsync: (callback) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Completer is used to produce Futures and to complete those futures with a value or error at a later time. </p>
-<p>A class that wants to return Futures can use a Completer as follows: </p>
+		<p>A <code>Completer</code> is used to produce <code>Future</code>s and to complete those futures with a value or error at a later time. </p>
+<p>A class that wants to return <code>Future</code>s can use a <code>Completer</code> as follows: </p>
 <p><pre>Class myAsyncOperation {
   Completer _completer = new Completer();
 
@@ -193,7 +193,7 @@ runZonedExperimental(body, onRunAsync: (callback) {
 	<h4>Constructors</h4>
 	<b><a id=Completer.></a><i class=icon-plus-sign></i> factory Completer()</b>
 	<div class=indent>
-		<p>Creates a completer whose future is completed asynchronously, sometime after complete is called on it. This allows a call to complete to be in the middle of other code, without running an unknown amount of future completion and then callbacks synchronously at the point that complete is called. </p>
+		<p>Creates a completer whose future is completed asynchronously, sometime after <code>complete</code> is called on it. This allows a call to <code>complete</code> to be in the middle of other code, without running an unknown amount of future completion and <code>then</code> callbacks synchronously at the point that <code>complete</code> is called. </p>
 <p>Example: </p>
 <p><pre>var completer = new Completer.sync();
 completer.future.then((_) { bar(); });
@@ -209,7 +209,7 @@ stream.listen(print, onDone: () {
 	<b><a id=Completer.sync></a><i class=icon-plus-sign></i> factory Completer.sync()</b>
 	<div class=indent>
 		<p>Completes the future synchronously. </p>
-<p>This constructor should be avoided unless the completion of the future is known to be the final result of another asynchronous operation. If in doubt use the default Completer constructor. </p>
+<p>This constructor should be avoided unless the completion of the future is known to be the final result of another asynchronous operation. If in doubt use the default <code>Completer</code> constructor. </p>
 <p>Example: </p>
 <p><pre>var completer = new Completer.sync();
 // The completion is the result of the asynchronous onDone event.
@@ -231,14 +231,14 @@ stream.listen(print, onDone: () {
 	<h4>Methods</h4>
 	<b><a id=Completer.complete></a><i class=icon-ok-sign></i> void complete(T value)</b>
 	<div class=indent>
-		<p>Completes future with the supplied values. </p>
+		<p>Completes <code>future</code> with the supplied values. </p>
 <p>All listeners on the future are informed about the value.</p>
 	</div>
 	<b><a id=Completer.completeError></a><i class=icon-ok-sign></i> void completeError(<a href=dart.core.html#Object>Object</a> exception, <a href=dart.core.html#Object>Object</a> stackTrace)</b>
 	<div class=indent>
-		<p>Complete future with an error. </p>
+		<p>Complete <code>future</code> with an error. </p>
 <p>Completing a future with an error indicates that an exception was thrown while trying to produce a value. </p>
-<p>The argument exception must not be <code>null</code>.</p>
+<p>The argument <code>exception</code> must not be <code>null</code>.</p>
 	</div>
 	<a id=DeferredLibrary></a><hr>
 	<h4>
@@ -288,8 +288,8 @@ void onFooLoaded(_) {
 	<h4>Methods</h4>
 	<b><a id=DeferredLibrary.load></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; load()</b>
 	<div class=indent>
-		<p>Ensure that libraryName has been loaded. </p>
-<p>The value of the returned future is true if this invocation of load caused the library to be loaded.</p>
+		<p>Ensure that <code>libraryName</code> has been loaded. </p>
+<p>The value of the returned future is true if this invocation of <code>load</code> caused the library to be loaded.</p>
 	</div>
 	<a id=EventSink></a><hr>
 	<h4>
@@ -307,7 +307,7 @@ void onFooLoaded(_) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An interface that abstracts creation or handling of Stream events.</p>
+		<p>An interface that abstracts creation or handling of <code>Stream</code> events.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=EventSink.></a><i class=icon-plus-sign></i> EventSink()</b>
@@ -340,7 +340,7 @@ void onFooLoaded(_) {
 	</dl>
 	<div class=indent>
 		<p>Stream that transforms another stream by intercepting and replacing events. </p>
-<p>This Stream is a transformation of a source stream. Listening on this stream is the same as listening on the source stream, except that events are intercepted and modified by a StreamEventTransformer before becoming events on this stream.</p>
+<p>This <code>Stream</code> is a transformation of a source stream. Listening on this stream is the same as listening on the source stream, except that events are intercepted and modified by a <code>StreamEventTransformer</code> before becoming events on this stream.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=EventTransformStream.></a><i class=icon-plus-sign></i> EventTransformStream(<a href=dart.async.html#Stream>Stream</a>&lt;S&gt; source, <a href=dart.async.html#StreamEventTransformer>StreamEventTransformer</a>&lt;S, T&gt; transformer)</b>
@@ -349,10 +349,10 @@ void onFooLoaded(_) {
 	<b><a id=EventTransformStream.listen></a><i class=icon-ok-sign></i> <a href='dart.async.html#Stream.listen'><i title='Overrides Stream.listen()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#StreamSubscription>StreamSubscription</a>&lt;T&gt; listen(&lt;S, T&gt; onData, &lt;S, T&gt; onError, &lt;S, T&gt; onDone, <a href=dart.core.html#bool>bool</a> cancelOnError)</b>
 	<div class=indent>
 		<p>Adds a subscription to this stream. </p>
-<p>On each data event from this stream, the subscriber's onData handler is called. If onData is null, nothing happens. </p>
-<p>On errors from this stream, the onError handler is given a object describing the error. </p>
-<p>If this stream closes, the onDone handler is called. </p>
-<p>If cancelOnError is true, the subscription is ended when the first error is reported. The default is false.</p>
+<p>On each data event from this stream, the subscriber's <code>onData</code> handler is called. If <code>onData</code> is null, nothing happens. </p>
+<p>On errors from this stream, the <code>onError</code> handler is given a object describing the error. </p>
+<p>If this stream closes, the <code>onDone</code> handler is called. </p>
+<p>If <code>cancelOnError</code> is true, the subscription is ended when the first error is reported. The default is false.</p>
 	</div>
 	<a id=Future></a><hr>
 	<h4>
@@ -377,11 +377,11 @@ void onFooLoaded(_) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A Future represents a delayed computation. It is used to obtain a not-yet available value, or error, sometime in the future.  Receivers of a Future can register callbacks that handle the value or error once it is available. For example: </p>
+		<p>A <code>Future</code> represents a delayed computation. It is used to obtain a not-yet available value, or error, sometime in the future.  Receivers of a <code>Future</code> can register callbacks that handle the value or error once it is available. For example: </p>
 <p><pre>Future&lt;int&gt; future = getFuture();
 future.then((value) =&gt; handleValue(value))
       .catchError((error) =&gt; handleError(error));
-</pre>A Future can be completed in two ways: with a value ("the future succeeds") or with an error ("the future fails"). Users can install callbacks for each case. The result of registering a pair of callbacks is a new Future (the "successor") which in turn is completed with the result of invoking the corresponding callback. The successor is completed with an error if the invoked callback throws. For example: </p>
+</pre>A <code>Future</code> can be completed in two ways: with a value ("the future succeeds") or with an error ("the future fails"). Users can install callbacks for each case. The result of registering a pair of callbacks is a new Future (the "successor") which in turn is completed with the result of invoking the corresponding callback. The successor is completed with an error if the invoked callback throws. For example: </p>
 <p><pre>Future&lt;int&gt; successor = future.then((int value) {
     // Invoked when the future is completed with a value.
     return 42;  // The successor is completed with the value 42.
@@ -422,49 +422,49 @@ future.then((int value) =&gt; bar(value))
 	<h4>Constructors</h4>
 	<b><a id=Future.></a><i class=icon-plus-sign></i> factory Future(&lt;T&gt; computation)</b>
 	<div class=indent>
-		<p>Creates a future containing the result of calling computation asynchronously with Timer.run. </p>
-<p>if the result of executing computation throws, the returned future is completed with the error. If a thrown value is an AsyncError, it is used directly, instead of wrapping this error again in another AsyncError. </p>
-<p>If the returned value is itself a Future, completion of the created future will wait until the returned future completes, and will then complete with the same result. </p>
+		<p>Creates a future containing the result of calling <code>computation</code> asynchronously with <code>Timer.run</code>. </p>
+<p>if the result of executing <code>computation</code> throws, the returned future is completed with the error. If a thrown value is an <code>AsyncError</code>, it is used directly, instead of wrapping this error again in another <code>AsyncError</code>. </p>
+<p>If the returned value is itself a <code>Future</code>, completion of the created future will wait until the returned future completes, and will then complete with the same result. </p>
 <p>If a value is returned, it becomes the result of the created future.</p>
 	</div>
 	<b><a id=Future.delayed></a><i class=icon-plus-sign></i> factory Future.delayed(<a href=dart.core.html#Duration>Duration</a> duration, &lt;T&gt; computation)</b>
 	<div class=indent>
 		<p>Creates a future that completes after a delay. </p>
-<p>The future will be completed after the given duration has passed with the result of calling computation. If the duration is 0 or less, it completes no sooner than in the next event-loop iteration. </p>
-<p>If computation is not given or <code>null</code> then it will behave as if computation was set to <code>() =&gt; null</code>. That is, it will complete with <code>null</code>. </p>
-<p>If calling computation throws, the created future will complete with the error. </p>
-<p>See Completers, for futures with values that are computed asynchronously.</p>
+<p>The future will be completed after the given <code>duration</code> has passed with the result of calling <code>computation</code>. If the duration is 0 or less, it completes no sooner than in the next event-loop iteration. </p>
+<p>If <code>computation</code> is not given or <code>null</code> then it will behave as if <code>computation</code> was set to <code>() =&gt; null</code>. That is, it will complete with <code>null</code>. </p>
+<p>If calling <code>computation</code> throws, the created future will complete with the error. </p>
+<p>See <code>Completer</code>s, for futures with values that are computed asynchronously.</p>
 	</div>
 	<b><a id=Future.error></a><i class=icon-plus-sign></i> factory Future.error(dynamic error, <a href=dart.core.html#Object>Object</a> stackTrace)</b>
 	<div class=indent>
 		<p>A future that completes with an error in the next event-loop iteration. </p>
-<p>See Completer to create a Future and complete it later.</p>
+<p>See <code>Completer</code> to create a Future and complete it later.</p>
 	</div>
 	<b><a id=Future.sync></a><i class=icon-plus-sign></i> factory Future.sync(&lt;T&gt; computation)</b>
 	<div class=indent>
-		<p>Creates a future containing the result of immediately calling computation. </p>
-<p>if the result of executing computation throws, the returned future is completed with the error. If a thrown value is an AsyncError, it is used directly, instead of wrapping this error again in another AsyncError. </p>
-<p>If the returned value is itself a Future, completion of the created future will wait until the returned future completes, and will then complete with the same result.</p>
+		<p>Creates a future containing the result of immediately calling <code>computation</code>. </p>
+<p>if the result of executing <code>computation</code> throws, the returned future is completed with the error. If a thrown value is an <code>AsyncError</code>, it is used directly, instead of wrapping this error again in another <code>AsyncError</code>. </p>
+<p>If the returned value is itself a <code>Future</code>, completion of the created future will wait until the returned future completes, and will then complete with the same result.</p>
 	</div>
 	<b><a id=Future.value></a><i class=icon-plus-sign></i> factory Future.value(T value)</b>
 	<div class=indent>
 		<p>A future whose value is available in the next event-loop iteration. </p>
-<p>If value is not a Future, using this constructor is equivalent to <code>new Future.sync(() =&gt; value)</code>. </p>
-<p>See Completer to create a Future and complete it later.</p>
+<p>If <code>value</code> is not a <code>Future</code>, using this constructor is equivalent to <code>new Future.sync(() =&gt; value)</code>. </p>
+<p>See <code>Completer</code> to create a Future and complete it later.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Future.asStream></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; asStream()</b>
 	<div class=indent>
-		<p>Creates a Stream that sends this' completion value, data or error, to its subscribers. The stream closes after the completion value.</p>
+		<p>Creates a <code>Stream</code> that sends <code>this</code>' completion value, data or error, to its subscribers. The stream closes after the completion value.</p>
 	</div>
 	<b><a id=Future.catchError></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; catchError(&lt;T&gt; onError, &lt;T&gt; test)</b>
 	<div class=indent>
-		<p>Handles errors emitted by this Future. </p>
-<p>Returns a new Future <code>f</code>. </p>
-<p>When this completes with a value, the value is forwarded to <code>f</code> unmodified. That is, <code>f</code> completes with the same value. </p>
-<p>When this completes with an error, test is called with the error's value. If the invocation returns true, onError is called with the error. The result of onError is handled exactly the same as for then's onError. </p>
-<p>If test returns false, the exception is not handled by onError, but is thrown unmodified, thus forwarding it to <code>f</code>. </p>
-<p>If test is omitted, it defaults to a function that always returns true. </p>
+		<p>Handles errors emitted by this <code>Future</code>. </p>
+<p>Returns a new <code>Future</code> <code>f</code>. </p>
+<p>When <code>this</code> completes with a value, the value is forwarded to <code>f</code> unmodified. That is, <code>f</code> completes with the same value. </p>
+<p>When <code>this</code> completes with an error, <code>test</code> is called with the error's value. If the invocation returns <code>true</code>, <code>onError</code> is called with the error. The result of <code>onError</code> is handled exactly the same as for <code>then</code>'s <code>onError</code>. </p>
+<p>If <code>test</code> returns false, the exception is not handled by <code>onError</code>, but is thrown unmodified, thus forwarding it to <code>f</code>. </p>
+<p>If <code>test</code> is omitted, it defaults to a function that always returns true. </p>
 <p>Example: </p>
 <p><pre>foo
   .catchError(..., test: (e) =&gt; e is ArgumentError)
@@ -487,17 +487,17 @@ future.then((int value) =&gt; bar(value))
 	<b><a id=Future.forEach></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; forEach(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; input, &lt;T&gt; f)</b>
 	<div class=indent>
 		<p>Perform an async operation for each element of the iterable, in turn. </p>
-<p>Runs f for each element in input in order, moving to the next element only when the Future returned by f completes. Returns a Future that completes when all elements have been processed. </p>
-<p>The return values of all Futures are discarded. Any errors will cause the iteration to stop and will be piped through the returned Future.</p>
+<p>Runs <code>f</code> for each element in <code>input</code> in order, moving to the next element only when the <code>Future</code> returned by <code>f</code> completes. Returns a <code>Future</code> that completes when all elements have been processed. </p>
+<p>The return values of all <code>Future</code>s are discarded. Any errors will cause the iteration to stop and will be piped through the returned <code>Future</code>.</p>
 	</div>
 	<b><a id=Future.then></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; then(&lt;T&gt; onValue, &lt;T&gt; onError)</b>
 	<div class=indent>
-		<p>When this future completes with a value, then onValue is called with this value. If this future is already completed then the invocation of onValue is delayed until the next event-loop iteration. </p>
-<p>Returns a new Future <code>f</code> which is completed with the result of invoking onValue (if this completes with a value) or onError (if this completes with an error). </p>
+		<p>When this future completes with a value, then <code>onValue</code> is called with this value. If <code>this</code> future is already completed then the invocation of <code>onValue</code> is delayed until the next event-loop iteration. </p>
+<p>Returns a new <code>Future</code> <code>f</code> which is completed with the result of invoking <code>onValue</code> (if <code>this</code> completes with a value) or <code>onError</code> (if <code>this</code> completes with an error). </p>
 <p>If the invoked callback throws an exception, the returned future <code>f</code> is completed with the error. </p>
-<p>If the invoked callback returns a Future <code>f2</code> then <code>f</code> and <code>f2</code> are chained. That is, <code>f</code> is completed with the completion value of <code>f2</code>. </p>
-<p>If onError is not given, it is equivalent to <code>(e) { throw e; }</code>. That is, it forwards the error to <code>f</code>. </p>
-<p>In most cases, it is more readable to use catchError separately, possibly with a <code>test</code> parameter, instead of handling both value and error in a single then call.</p>
+<p>If the invoked callback returns a <code>Future</code> <code>f2</code> then <code>f</code> and <code>f2</code> are chained. That is, <code>f</code> is completed with the completion value of <code>f2</code>. </p>
+<p>If <code>onError</code> is not given, it is equivalent to <code>(e) { throw e; }</code>. That is, it forwards the error to <code>f</code>. </p>
+<p>In most cases, it is more readable to use <code>catchError</code> separately, possibly with a <code>test</code> parameter, instead of handling both value and error in a single <code>then</code> call.</p>
 	</div>
 	<b><a id=Future.wait></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#List>List</a>&lt;dynamic&gt;&gt; wait(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.async.html#Future>Future</a>&lt;dynamic&gt;&gt; futures)</b>
 	<div class=indent>
@@ -507,11 +507,11 @@ future.then((int value) =&gt; bar(value))
 	<b><a id=Future.whenComplete></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;T&gt; whenComplete(&lt;T&gt; action)</b>
 	<div class=indent>
 		<p>Register a function to be called when this future completes. </p>
-<p>The action function is called when this future completes, whether it does so with a value or with an error. </p>
+<p>The <code>action</code> function is called when this future completes, whether it does so with a value or with an error. </p>
 <p>This is the asynchronous equivalent of a "finally" block. </p>
-<p>The future returned by this call, <code>f</code>, will complete the same way as this future unless an error occurs in the action call, or in a Future returned by the action call. If the call to action does not return a future, its return value is ignored. </p>
-<p>If the call to action throws, then <code>f</code> is completed with the thrown error. </p>
-<p>If the call to action returns a Future, <code>f2</code>, then completion of <code>f</code> is delayed until <code>f2</code> completes. If <code>f2</code> completes with an error, that will be the result of <code>f</code> too. The value of <code>f2</code> is always ignored. </p>
+<p>The future returned by this call, <code>f</code>, will complete the same way as this future unless an error occurs in the <code>action</code> call, or in a <code>Future</code> returned by the <code>action</code> call. If the call to <code>action</code> does not return a future, its return value is ignored. </p>
+<p>If the call to <code>action</code> throws, then <code>f</code> is completed with the thrown error. </p>
+<p>If the call to <code>action</code> returns a <code>Future</code>, <code>f2</code>, then completion of <code>f</code> is delayed until <code>f2</code> completes. If <code>f2</code> completes with an error, that will be the result of <code>f</code> too. The value of <code>f2</code> is always ignored. </p>
 <p>This method is equivalent to: </p>
 <p><pre>Future&lt;T&gt; whenComplete(action()) {
   this.then((v) {
@@ -590,7 +590,7 @@ future.then((int value) =&gt; bar(value))
 	<div class=indent>
 		<p>A source of asynchronous data events. </p>
 <p>A Stream provides a sequence of events. Each event is either a data event or an error event, representing the result of a single computation. When the Stream is exhausted, it may send a single "done" event. </p>
-<p>You can <a href=dart.async.html#Stream.listen>listen()</a> on a stream to receive the events it sends. When you listen, you receive a StreamSubscription object that can be used to stop listening, or to temporarily pause events from the stream. </p>
+<p>You can <a href=dart.async.html#Stream.listen>listen()</a> on a stream to receive the events it sends. When you listen, you receive a <code>StreamSubscription</code> object that can be used to stop listening, or to temporarily pause events from the stream. </p>
 <p>When an event is fired, the listeners at that time are informed. If a listener is added while an event is being fired, the change will only take effect after the event is completely fired. If a listener is canceled, it immediately stops receiving events. </p>
 <p>When the "done" event is fired, subscribers are unsubscribed before receiving the event. After the event has been sent, the stream has no subscribers. Adding new subscribers after this point is allowed, but they will just receive a new "done" event as soon as possible. </p>
 <p>Streams always respect "pause" requests. If necessary they need to buffer their input, but often, and preferably, they can simply request their input to pause too. </p>
@@ -599,7 +599,7 @@ future.then((int value) =&gt; bar(value))
 <p>Single-subscription streams are generally used for streaming parts of contiguous data like file I/O. </p>
 <p>A broadcast stream allows any number of listeners, and it fires its events when they are ready, whether there are listeners or not. </p>
 <p>Broadcast streams are used for independent events/observers. </p>
-<p>The default implementation of <a href=dart.async.html#isBroadcast>isBroadcast</a> returns false. A broadcast stream inheriting from Stream must override <a href=dart.async.html#isBroadcast>isBroadcast</a> to return <code>true</code>.</p>
+<p>The default implementation of <a href=dart.async.html#isBroadcast>isBroadcast</a> returns false. A broadcast stream inheriting from <code>Stream</code> must override <a href=dart.async.html#isBroadcast>isBroadcast</a> to return <code>true</code>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Stream.first></a><i class=icon-minus-sign></i> final <a href=dart.async.html#Future>Future</a> first</b>
@@ -620,7 +620,7 @@ future.then((int value) =&gt; bar(value))
 		<p>Returns the first element of the stream. </p>
 <p>Stops listening to the stream after the first element has been received. </p>
 <p>If an error event occurs before the first data event, the resulting future is completed with that error. </p>
-<p>If this stream is empty (a done event occurs before the first data event), the resulting future completes with a StateError. </p>
+<p>If this stream is empty (a done event occurs before the first data event), the resulting future completes with a <code>StateError</code>. </p>
 <p>Except for the type of the error, this method is equivalent to <code>this.elementAt(0)</code>.</p>
 	</div>
 	<b><a id=isBroadcast></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isBroadcast</b>
@@ -635,7 +635,7 @@ future.then((int value) =&gt; bar(value))
 	<div class=indent>
 		<p>Returns the last element of the stream. </p>
 <p>If an error event occurs before the first data event, the resulting future is completed with that error. </p>
-<p>If this stream is empty (a done event occurs before the first data event), the resulting future completes with a StateError.</p>
+<p>If this stream is empty (a done event occurs before the first data event), the resulting future completes with a <code>StateError</code>.</p>
 	</div>
 	<b><a id=length></a><i class=icon-circle-arrow-right></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#int>int</a>&gt; get length</b>
 	<div class=indent>
@@ -644,7 +644,7 @@ future.then((int value) =&gt; bar(value))
 	<b><a id=single></a><i class=icon-circle-arrow-right></i> <a href=dart.async.html#Future>Future</a>&lt;T&gt; get single</b>
 	<div class=indent>
 		<p>Returns the single element. </p>
-<p>If this is empty or has more than one element throws a StateError.</p>
+<p>If <code>this</code> is empty or has more than one element throws a <code>StateError</code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Stream.></a><i class=icon-plus-sign></i> Stream()</b>
@@ -656,162 +656,162 @@ future.then((int value) =&gt; bar(value))
 	</div>
 	<b><a id=Stream.fromIterable></a><i class=icon-plus-sign></i> factory Stream.fromIterable(<a href=dart.core.html#Iterable>Iterable</a>&lt;T&gt; data)</b>
 	<div class=indent>
-		<p>Creates a single-subscription stream that gets its data from data. </p>
-<p>If iterating data throws an error, the stream ends immediately with that error. No done event will be sent (iteration is not complete), but no further data events will be generated either, since iteration cannot continue.</p>
+		<p>Creates a single-subscription stream that gets its data from <code>data</code>. </p>
+<p>If iterating <code>data</code> throws an error, the stream ends immediately with that error. No done event will be sent (iteration is not complete), but no further data events will be generated either, since iteration cannot continue.</p>
 	</div>
 	<b><a id=Stream.periodic></a><i class=icon-plus-sign></i> factory Stream.periodic(<a href=dart.core.html#Duration>Duration</a> period, &lt;T&gt; computation)</b>
 	<div class=indent>
-		<p>Creates a stream that repeatedly emits events at period intervals. </p>
-<p>The event values are computed by invoking computation. The argument to this callback is an integer that starts with 0 and is incremented for every event. </p>
-<p>If computation is omitted the event values will all be <code>null</code>.</p>
+		<p>Creates a stream that repeatedly emits events at <code>period</code> intervals. </p>
+<p>The event values are computed by invoking <code>computation</code>. The argument to this callback is an integer that starts with 0 and is incremented for every event. </p>
+<p>If <code>computation</code> is omitted the event values will all be <code>null</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Stream.any></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; any(&lt;T&gt; test)</b>
 	<div class=indent>
-		<p>Checks whether test accepts any element provided by this stream. </p>
-<p>Completes the Future when the answer is known. If this stream reports an error, the Future will report that error.</p>
+		<p>Checks whether <code>test</code> accepts any element provided by this stream. </p>
+<p>Completes the <code>Future</code> when the answer is known. If this stream reports an error, the <code>Future</code> will report that error.</p>
 	</div>
 	<b><a id=Stream.asBroadcastStream></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; asBroadcastStream(&lt;T&gt; onListen, &lt;T&gt; onCancel)</b>
 	<div class=indent>
 		<p>Returns a multi-subscription stream that produces the same events as this. </p>
 <p>If this stream is already a broadcast stream, it is returned unmodified. </p>
 <p>If this stream is single-subscription, return a new stream that allows multiple subscribers. It will subscribe to this stream when its first subscriber is added, and will stay subscribed until this stream ends, or a callback cancels the subscription. </p>
-<p>If onListen is provided, it is called with a subscription-like object that represents the underlying subscription to this stream. It is possible to pause, resume or cancel the subscription during the call to onListen. It is not possible to change the event handlers, including using StreamSubscription.asFuture. </p>
-<p>If onCancel is provided, it is called in a similar way to onListen when the returned stream stops having listener. If it later gets a new listener, the onListen function is called again. </p>
+<p>If <code>onListen</code> is provided, it is called with a subscription-like object that represents the underlying subscription to this stream. It is possible to pause, resume or cancel the subscription during the call to <code>onListen</code>. It is not possible to change the event handlers, including using <code>StreamSubscription.asFuture</code>. </p>
+<p>If <code>onCancel</code> is provided, it is called in a similar way to <code>onListen</code> when the returned stream stops having listener. If it later gets a new listener, the <code>onListen</code> function is called again. </p>
 <p>Use the callbacks, for example, for pausing the underlying subscription while having no subscribers to prevent losing events, or canceling the subscription when there are no listeners.</p>
 	</div>
 	<b><a id=Stream.contains></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; contains(<a href=dart.core.html#Object>Object</a> needle)</b>
 	<div class=indent>
-		<p>Checks whether needle occurs in the elements provided by this stream. </p>
-<p>Completes the Future when the answer is known. If this stream reports an error, the Future will report that error.</p>
+		<p>Checks whether <code>needle</code> occurs in the elements provided by this stream. </p>
+<p>Completes the <code>Future</code> when the answer is known. If this stream reports an error, the <code>Future</code> will report that error.</p>
 	</div>
 	<b><a id=Stream.distinct></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; distinct(&lt;T&gt; equals)</b>
 	<div class=indent>
 		<p>Skips data events if they are equal to the previous data event. </p>
 <p>The returned stream provides the same events as this stream, except that it never provides two consequtive data events that are equal. </p>
-<p>Equality is determined by the provided equals method. If that is omitted, the '==' operator on the last provided data element is used.</p>
+<p>Equality is determined by the provided <code>equals</code> method. If that is omitted, the '==' operator on the last provided data element is used.</p>
 	</div>
 	<b><a id=Stream.drain></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; drain(dynamic futureValue)</b>
 	<div class=indent>
 		<p>Discards all data on the stream, but signals when it's done or an error occured. </p>
-<p>When subscribing using drain, cancelOnError will be true. This means that the future will complete with the first error on the stream and then cancel the subscription. </p>
-<p>In case of a <code>done</code> event the future completes with the given futureValue.</p>
+<p>When subscribing using <code>drain</code>, cancelOnError will be true. This means that the future will complete with the first error on the stream and then cancel the subscription. </p>
+<p>In case of a <code>done</code> event the future completes with the given <code>futureValue</code>.</p>
 	</div>
 	<b><a id=Stream.elementAt></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;T&gt; elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the value of the indexth data event of this stream. </p>
+		<p>Returns the value of the <code>index</code>th data event of this stream. </p>
 <p>Stops listening to the stream after a value has been found. </p>
 <p>If an error event occurs before the value is found, the future completes with this error. </p>
-<p>If a done event occurs before the value is found, the future completes with a RangeError.</p>
+<p>If a done event occurs before the value is found, the future completes with a <code>RangeError</code>.</p>
 	</div>
 	<b><a id=Stream.every></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; every(&lt;T&gt; test)</b>
 	<div class=indent>
-		<p>Checks whether test accepts all elements provided by this stream. </p>
-<p>Completes the Future when the answer is known. If this stream reports an error, the Future will report that error.</p>
+		<p>Checks whether <code>test</code> accepts all elements provided by this stream. </p>
+<p>Completes the <code>Future</code> when the answer is known. If this stream reports an error, the <code>Future</code> will report that error.</p>
 	</div>
 	<b><a id=Stream.expand></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;dynamic&gt; expand(&lt;T&gt; convert)</b>
 	<div class=indent>
 		<p>Creates a new stream from this stream that converts each element into zero or more events. </p>
-<p>Each incoming event is converted to an Iterable of new events, and each of these new events are then sent by the returned stream in order.</p>
+<p>Each incoming event is converted to an <code>Iterable</code> of new events, and each of these new events are then sent by the returned stream in order.</p>
 	</div>
 	<b><a id=Stream.firstWhere></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; firstWhere(&lt;T&gt; test, &lt;T&gt; defaultValue)</b>
 	<div class=indent>
-		<p>Finds the first element of this stream matching test. </p>
-<p>Returns a future that is filled with the first element of this stream that test returns true for. </p>
-<p>If no such element is found before this stream is done, and a defaultValue function is provided, the result of calling defaultValue becomes the value of the future. </p>
-<p>If an error occurs, or if this stream ends without finding a match and with no defaultValue function provided, the future will receive an error.</p>
+		<p>Finds the first element of this stream matching <code>test</code>. </p>
+<p>Returns a future that is filled with the first element of this stream that <code>test</code> returns true for. </p>
+<p>If no such element is found before this stream is done, and a <code>defaultValue</code> function is provided, the result of calling <code>defaultValue</code> becomes the value of the future. </p>
+<p>If an error occurs, or if this stream ends without finding a match and with no <code>defaultValue</code> function provided, the future will receive an error.</p>
 	</div>
 	<b><a id=Stream.fold></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; fold(dynamic initialValue, &lt;T&gt; combine)</b>
 	<div class=indent>
-		<p>Reduces a sequence of values by repeatedly applying combine.</p>
+		<p>Reduces a sequence of values by repeatedly applying <code>combine</code>.</p>
 	</div>
 	<b><a id=Stream.forEach></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; forEach(&lt;T&gt; action)</b>
 	<div class=indent>
-		<p>Executes action on each data event of the stream. </p>
-<p>Completes the returned Future when all events of the stream have been processed. Completes the future with an error if the stream has an error event, or if action throws.</p>
+		<p>Executes <code>action</code> on each data event of the stream. </p>
+<p>Completes the returned <code>Future</code> when all events of the stream have been processed. Completes the future with an error if the stream has an error event, or if <code>action</code> throws.</p>
 	</div>
 	<b><a id=Stream.handleError></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; handleError(&lt;T&gt; handle, &lt;T&gt; test)</b>
 	<div class=indent>
 		<p>Creates a wrapper Stream that intercepts some errors from this stream. </p>
-<p>If this stream sends an error that matches test, then it is intercepted by the handle function. </p>
-<p>An AsyncError <code>e</code> is matched by a test function if <code>test(e)</code> returns true. If test is omitted, every error is considered matching. </p>
-<p>If the error is intercepted, the handle function can decide what to do with it. It can throw if it wants to raise a new (or the same) error, or simply return to make the stream forget the error. </p>
-<p>If you need to transform an error into a data event, use the more generic Stream.transform to handle the event by writing a data event to the output sink</p>
+<p>If this stream sends an error that matches <code>test</code>, then it is intercepted by the <code>handle</code> function. </p>
+<p>An <code>AsyncError</code> <code>e</code> is matched by a test function if <code>test(e)</code> returns true. If <code>test</code> is omitted, every error is considered matching. </p>
+<p>If the error is intercepted, the <code>handle</code> function can decide what to do with it. It can throw if it wants to raise a new (or the same) error, or simply return to make the stream forget the error. </p>
+<p>If you need to transform an error into a data event, use the more generic <code>Stream.transform</code> to handle the event by writing a data event to the output sink</p>
 	</div>
 	<b><a id=Stream.join></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; join(<a href=dart.core.html#String>String</a> separator)</b>
 	<div class=indent>
 		<p>Collects string of data events' string representations. </p>
-<p>If separator is provided, it is inserted between any two elements. </p>
+<p>If <code>separator</code> is provided, it is inserted between any two elements. </p>
 <p>Any error in the stream causes the future to complete with that error. Otherwise it completes with the collected string when the "done" event arrives.</p>
 	</div>
 	<b><a id=Stream.lastWhere></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; lastWhere(&lt;T&gt; test, &lt;T&gt; defaultValue)</b>
 	<div class=indent>
-		<p>Finds the last element in this stream matching test. </p>
-<p>As firstWhere, except that the last matching element is found. That means that the result cannot be provided before this stream is done.</p>
+		<p>Finds the last element in this stream matching <code>test</code>. </p>
+<p>As <code>firstWhere</code>, except that the last matching element is found. That means that the result cannot be provided before this stream is done.</p>
 	</div>
 	<b><a id=Stream.listen></a><i class=icon-ok-sign></i> <a href=dart.async.html#StreamSubscription>StreamSubscription</a>&lt;T&gt; listen(&lt;T&gt; onData, &lt;T&gt; onError, &lt;T&gt; onDone, <a href=dart.core.html#bool>bool</a> cancelOnError)</b>
 	<div class=indent>
 		<p>Adds a subscription to this stream. </p>
-<p>On each data event from this stream, the subscriber's onData handler is called. If onData is null, nothing happens. </p>
-<p>On errors from this stream, the onError handler is given a object describing the error. </p>
-<p>If this stream closes, the onDone handler is called. </p>
-<p>If cancelOnError is true, the subscription is ended when the first error is reported. The default is false.</p>
+<p>On each data event from this stream, the subscriber's <code>onData</code> handler is called. If <code>onData</code> is null, nothing happens. </p>
+<p>On errors from this stream, the <code>onError</code> handler is given a object describing the error. </p>
+<p>If this stream closes, the <code>onDone</code> handler is called. </p>
+<p>If <code>cancelOnError</code> is true, the subscription is ended when the first error is reported. The default is false.</p>
 	</div>
 	<b><a id=Stream.map></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;dynamic&gt; map(&lt;T&gt; convert)</b>
 	<div class=indent>
-		<p>Creates a new stream that converts each element of this stream to a new value using the convert function.</p>
+		<p>Creates a new stream that converts each element of this stream to a new value using the <code>convert</code> function.</p>
 	</div>
 	<b><a id=Stream.pipe></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; pipe(<a href=dart.async.html#StreamConsumer>StreamConsumer</a>&lt;T&gt; streamConsumer)</b>
 	<div class=indent>
-		<p>Binds this stream as the input of the provided StreamConsumer.</p>
+		<p>Binds this stream as the input of the provided <code>StreamConsumer</code>.</p>
 	</div>
 	<b><a id=Stream.reduce></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;T&gt; reduce(&lt;T&gt; combine)</b>
 	<div class=indent>
-		<p>Reduces a sequence of values by repeatedly applying combine.</p>
+		<p>Reduces a sequence of values by repeatedly applying <code>combine</code>.</p>
 	</div>
 	<b><a id=Stream.singleWhere></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;T&gt; singleWhere(&lt;T&gt; test)</b>
 	<div class=indent>
-		<p>Finds the single element in this stream matching test. </p>
-<p>Like lastMatch, except that it is an error if more than one matching element occurs in the stream.</p>
+		<p>Finds the single element in this stream matching <code>test</code>. </p>
+<p>Like <code>lastMatch</code>, except that it is an error if more than one matching element occurs in the stream.</p>
 	</div>
 	<b><a id=Stream.skip></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; skip(<a href=dart.core.html#int>int</a> count)</b>
 	<div class=indent>
-		<p>Skips the first count data events from this stream.</p>
+		<p>Skips the first <code>count</code> data events from this stream.</p>
 	</div>
 	<b><a id=Stream.skipWhile></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; skipWhile(&lt;T&gt; test)</b>
 	<div class=indent>
-		<p>Skip data events from this stream while they are matched by test. </p>
+		<p>Skip data events from this stream while they are matched by <code>test</code>. </p>
 <p>Error and done events are provided by the returned stream unmodified. </p>
-<p>Starting with the first data event where test returns false for the event data, the returned stream will have the same events as this stream.</p>
+<p>Starting with the first data event where <code>test</code> returns false for the event data, the returned stream will have the same events as this stream.</p>
 	</div>
 	<b><a id=Stream.take></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; take(<a href=dart.core.html#int>int</a> count)</b>
 	<div class=indent>
-		<p>Provides at most the first n values of this stream. </p>
-<p>Forwards the first n data events of this stream, and all error events, to the returned stream, and ends with a done event. </p>
-<p>If this stream produces fewer than count values before it's done, so will the returned stream.</p>
+		<p>Provides at most the first <code>n</code> values of this stream. </p>
+<p>Forwards the first <code>n</code> data events of this stream, and all error events, to the returned stream, and ends with a done event. </p>
+<p>If this stream produces fewer than <code>count</code> values before it's done, so will the returned stream.</p>
 	</div>
 	<b><a id=Stream.takeWhile></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; takeWhile(&lt;T&gt; test)</b>
 	<div class=indent>
-		<p>Forwards data events while test is successful. </p>
-<p>The returned stream provides the same events as this stream as long as test returns <code>true</code> for the event data. The stream is done when either this stream is done, or when this stream first provides a value that test doesn't accept.</p>
+		<p>Forwards data events while <code>test</code> is successful. </p>
+<p>The returned stream provides the same events as this stream as long as <code>test</code> returns <code>true</code> for the event data. The stream is done when either this stream is done, or when this stream first provides a value that <code>test</code> doesn't accept.</p>
 	</div>
 	<b><a id=Stream.toList></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#List>List</a>&lt;T&gt;&gt; toList()</b>
 	<div class=indent>
-		<p>Collects the data of this stream in a List.</p>
+		<p>Collects the data of this stream in a <code>List</code>.</p>
 	</div>
 	<b><a id=Stream.toSet></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#Set>Set</a>&lt;T&gt;&gt; toSet()</b>
 	<div class=indent>
-		<p>Collects the data of this stream in a Set.</p>
+		<p>Collects the data of this stream in a <code>Set</code>.</p>
 	</div>
 	<b><a id=Stream.transform></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;dynamic&gt; transform(<a href=dart.async.html#StreamTransformer>StreamTransformer</a>&lt;T, dynamic&gt; streamTransformer)</b>
 	<div class=indent>
-		<p>Chains this stream as the input of the provided StreamTransformer. </p>
+		<p>Chains this stream as the input of the provided <code>StreamTransformer</code>. </p>
 <p>Returns the result of <code>streamTransformer.bind</code> itself.</p>
 	</div>
 	<b><a id=Stream.where></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; where(&lt;T&gt; test)</b>
 	<div class=indent>
 		<p>Creates a new stream from this stream that discards some data events. </p>
-<p>The new stream sends the same error and done events as this stream, but it only sends the data events that satisfy the test.</p>
+<p>The new stream sends the same error and done events as this stream, but it only sends the data events that satisfy the <code>test</code>.</p>
 	</div>
 	<a id=StreamConsumer></a><hr>
 	<h4>
@@ -828,8 +828,8 @@ future.then((int value) =&gt; bar(value))
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The target of a Stream.pipe call. </p>
-<p>The Stream.pipe call will pass itself to this object, and then return the resulting Future. The pipe should complete the future when it's done.</p>
+		<p>The target of a <code>Stream.pipe</code> call. </p>
+<p>The <code>Stream.pipe</code> call will pass itself to this object, and then return the resulting <code>Future</code>. The pipe should complete the future when it's done.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=StreamConsumer.></a><i class=icon-plus-sign></i> StreamConsumer()</b>
@@ -892,7 +892,7 @@ future.then((int value) =&gt; bar(value))
 	<h4>Getters and Setters</h4>
 	<b><a id=hasListener></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get hasListener</b>
 	<div class=indent>
-		<p>Whether there is a subscriber on the Stream.</p>
+		<p>Whether there is a subscriber on the <code>Stream</code>.</p>
 	</div>
 	<b><a id=isClosed></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isClosed</b>
 	<div class=indent>
@@ -907,7 +907,7 @@ future.then((int value) =&gt; bar(value))
 	</div>
 	<b><a id=sink></a><i class=icon-circle-arrow-right></i> <a href=dart.async.html#StreamSink>StreamSink</a>&lt;T&gt; get sink</b>
 	<div class=indent>
-		<p>Returns a view of this object that only exposes the StreamSink interface.</p>
+		<p>Returns a view of this object that only exposes the <code>StreamSink</code> interface.</p>
 	</div>
 	<b><a id=stream></a><i class=icon-circle-arrow-right></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; get stream</b>
 	<div class=indent>
@@ -916,28 +916,28 @@ future.then((int value) =&gt; bar(value))
 	<h4>Constructors</h4>
 	<b><a id=StreamController.></a><i class=icon-plus-sign></i> factory StreamController(&lt;T&gt; onListen, &lt;T&gt; onPause, &lt;T&gt; onResume, &lt;T&gt; onCancel, <a href=dart.core.html#bool>bool</a> sync)</b>
 	<div class=indent>
-		<p>A controller with a stream that supports only one single subscriber. </p>
-<p>If sync is true, events may be passed directly to the stream's listener during an add, addError or close call. If sync is false, the event will be passed to the listener at a later time, after the code creating the event has returned. </p>
+		<p>A controller with a <code>stream</code> that supports only one single subscriber. </p>
+<p>If <code>sync</code> is true, events may be passed directly to the stream's listener during an <code>add</code>, <code>addError</code> or <code>close</code> call. If <code>sync</code> is false, the event will be passed to the listener at a later time, after the code creating the event has returned. </p>
 <p>The controller will buffer all incoming events until the subscriber is registered. </p>
-<p>The onPause function is called when the stream becomes paused. onResume is called when the stream resumed. </p>
-<p>The onListen callback is called when the stream receives its listener and onCancel when the listener ends its subscription. </p>
-<p>If the stream is canceled before the controller needs new data the onResume call might not be executed.</p>
+<p>The <code>onPause</code> function is called when the stream becomes paused. <code>onResume</code> is called when the stream resumed. </p>
+<p>The <code>onListen</code> callback is called when the stream receives its listener and <code>onCancel</code> when the listener ends its subscription. </p>
+<p>If the stream is canceled before the controller needs new data the <code>onResume</code> call might not be executed.</p>
 	</div>
 	<b><a id=StreamController.broadcast></a><i class=icon-plus-sign></i> factory StreamController.broadcast(&lt;T&gt; onListen, &lt;T&gt; onCancel, <a href=dart.core.html#bool>bool</a> sync)</b>
 	<div class=indent>
-		<p>A controller where stream can be listened to more than once. </p>
-<p>The Stream returned by stream is a broadcast stream. It can be listened to more than once. </p>
-<p>The controller distributes any events to all currently subscribed listeners. It is not allowed to call add, addError, or close before a previous call has returned. </p>
-<p>If sync is true, events may be passed directly to the stream's listener during an add, addError or close call. If sync is false, the event will be passed to the listener at a later time, after the code creating the event has returned. </p>
+		<p>A controller where <code>stream</code> can be listened to more than once. </p>
+<p>The <code>Stream</code> returned by <code>stream</code> is a broadcast stream. It can be listened to more than once. </p>
+<p>The controller distributes any events to all currently subscribed listeners. It is not allowed to call <code>add</code>, <code>addError</code>, or <code>close</code> before a previous call has returned. </p>
+<p>If <code>sync</code> is true, events may be passed directly to the stream's listener during an <code>add</code>, <code>addError</code> or <code>close</code> call. If <code>sync</code> is false, the event will be passed to the listener at a later time, after the code creating the event has returned. </p>
 <p>Each listener is handled independently, and if they pause, only the pausing listener is affected. A paused listener will buffer events internally until unpaused or canceled. </p>
-<p>If sync is false, no guarantees are given with regard to when multiple listeners get the events, except that each listener will get all events in the correct order. If two events are sent on an async controller with two listeners, one of the listeners may get both events before the other listener gets any. A listener must be subscribed both when the event is initiated (that is, when add is called) and when the event is later delivered, in order to get the event. </p>
-<p>The onListen callback is called when the first listener is subscribed, and the onCancel is called when there are no longer any active listeners. If a listener is added again later, after the onCancel was called, the onListen will be called again.</p>
+<p>If <code>sync</code> is false, no guarantees are given with regard to when multiple listeners get the events, except that each listener will get all events in the correct order. If two events are sent on an async controller with two listeners, one of the listeners may get both events before the other listener gets any. A listener must be subscribed both when the event is initiated (that is, when <code>add</code> is called) and when the event is later delivered, in order to get the event. </p>
+<p>The <code>onListen</code> callback is called when the first listener is subscribed, and the <code>onCancel</code> is called when there are no longer any active listeners. If a listener is added again later, after the <code>onCancel</code> was called, the <code>onListen</code> will be called again.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=StreamController.addError></a><i class=icon-ok-sign></i> <a href='dart.async.html#EventSink.addError'><i title='Overrides EventSink.addError()' class='icon-circle-arrow-up'></i></a> void addError(<a href=dart.core.html#Object>Object</a> error, <a href=dart.core.html#Object>Object</a> stackTrace)</b>
 	<div class=indent>
 		<p>Send or enqueue an error event. </p>
-<p>Also allows an objection stack trace object, on top of what EventSink allows.</p>
+<p>Also allows an objection stack trace object, on top of what <code>EventSink</code> allows.</p>
 	</div>
 	<a id=StreamEventTransformer></a><hr>
 	<h4>
@@ -957,8 +957,8 @@ future.then((int value) =&gt; bar(value))
 	</dl>
 	<div class=indent>
 		<p>Base class for transformers that modifies stream events. </p>
-<p>A StreamEventTransformer transforms incoming Stream events of one kind into outgoing events of (possibly) another kind. </p>
-<p>Subscribing on the stream returned by <a href=dart.async.html#StreamEventTransformer.bind>bind()</a> is the same as subscribing on the source stream, except that events are passed through the transformer before being emitted. The transformer may generate any number and types of events for each incoming event. Pauses on the returned subscription are forwarded to this stream. </p>
+<p>A <code>StreamEventTransformer</code> transforms incoming Stream events of one kind into outgoing events of (possibly) another kind. </p>
+<p>Subscribing on the stream returned by <a href=dart.async.html#StreamEventTransformer.bind>bind()</a> is the same as subscribing on the source stream, except that events are passed through the <code>transformer</code> before being emitted. The transformer may generate any number and types of events for each incoming event. Pauses on the returned subscription are forwarded to this stream. </p>
 <p>An example that duplicates all data events: </p>
 <p><pre>class DoubleTransformer&lt;T&gt; extends StreamEventTransformer&lt;T, T&gt; {
   void handleData(T data, EventSink&lt;T&gt; sink) {
@@ -967,7 +967,7 @@ future.then((int value) =&gt; bar(value))
   }
 }
 someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
-</pre>The default implementations of the "handle" methods forward the events unmodified. If using the default <a href=dart.async.html#StreamEventTransformer.handleData>handleData()</a> the generic type T needs to be assignable to S.</p>
+</pre>The default implementations of the "handle" methods forward the events unmodified. If using the default <a href=dart.async.html#StreamEventTransformer.handleData>handleData()</a> the generic type <code>T</code> needs to be assignable to <code>S</code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=StreamEventTransformer.></a><i class=icon-plus-sign></i> StreamEventTransformer()</b>
@@ -1013,8 +1013,8 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An Iterable like interface for the values of a Stream. </p>
-<p>This wraps a Stream and a subscription on the stream. It listens on the stream, and completes the future returned by <a href=dart.async.html#StreamIterator.moveNext>moveNext()</a> when the next value becomes available. </p>
+		<p>An <code>Iterable</code> like interface for the values of a <code>Stream</code>. </p>
+<p>This wraps a <code>Stream</code> and a subscription on the stream. It listens on the stream, and completes the future returned by <a href=dart.async.html#StreamIterator.moveNext>moveNext()</a> when the next value becomes available. </p>
 <p>NOTICE: This is a tentative design. This class may change.</p>
 	</div>
 	<h4>Fields</h4>
@@ -1024,20 +1024,20 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 	<b><a id=current></a><i class=icon-circle-arrow-right></i> T get current</b>
 	<div class=indent>
 		<p>The current value of the stream. </p>
-<p>Only valid when the future returned by moveNext completes with <code>true</code> as value, and only until the next call to moveNext.</p>
+<p>Only valid when the future returned by <code>moveNext</code> completes with <code>true</code> as value, and only until the next call to <code>moveNext</code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=StreamIterator.></a><i class=icon-plus-sign></i> factory StreamIterator(<a href=dart.async.html#Stream>Stream</a>&lt;T&gt; stream)</b>
 	<div class=indent>
-		<p>Create a StreamIterator on stream.</p>
+		<p>Create a <code>StreamIterator</code> on <code>stream</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=StreamIterator.cancel></a><i class=icon-ok-sign></i> void cancel()</b>
 	<div class=indent>
 		<p>Cancels the stream iterator (and the underlying stream subscription) early. </p>
-<p>The stream iterator is automatically canceled if the moveNext future completes with either <code>false</code> or an error. </p>
-<p>If a moveNext call has been made, it will complete with <code>false</code> as value, as will all further calls to moveNext. </p>
-<p>If you need to stop listening for values before the stream iterator is automatically closed, you must call cancel to ensure that the stream is properly closed.</p>
+<p>The stream iterator is automatically canceled if the <code>moveNext</code> future completes with either <code>false</code> or an error. </p>
+<p>If a <code>moveNext</code> call has been made, it will complete with <code>false</code> as value, as will all further calls to <code>moveNext</code>. </p>
+<p>If you need to stop listening for values before the stream iterator is automatically closed, you must call <code>cancel</code> to ensure that the stream is properly closed.</p>
 	</div>
 	<b><a id=StreamIterator.moveNext></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; moveNext()</b>
 	<div class=indent>
@@ -1067,11 +1067,11 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A StreamSink unifies the asynchronous methods from StreamConsumer and the synchronous methods from EventSink. </p>
-<p>The EventSink methods can't be used while the addStream is called. As soon as the addStream's Future completes with a value, the EventSink methods can be used again. </p>
-<p>If addStream is called after any of the EventSink methods, it'll be delayed until the underlying system has consumed the data added by the EventSink methods. </p>
-<p>When EventSink methods are used, the <a href=dart.async.html#done>done</a> Future can be used to catch any errors. </p>
-<p>When <a href=dart.async.html#StreamSink.close>close()</a> is called, it will return the <a href=dart.async.html#done>done</a> Future.</p>
+		<p>A <code>StreamSink</code> unifies the asynchronous methods from <code>StreamConsumer</code> and the synchronous methods from <code>EventSink</code>. </p>
+<p>The <code>EventSink</code> methods can't be used while the <code>addStream</code> is called. As soon as the <code>addStream</code>'s <code>Future</code> completes with a value, the <code>EventSink</code> methods can be used again. </p>
+<p>If <code>addStream</code> is called after any of the <code>EventSink</code> methods, it'll be delayed until the underlying system has consumed the data added by the <code>EventSink</code> methods. </p>
+<p>When <code>EventSink</code> methods are used, the <a href=dart.async.html#done>done</a> <code>Future</code> can be used to catch any errors. </p>
+<p>When <a href=dart.async.html#StreamSink.close>close()</a> is called, it will return the <a href=dart.async.html#done>done</a> <code>Future</code>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=StreamSink.done></a><i class=icon-minus-sign></i> final <a href=dart.async.html#Future>Future</a> done</b>
@@ -1079,8 +1079,8 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 	<h4>Getters and Setters</h4>
 	<b><a id=done></a><i class=icon-circle-arrow-right></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; get done</b>
 	<div class=indent>
-		<p>The done Future completes with the same values as close, except for the following case: </p>
-<p><ul><li>The synchronous methods of EventSink were called, resulting in an</li></ul>error. If there is no active future (like from an addStream call), the done future will complete with that error</p>
+		<p>The <code>done</code> Future completes with the same values as <code>close</code>, except for the following case: </p>
+<p><ul><li>The synchronous methods of <code>EventSink</code> were called, resulting in an</li></ul>error. If there is no active future (like from an addStream call), the <code>done</code> future will complete with that error</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=StreamSink.></a><i class=icon-plus-sign></i> StreamSink()</b>
@@ -1088,7 +1088,7 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 	<h4>Methods</h4>
 	<b><a id=StreamSink.close></a><i class=icon-ok-sign></i> <a href='dart.async.html#StreamConsumer.close'><i title='Overrides StreamConsumer.close()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; close()</b>
 	<div class=indent>
-		<p>Close the StreamSink. It'll return the done Future.</p>
+		<p>Close the <code>StreamSink</code>. It'll return the <code>done</code> Future.</p>
 	</div>
 	<a id=StreamSubscription></a><hr>
 	<h4>
@@ -1118,8 +1118,8 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A control object for the subscription on a Stream. </p>
-<p>When you subscribe on a Stream using Stream.listen, a StreamSubscription object is returned. This object is used to later unsubscribe again, or to temporarily pause the stream's events.</p>
+		<p>A control object for the subscription on a <code>Stream</code>. </p>
+<p>When you subscribe on a <code>Stream</code> using <code>Stream.listen</code>, a <code>StreamSubscription</code> object is returned. This object is used to later unsubscribe again, or to temporarily pause the stream's events.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=StreamSubscription.isPaused></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isPaused</b>
@@ -1127,7 +1127,7 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 	<h4>Getters and Setters</h4>
 	<b><a id=isPaused></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isPaused</b>
 	<div class=indent>
-		<p>Returns true if the StreamSubscription is paused.</p>
+		<p>Returns true if the <code>StreamSubscription</code> is paused.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=StreamSubscription.></a><i class=icon-plus-sign></i> StreamSubscription()</b>
@@ -1135,10 +1135,10 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 	<h4>Methods</h4>
 	<b><a id=StreamSubscription.asFuture></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; asFuture(dynamic futureValue)</b>
 	<div class=indent>
-		<p>Returns a future that handles the onDone and onError callbacks. </p>
-<p>This method <i>overwrites</i> the existing onDone and onError callbacks with new ones that complete the returned future. </p>
+		<p>Returns a future that handles the <code>onDone</code> and <code>onError</code> callbacks. </p>
+<p>This method <i>overwrites</i> the existing <code>onDone</code> and <code>onError</code> callbacks with new ones that complete the returned future. </p>
 <p>In case of an error the subscription will automatically cancel (even when it was listening with <code>cancelOnError</code> set to <code>false</code>). </p>
-<p>In case of a <code>done</code> event the future completes with the given futureValue.</p>
+<p>In case of a <code>done</code> event the future completes with the given <code>futureValue</code>.</p>
 	</div>
 	<b><a id=StreamSubscription.cancel></a><i class=icon-ok-sign></i> void cancel()</b>
 	<div class=indent>
@@ -1160,8 +1160,8 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 	<b><a id=StreamSubscription.pause></a><i class=icon-ok-sign></i> void pause(<a href=dart.async.html#Future>Future</a>&lt;dynamic&gt; resumeSignal)</b>
 	<div class=indent>
 		<p>Request that the stream pauses events until further notice. </p>
-<p>If resumeSignal is provided, the stream will undo the pause when the future completes. If the future completes with an error, it will not be handled! </p>
-<p>A call to resume will also undo a pause. </p>
+<p>If <code>resumeSignal</code> is provided, the stream will undo the pause when the future completes. If the future completes with an error, it will not be handled! </p>
+<p>A call to <code>resume</code> will also undo a pause. </p>
 <p>If the subscription is paused more than once, an equal number of resumes must be performed to resume the stream.</p>
 	</div>
 	<b><a id=StreamSubscription.resume></a><i class=icon-ok-sign></i> void resume()</b>
@@ -1182,14 +1182,14 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The target of a Stream.transform call. </p>
-<p>The Stream.transform call will pass itself to this object and then return the resulting stream.</p>
+		<p>The target of a <code>Stream.transform</code> call. </p>
+<p>The <code>Stream.transform</code> call will pass itself to this object and then return the resulting stream.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=StreamTransformer.></a><i class=icon-plus-sign></i> factory StreamTransformer(&lt;S, T&gt; handleData, &lt;S, T&gt; handleError, &lt;S, T&gt; handleDone)</b>
 	<div class=indent>
-		<p>Create a StreamTransformer that delegates events to the given functions. </p>
-<p>This is actually a StreamEventTransformer where the event handling is performed by the function arguments. If an argument is omitted, it acts as the corresponding default method from StreamEventTransformer. </p>
+		<p>Create a <code>StreamTransformer</code> that delegates events to the given functions. </p>
+<p>This is actually a <code>StreamEventTransformer</code> where the event handling is performed by the function arguments. If an argument is omitted, it acts as the corresponding default method from <code>StreamEventTransformer</code>. </p>
 <p>Example use: </p>
 <p><pre>stringStream.transform(new StreamTransformer&lt;String, String&gt;(
     handleData: (String value, EventSink&lt;String&gt; sink) {
@@ -1224,7 +1224,7 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Stream wrapper that only exposes the Stream interface.</p>
+		<p><code>Stream</code> wrapper that only exposes the <code>Stream</code> interface.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=StreamView.isBroadcast></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isBroadcast</b>
@@ -1241,17 +1241,17 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		<p>Returns a multi-subscription stream that produces the same events as this. </p>
 <p>If this stream is already a broadcast stream, it is returned unmodified. </p>
 <p>If this stream is single-subscription, return a new stream that allows multiple subscribers. It will subscribe to this stream when its first subscriber is added, and will stay subscribed until this stream ends, or a callback cancels the subscription. </p>
-<p>If onListen is provided, it is called with a subscription-like object that represents the underlying subscription to this stream. It is possible to pause, resume or cancel the subscription during the call to onListen. It is not possible to change the event handlers, including using StreamSubscription.asFuture. </p>
-<p>If onCancel is provided, it is called in a similar way to onListen when the returned stream stops having listener. If it later gets a new listener, the onListen function is called again. </p>
+<p>If <code>onListen</code> is provided, it is called with a subscription-like object that represents the underlying subscription to this stream. It is possible to pause, resume or cancel the subscription during the call to <code>onListen</code>. It is not possible to change the event handlers, including using <code>StreamSubscription.asFuture</code>. </p>
+<p>If <code>onCancel</code> is provided, it is called in a similar way to <code>onListen</code> when the returned stream stops having listener. If it later gets a new listener, the <code>onListen</code> function is called again. </p>
 <p>Use the callbacks, for example, for pausing the underlying subscription while having no subscribers to prevent losing events, or canceling the subscription when there are no listeners.</p>
 	</div>
 	<b><a id=StreamView.listen></a><i class=icon-ok-sign></i> <a href='dart.async.html#Stream.listen'><i title='Overrides Stream.listen()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#StreamSubscription>StreamSubscription</a>&lt;T&gt; listen(&lt;T&gt; onData, &lt;T&gt; onError, &lt;T&gt; onDone, <a href=dart.core.html#bool>bool</a> cancelOnError)</b>
 	<div class=indent>
 		<p>Adds a subscription to this stream. </p>
-<p>On each data event from this stream, the subscriber's onData handler is called. If onData is null, nothing happens. </p>
-<p>On errors from this stream, the onError handler is given a object describing the error. </p>
-<p>If this stream closes, the onDone handler is called. </p>
-<p>If cancelOnError is true, the subscription is ended when the first error is reported. The default is false.</p>
+<p>On each data event from this stream, the subscriber's <code>onData</code> handler is called. If <code>onData</code> is null, nothing happens. </p>
+<p>On errors from this stream, the <code>onError</code> handler is given a object describing the error. </p>
+<p>If this stream closes, the <code>onDone</code> handler is called. </p>
+<p>If <code>cancelOnError</code> is true, the subscription is ended when the first error is reported. The default is false.</p>
 	</div>
 	<a id=Timer></a><hr>
 	<h4>
@@ -1280,7 +1280,7 @@ someTypeStream.transform(new DoubleTransformer&lt;Type&gt;());
 		<p>A count-down timer that can be configured to fire once or repeatedly. </p>
 <p>The timer counts down from the specified duration to 0. When the timer reaches 0, the timer invokes the specified callback function. Use a periodic timer to repeatedly count down the same interval. </p>
 <p>A negative duration is treated the same as a duration of 0. If the duration is statically known to be 0, consider using <a href=dart.async.html#Timer.run>run()</a>. </p>
-<p>Frequently the duration is either a constant or computed as in the following example (taking advantage of the multiplication operator of the Duration class): </p>
+<p>Frequently the duration is either a constant or computed as in the following example (taking advantage of the multiplication operator of the <code>Duration</code> class): </p>
 <p><pre>const TIMEOUT = const Duration(seconds: 3);
 const ms = const Duration(milliseconds: 1);
 
@@ -1293,7 +1293,7 @@ void handleTimeout() {  // callback function
   ...
 }
 </pre>Note: If Dart code using Timer is compiled to JavaScript, the finest granularity available in the browser is 4 milliseconds. </p>
-<p>See Stopwatch for measuring elapsed time.</p>
+<p>See <code>Stopwatch</code> for measuring elapsed time.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Timer.isActive></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isActive</b>
@@ -1309,12 +1309,12 @@ void handleTimeout() {  // callback function
 	<b><a id=Timer.></a><i class=icon-plus-sign></i> factory Timer(<a href=dart.core.html#Duration>Duration</a> duration,  callback)</b>
 	<div class=indent>
 		<p>Creates a new timer. </p>
-<p>The callback function is invoked after the given duration.</p>
+<p>The <code>callback</code> function is invoked after the given <code>duration</code>.</p>
 	</div>
 	<b><a id=Timer.periodic></a><i class=icon-plus-sign></i> factory Timer.periodic(<a href=dart.core.html#Duration>Duration</a> duration,  callback)</b>
 	<div class=indent>
 		<p>Creates a new repeating timer. </p>
-<p>The callback is invoked repeatedly with duration intervals until canceled with the cancel function.</p>
+<p>The <code>callback</code> is invoked repeatedly with <code>duration</code> intervals until canceled with the <code>cancel</code> function.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=Timer.cancel></a><i class=icon-ok-sign></i> void cancel()</b>
@@ -1323,7 +1323,7 @@ void handleTimeout() {  // callback function
 	</div>
 	<b><a id=Timer.run></a><i class=icon-ok-sign></i> static void run( callback)</b>
 	<div class=indent>
-		<p>Runs the given callback asynchronously as soon as possible. </p>
+		<p>Runs the given <code>callback</code> asynchronously as soon as possible. </p>
 <p>This function is equivalent to <code>new Timer(Duration.ZERO, callback)</code>.</p>
 	</div>
 	<hr>

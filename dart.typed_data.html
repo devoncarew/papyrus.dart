@@ -130,7 +130,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length, random-access sequence of bytes that also provides random and unaligned access to the fixed-width integers and floating point numbers represented by those bytes. ByteData may be used to pack and unpack data from external sources (such as networks or files systems), and to process large quantities of numerical data more efficiently than would be possible with ordinary List implementations. ByteData can save space, by eliminating the need for object headers, and time, by eliminating the need for data copies. Finally, ByteData may be used to intentionally reinterpret the bytes representing one arithmetic type as another. For example this code fragment determine what 32-bit signed integer is represented by the bytes of a 32-bit floating point number: </p>
+		<p>A fixed-length, random-access sequence of bytes that also provides random and unaligned access to the fixed-width integers and floating point numbers represented by those bytes. ByteData may be used to pack and unpack data from external sources (such as networks or files systems), and to process large quantities of numerical data more efficiently than would be possible with ordinary <code>List</code> implementations. ByteData can save space, by eliminating the need for object headers, and time, by eliminating the need for data copies. Finally, ByteData may be used to intentionally reinterpret the bytes representing one arithmetic type as another. For example this code fragment determine what 32-bit signed integer is represented by the bytes of a 32-bit floating point number: </p>
 <p><pre>var buffer = new Uint8List(8).buffer;
 var bdata = new ByteData.view(buffer);
 bdata.setFloat32(0, 3.04);
@@ -140,113 +140,113 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=ByteData.></a><i class=icon-plus-sign></i> factory ByteData(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a ByteData of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>ByteData</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=ByteData.view></a><i class=icon-plus-sign></i> factory ByteData.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an ByteData _view_ of the specified region in the specified byte buffer. Changes in the ByteData will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer.</p>
+		<p>Creates an <code>ByteData</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>ByteData</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=ByteData.getFloat32></a><i class=icon-ok-sign></i> <a href=dart.core.html#double>double</a> getFloat32(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the floating point number represented by the four bytes at the specified byteOffset in this object, in IEEE 754 single-precision binary floating-point format (binary32). </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
+		<p>Returns the floating point number represented by the four bytes at the specified <code>byteOffset</code> in this object, in IEEE 754 single-precision binary floating-point format (binary32). </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getFloat64></a><i class=icon-ok-sign></i> <a href=dart.core.html#double>double</a> getFloat64(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the floating point number represented by the eight bytes at the specified byteOffset in this object, in IEEE 754 double-precision binary floating-point format (binary64). </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
+		<p>Returns the floating point number represented by the eight bytes at the specified <code>byteOffset</code> in this object, in IEEE 754 double-precision binary floating-point format (binary64). </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getInt16></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getInt16(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the (possibly negative) integer represented by the two bytes at the specified byteOffset in this object, in two's complement binary form. The return value will be between 2&lt;sup&gt;15&lt;/sup&gt; and 2&lt;sup&gt;15&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
+		<p>Returns the (possibly negative) integer represented by the two bytes at the specified <code>byteOffset</code> in this object, in two's complement binary form. The return value will be between 2&lt;sup&gt;15&lt;/sup&gt; and 2&lt;sup&gt;15&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getInt32></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getInt32(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the (possibly negative) integer represented by the four bytes at the specified byteOffset in this object, in two's complement binary form. The return value will be between 2&lt;sup&gt;31&lt;/sup&gt; and 2&lt;sup&gt;31&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
+		<p>Returns the (possibly negative) integer represented by the four bytes at the specified <code>byteOffset</code> in this object, in two's complement binary form. The return value will be between 2&lt;sup&gt;31&lt;/sup&gt; and 2&lt;sup&gt;31&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getInt64></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getInt64(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the (possibly negative) integer represented by the eight bytes at the specified byteOffset in this object, in two's complement binary form. The return value will be between 2&lt;sup&gt;63&lt;/sup&gt; and 2&lt;sup&gt;63&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
+		<p>Returns the (possibly negative) integer represented by the eight bytes at the specified <code>byteOffset</code> in this object, in two's complement binary form. The return value will be between 2&lt;sup&gt;63&lt;/sup&gt; and 2&lt;sup&gt;63&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getInt8></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getInt8(<a href=dart.core.html#int>int</a> byteOffset)</b>
 	<div class=indent>
-		<p>Returns the (possibly negative) integer represented by the byte at the specified byteOffset in this object, in two's complement binary representation. The return value will be between -128 and 127, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or greater than or equal to the length of this object.</p>
+		<p>Returns the (possibly negative) integer represented by the byte at the specified <code>byteOffset</code> in this object, in two's complement binary representation. The return value will be between -128 and 127, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or greater than or equal to the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getUint16></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getUint16(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the positive integer represented by the two bytes starting at the specified byteOffset in this object, in unsigned binary form. The return value will be between 0 and  2&lt;sup&gt;16&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
+		<p>Returns the positive integer represented by the two bytes starting at the specified <code>byteOffset</code> in this object, in unsigned binary form. The return value will be between 0 and  2&lt;sup&gt;16&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getUint32></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getUint32(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the positive integer represented by the four bytes starting at the specified byteOffset in this object, in unsigned binary form. The return value will be between 0 and  2&lt;sup&gt;32&lt;/sup&gt; - 1, inclusive.</p>
+		<p>Returns the positive integer represented by the four bytes starting at the specified <code>byteOffset</code> in this object, in unsigned binary form. The return value will be between 0 and  2&lt;sup&gt;32&lt;/sup&gt; - 1, inclusive.</p>
 	</div>
 	<b><a id=ByteData.getUint64></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getUint64(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Returns the positive integer represented by the eight bytes starting at the specified byteOffset in this object, in unsigned binary form. The return value will be between 0 and  2&lt;sup&gt;64&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
+		<p>Returns the positive integer represented by the eight bytes starting at the specified <code>byteOffset</code> in this object, in unsigned binary form. The return value will be between 0 and  2&lt;sup&gt;64&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.getUint8></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> getUint8(<a href=dart.core.html#int>int</a> byteOffset)</b>
 	<div class=indent>
-		<p>Returns the positive integer represented by the byte at the specified byteOffset in this object, in unsigned binary form. The return value will be between 0 and 255, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or greater than or equal to the length of this object.</p>
+		<p>Returns the positive integer represented by the byte at the specified <code>byteOffset</code> in this object, in unsigned binary form. The return value will be between 0 and 255, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or greater than or equal to the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setFloat32></a><i class=icon-ok-sign></i> void setFloat32(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#double>double</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the four bytes starting at the specified byteOffset in this object to the IEEE 754 single-precision binary floating-point (binary32) representation of the specified value. </p>
-<p><i></i>Note that this method can lose precision.<i></i> The input value is a 64-bit floating point value, which will be converted to 32-bit floating point value by IEEE 754 rounding rules before it is stored. If value cannot be represented exactly as a binary32, it will be converted to the nearest binary32 value.  If two binary32 values are equally close, the one whose least significant bit is zero will be used. Note that finite (but large) values can be converted to infinity, and small non-zero values can be converted to zero. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
+		<p>Sets the four bytes starting at the specified <code>byteOffset</code> in this object to the IEEE 754 single-precision binary floating-point (binary32) representation of the specified <code>value</code>. </p>
+<p><i></i>Note that this method can lose precision.<i></i> The input <code>value</code> is a 64-bit floating point value, which will be converted to 32-bit floating point value by IEEE 754 rounding rules before it is stored. If <code>value</code> cannot be represented exactly as a binary32, it will be converted to the nearest binary32 value.  If two binary32 values are equally close, the one whose least significant bit is zero will be used. Note that finite (but large) values can be converted to infinity, and small non-zero values can be converted to zero. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setFloat64></a><i class=icon-ok-sign></i> void setFloat64(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#double>double</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the eight bytes starting at the specified byteOffset in this object to the IEEE 754 double-precision binary floating-point (binary64) representation of the specified value. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
+		<p>Sets the eight bytes starting at the specified <code>byteOffset</code> in this object to the IEEE 754 double-precision binary floating-point (binary64) representation of the specified <code>value</code>. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setInt16></a><i class=icon-ok-sign></i> void setInt16(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the two bytes starting at the specified byteOffset in this object to the two's complement binary representation of the specified value, which must fit in two bytes. In other words, value must lie between 2&lt;sup&gt;15&lt;/sup&gt; and 2&lt;sup&gt;15&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
+		<p>Sets the two bytes starting at the specified <code>byteOffset</code> in this object to the two's complement binary representation of the specified <code>value</code>, which must fit in two bytes. In other words, <code>value</code> must lie between 2&lt;sup&gt;15&lt;/sup&gt; and 2&lt;sup&gt;15&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setInt32></a><i class=icon-ok-sign></i> void setInt32(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the four bytes starting at the specified byteOffset in this object to the two's complement binary representation of the specified value, which must fit in four bytes. In other words, value must lie between 2&lt;sup&gt;31&lt;/sup&gt; and 2&lt;sup&gt;31&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
+		<p>Sets the four bytes starting at the specified <code>byteOffset</code> in this object to the two's complement binary representation of the specified <code>value</code>, which must fit in four bytes. In other words, <code>value</code> must lie between 2&lt;sup&gt;31&lt;/sup&gt; and 2&lt;sup&gt;31&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setInt64></a><i class=icon-ok-sign></i> void setInt64(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the eight bytes starting at the specified byteOffset in this object to the two's complement binary representation of the specified value, which must fit in eight bytes. In other words, value must lie between 2&lt;sup&gt;63&lt;/sup&gt; and 2&lt;sup&gt;63&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
+		<p>Sets the eight bytes starting at the specified <code>byteOffset</code> in this object to the two's complement binary representation of the specified <code>value</code>, which must fit in eight bytes. In other words, <code>value</code> must lie between 2&lt;sup&gt;63&lt;/sup&gt; and 2&lt;sup&gt;63&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setInt8></a><i class=icon-ok-sign></i> void setInt8(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value)</b>
 	<div class=indent>
-		<p>Sets the byte at the specified byteOffset in this object to the two's complement binary representation of the specified value, which must fit in a single byte. In other words, value must be between -128 and 127, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or greater than or equal to the length of this object.</p>
+		<p>Sets the byte at the specified <code>byteOffset</code> in this object to the two's complement binary representation of the specified <code>value</code>, which must fit in a single byte. In other words, <code>value</code> must be between -128 and 127, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or greater than or equal to the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setUint16></a><i class=icon-ok-sign></i> void setUint16(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the two bytes starting at the specified byteOffset in this object to the unsigned binary representation of the specified value, which must fit in two bytes. in other words, value must be between 0 and 2&lt;sup&gt;16&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
+		<p>Sets the two bytes starting at the specified <code>byteOffset</code> in this object to the unsigned binary representation of the specified <code>value</code>, which must fit in two bytes. in other words, <code>value</code> must be between 0 and 2&lt;sup&gt;16&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 2</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setUint32></a><i class=icon-ok-sign></i> void setUint32(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the four bytes starting at the specified byteOffset in this object to the unsigned binary representation of the specified value, which must fit in four bytes. in other words, value must be between 0 and 2&lt;sup&gt;32&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
+		<p>Sets the four bytes starting at the specified <code>byteOffset</code> in this object to the unsigned binary representation of the specified <code>value</code>, which must fit in four bytes. in other words, <code>value</code> must be between 0 and 2&lt;sup&gt;32&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 4</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setUint64></a><i class=icon-ok-sign></i> void setUint64(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value, <a href=dart.typed_data.html#Endianness>Endianness</a> endian)</b>
 	<div class=indent>
-		<p>Sets the eight bytes starting at the specified byteOffset in this object to the unsigned binary representation of the specified value, which must fit in eight bytes. in other words, value must be between 0 and 2&lt;sup&gt;64&lt;/sup&gt; - 1, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
+		<p>Sets the eight bytes starting at the specified <code>byteOffset</code> in this object to the unsigned binary representation of the specified <code>value</code>, which must fit in eight bytes. in other words, <code>value</code> must be between 0 and 2&lt;sup&gt;64&lt;/sup&gt; - 1, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or <code>byteOffset + 8</code> is greater than the length of this object.</p>
 	</div>
 	<b><a id=ByteData.setUint8></a><i class=icon-ok-sign></i> void setUint8(<a href=dart.core.html#int>int</a> byteOffset, <a href=dart.core.html#int>int</a> value)</b>
 	<div class=indent>
-		<p>Sets the byte at the specified byteOffset in this object to the unsigned binary representation of the specified value, which must fit in a single byte. in other words, value must be between 0 and 255, inclusive. </p>
-<p>Throws RangeError if byteOffset is negative, or greater than or equal to the length of this object.</p>
+		<p>Sets the byte at the specified <code>byteOffset</code> in this object to the unsigned binary representation of the specified <code>value</code>, which must fit in a single byte. in other words, <code>value</code> must be between 0 and 255, inclusive. </p>
+<p>Throws <code>RangeError</code> if <code>byteOffset</code> is negative, or greater than or equal to the length of this object.</p>
 	</div>
 	<a id=Endianness></a><hr>
 	<h4>
@@ -285,7 +285,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of IEEE 754 single-precision binary floating-point numbers  that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of IEEE 754 single-precision binary floating-point numbers  that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Float32List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 4</b>
@@ -293,17 +293,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Float32List.></a><i class=icon-plus-sign></i> factory Float32List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Float32List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Float32List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Float32List.fromList></a><i class=icon-plus-sign></i> factory Float32List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#double>double</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Float32List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Float32List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Float32List.view></a><i class=icon-plus-sign></i> factory Float32List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Float32List _view_ of the specified region in the specified byte buffer. Changes in the Float32List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates a <code>Float32List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Float32List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Float32x4></a><hr>
 	<h4>
@@ -800,7 +800,7 @@ int huh = bdata.getInt32(0);
 	<div class=indent></div>
 	<b><a id=Float32x4.XXXX></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> XXXX = 0</b>
 	<div class=indent>
-		<p>Mask passed to shuffle.</p>
+		<p>Mask passed to <code>shuffle</code>.</p>
 	</div>
 	<b><a id=Float32x4.XXXY></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> XXXY = 64</b>
 	<div class=indent></div>
@@ -1200,11 +1200,11 @@ int huh = bdata.getInt32(0);
 	</div>
 	<b><a id=Float32x4.abs></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> abs()</b>
 	<div class=indent>
-		<p>Returns the absolute value of this Float32x4.</p>
+		<p>Returns the absolute value of this <code>Float32x4</code>.</p>
 	</div>
 	<b><a id=Float32x4.clamp></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> clamp(<a href=dart.typed_data.html#Float32x4>Float32x4</a> lowerLimit, <a href=dart.typed_data.html#Float32x4>Float32x4</a> upperLimit)</b>
 	<div class=indent>
-		<p>Clamps this to be in the range lowerLimit-upperLimit.</p>
+		<p>Clamps <code>this</code> to be in the range <code>lowerLimit</code>-<code>upperLimit</code>.</p>
 	</div>
 	<b><a id=Float32x4.equal></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> equal(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
@@ -1220,19 +1220,19 @@ int huh = bdata.getInt32(0);
 	</div>
 	<b><a id=Float32x4.interleaveXY></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> interleaveXY(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 with the X and Y lane values from this and other interleaved.</p>
+		<p>Returns a new <code>Float32x4</code> with the X and Y lane values from <code>this</code> and <code>other</code> interleaved.</p>
 	</div>
 	<b><a id=Float32x4.interleaveXYPairs></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> interleaveXYPairs(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 with the X and Y lane value pairs from this and other interleaved.</p>
+		<p>Returns a new <code>Float32x4</code> with the X and Y lane value pairs from <code>this</code> and <code>other</code> interleaved.</p>
 	</div>
 	<b><a id=Float32x4.interleaveZW></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> interleaveZW(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 with the Z and W lane values from this and other interleaved.</p>
+		<p>Returns a new <code>Float32x4</code> with the Z and W lane values from <code>this</code> and <code>other</code> interleaved.</p>
 	</div>
 	<b><a id=Float32x4.interleaveZWPairs></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> interleaveZWPairs(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 with the Z and W lane value pairs from this and other interleaved.</p>
+		<p>Returns a new <code>Float32x4</code> with the Z and W lane value pairs from <code>this</code> and <code>other</code> interleaved.</p>
 	</div>
 	<b><a id=Float32x4.lessThan></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> lessThan(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
@@ -1244,11 +1244,11 @@ int huh = bdata.getInt32(0);
 	</div>
 	<b><a id=Float32x4.max></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> max(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns the lane-wise maximum value in this or other.</p>
+		<p>Returns the lane-wise maximum value in <code>this</code> or <code>other</code>.</p>
 	</div>
 	<b><a id=Float32x4.min></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> min(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns the lane-wise minimum value in this or other.</p>
+		<p>Returns the lane-wise minimum value in <code>this</code> or <code>other</code>.</p>
 	</div>
 	<b><a id=Float32x4.notEqual></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> notEqual(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
@@ -1256,27 +1256,27 @@ int huh = bdata.getInt32(0);
 	</div>
 	<b><a id=Float32x4.reciprocal></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> reciprocal()</b>
 	<div class=indent>
-		<p>Returns the reciprocal of this.</p>
+		<p>Returns the reciprocal of <code>this</code>.</p>
 	</div>
 	<b><a id=Float32x4.reciprocalSqrt></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> reciprocalSqrt()</b>
 	<div class=indent>
-		<p>Returns the square root of the reciprocal of this.</p>
+		<p>Returns the square root of the reciprocal of <code>this</code>.</p>
 	</div>
 	<b><a id=Float32x4.scale></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> scale(<a href=dart.core.html#double>double</a> s)</b>
 	<div class=indent>
-		<p>Returns a copy of this each lane being scaled by s.</p>
+		<p>Returns a copy of <code>this</code> each lane being scaled by <code>s</code>.</p>
 	</div>
 	<b><a id=Float32x4.shuffle></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> shuffle(<a href=dart.core.html#int>int</a> mask)</b>
 	<div class=indent>
-		<p>Shuffle the lane values. mask must be one of the 256 shuffle constants.</p>
+		<p>Shuffle the lane values. <code>mask</code> must be one of the 256 shuffle constants.</p>
 	</div>
 	<b><a id=Float32x4.sqrt></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> sqrt()</b>
 	<div class=indent>
-		<p>Returns the square root of this.</p>
+		<p>Returns the square root of <code>this</code>.</p>
 	</div>
 	<b><a id=Float32x4.toUint32x4></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> toUint32x4()</b>
 	<div class=indent>
-		<p>Returns a bit-wise copy of this as a Uint32x4.</p>
+		<p>Returns a bit-wise copy of <code>this</code> as a <code>Uint32x4</code>.</p>
 	</div>
 	<b><a id=Float32x4.unary-></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> unary-()</b>
 	<div class=indent>
@@ -1284,23 +1284,23 @@ int huh = bdata.getInt32(0);
 	</div>
 	<b><a id=Float32x4.withW></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> withW(<a href=dart.core.html#double>double</a> w)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 copied from this with a new w value.</p>
+		<p>Returns a new <code>Float32x4</code> copied from <code>this</code> with a new w value.</p>
 	</div>
 	<b><a id=Float32x4.withX></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> withX(<a href=dart.core.html#double>double</a> x)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 copied from this with a new x value.</p>
+		<p>Returns a new <code>Float32x4</code> copied from <code>this</code> with a new x value.</p>
 	</div>
 	<b><a id=Float32x4.withY></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> withY(<a href=dart.core.html#double>double</a> y)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 copied from this with a new y value.</p>
+		<p>Returns a new <code>Float32x4</code> copied from <code>this</code> with a new y value.</p>
 	</div>
 	<b><a id=Float32x4.withZ></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> withZ(<a href=dart.core.html#double>double</a> z)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 copied from this with a new z value.</p>
+		<p>Returns a new <code>Float32x4</code> copied from <code>this</code> with a new z value.</p>
 	</div>
 	<b><a id=Float32x4.withZWInXY></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> withZWInXY(<a href=dart.typed_data.html#Float32x4>Float32x4</a> other)</b>
 	<div class=indent>
-		<p>Returns a new Float32x4 with values in the X and Y lanes replaced with the values in the Z and W lanes of other.</p>
+		<p>Returns a new <code>Float32x4</code> with values in the X and Y lanes replaced with the values in the Z and W lanes of <code>other</code>.</p>
 	</div>
 	<a id=Float32x4List></a><hr>
 	<h4>
@@ -1318,7 +1318,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of Float32x4 numbers that is viewable as a TypedData. For long lists, this implementation will be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of Float32x4 numbers that is viewable as a <code>TypedData</code>. For long lists, this implementation will be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Float32x4List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 16</b>
@@ -1326,17 +1326,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Float32x4List.></a><i class=icon-plus-sign></i> factory Float32x4List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Float32x4List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Float32x4List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Float32x4List.fromList></a><i class=icon-plus-sign></i> factory Float32x4List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.typed_data.html#Float32x4>Float32x4</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Float32x4List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Float32x4List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Float32x4List.view></a><i class=icon-plus-sign></i> factory Float32x4List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Float32x4List _view_ of the specified region in the specified byte buffer. Changes in the Float32x4List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates a <code>Float32x4List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Float32x4List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Float64List></a><hr>
 	<h4>
@@ -1354,7 +1354,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of IEEE 754 double-precision binary floating-point numbers  that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of IEEE 754 double-precision binary floating-point numbers  that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Float64List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 8</b>
@@ -1362,17 +1362,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Float64List.></a><i class=icon-plus-sign></i> factory Float64List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Float64List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Float64List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Float64List.fromList></a><i class=icon-plus-sign></i> factory Float64List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#double>double</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Float64List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Float64List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Float64List.view></a><i class=icon-plus-sign></i> factory Float64List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Float64List _view_ of the specified region in the specified byte buffer. Changes in the Float64List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates a <code>Float64List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Float64List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Int16List></a><hr>
 	<h4>
@@ -1390,7 +1390,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 16-bit signed integers that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 16-bit signed integers that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Int16List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 2</b>
@@ -1398,17 +1398,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Int16List.></a><i class=icon-plus-sign></i> factory Int16List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int16List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates an <code>Int16List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Int16List.fromList></a><i class=icon-plus-sign></i> factory Int16List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Int16List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Int16List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Int16List.view></a><i class=icon-plus-sign></i> factory Int16List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int16List _view_ of the specified region in the specified byte buffer. Changes in the Int16List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates an <code>Int16List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Int16List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Int32List></a><hr>
 	<h4>
@@ -1426,7 +1426,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 32-bit signed integers that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 32-bit signed integers that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Int32List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 4</b>
@@ -1434,17 +1434,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Int32List.></a><i class=icon-plus-sign></i> factory Int32List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int32List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates an <code>Int32List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Int32List.fromList></a><i class=icon-plus-sign></i> factory Int32List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Int32List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Int32List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Int32List.view></a><i class=icon-plus-sign></i> factory Int32List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int32List _view_ of the specified region in the specified byte buffer. Changes in the Int32List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates an <code>Int32List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Int32List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Int64List></a><hr>
 	<h4>
@@ -1462,7 +1462,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 64-bit signed integers that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 64-bit signed integers that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Int64List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 8</b>
@@ -1470,17 +1470,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Int64List.></a><i class=icon-plus-sign></i> factory Int64List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int64List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates an <code>Int64List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Int64List.fromList></a><i class=icon-plus-sign></i> factory Int64List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Int64List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Int64List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Int64List.view></a><i class=icon-plus-sign></i> factory Int64List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int64List _view_ of the specified region in the specified byte buffer. Changes in the Int64List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates an <code>Int64List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Int64List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Int8List></a><hr>
 	<h4>
@@ -1498,7 +1498,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 8-bit signed integers. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 8-bit signed integers. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Int8List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 1</b>
@@ -1506,16 +1506,16 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Int8List.></a><i class=icon-plus-sign></i> factory Int8List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int8List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates an <code>Int8List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Int8List.fromList></a><i class=icon-plus-sign></i> factory Int8List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Int8List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Int8List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Int8List.view></a><i class=icon-plus-sign></i> factory Int8List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Int8List _view_ of the specified region in the specified byte buffer. Changes in the Int8List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer.</p>
+		<p>Creates an <code>Int8List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Int8List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>.</p>
 	</div>
 	<a id=TypedData></a><hr>
 	<h4>
@@ -1588,7 +1588,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 16-bit unsigned integers that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 16-bit unsigned integers that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Uint16List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 2</b>
@@ -1596,17 +1596,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Uint16List.></a><i class=icon-plus-sign></i> factory Uint16List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint16List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Uint16List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Uint16List.fromList></a><i class=icon-plus-sign></i> factory Uint16List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Uint16List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Uint16List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Uint16List.view></a><i class=icon-plus-sign></i> factory Uint16List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint16List _view_ of the specified region in the specified byte buffer. Changes in the Uint16List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates a <code>Uint16List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Uint16List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Uint32List></a><hr>
 	<h4>
@@ -1624,7 +1624,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 32-bit unsigned integers that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 32-bit unsigned integers that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Uint32List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 4</b>
@@ -1632,17 +1632,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Uint32List.></a><i class=icon-plus-sign></i> factory Uint32List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint32List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Uint32List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Uint32List.fromList></a><i class=icon-plus-sign></i> factory Uint32List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Uint32List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Uint32List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Uint32List.view></a><i class=icon-plus-sign></i> factory Uint32List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint32List _view_ of the specified region in the specified byte buffer. Changes in the Uint32 will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates a <code>Uint32List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Uint32</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Uint32x4></a><hr>
 	<h4>
@@ -1779,43 +1779,43 @@ int huh = bdata.getInt32(0);
 	</div>
 	<b><a id=Uint32x4.select></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> select(<a href=dart.typed_data.html#Float32x4>Float32x4</a> trueValue, <a href=dart.typed_data.html#Float32x4>Float32x4</a> falseValue)</b>
 	<div class=indent>
-		<p>Merge trueValue and falseValue based on this' bit mask: Select bit from trueValue when bit in this is on. Select bit from falseValue when bit in this is off.</p>
+		<p>Merge <code>trueValue</code> and <code>falseValue</code> based on <code>this</code>' bit mask: Select bit from <code>trueValue</code> when bit in <code>this</code> is on. Select bit from <code>falseValue</code> when bit in <code>this</code> is off.</p>
 	</div>
 	<b><a id=Uint32x4.toFloat32x4></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Float32x4>Float32x4</a> toFloat32x4()</b>
 	<div class=indent>
-		<p>Returns a bit-wise copy of this as a Float32x4.</p>
+		<p>Returns a bit-wise copy of <code>this</code> as a <code>Float32x4</code>.</p>
 	</div>
 	<b><a id=Uint32x4.withFlagW></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withFlagW(<a href=dart.core.html#bool>bool</a> w)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new w value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new w value.</p>
 	</div>
 	<b><a id=Uint32x4.withFlagX></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withFlagX(<a href=dart.core.html#bool>bool</a> x)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new x value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new x value.</p>
 	</div>
 	<b><a id=Uint32x4.withFlagY></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withFlagY(<a href=dart.core.html#bool>bool</a> y)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new y value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new y value.</p>
 	</div>
 	<b><a id=Uint32x4.withFlagZ></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withFlagZ(<a href=dart.core.html#bool>bool</a> z)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new z value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new z value.</p>
 	</div>
 	<b><a id=Uint32x4.withW></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withW(<a href=dart.core.html#int>int</a> w)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new w value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new w value.</p>
 	</div>
 	<b><a id=Uint32x4.withX></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withX(<a href=dart.core.html#int>int</a> x)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new x value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new x value.</p>
 	</div>
 	<b><a id=Uint32x4.withY></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withY(<a href=dart.core.html#int>int</a> y)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new y value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new y value.</p>
 	</div>
 	<b><a id=Uint32x4.withZ></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> withZ(<a href=dart.core.html#int>int</a> z)</b>
 	<div class=indent>
-		<p>Returns a new Uint32x4 copied from this with a new z value.</p>
+		<p>Returns a new <code>Uint32x4</code> copied from <code>this</code> with a new z value.</p>
 	</div>
 	<b><a id=Uint32x4.|></a><i class=icon-ok-sign></i> <a href=dart.typed_data.html#Uint32x4>Uint32x4</a> |(<a href=dart.typed_data.html#Uint32x4>Uint32x4</a> other)</b>
 	<div class=indent>
@@ -1837,7 +1837,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 64-bit unsigned integers that is viewable as a TypedData. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 64-bit unsigned integers that is viewable as a <code>TypedData</code>. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Uint64List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 8</b>
@@ -1845,17 +1845,17 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Uint64List.></a><i class=icon-plus-sign></i> factory Uint64List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint64List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Uint64List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Uint64List.fromList></a><i class=icon-plus-sign></i> factory Uint64List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Uint64List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Uint64List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Uint64List.view></a><i class=icon-plus-sign></i> factory Uint64List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates an Uint64List _view_ of the specified region in the specified byte buffer. Changes in the Uint64List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer. </p>
-<p>Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.</p>
+		<p>Creates an <code>Uint64List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Uint64List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>. </p>
+<p>Throws <code>ArgumentError</code> if <code>offsetInBytes</code> is not a multiple of BYTES_PER_ELEMENT.</p>
 	</div>
 	<a id=Uint8ClampedList></a><hr>
 	<h4>
@@ -1873,7 +1873,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 8-bit unsigned integers. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation. Indexed store clamps the value to range 0..0xFF.</p>
+		<p>A fixed-length list of 8-bit unsigned integers. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation. Indexed store clamps the value to range 0..0xFF.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Uint8ClampedList.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 1</b>
@@ -1881,16 +1881,16 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Uint8ClampedList.></a><i class=icon-plus-sign></i> factory Uint8ClampedList(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint8ClampedList of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Uint8ClampedList</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Uint8ClampedList.fromList></a><i class=icon-plus-sign></i> factory Uint8ClampedList.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Uint8ClampedList of the same size as the elements list and copies over the values clamping when needed.</p>
+		<p>Creates a <code>Uint8ClampedList</code> of the same size as the <code>elements</code> list and copies over the values clamping when needed.</p>
 	</div>
 	<b><a id=Uint8ClampedList.view></a><i class=icon-plus-sign></i> factory Uint8ClampedList.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint8ClampedList _view_ of the specified region in the specified byte buffer. Changes in the Uint8List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer.</p>
+		<p>Creates a <code>Uint8ClampedList</code> _view_ of the specified region in the specified byte <code>buffer</code>. Changes in the <code>Uint8List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>.</p>
 	</div>
 	<a id=Uint8List></a><hr>
 	<h4>
@@ -1908,7 +1908,7 @@ int huh = bdata.getInt32(0);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A fixed-length list of 8-bit unsigned integers. For long lists, this implementation can be considerably more space- and time-efficient than the default List implementation.</p>
+		<p>A fixed-length list of 8-bit unsigned integers. For long lists, this implementation can be considerably more space- and time-efficient than the default <code>List</code> implementation.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Uint8List.BYTES_PER_ELEMENT></a><i class=icon-minus-sign></i> static const <a href=dart.core.html#int>int</a> BYTES_PER_ELEMENT = 1</b>
@@ -1916,16 +1916,16 @@ int huh = bdata.getInt32(0);
 	<h4>Constructors</h4>
 	<b><a id=Uint8List.></a><i class=icon-plus-sign></i> factory Uint8List(<a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint8List of the specified length (in elements), all of whose elements are initially zero.</p>
+		<p>Creates a <code>Uint8List</code> of the specified length (in elements), all of whose elements are initially zero.</p>
 	</div>
 	<b><a id=Uint8List.fromList></a><i class=icon-plus-sign></i> factory Uint8List.fromList(<a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; elements)</b>
 	<div class=indent>
-		<p>Creates a Uint8List with the same size as the elements list and copies over the elements.</p>
+		<p>Creates a <code>Uint8List</code> with the same size as the <code>elements</code> list and copies over the elements.</p>
 	</div>
 	<b><a id=Uint8List.view></a><i class=icon-plus-sign></i> factory Uint8List.view(<a href=dart.typed_data.html#ByteBuffer>ByteBuffer</a> buffer, <a href=dart.core.html#int>int</a> offsetInBytes, <a href=dart.core.html#int>int</a> length)</b>
 	<div class=indent>
-		<p>Creates a Uint8List _view_ of the specified region in the specified byte buffer. Changes in the Uint8List will be visible in the byte buffer and vice versa. If the offsetInBytes index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
-<p>Throws RangeError if offsetInBytes or length are negative, or if offsetInBytes + (length * elementSizeInBytes) is greater than the length of buffer.</p>
+		<p>Creates a <code>Uint8List</code> _view_ of the specified region in the specified byte buffer. Changes in the <code>Uint8List</code> will be visible in the byte buffer and vice versa. If the <code>offsetInBytes</code> index of the region is not specified, it defaults to zero (the first byte in the byte buffer). If the length is not specified, it defaults to null, which indicates that the view extends to the end of the byte buffer. </p>
+<p>Throws <code>RangeError</code> if <code>offsetInBytes</code> or <code>length</code> are negative, or if <code>offsetInBytes</code> + (<code>length</code> * elementSizeInBytes) is greater than the length of <code>buffer</code>.</p>
 	</div>
 	<hr>
 </div>

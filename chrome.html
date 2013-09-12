@@ -80,7 +80,7 @@
 	<div class=indent>
 		<p>Native wrappers for the Chrome packaged app APIs. </p>
 <p>These functions allow direct access to the chrome.* APIs, allowing Chrome packaged apps to be written using Dart. </p>
-<p>For more information on these APIs, see the chrome.* API documentation(http://developer.chrome.com/apps/api_index.html).</p>
+<p>For more information on these APIs, see the <code>chrome.* API documentation</code>(http://developer.chrome.com/apps/api_index.html).</p>
 	</div>
 	<h4>Top-Level Variables</h4>
 	<div class=indent>
@@ -838,12 +838,12 @@
 	<b><a id=Event.addRules></a><i class=icon-ok-sign></i> void addRules(<a href=dart.core.html#String>String</a> eventName, <a href=dart.core.html#List>List</a>&lt;<a href=chrome.html#Rule>Rule</a>&gt; rules,  callback)</b>
 	<div class=indent>
 		<p>Registers rules to handle events. </p>
-<p>eventName is the name of the event this function affects and rules are the rules to be registered. These do not replace previously registered rules. callback is called with registered rules.</p>
+<p><code>eventName</code> is the name of the event this function affects and <code>rules</code> are the rules to be registered. These do not replace previously registered rules. <code>callback</code> is called with registered rules.</p>
 	</div>
 	<b><a id=Event.getRules></a><i class=icon-ok-sign></i> void getRules(<a href=dart.core.html#String>String</a> eventName, <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#String>String</a>&gt; ruleIdentifiers,  callback)</b>
 	<div class=indent>
 		<p>Returns currently registered rules. </p>
-<p>eventName is the name of the event this function affects and, if an array is passed as ruleIdentifiers, only rules with identifiers contained in this array are returned. callback is called with registered rules.</p>
+<p><code>eventName</code> is the name of the event this function affects and, if an array is passed as <code>ruleIdentifiers</code>, only rules with identifiers contained in this array are returned. <code>callback</code> is called with registered rules.</p>
 	</div>
 	<b><a id=Event.hasListener></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> hasListener(<a href=dart.core.html#Function>Function</a> callback)</b>
 	<div class=indent>
@@ -860,7 +860,7 @@
 	<b><a id=Event.removeRules></a><i class=icon-ok-sign></i> void removeRules(<a href=dart.core.html#String>String</a> eventName, <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#String>String</a>&gt; ruleIdentifiers,  callback)</b>
 	<div class=indent>
 		<p>Unregisters currently registered rules. </p>
-<p>eventName is the name of the event this function affects and, if an array is passed as ruleIdentifiers, only rules with identifiers contained in this array are unregistered. callback is called when the rules are unregistered.</p>
+<p><code>eventName</code> is the name of the event this function affects and, if an array is passed as <code>ruleIdentifiers</code>, only rules with identifiers contained in this array are unregistered. <code>callback</code> is called when the rules are unregistered.</p>
 	</div>
 	<a id=Event_app_runtime_onLaunched></a><hr>
 	<h4>

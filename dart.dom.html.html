@@ -454,11 +454,11 @@
 	</dl>
 	<div class=indent>
 		<p>HTML elements and other resources for web-based applications that need to interact with the browser and the DOM (Document Object Model). </p>
-<p>This library includes DOM element types, CSS styling, local storage, media, speech, events, and more. To get started, check out the Element class, the base class for many of the HTML DOM types. </p>
+<p>This library includes DOM element types, CSS styling, local storage, media, speech, events, and more. To get started, check out the <code>Element</code> class, the base class for many of the HTML DOM types. </p>
 <p><h5> Other resources</h5> </p>
-<p><ul><li>If you've never written a web app before, try our</li></ul>tutorials&amp;mdash;A Game of Darts(http://dartlang.org/docs/tutorials). </p>
-<p><ul><li>To see some web-based Dart apps in action and to play with the code,</li></ul>download Dart Editor(http://www.dartlang.org/#get-started) and run its built-in examples. </p>
-<p><ul><li>For even more examples, see</li></ul>Dart HTML5 Samples(https://github.com/dart-lang/dart-html5-samples) on Github.</p>
+<p><ul><li>If you've never written a web app before, try our</li></ul>tutorials&amp;mdash;<code>A Game of Darts</code>(http://dartlang.org/docs/tutorials). </p>
+<p><ul><li>To see some web-based Dart apps in action and to play with the code,</li></ul>download <code>Dart Editor</code>(http://www.dartlang.org/#get-started) and run its built-in examples. </p>
+<p><ul><li>For even more examples, see</li></ul><code>Dart HTML5 Samples</code>(https://github.com/dart-lang/dart-html5-samples) on Github.</p>
 	</div>
 	<h4>Getters and Setters</h4>
 	<div class=indent>
@@ -471,10 +471,10 @@
 		<b><a id=window></a><i class=icon-circle-arrow-right></i> static <a href=dart.dom.html.html#Window>Window</a> get window</b>
 		<div class=indent>
 			<p>Top-level container for a web page, which is usually a browser tab or window. </p>
-<p>Each web page loaded in the browser has its own Window, which is a container for the web page. </p>
-<p>If the web page has any <code>&lt;iframe&gt;</code> elements, then each <code>&lt;iframe&gt;</code> has its own Window object, which is accessible only to that <code>&lt;iframe&gt;</code>. </p>
+<p>Each web page loaded in the browser has its own <code>Window</code>, which is a container for the web page. </p>
+<p>If the web page has any <code>&lt;iframe&gt;</code> elements, then each <code>&lt;iframe&gt;</code> has its own <code>Window</code> object, which is accessible only to that <code>&lt;iframe&gt;</code>. </p>
 <p>See also: </p>
-<p><ul><li>Window(https://developer.mozilla.org/en-US/docs/Web/API/window) from MDN.</li></p>
+<p><ul><li><code>Window</code>(https://developer.mozilla.org/en-US/docs/Web/API/window) from MDN.</li></p>
 		</div>
 	</div>
 	<h4>Functions</h4>
@@ -1299,7 +1299,7 @@
 		<p>DOM Area Element, which links regions of an image map with a hyperlink. </p>
 <p>The element can also define an uninteractive region of the map. </p>
 <p>See also: </p>
-<p><ul><li>&lt;area&gt;(https://developer.mozilla.org/en-US/docs/HTML/Element/area)</li></ul>on MDN.</p>
+<p><ul><li><code>&lt;area&gt;</code>(https://developer.mozilla.org/en-US/docs/HTML/Element/area)</li></ul>on MDN.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=AreaElement.alt></a><i class=icon-minus-sign></i> <a href=dart.core.html#String>String</a> alt</b>
@@ -1658,7 +1658,7 @@
 	</dl>
 	<div class=indent>
 		<p>Model-Driven Views (MDV)'s native features enables a wide-range of use cases, but (by design) don't attempt to implement a wide array of specialized behaviors. </p>
-<p>Enabling these features in MDV is a matter of implementing and registering an MDV Custom Syntax. A Custom Syntax is an object which contains one or more delegation functions which implement specialized behavior. This object is registered with MDV via Element.bindingDelegate: </p>
+<p>Enabling these features in MDV is a matter of implementing and registering an MDV Custom Syntax. A Custom Syntax is an object which contains one or more delegation functions which implement specialized behavior. This object is registered with MDV via <code>Element.bindingDelegate</code>: </p>
 <p></p>
 <p>HTML: <pre>&lt;template bind&gt;
   {{ What!Ever('crazy')-&gt;thing^^^I+Want(data) }}
@@ -1681,7 +1681,7 @@ query('template').model = new MyModel();
 	<div class=indent>
 		<p>This syntax method allows for a custom interpretation of the contents of mustaches (<code>{{</code> ... <code>}}</code>). </p>
 <p>When a template is inserting an instance, it will invoke this method for each mustache which is encountered. The function is invoked with four arguments: </p>
-<p>- model: The data context for which this instance is being created. - path: The text contents (trimmed of outer whitespace) of the mustache. - name: The context in which the mustache occurs. Within element attributes, this will be the name of the attribute. Within text, this will be 'text'. - node: A reference to the node to which this binding will be created. </p>
+<p>- <code>model</code>: The data context for which this instance is being created. - <code>path</code>: The text contents (trimmed of outer whitespace) of the mustache. - <code>name</code>: The context in which the mustache occurs. Within element attributes, this will be the name of the attribute. Within text, this will be 'text'. - <code>node</code>: A reference to the node to which this binding will be created. </p>
 <p>If the method wishes to handle binding, it is required to return an object which has at least a <code>value</code> property that can be observed. If it does, then MDV will call [Node.bind on the node: </p>
 <p><pre>node.bind(name, retval, 'value');
 </pre>If the 'getBinding' does not wish to override the binding, it should return null.</p>
@@ -1690,7 +1690,7 @@ query('template').model = new MyModel();
 	<div class=indent>
 		<p>This syntax method allows a syntax to provide an alterate model than the one the template would otherwise use when producing an instance. </p>
 <p>When a template is about to create an instance, it will invoke this method The function is invoked with two arguments: </p>
-<p>- template: The template element which is about to create and insert an instance. - model: The data context for which this instance is being created. </p>
+<p>- <code>template</code>: The template element which is about to create and insert an instance. - <code>model</code>: The data context for which this instance is being created. </p>
 <p>The template element will always use the return value of <code>getInstanceModel</code> as the model for the new instance. If the syntax does not wish to override the value, it should simply return the <code>model</code> value it was passed.</p>
 	</div>
 	<a id=Blob></a><hr>
@@ -2394,8 +2394,8 @@ query('template').model = new MyModel();
 	<b><a id=CanvasElement.toDataUrl></a><i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> toDataUrl(<a href=dart.core.html#String>String</a> type, <a href=dart.core.html#num>num</a> quality)</b>
 	<div class=indent>
 		<p>Returns a data URI containing a representation of the image in the format specified by type (defaults to 'image/png'). </p>
-<p>Data Uri format is as follow <code>data:&lt;MIME-type&gt;;charset=&lt;encoding&gt;;base64,&lt;data&gt;</code> </p>
-<p>Optional parameter quality in the range of 0.0 and 1.0 can be used when requesting type 'image/jpeg' or 'image/webp'. If quality is not passed the default value is used. Note: the default value varies by browser. </p>
+<p>Data Uri format is as follow <code>data:<code>&lt;MIME-type&gt;</code><code>;charset=&lt;encoding&gt;</code><code>;base64</code>,&lt;data&gt;</code> </p>
+<p>Optional parameter <code>quality</code> in the range of 0.0 and 1.0 can be used when requesting <code>type</code> 'image/jpeg' or 'image/webp'. If <code>quality</code> is not passed the default value is used. Note: the default value varies by browser. </p>
 <p>If the height or width of this canvas element is 0, then 'data:' is returned, representing no data. </p>
 <p>If the type requested is not 'image/png', and the returned value is 'data:image/png', then the requested type is not supported. </p>
 <p>Example usage: </p>
@@ -2413,9 +2413,9 @@ var img = new ImageElement();
 img.src = dataUrl;
 document.body.children.add(img);
 </pre>See also: </p>
-<p><ul><li>Data URI Scheme(http://en.wikipedia.org/wiki/Data_URI_scheme) from Wikipedia.</li></ul></p>
-<p><ul><li>HTMLCanvasElement(https://developer.mozilla.org/en-US/docs/DOM/HTMLCanvasElement) from MDN.</li></ul></p>
-<p><ul><li>toDataUrl(http://dev.w3.org/html5/spec/the-canvas-element.html#dom-canvas-todataurl) from W3C.</li></p>
+<p><ul><li><code>Data URI Scheme</code>(http://en.wikipedia.org/wiki/Data_URI_scheme) from Wikipedia.</li></ul></p>
+<p><ul><li><code>HTMLCanvasElement</code>(https://developer.mozilla.org/en-US/docs/DOM/HTMLCanvasElement) from MDN.</li></ul></p>
+<p><ul><li><code>toDataUrl</code>(http://dev.w3.org/html5/spec/the-canvas-element.html#dom-canvas-todataurl) from W3C.</li></p>
 	</div>
 	<a id=CanvasGradient></a><hr>
 	<h4>
@@ -2435,7 +2435,7 @@ document.body.children.add(img);
 	</dl>
 	<div class=indent>
 		<p>An opaque canvas object representing a gradient. </p>
-<p>Created by calling createLinearGradient or createRadialGradient on a CanvasRenderingContext2D object. </p>
+<p>Created by calling <code>createLinearGradient</code> or <code>createRadialGradient</code> on a <code>CanvasRenderingContext2D</code> object. </p>
 <p>Example usage: </p>
 <p><pre>var canvas = new CanvasElement(width: 600, height: 600);
 var ctx = canvas.context2D;
@@ -2452,7 +2452,7 @@ ctx.fillRect(0, 0, 600, 600);
 ctx.save();
 document.body.children.add(canvas);
 </pre>See also: </p>
-<p><ul><li>CanvasGradient(https://developer.mozilla.org/en-US/docs/DOM/CanvasGradient) from MDN.</li><li>CanvasGradient(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#canvasgradient) from whatwg.</li><li>CanvasGradient(http://www.w3.org/TR/2010/WD-2dcontext-20100304/#canvasgradient) from W3C.</li></p>
+<p><ul><li><code>CanvasGradient</code>(https://developer.mozilla.org/en-US/docs/DOM/CanvasGradient) from MDN.</li><li><code>CanvasGradient</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#canvasgradient) from whatwg.</li><li><code>CanvasGradient</code>(http://www.w3.org/TR/2010/WD-2dcontext-20100304/#canvasgradient) from W3C.</li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=CanvasGradient.></a><i class=icon-plus-sign></i> CanvasGradient()</b>
@@ -2464,9 +2464,9 @@ document.body.children.add(canvas);
 	<i class=icon-ok-sign></i> void addColorStop(<a href=dart.core.html#num>num</a> offset, <a href=dart.core.html#String>String</a> color)</b>
 	<div class=indent>
 		<p>Adds a color stop to this gradient at the offset. </p>
-<p>The offset can range between 0.0 and 1.0. </p>
+<p>The <code>offset</code> can range between 0.0 and 1.0. </p>
 <p>See also: </p>
-<p><ul><li>Multiple Color Stops(https://developer.mozilla.org/en-US/docs/CSS/linear-gradient#Gradient_with_multiple_color_stops) from MDN.</li></p>
+<p><ul><li><code>Multiple Color Stops</code>(https://developer.mozilla.org/en-US/docs/CSS/linear-gradient#Gradient_with_multiple_color_stops) from MDN.</li></p>
 	</div>
 	<a id=CanvasImageSource></a><hr>
 	<h4>
@@ -2478,13 +2478,13 @@ document.body.children.add(canvas);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>An object that can be drawn to a CanvasRenderingContext2D object with CanvasRenderingContext2D.drawImage, CanvasRenderingContext2D.drawImageToRect, CanvasRenderingContext2D.drawImageScaled, or CanvasRenderingContext2D.drawImageScaledFromSource. </p>
-<p>If the CanvasImageSource is an ImageElement then the element's image is used. If the ImageElement is an animated image, then the poster frame is used. If there is no poster frame, then the first frame of animation is used. </p>
-<p>If the CanvasImageSource is a VideoElement then the frame at the current playback position is used as the image. </p>
-<p>If the CanvasImageSource is a CanvasElement then the element's bitmap is used. </p>
+		<p>An object that can be drawn to a <code>CanvasRenderingContext2D</code> object with <code>CanvasRenderingContext2D.drawImage</code>, <code>CanvasRenderingContext2D.drawImageToRect</code>, <code>CanvasRenderingContext2D.drawImageScaled</code>, or <code>CanvasRenderingContext2D.drawImageScaledFromSource</code>. </p>
+<p>If the CanvasImageSource is an <code>ImageElement</code> then the element's image is used. If the <code>ImageElement</code> is an animated image, then the poster frame is used. If there is no poster frame, then the first frame of animation is used. </p>
+<p>If the CanvasImageSource is a <code>VideoElement</code> then the frame at the current playback position is used as the image. </p>
+<p>If the CanvasImageSource is a <code>CanvasElement</code> then the element's bitmap is used. </p>
 <p><i></i> Note: <i></i> Currently, all versions of Internet Explorer do not support drawing a VideoElement to a canvas. Also, you may experience problems drawing a video to a canvas in Firefox if the source of the video is a data URL. </p>
 <p>See also: </p>
-<p><ul><li>CanvasImageSource(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#image-sources-for-2d-rendering-contexts)</li></ul>from the WHATWG. <ul><li>drawImage(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
+<p><ul><li><code>CanvasImageSource</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#image-sources-for-2d-rendering-contexts)</li></ul>from the WHATWG. <ul><li><code>drawImage</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=CanvasImageSource.></a><i class=icon-plus-sign></i> CanvasImageSource()</b>
@@ -2503,7 +2503,7 @@ document.body.children.add(canvas);
 	</dl>
 	<div class=indent>
 		<p>An opaque object representing a pattern of image, canvas, or video. </p>
-<p>Created by calling createPattern on a CanvasRenderingContext2D object. </p>
+<p>Created by calling <code>createPattern</code> on a <code>CanvasRenderingContext2D</code> object. </p>
 <p>Example usage: </p>
 <p><pre>var canvas = new CanvasElement(width: 600, height: 600);
 var ctx = canvas.context2D;
@@ -2519,7 +2519,7 @@ img.onLoad.listen((event) {
 });
 img.src = "images/foo.jpg";
 document.body.children.add(canvas);
-</pre>See also: <ul><li>CanvasPattern(https://developer.mozilla.org/en-US/docs/DOM/CanvasPattern) from MDN.</li><li>CanvasPattern(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#canvaspattern) from whatwg.</li><li>CanvasPattern(http://www.w3.org/TR/2010/WD-2dcontext-20100304/#canvaspattern) from W3C.</li></p>
+</pre>See also: <ul><li><code>CanvasPattern</code>(https://developer.mozilla.org/en-US/docs/DOM/CanvasPattern) from MDN.</li><li><code>CanvasPattern</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#canvaspattern) from whatwg.</li><li><code>CanvasPattern</code>(http://www.w3.org/TR/2010/WD-2dcontext-20100304/#canvaspattern) from W3C.</li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=CanvasPattern.></a><i class=icon-plus-sign></i> CanvasPattern()</b>
@@ -2546,7 +2546,7 @@ document.body.children.add(canvas);
 	</dl>
 	<div class=indent>
 		<p>A rendering context for a canvas element. </p>
-<p>This context is extended by CanvasRenderingContext2D and WebGLRenderingContext.</p>
+<p>This context is extended by <code>CanvasRenderingContext2D</code> and <code>WebGLRenderingContext</code>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=CanvasRenderingContext.canvas></a><i class=icon-minus-sign></i> final <a href=dart.dom.html.html#CanvasElement>CanvasElement</a> canvas</b>
@@ -2990,7 +2990,7 @@ document.body.children.add(canvas);
 	<i class=icon-ok-sign></i> void drawImage(<a href=dart.dom.html.html#CanvasImageSource>CanvasImageSource</a> source, <a href=dart.core.html#num>num</a> destX, <a href=dart.core.html#num>num</a> destY)</b>
 	<div class=indent>
 		<p>Draws an image from a CanvasImageSource to this canvas. </p>
-<p>The entire image from source will be drawn to this context with its top left corner at the point (destX, destY). If the image is larger than canvas will allow, the image will be clipped to fit the available space. </p>
+<p>The entire image from <code>source</code> will be drawn to this context with its top left corner at the point (<code>destX</code>, <code>destY</code>). If the image is larger than canvas will allow, the image will be clipped to fit the available space. </p>
 <p><pre>CanvasElement canvas = new CanvasElement(width: 600, height: 600);
 CanvasRenderingContext2D ctx = canvas.context2D;
 ImageElement img = document.query('img');
@@ -3005,14 +3005,14 @@ otherCanvas.width = 100;
 otherCanvas.height = 100;
 ctx.drawImage(otherCanvas, 590, 590); // will get clipped
 </pre>See also: </p>
-<p><ul><li>CanvasImageSource for more information on what data is retrieved</li></ul>from source. <ul><li>drawImage(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
+<p><ul><li><code>CanvasImageSource</code> for more information on what data is retrieved</li></ul>from <code>source</code>. <ul><li><code>drawImage</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.drawImageScaled></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-ok-sign></i> void drawImageScaled(<a href=dart.dom.html.html#CanvasImageSource>CanvasImageSource</a> source, <a href=dart.core.html#num>num</a> destX, <a href=dart.core.html#num>num</a> destY, <a href=dart.core.html#num>num</a> destWidth, <a href=dart.core.html#num>num</a> destHeight)</b>
 	<div class=indent>
 		<p>Draws an image from a CanvasImageSource to an area of this canvas. </p>
-<p>The image will be drawn to this context with its top left corner at the point (destX, destY) and will be scaled to be destWidth wide and destHeight tall. </p>
+<p>The image will be drawn to this context with its top left corner at the point (<code>destX</code>, <code>destY</code>) and will be scaled to be <code>destWidth</code> wide and <code>destHeight</code> tall. </p>
 <p>If the image is larger than canvas will allow, the image will be clipped to fit the available space. </p>
 <p><pre>CanvasElement canvas = new CanvasElement(width: 600, height: 600);
 CanvasRenderingContext2D ctx = canvas.context2D;
@@ -3023,14 +3023,14 @@ img.height = 100;
 // Scale the image to 300x50 at the point (20, 20)
 ctx.drawImageScaled(img, 20, 20, 300, 50);
 </pre>See also: </p>
-<p><ul><li>CanvasImageSource for more information on what data is retrieved</li></ul>from source. <ul><li>drawImage(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
+<p><ul><li><code>CanvasImageSource</code> for more information on what data is retrieved</li></ul>from <code>source</code>. <ul><li><code>drawImage</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.drawImageScaledFromSource></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-ok-sign></i> void drawImageScaledFromSource(<a href=dart.dom.html.html#CanvasImageSource>CanvasImageSource</a> source, <a href=dart.core.html#num>num</a> sourceX, <a href=dart.core.html#num>num</a> sourceY, <a href=dart.core.html#num>num</a> sourceWidth, <a href=dart.core.html#num>num</a> sourceHeight, <a href=dart.core.html#num>num</a> destX, <a href=dart.core.html#num>num</a> destY, <a href=dart.core.html#num>num</a> destWidth, <a href=dart.core.html#num>num</a> destHeight)</b>
 	<div class=indent>
 		<p>Draws an image from a CanvasImageSource to an area of this canvas. </p>
-<p>The image is a region of source that is sourceWidth wide and destHeight tall with top left corner at (sourceX, sourceY). The image will be drawn to this context with its top left corner at the point (destX, destY) and will be scaled to be destWidth wide and destHeight tall. </p>
+<p>The image is a region of <code>source</code> that is <code>sourceWidth</code> wide and <code>destHeight</code> tall with top left corner at (<code>sourceX</code>, <code>sourceY</code>). The image will be drawn to this context with its top left corner at the point (<code>destX</code>, <code>destY</code>) and will be scaled to be <code>destWidth</code> wide and <code>destHeight</code> tall. </p>
 <p>If the image is larger than canvas will allow, the image will be clipped to fit the available space. </p>
 <p><pre>VideoElement video = document.query('video');
 video.width = 100;
@@ -3042,14 +3042,14 @@ ctx.drawImageScaledFromSource(video, 40, 40, 20, 20, 50, 50, 100, 100);
 CanvasElement otherCanvas = document.query('canvas');
 ctx.drawImageScaledFromSource(otherCanvas, 0, 0, 100, 20, 0, 0, 100, 20);
 </pre>See also: </p>
-<p><ul><li>CanvasImageSource for more information on what data is retrieved</li></ul>from source. <ul><li>drawImage(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
+<p><ul><li><code>CanvasImageSource</code> for more information on what data is retrieved</li></ul>from <code>source</code>. <ul><li><code>drawImage</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.drawImageToRect></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-ok-sign></i> void drawImageToRect(<a href=dart.dom.html.html#CanvasImageSource>CanvasImageSource</a> source, <a href=dart.dom.html.html#Rect>Rect</a> destRect, <a href=dart.dom.html.html#Rect>Rect</a> sourceRect)</b>
 	<div class=indent>
 		<p>Draws an image from a CanvasImageSource to an area of this canvas. </p>
-<p>The image will be drawn to an area of this canvas defined by destRect. sourceRect defines the region of the source image that is drawn. If sourceRect is not provided, then the entire rectangular image from source will be drawn to this context. </p>
+<p>The image will be drawn to an area of this canvas defined by <code>destRect</code>. <code>sourceRect</code> defines the region of the source image that is drawn. If <code>sourceRect</code> is not provided, then the entire rectangular image from <code>source</code> will be drawn to this context. </p>
 <p>If the image is larger than canvas will allow, the image will be clipped to fit the available space. </p>
 <p><pre>CanvasElement canvas = new CanvasElement(width: 600, height: 600);
 CanvasRenderingContext2D ctx = canvas.context2D;
@@ -3072,7 +3072,7 @@ CanvasElement otherCanvas = document.query('canvas');
 ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
     sourceRect: new Rect(0, 0, 100, 20));
 </pre>See also: </p>
-<p><ul><li>CanvasImageSource for more information on what data is retrieved</li></ul>from source. <ul><li>drawImage(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
+<p><ul><li><code>CanvasImageSource</code> for more information on what data is retrieved</li></ul>from <code>source</code>. <ul><li><code>drawImage</code>(http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#dom-context-2d-drawimage)</li></ul>from the WHATWG.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.drawSystemFocusRing></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -3171,11 +3171,11 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	<div class=indent></div>
 	<b><a id=CanvasRenderingContext2D.setFillColorHsl></a><i class=icon-ok-sign></i> void setFillColorHsl(<a href=dart.core.html#int>int</a> h, <a href=dart.core.html#num>num</a> s, <a href=dart.core.html#num>num</a> l, <a href=dart.core.html#num>num</a> a)</b>
 	<div class=indent>
-		<p>Sets the color used inside shapes. h is in degrees, 0-360. s, l are in percent, 0-100. a is 0-1.</p>
+		<p>Sets the color used inside shapes. <code>h</code> is in degrees, 0-360. <code>s</code>, <code>l</code> are in percent, 0-100. <code>a</code> is 0-1.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.setFillColorRgb></a><i class=icon-ok-sign></i> void setFillColorRgb(<a href=dart.core.html#int>int</a> r, <a href=dart.core.html#int>int</a> g, <a href=dart.core.html#int>int</a> b, <a href=dart.core.html#num>num</a> a)</b>
 	<div class=indent>
-		<p>Sets the color used inside shapes. r, g, b are 0-255, a is 0-1.</p>
+		<p>Sets the color used inside shapes. <code>r</code>, <code>g</code>, <code>b</code> are 0-255, <code>a</code> is 0-1.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.setLineDash></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -3184,11 +3184,11 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	<div class=indent></div>
 	<b><a id=CanvasRenderingContext2D.setStrokeColorHsl></a><i class=icon-ok-sign></i> void setStrokeColorHsl(<a href=dart.core.html#int>int</a> h, <a href=dart.core.html#num>num</a> s, <a href=dart.core.html#num>num</a> l, <a href=dart.core.html#num>num</a> a)</b>
 	<div class=indent>
-		<p>Sets the color used for stroking shapes. h is in degrees, 0-360. s, l are in percent, 0-100. a is 0-1.</p>
+		<p>Sets the color used for stroking shapes. <code>h</code> is in degrees, 0-360. <code>s</code>, <code>l</code> are in percent, 0-100. <code>a</code> is 0-1.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.setStrokeColorRgb></a><i class=icon-ok-sign></i> void setStrokeColorRgb(<a href=dart.core.html#int>int</a> r, <a href=dart.core.html#int>int</a> g, <a href=dart.core.html#int>int</a> b, <a href=dart.core.html#num>num</a> a)</b>
 	<div class=indent>
-		<p>Sets the color used for stroking shapes. r, g, b are 0-255, a is 0-1.</p>
+		<p>Sets the color used for stroking shapes. <code>r</code>, <code>g</code>, <code>b</code> are 0-255, <code>a</code> is 0-1.</p>
 	</div>
 	<b><a id=CanvasRenderingContext2D.setTransform></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -3326,7 +3326,7 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	</dl>
 	<div class=indent>
 		<p>A boolean editor control. </p>
-<p>Note that if indeterminate is set then this control is in a third indeterminate state.</p>
+<p>Note that if <code>indeterminate</code> is set then this control is in a third indeterminate state.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=CheckboxInputElement.checked></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -4142,38 +4142,38 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	<h4>Methods</h4>
 	<b><a id=CssClassSet.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.add'><i title='Overrides Set.add()' class='icon-circle-arrow-up'></i></a> void add(<a href=dart.core.html#String>String</a> value)</b>
 	<div class=indent>
-		<p>Add the class value to element. </p>
-<p>This is the Dart equivalent of jQuery's addClass(http://api.jquery.com/addClass/).</p>
+		<p>Add the class <code>value</code> to element. </p>
+<p>This is the Dart equivalent of jQuery's <code>addClass</code>(http://api.jquery.com/addClass/).</p>
 	</div>
 	<b><a id=CssClassSet.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.addAll'><i title='Overrides Set.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; iterable)</b>
 	<div class=indent>
-		<p>Add all classes specified in iterable to element. </p>
-<p>This is the Dart equivalent of jQuery's addClass(http://api.jquery.com/addClass/).</p>
+		<p>Add all classes specified in <code>iterable</code> to element. </p>
+<p>This is the Dart equivalent of jQuery's <code>addClass</code>(http://api.jquery.com/addClass/).</p>
 	</div>
 	<b><a id=CssClassSet.contains></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.contains'><i title='Overrides Set.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#String>String</a> value)</b>
 	<div class=indent>
-		<p>Determine if this element contains the class value. </p>
-<p>This is the Dart equivalent of jQuery's hasClass(http://api.jquery.com/hasClass/).</p>
+		<p>Determine if this element contains the class <code>value</code>. </p>
+<p>This is the Dart equivalent of jQuery's <code>hasClass</code>(http://api.jquery.com/hasClass/).</p>
 	</div>
 	<b><a id=CssClassSet.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.remove'><i title='Overrides Set.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> value)</b>
 	<div class=indent>
-		<p>Remove the class value from element, and return true on successful removal. </p>
-<p>This is the Dart equivalent of jQuery's removeClass(http://api.jquery.com/removeClass/).</p>
+		<p>Remove the class <code>value</code> from element, and return true on successful removal. </p>
+<p>This is the Dart equivalent of jQuery's <code>removeClass</code>(http://api.jquery.com/removeClass/).</p>
 	</div>
 	<b><a id=CssClassSet.removeAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeAll'><i title='Overrides Set.removeAll()' class='icon-circle-arrow-up'></i></a> void removeAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; iterable)</b>
 	<div class=indent>
-		<p>Remove all classes specified in iterable from element. </p>
-<p>This is the Dart equivalent of jQuery's removeClass(http://api.jquery.com/removeClass/).</p>
+		<p>Remove all classes specified in <code>iterable</code> from element. </p>
+<p>This is the Dart equivalent of jQuery's <code>removeClass</code>(http://api.jquery.com/removeClass/).</p>
 	</div>
 	<b><a id=CssClassSet.toggle></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> toggle(<a href=dart.core.html#String>String</a> value, <a href=dart.core.html#bool>bool</a> shouldAdd)</b>
 	<div class=indent>
-		<p>Adds the class value to the element if it is not on it, removes it if it is. </p>
-<p>If shouldAdd is true, then we always add that value to the element. If shouldAdd is false then we always remove value from the element.</p>
+		<p>Adds the class <code>value</code> to the element if it is not on it, removes it if it is. </p>
+<p>If <code>shouldAdd</code> is true, then we always add that <code>value</code> to the element. If <code>shouldAdd</code> is false then we always remove <code>value</code> from the element.</p>
 	</div>
 	<b><a id=CssClassSet.toggleAll></a><i class=icon-ok-sign></i> void toggleAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; iterable, <a href=dart.core.html#bool>bool</a> shouldAdd)</b>
 	<div class=indent>
-		<p>Toggles all classes specified in iterable on element. </p>
-<p>Iterate through iterable's items, and add it if it is not on it, or remove it if it is. This is the Dart equivalent of jQuery's toggleClass(http://api.jquery.com/toggleClass/). If shouldAdd is true, then we always add all the classes in iterable element. If shouldAdd is false then we always remove all the classes in iterable from the element.</p>
+		<p>Toggles all classes specified in <code>iterable</code> on element. </p>
+<p>Iterate through <code>iterable</code>'s items, and add it if it is not on it, or remove it if it is. This is the Dart equivalent of jQuery's <code>toggleClass</code>(http://api.jquery.com/toggleClass/). If <code>shouldAdd</code> is true, then we always add all the classes in <code>iterable</code> element. If <code>shouldAdd</code> is false then we always remove all the classes in <code>iterable</code> from the element.</p>
 	</div>
 	<a id=CssFilterRule></a><hr>
 	<h4>
@@ -5137,8 +5137,8 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	</dl>
 	<div class=indent>
 		<p>A class for representing CSS dimensions. </p>
-<p>In contrast to the more general purpose Rect class, this class's values are mutable, so one can change the height of an element programmatically. </p>
-<p>_Important_ _note_: use of these methods will perform CSS calculations that can trigger a browser reflow. Therefore, use of these properties _during_ an animation frame is discouraged. See also: Browser Reflow(https://developers.google.com/speed/articles/reflow)</p>
+<p>In contrast to the more general purpose <code>Rect</code> class, this class's values are mutable, so one can change the height of an element programmatically. </p>
+<p>_Important_ _note_: use of these methods will perform CSS calculations that can trigger a browser reflow. Therefore, use of these properties _during_ an animation frame is discouraged. See also: <code>Browser Reflow</code>(https://developers.google.com/speed/articles/reflow)</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=CssRect.height></a><i class=icon-minus-sign></i> <a href=dart.core.html#num>num</a> height</b>
@@ -5153,12 +5153,12 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	<b><a id=height></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#num>num</a> get height</b>
 	<div class=indent>
 		<p>The height of this rectangle. </p>
-<p>This is equivalent to the <code>height</code> function in jQuery and the calculated <code>height</code> CSS value, converted to a dimensionless num in pixels. Unlike getBoundingClientRect, <code>height</code> will return the same numerical width if the element is hidden or not.</p>
+<p>This is equivalent to the <code>height</code> function in jQuery and the calculated <code>height</code> CSS value, converted to a dimensionless num in pixels. Unlike <code>getBoundingClientRect</code>, <code>height</code> will return the same numerical width if the element is hidden or not.</p>
 	</div>
 	<b><a id=height=></a><i class=icon-circle-arrow-left></i> set height=(dynamic newHeight)</b>
 	<div class=indent>
 		<p>Set the height to <code>newHeight</code>. </p>
-<p>newHeight can be either a num representing the height in pixels or a Dimension object. Values of newHeight that are less than zero are converted to effectively setting the height to 0. This is equivalent to the <code>height</code> function in jQuery and the calculated <code>height</code> CSS value, converted to a num in pixels. </p>
+<p>newHeight can be either a <code>num</code> representing the height in pixels or a <code>Dimension</code> object. Values of newHeight that are less than zero are converted to effectively setting the height to 0. This is equivalent to the <code>height</code> function in jQuery and the calculated <code>height</code> CSS value, converted to a num in pixels. </p>
 <p>Note that only the content height can actually be set via this method.</p>
 	</div>
 	<b><a id=left></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#num>num</a> get left</b>
@@ -5168,12 +5168,12 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	<b><a id=width></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#num>num</a> get width</b>
 	<div class=indent>
 		<p>The width of this rectangle. </p>
-<p>This is equivalent to the <code>width</code> function in jQuery and the calculated <code>width</code> CSS value, converted to a dimensionless num in pixels. Unlike getBoundingClientRect, <code>width</code> will return the same numerical width if the element is hidden or not.</p>
+<p>This is equivalent to the <code>width</code> function in jQuery and the calculated <code>width</code> CSS value, converted to a dimensionless num in pixels. Unlike <code>getBoundingClientRect</code>, <code>width</code> will return the same numerical width if the element is hidden or not.</p>
 	</div>
 	<b><a id=width=></a><i class=icon-circle-arrow-left></i> set width=(dynamic newWidth)</b>
 	<div class=indent>
 		<p>Set the current computed width in pixels of this element. </p>
-<p>newWidth can be either a num representing the width in pixels or a Dimension object. This is equivalent to the <code>width</code> function in jQuery and the calculated <code>width</code> CSS value, converted to a dimensionless num in pixels. </p>
+<p>newWidth can be either a <code>num</code> representing the width in pixels or a <code>Dimension</code> object. This is equivalent to the <code>width</code> function in jQuery and the calculated <code>width</code> CSS value, converted to a dimensionless num in pixels. </p>
 <p>Note that only the content width can be set via this method.</p>
 	</div>
 	<h4>Constructors</h4>
@@ -10713,9 +10713,9 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	<i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> getData(<a href=dart.core.html#String>String</a> type)</b>
 	<div class=indent>
 		<p>Gets the data for the specified type. </p>
-<p>The data is only available from within a drop operation (such as an Element.onDrop event) and will return <code>null</code> before the event is triggered. </p>
+<p>The data is only available from within a drop operation (such as an <code>Element.onDrop</code> event) and will return <code>null</code> before the event is triggered. </p>
 <p>Data transfer is prohibited across domains. If a drag originates from content from another domain or protocol (HTTP vs HTTPS) then the data cannot be accessed. </p>
-<p>The type can have values such as: </p>
+<p>The <code>type</code> can have values such as: </p>
 <p><ul><li><code>'Text'</code></li><li><code>'URL'</code></li></p>
 	</div>
 	<b><a id=DataTransfer.setData></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -11343,7 +11343,7 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Class representing a length measurement(https://developer.mozilla.org/en-US/docs/Web/CSS/length) in CSS.</p>
+		<p>Class representing a <code>length measurement</code>(https://developer.mozilla.org/en-US/docs/Web/CSS/length) in CSS.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Dimension.value></a><i class=icon-minus-sign></i> final <a href=dart.core.html#num>num</a> value</b>
@@ -11482,14 +11482,14 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 	</dl>
 	<div class=indent>
 		<p>Represents an HTML &lt;div&gt; element. </p>
-<p>The DivElement is a generic container for content and does not have any special significance. It is functionally similar to SpanElement. </p>
-<p>The DivElement is a block-level element, as opposed to SpanElement, which is an inline-level element. </p>
+<p>The <code>DivElement</code> is a generic container for content and does not have any special significance. It is functionally similar to <code>SpanElement</code>. </p>
+<p>The <code>DivElement</code> is a block-level element, as opposed to <code>SpanElement</code>, which is an inline-level element. </p>
 <p>Example usage: </p>
 <p><pre>DivElement div = new DivElement();
 div.text = 'Here's my new DivElem
 document.body.elements.add(elem);
 </pre>See also: </p>
-<p><ul><li>HTML &lt;div&gt; element(http://www.w3.org/TR/html-markup/div.html) from W3C.</li><li>Block-level element(http://www.w3.org/TR/CSS2/visuren.html#block-boxes) from W3C.</li><li>Inline-level element(http://www.w3.org/TR/CSS2/visuren.html#inline-boxes) from W3C.</li></p>
+<p><ul><li><code>HTML &lt;div&gt; element</code>(http://www.w3.org/TR/html-markup/div.html) from W3C.</li><li><code>Block-level element</code>(http://www.w3.org/TR/CSS2/visuren.html#block-boxes) from W3C.</li><li><code>Inline-level element</code>(http://www.w3.org/TR/CSS2/visuren.html#inline-boxes) from W3C.</li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=DivElement.></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -11671,8 +11671,8 @@ document.body.elements.add(elem);
 	</dl>
 	<div class=indent>
 		<p>The base class for all documents. </p>
-<p>Each web page loaded in the browser has its own Document object, which is typically an HtmlDocument. </p>
-<p>If you aren't comfortable with DOM concepts, see the Dart tutorial Target 2: Connect Dart &amp; HTML(http://www.dartlang.org/docs/tutorials/connect-dart-html/).</p>
+<p>Each web page loaded in the browser has its own <code>Document</code> object, which is typically an <code>HtmlDocument</code>. </p>
+<p>If you aren't comfortable with DOM concepts, see the Dart tutorial <code>Target 2: Connect Dart &amp; HTML</code>(http://www.dartlang.org/docs/tutorials/connect-dart-html/).</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Document.pointerLockChangeEvent></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -12169,7 +12169,7 @@ document.body.elements.add(elem);
 	<div class=indent></div>
 	<b><a id=supportsRegister></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get supportsRegister</b>
 	<div class=indent>
-		<p>Checks if register is supported on the current platform.</p>
+		<p>Checks if <code>register</code> is supported on the current platform.</p>
 	</div>
 	<b><a id=window></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -12244,16 +12244,16 @@ document.body.elements.add(elem);
 	<div class=indent>
 		<p>Finds the first descendant element of this document that matches the specified group of selectors. </p>
 <p>Unless your webpage contains multiple documents, the top-level query method behaves the same as this method, so you should use it instead to save typing a few characters. </p>
-<p>selectors should be a string using CSS selector syntax. <pre>var element1 = document.query('.className');
+<p><code>selectors</code> should be a string using CSS selector syntax. <pre>var element1 = document.query('.className');
 var element2 = document.query('#id');
-</pre>For details about CSS selector syntax, see the CSS selector specification(http://www.w3.org/TR/css3-selectors/).</p>
+</pre>For details about CSS selector syntax, see the <code>CSS selector specification</code>(http://www.w3.org/TR/css3-selectors/).</p>
 	</div>
 	<b><a id=Document.queryAll></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#ElementList>ElementList</a>&lt;dynamic&gt; queryAll(<a href=dart.core.html#String>String</a> selectors)</b>
 	<div class=indent>
 		<p>Finds all descendant elements of this document that match the specified group of selectors. </p>
 <p>Unless your webpage contains multiple documents, the top-level queryAll method behaves the same as this method, so you should use it instead to save typing a few characters. </p>
-<p>selectors should be a string using CSS selector syntax. <pre>var items = document.queryAll('.itemClassName');
-</pre>For details about CSS selector syntax, see the CSS selector specification(http://www.w3.org/TR/css3-selectors/).</p>
+<p><code>selectors</code> should be a string using CSS selector syntax. <pre>var items = document.queryAll('.itemClassName');
+</pre>For details about CSS selector syntax, see the <code>CSS selector specification</code>(http://www.w3.org/TR/css3-selectors/).</p>
 	</div>
 	<b><a id=Document.queryCommandEnabled></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -12701,24 +12701,24 @@ var element2 = document.query('#id');
 	<h4>Methods</h4>
 	<b><a id=DomStringList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=DomStringList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.core.html#String>String</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=DomStringList.contains></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
 	<br>
 	<i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.contains'><i title='Overrides ListMixin.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#String>String</a> string)</b>
 	<div class=indent>
-		<p>Returns true if the collection contains an element equal to element.</p>
+		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
 	</div>
 	<b><a id=DomStringList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=DomStringList.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -13653,7 +13653,7 @@ var element2 = document.query('#id');
 	<div class=indent>
 		<p>All attributes on this element. </p>
 <p>Any modifications to the attribute map will automatically be applied to this element. </p>
-<p>This only includes attributes which are not in a namespace (such as 'xlink:href'), additional attributes can be accessed via getNamespacedAttributes.</p>
+<p>This only includes attributes which are not in a namespace (such as 'xlink:href'), additional attributes can be accessed via <code>getNamespacedAttributes</code>.</p>
 	</div>
 	<b><a id=attributes=></a><i class=icon-circle-arrow-left></i> set attributes=(<a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; value)</b>
 	<div class=indent></div>
@@ -13662,7 +13662,7 @@ var element2 = document.query('#id');
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#BindingDelegate>BindingDelegate</a> get bindingDelegate</b>
 	<div class=indent>
 		<p>The binding delegate which is inherited through the tree. It can be used to configure custom syntax for <code>{{bindings}}</code> inside this template. </p>
-<p>This is only supported if isTemplate is true.</p>
+<p>This is only supported if <code>isTemplate</code> is true.</p>
 	</div>
 	<b><a id=bindingDelegate=></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
@@ -13673,8 +13673,8 @@ var element2 = document.query('#id');
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get borderEdge</b>
 	<div class=indent>
 		<p>Access the dimensions and position of this element's content + padding + border box. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's outerHeight(http://api.jquery.com/outerHeight/) value for an element. </p>
-<p>_Important_ _note_: use of this method _will_ perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: Browser Reflow(https://developers.google.com/speed/articles/reflow)</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>outerHeight</code>(http://api.jquery.com/outerHeight/) value for an element. </p>
+<p>_Important_ _note_: use of this method _will_ perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: <code>Browser Reflow</code>(https://developers.google.com/speed/articles/reflow)</p>
 	</div>
 	<b><a id=children></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#List>List</a>&lt;<a href=dart.dom.html.html#Element>Element</a>&gt; get children</b>
 	<div class=indent>
@@ -13739,15 +13739,15 @@ element.classes.remove('selected');
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#DocumentFragment>DocumentFragment</a> get content</b>
 	<div class=indent>
-		<p>Gets the content of this template. This is only supported if isTemplate is true.</p>
+		<p>Gets the content of this template. This is only supported if <code>isTemplate</code> is true.</p>
 	</div>
 	<b><a id=contentEdge></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get contentEdge</b>
 	<div class=indent>
 		<p>Access this element's content position. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. </p>
-<p>_Important_ _note_: use of this method _will_ perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: Browser Reflow(https://developers.google.com/speed/articles/reflow)</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. </p>
+<p>_Important_ _note_: use of this method _will_ perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: <code>Browser Reflow</code>(https://developers.google.com/speed/articles/reflow)</p>
 	</div>
 	<b><a id=dataset></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; get dataset</b>
 	<div class=indent>
@@ -13760,14 +13760,14 @@ element.classes.remove('selected');
 </pre>Would be accessed in Dart as: </p>
 <p><pre>var value = element.dataset['myRandomValue'];
 </pre>See also: </p>
-<p><ul><li>Custom data attributes(http://www.w3.org/TR/html5/global-attributes.html#custom-data-attribute)</li></p>
+<p><ul><li><code>Custom data attributes</code>(http://www.w3.org/TR/html5/global-attributes.html#custom-data-attribute)</li></p>
 	</div>
 	<b><a id=dataset=></a><i class=icon-circle-arrow-left></i> set dataset=(<a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; value)</b>
 	<div class=indent></div>
 	<b><a id=documentOffset></a><i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#Point>Point</a> get documentOffset</b>
 	<div class=indent>
 		<p>Provides the coordinates of the element relative to the top of the document. </p>
-<p>This method is the Dart equivalent to jQuery's offset(http://api.jquery.com/offset/) method.</p>
+<p>This method is the Dart equivalent to jQuery's <code>offset</code>(http://api.jquery.com/offset/) method.</p>
 	</div>
 	<b><a id=id></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -13784,7 +13784,7 @@ element.classes.remove('selected');
 	<b><a id=innerHtml=></a><i class=icon-circle-arrow-left></i> set innerHtml=(<a href=dart.core.html#String>String</a> html)</b>
 	<div class=indent>
 		<p>Parses the HTML fragment and sets it as the contents of this element. </p>
-<p>This uses the default sanitization behavior to sanitize the HTML fragment, use setInnerHtml to override the default behavior.</p>
+<p>This uses the default sanitization behavior to sanitize the HTML fragment, use <code>setInnerHtml</code> to override the default behavior.</p>
 	</div>
 	<b><a id=inputMethodContext></a><i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#InputMethodContext>InputMethodContext</a> get inputMethodContext</b>
 	<div class=indent></div>
@@ -13795,7 +13795,7 @@ element.classes.remove('selected');
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isTemplate</b>
 	<div class=indent>
 		<p>Returns true if this node is a template. </p>
-<p>A node is a template if tagName is TEMPLATE, or the node has the 'template' attribute and this tag supports attribute form for backwards compatibility with existing HTML parsers. The nodes that can use attribute form are table elments (THEAD, TBODY, TFOOT, TH, TR, TD, CAPTION, COLGROUP and COL), OPTION, and OPTGROUP.</p>
+<p>A node is a template if <code>tagName</code> is TEMPLATE, or the node has the 'template' attribute and this tag supports attribute form for backwards compatibility with existing HTML parsers. The nodes that can use attribute form are table elments (THEAD, TBODY, TFOOT, TH, TR, TD, CAPTION, COLGROUP and COL), OPTION, and OPTGROUP.</p>
 	</div>
 	<b><a id=localName></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -13807,14 +13807,14 @@ element.classes.remove('selected');
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get marginEdge</b>
 	<div class=indent>
 		<p>Access the dimensions and position of this element's content + padding + border + margin box. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's outerHeight(http://api.jquery.com/outerHeight/) value for an element. </p>
-<p>_Important_ _note_: use of this method will perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: Browser Reflow(https://developers.google.com/speed/articles/reflow)</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>outerHeight</code>(http://api.jquery.com/outerHeight/) value for an element. </p>
+<p>_Important_ _note_: use of this method will perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: <code>Browser Reflow</code>(https://developers.google.com/speed/articles/reflow)</p>
 	</div>
 	<b><a id=model></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-circle-arrow-right></i> dynamic get model</b>
 	<div class=indent>
-		<p>The data model which is inherited through the tree. This is only supported if isTemplate is true.</p>
+		<p>The data model which is inherited through the tree. This is only supported if <code>isTemplate</code> is true.</p>
 	</div>
 	<b><a id=model=></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
@@ -14133,8 +14133,8 @@ element.classes.remove('selected');
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get paddingEdge</b>
 	<div class=indent>
 		<p>Access the dimensions and position of this element's content + padding box. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's innerHeight(http://api.jquery.com/innerHeight/) value for an element. This is also a rectangle equalling the dimensions of clientHeight and clientWidth. </p>
-<p>_Important_ _note_: use of this method _will_ perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: Browser Reflow(https://developers.google.com/speed/articles/reflow)</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>innerHeight</code>(http://api.jquery.com/innerHeight/) value for an element. This is also a rectangle equalling the dimensions of clientHeight and clientWidth. </p>
+<p>_Important_ _note_: use of this method _will_ perform CSS calculations that can trigger a browser reflow. Therefore, use of this property _during_ an animation frame is discouraged. See also: <code>Browser Reflow</code>(https://developers.google.com/speed/articles/reflow)</p>
 	</div>
 	<b><a id=previousElementSibling></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -14157,7 +14157,7 @@ element.classes.remove('selected');
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#Element>Element</a> get ref</b>
 	<div class=indent>
-		<p>Gets the template this node refers to. This is only supported if isTemplate is true.</p>
+		<p>Gets the template this node refers to. This is only supported if <code>isTemplate</code> is true.</p>
 	</div>
 	<b><a id=regionOverset></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -14217,13 +14217,13 @@ element.classes.remove('selected');
 	<br>
 	<i class=icon-circle-arrow-left></i> set unsafeInnerHtml=(<a href=dart.core.html#String>String</a> html)</b>
 	<div class=indent>
-		<p>For use while transitioning to the safe innerHtml or setInnerHtml. Unsafe because it opens the app to cross-site scripting vulnerabilities.</p>
+		<p>For use while transitioning to the safe <code>innerHtml</code> or <code>setInnerHtml</code>. Unsafe because it opens the app to cross-site scripting vulnerabilities.</p>
 	</div>
 	<b><a id=xtag></a><i class=icon-circle-arrow-right></i> dynamic get xtag</b>
 	<div class=indent>
-		<p>Experimental support for web componentswc. This field stores a reference to the component implementation. It was inspired by Mozilla's x-tags project. Please note: in the future it may be possible to <code>extend Element</code> from your class, in which case this field will be deprecated. </p>
-<p>If xtag has not been set, it will simply return <code>this</code> Element. </p>
-<p>wc: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html x-tags: http://x-tags.org/</p>
+		<p>Experimental support for <code>web components</code><code>wc</code>. This field stores a reference to the component implementation. It was inspired by Mozilla's <code>x-tags</code><code></code> project. Please note: in the future it may be possible to <code>extend Element</code> from your class, in which case this field will be deprecated. </p>
+<p>If xtag has not been set, it will simply return <code>this</code> <code>Element</code>. </p>
+<p><code>wc</code>: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html <code>x-tags</code>: http://x-tags.org/</p>
 	</div>
 	<b><a id=xtag=></a><i class=icon-circle-arrow-left></i> set xtag=(<a href=dart.dom.html.html#Element>Element</a> value)</b>
 	<div class=indent></div>
@@ -14283,10 +14283,10 @@ element.classes.remove('selected');
 		<p>Creates an HTML element from a valid fragment of HTML. </p>
 <p><pre>var element = new Element.html('&lt;div class="foo"&gt;content&lt;/div&gt;');
 </pre>The HTML fragment should contain only one single root element, any leading or trailing text nodes will be removed. </p>
-<p>The HTML fragment is parsed as if it occurred within the context of a <code>&lt;body&gt;</code> tag, this means that special elements such as <code>&lt;caption&gt;</code> which must be parsed within the scope of a <code>&lt;table&gt;</code> element will be dropped. Use createFragment to parse contextual HTML fragments. </p>
+<p>The HTML fragment is parsed as if it occurred within the context of a <code>&lt;body&gt;</code> tag, this means that special elements such as <code>&lt;caption&gt;</code> which must be parsed within the scope of a <code>&lt;table&gt;</code> element will be dropped. Use <code>createFragment</code> to parse contextual HTML fragments. </p>
 <p>Unless a validator is provided this will perform the default validation and remove all scriptable elements and attributes. </p>
 <p>See also: </p>
-<p><ul><li>NodeValidator</li></p>
+<p><ul><li><code>NodeValidator</code></li></p>
 	</div>
 	<b><a id=Element.iframe></a><i class=icon-plus-sign></i> factory Element.iframe()</b>
 	<div class=indent>
@@ -14356,14 +14356,14 @@ element.classes.remove('selected');
 	<b><a id=Element.tag></a><i class=icon-plus-sign></i> factory Element.tag(<a href=dart.core.html#String>String</a> tag)</b>
 	<div class=indent>
 		<p>Creates the HTML element specified by the tag name. </p>
-<p>This is similar to Document.createElement. tag should be a valid HTML tag name. If tag is an unknown tag then this will create an UnknownElement. </p>
+<p>This is similar to <code>Document.createElement</code>. <code>tag</code> should be a valid HTML tag name. If <code>tag</code> is an unknown tag then this will create an <code>UnknownElement</code>. </p>
 <p><pre>var divElement = new Element.tag('div');
 print(divElement is DivElement); // 'true'
 var myElement = new Element.tag('unknownTag');
 print(myElement is UnknownElement); // 'true'
 </pre>For standard elements it is more preferable to use the type constructors: <pre>var element = new DivElement();
 </pre>See also: </p>
-<p><ul><li>isTagSupported</li></p>
+<p><ul><li><code>isTagSupported</code></li></p>
 	</div>
 	<b><a id=Element.td></a><i class=icon-plus-sign></i> factory Element.td()</b>
 	<div class=indent>
@@ -14418,14 +14418,14 @@ print(myElement is UnknownElement); // 'true'
 <p>The treeSanitizer is used to walk the generated node tree and sanitize it. A custom treeSanitizer can also be provided to perform special validation rules but since the API is more complex to implement this is discouraged. </p>
 <p>The returned tree is guaranteed to only contain nodes and attributes which are allowed by the provided validator. </p>
 <p>See also: </p>
-<p><ul><li>NodeValidator</li><li>NodeTreeSanitizer</li></p>
+<p><ul><li><code>NodeValidator</code></li><li><code>NodeTreeSanitizer</code></li></p>
 	</div>
 	<b><a id=Element.createInstance></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-ok-sign></i> <a href=dart.dom.html.html#DocumentFragment>DocumentFragment</a> createInstance(dynamic model, <a href=dart.dom.html.html#BindingDelegate>BindingDelegate</a> delegate)</b>
 	<div class=indent>
 		<p>Creates an instance of the template, using the provided model and optional binding delegate. </p>
-<p>This is only supported if isTemplate is true.</p>
+<p>This is only supported if <code>isTemplate</code> is true.</p>
 	</div>
 	<b><a id=Element.createShadowRoot></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -14470,10 +14470,10 @@ print(myElement is UnknownElement); // 'true'
 	<b><a id=Element.getComputedStyle></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#CssStyleDeclaration>CssStyleDeclaration</a> getComputedStyle(<a href=dart.core.html#String>String</a> pseudoElement)</b>
 	<div class=indent>
 		<p>The set of all CSS values applied to this element, including inherited and default values. </p>
-<p>The computedStyle contains values that are inherited from other sources, such as parent elements or stylesheets. This differs from the style property, which contains only the values specified directly on this element. </p>
+<p>The computedStyle contains values that are inherited from other sources, such as parent elements or stylesheets. This differs from the <code>style</code> property, which contains only the values specified directly on this element. </p>
 <p>PseudoElement can be values such as <code>::after</code>, <code>::before</code>, <code>::marker</code>, <code>::line-marker</code>. </p>
 <p>See also: </p>
-<p><ul><li>CSS Inheritance and Cascade(http://docs.webplatform.org/wiki/tutorials/inheritance_and_cascade)</li><li>Pseudo-elements(http://docs.webplatform.org/wiki/css/selectors/pseudo-elements)</li></p>
+<p><ul><li><code>CSS Inheritance and Cascade</code>(http://docs.webplatform.org/wiki/tutorials/inheritance_and_cascade)</li><li><code>Pseudo-elements</code>(http://docs.webplatform.org/wiki/css/selectors/pseudo-elements)</li></p>
 	</div>
 	<b><a id=Element.getDestinationInsertionPoints></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -14524,8 +14524,8 @@ print(myElement is UnknownElement); // 'true'
 	</div>
 	<b><a id=Element.offsetTo></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Point>Point</a> offsetTo(<a href=dart.dom.html.html#Element>Element</a> parent)</b>
 	<div class=indent>
-		<p>Provides the offset of this element's borderEdge relative to the specified parent. </p>
-<p>This is the Dart equivalent of jQuery's position(http://api.jquery.com/position/) method. Unlike jQuery's position, however, parent can be any parent element of <code>this</code>, rather than only <code>this</code>'s immediate offsetParent. If the specified element is _not_ an offset parent or transitive offset parent to this element, an ArgumentError is thrown.</p>
+		<p>Provides the offset of this element's <code>borderEdge</code> relative to the specified <code>parent</code>. </p>
+<p>This is the Dart equivalent of jQuery's <code>position</code>(http://api.jquery.com/position/) method. Unlike jQuery's position, however, <code>parent</code> can be any parent element of <code>this</code>, rather than only <code>this</code>'s immediate <code>offsetParent</code>. If the specified element is _not_ an offset parent or transitive offset parent to this element, an <code>ArgumentError</code> is thrown.</p>
 	</div>
 	<b><a id=Element.query></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -14533,7 +14533,7 @@ print(myElement is UnknownElement); // 'true'
 	<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Element>Element</a> query(<a href=dart.core.html#String>String</a> selectors)</b>
 	<div class=indent>
 		<p>Finds the first descendant element of this element that matches the specified group of selectors. </p>
-<p>selectors should be a string using CSS selector syntax. </p>
+<p><code>selectors</code> should be a string using CSS selector syntax. </p>
 <p><pre>// Gets the first descendant with the class 'classname'
 var element = element.query('.className');
 // Gets the element with id 'id'
@@ -14541,12 +14541,12 @@ var element = element.query('#id');
 // Gets the first descendant [ImageElement]
 var img = element.query('img');
 </pre>See also: </p>
-<p><ul><li>CSS Selectors(http://docs.webplatform.org/wiki/css/selectors)</li></p>
+<p><ul><li><code>CSS Selectors</code>(http://docs.webplatform.org/wiki/css/selectors)</li></p>
 	</div>
 	<b><a id=Element.queryAll></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#ElementList>ElementList</a>&lt;dynamic&gt; queryAll(<a href=dart.core.html#String>String</a> selectors)</b>
 	<div class=indent>
 		<p>Finds all descendent elements of this element that match the specified group of selectors. </p>
-<p>selectors should be a string using CSS selector syntax. </p>
+<p><code>selectors</code> should be a string using CSS selector syntax. </p>
 <p><pre>var items = element.query('.itemClassName');
 </pre></p>
 	</div>
@@ -14599,7 +14599,7 @@ var img = element.query('img');
 <p>If no options are specified then this will attempt to scroll the minimum amount needed to bring the element into view. </p>
 <p>Note that alignCenter is currently only supported on WebKit platforms. If alignCenter is specified but not supported then this will fall back to alignTop. </p>
 <p>See also: </p>
-<p><ul><li>scrollIntoView(http://docs.webplatform.org/wiki/dom/methods/scrollIntoView)</li><li>scrollIntoViewIfNeeded(http://docs.webplatform.org/wiki/dom/methods/scrollIntoViewIfNeeded)</li></p>
+<p><ul><li><code>scrollIntoView</code>(http://docs.webplatform.org/wiki/dom/methods/scrollIntoView)</li><li><code>scrollIntoViewIfNeeded</code>(http://docs.webplatform.org/wiki/dom/methods/scrollIntoViewIfNeeded)</li></p>
 	</div>
 	<b><a id=Element.setAttribute></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -14620,7 +14620,7 @@ var img = element.query('img');
 <p>The treeSanitizer is used to walk the generated node tree and sanitize it. A custom treeSanitizer can also be provided to perform special validation rules but since the API is more complex to implement this is discouraged. </p>
 <p>The resulting tree is guaranteed to only contain nodes and attributes which are allowed by the provided validator. </p>
 <p>See also: </p>
-<p><ul><li>NodeValidator</li><li>NodeTreeSanitizer</li></p>
+<p><ul><li><code>NodeValidator</code></li><li><code>NodeTreeSanitizer</code></li></p>
 	</div>
 	<b><a id=Element.toString></a><i class=icon-ok-sign></i> <a href='dart.dom.html.html#Node.toString'><i title='Overrides Node.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -14876,7 +14876,7 @@ var img = element.query('img');
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get borderEdge</b>
 	<div class=indent>
 		<p>Access dimensions and position of the first Element's content + padding + border box in this list. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>outerHeight</code> value for an element.</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>outerHeight</code> value for an element.</p>
 	</div>
 	<b><a id=classes></a><i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssClassSet>CssClassSet</a> get classes</b>
 	<div class=indent>
@@ -14897,14 +14897,14 @@ htmlList.classes.remove('selected');
 	<div class=indent>
 		<p>Access dimensions and position of the Elements in this list. </p>
 <p>Setting the height or width properties will set the height or width property for all elements in the list. This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Getting the height or width returns the height or width of the first Element in this list. </p>
-<p>Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not.</p>
+<p>Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not.</p>
 	</div>
 	<b><a id=marginEdge></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get marginEdge</b>
 	<div class=indent>
 		<p>Access dimensions and position of the first Element's content + padding + border + margin box in this list. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>outerHeight</code> value for an element.</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>outerHeight</code> value for an element.</p>
 	</div>
 	<b><a id=onAbort></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -15178,12 +15178,12 @@ htmlList.classes.remove('selected');
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssRect>CssRect</a> get paddingEdge</b>
 	<div class=indent>
 		<p>Access dimensions and position of the first Element's content + padding box in this list. </p>
-<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike getBoundingClientRect, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>innerHeight</code> value for an element. This is also a rectangle equalling the dimensions of clientHeight and clientWidth.</p>
+<p>This returns a rectangle with the dimenions actually available for content in this element, in pixels, regardless of this element's box-sizing property. Unlike <code>getBoundingClientRect</code>, the dimensions of this rectangle will return the same numerical height if the element is hidden or not. This can be used to retrieve jQuery's <code>innerHeight</code> value for an element. This is also a rectangle equalling the dimensions of clientHeight and clientWidth.</p>
 	</div>
 	<b><a id=style></a><i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#CssStyleDeclarationBase>CssStyleDeclarationBase</a> get style</b>
 	<div class=indent>
-		<p>Access the union of all CssStyleDeclarations that are associated with an ElementList. </p>
-<p>Grouping the style objects all together provides easy editing of specific properties of a collection of elements. Setting a specific property value will set that property in all Elements in the ElementList. Getting a specific property value will return the value of the property of the first element in the ElementList.</p>
+		<p>Access the union of all <code>CssStyleDeclaration</code>s that are associated with an <code>ElementList</code>. </p>
+<p>Grouping the style objects all together provides easy editing of specific properties of a collection of elements. Setting a specific property value will set that property in all <code>Element</code>s in the <code>ElementList</code>. Getting a specific property value will return the value of the property of the first element in the <code>ElementList</code>.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=ElementList.></a><i class=icon-plus-sign></i> ElementList()</b>
@@ -15202,7 +15202,7 @@ htmlList.classes.remove('selected');
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A specialized Stream available to Elements to enable event delegation.</p>
+		<p>A specialized Stream available to <code>Element</code>s to enable event delegation.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=ElementStream.></a><i class=icon-plus-sign></i> ElementStream()</b>
@@ -15211,7 +15211,7 @@ htmlList.classes.remove('selected');
 	<b><a id=ElementStream.matches></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; matches(<a href=dart.core.html#String>String</a> selector)</b>
 	<div class=indent>
 		<p>Return a stream that only fires when the particular event fires for elements matching the specified CSS selector. </p>
-<p>This is the Dart equivalent to jQuery's delegate(http://api.jquery.com/delegate/).</p>
+<p>This is the Dart equivalent to jQuery's <code>delegate</code>(http://api.jquery.com/delegate/).</p>
 	</div>
 	<a id=EmailInputElement></a><hr>
 	<h4>
@@ -16078,23 +16078,23 @@ htmlList.classes.remove('selected');
 	<h4>Methods</h4>
 	<b><a id=EventStreamProvider.forElement></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#ElementStream>ElementStream</a>&lt;T&gt; forElement(<a href=dart.dom.html.html#Element>Element</a> e, <a href=dart.core.html#bool>bool</a> useCapture)</b>
 	<div class=indent>
-		<p>Gets an ElementEventStream for this event type, on the specified element. </p>
+		<p>Gets an <code>ElementEventStream</code> for this event type, on the specified element. </p>
 <p>This will always return a broadcast stream so multiple listeners can be used simultaneously. </p>
 <p>This may be used to capture DOM events: </p>
 <p><pre>Element.keyDownEvent.forElement(element, useCapture: true).listen(...);
 </pre>See also: </p>
-<p>addEventListener(http://docs.webplatform.org/wiki/dom/methods/addEventListener)</p>
+<p><code>addEventListener</code>(http://docs.webplatform.org/wiki/dom/methods/addEventListener)</p>
 	</div>
 	<b><a id=EventStreamProvider.forTarget></a><i class=icon-ok-sign></i> <a href=dart.async.html#Stream>Stream</a>&lt;T&gt; forTarget(<a href=dart.dom.html.html#EventTarget>EventTarget</a> e, <a href=dart.core.html#bool>bool</a> useCapture)</b>
 	<div class=indent>
-		<p>Gets a Stream for this event type, on the specified target. </p>
+		<p>Gets a <code>Stream</code> for this event type, on the specified target. </p>
 <p>This will always return a broadcast stream so multiple listeners can be used simultaneously. </p>
 <p>This may be used to capture DOM events: </p>
 <p><pre>Element.keyDownEvent.forTarget(element, useCapture: true).listen(...);
 </pre>Or for listening to an event which will bubble through the DOM tree: </p>
 <p><pre>MediaElement.pauseEvent.forTarget(document.body).listen(...);
 </pre>See also: </p>
-<p>addEventListener(http://docs.webplatform.org/wiki/dom/methods/addEventListener)</p>
+<p><code>addEventListener</code>(http://docs.webplatform.org/wiki/dom/methods/addEventListener)</p>
 	</div>
 	<b><a id=EventStreamProvider.getEventType></a><i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> getEventType(<a href=dart.dom.html.html#EventTarget>EventTarget</a> target)</b>
 	<div class=indent>
@@ -16558,17 +16558,17 @@ htmlList.classes.remove('selected');
 	<h4>Methods</h4>
 	<b><a id=FileList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#File>File</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=FileList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#File>File</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=FileList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#File>File</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=FileList.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -17167,8 +17167,8 @@ htmlList.classes.remove('selected');
 	<h4>Methods</h4>
 	<b><a id=FixedSizeListIterator.moveNext></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterator.moveNext'><i title='Overrides Iterator.moveNext()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> moveNext()</b>
 	<div class=indent>
-		<p>Moves to the next element. Returns true if current contains the next element. Returns false, if no element was left. </p>
-<p>It is safe to invoke moveNext even when the iterator is already positioned after the last element. In this case moveNext has no effect.</p>
+		<p>Moves to the next element. Returns true if <code>current</code> contains the next element. Returns false, if no element was left. </p>
+<p>It is safe to invoke <code>moveNext</code> even when the iterator is already positioned after the last element. In this case <code>moveNext</code> has no effect.</p>
 	</div>
 	<a id=FocusEvent></a><hr>
 	<h4>
@@ -18000,7 +18000,7 @@ htmlList.classes.remove('selected');
 	<div class=indent>
 		<p>Checks if the State APIs are supported on the current platform. </p>
 <p>See also: </p>
-<p><ul><li>pushState</li><li>replaceState</li><li>state</li></p>
+<p><ul><li><code>pushState</code></li><li><code>replaceState</code></li><li><code>state</code></li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=History.></a><i class=icon-plus-sign></i> History()</b>
@@ -18198,17 +18198,17 @@ htmlList.classes.remove('selected');
 	<h4>Methods</h4>
 	<b><a id=HtmlAllCollection.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Node>Node</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=HtmlAllCollection.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#Node>Node</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=HtmlAllCollection.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Node>Node</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=HtmlAllCollection.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -18290,17 +18290,17 @@ htmlList.classes.remove('selected');
 	<h4>Methods</h4>
 	<b><a id=HtmlCollection.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Node>Node</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=HtmlCollection.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#Node>Node</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=HtmlCollection.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Node>Node</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=HtmlCollection.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -18509,7 +18509,7 @@ htmlList.classes.remove('selected');
 	<div class=indent>
 		<p>Checks if the getCssCanvasContext API is supported on the current platform. </p>
 <p>See also: </p>
-<p><ul><li>getCssCanvasContext</li></p>
+<p><ul><li><code>getCssCanvasContext</code></li></p>
 	</div>
 	<b><a id=title></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
@@ -18579,7 +18579,7 @@ htmlList.classes.remove('selected');
 context.fillStyle = 'red';
 context.fillRect(0, 0, 100, 100);
 </pre>See also: </p>
-<p><ul><li>supportsCssCanvasContext</li><li>CanvasElement.getContext</li></p>
+<p><ul><li><code>supportsCssCanvasContext</code></li><li><code>CanvasElement.getContext</code></li></p>
 	</div>
 	<b><a id=HtmlDocument.register></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
@@ -18951,9 +18951,9 @@ context.fillRect(0, 0, 100, 100);
 <p><pre>HttpRequest.getString('http://api.dartlang.org').then((response) {
   print(response);
 });
-</pre><i></i>Important<i></i>: With the default behavior of this class, your code making the request should be served from the same origin (domain name, port, and application layer protocol) as the URL you are trying to access with HttpRequest. However, there are ways to get around this restriction(http://www.dartlang.org/articles/json-web-service/#note-on-jsonp). </p>
+</pre><i></i>Important<i></i>: With the default behavior of this class, your code making the request should be served from the same origin (domain name, port, and application layer protocol) as the URL you are trying to access with HttpRequest. However, there are ways to <code>get around this restriction</code>(http://www.dartlang.org/articles/json-web-service/#note-on-jsonp). </p>
 <p>See also: </p>
-<p><ul><li>Dart article on using HttpRequests(http://www.dartlang.org/articles/json-web-service/#getting-data)</li><li>JS XMLHttpRequest(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest)</li><li>Using XMLHttpRequest(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest)</li></p>
+<p><ul><li><code>Dart article on using HttpRequests</code>(http://www.dartlang.org/articles/json-web-service/#getting-data)</li><li><code>JS XMLHttpRequest</code>(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest)</li><li><code>Using XMLHttpRequest</code>(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest)</li></p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=HttpRequest.DONE></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -19023,7 +19023,7 @@ context.fillRect(0, 0, 100, 100);
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.async.html#Stream>Stream</a>&lt;<a href=dart.dom.html.html#ProgressEvent>ProgressEvent</a>&gt; get onReadyStateChange</b>
 	<div class=indent>
-		<p>Event listeners to be notified every time the HttpRequest object's <code>readyState</code> changes values.</p>
+		<p>Event listeners to be notified every time the <code>HttpRequest</code> object's <code>readyState</code> changes values.</p>
 	</div>
 	<b><a id=readyState></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19057,7 +19057,7 @@ context.fillRect(0, 0, 100, 100);
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#Object>Object</a> get response</b>
 	<div class=indent>
 		<p>The data received as a reponse from the request. </p>
-<p>The data could be in the form of a String, ByteBuffer, Document, Blob, or json (also a String). <code>null</code> indicates request failure.</p>
+<p>The data could be in the form of a <code>String</code>, <code>ByteBuffer</code>, <code>Document</code>, <code>Blob</code>, or json (also a <code>String</code>). <code>null</code> indicates request failure.</p>
 	</div>
 	<b><a id=responseText></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19071,18 +19071,18 @@ context.fillRect(0, 0, 100, 100);
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#String>String</a> get responseType</b>
 	<div class=indent>
-		<p>String telling the server the desired response format. </p>
+		<p><code>String</code> telling the server the desired response format. </p>
 <p>Default is <code>String</code>. Other options are one of 'arraybuffer', 'blob', 'document', 'json', 'text'. Some newer browsers will throw NS_ERROR_DOM_INVALID_ACCESS_ERR if <code>responseType</code> is set while performing a synchronous request. </p>
-<p>See also: MDN responseType(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType)</p>
+<p>See also: <code>MDN responseType</code>(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType)</p>
 	</div>
 	<b><a id=responseType=></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
 	<br>
 	<i class=icon-circle-arrow-left></i> set responseType=(<a href=dart.core.html#String>String</a> value)</b>
 	<div class=indent>
-		<p>String telling the server the desired response format. </p>
+		<p><code>String</code> telling the server the desired response format. </p>
 <p>Default is <code>String</code>. Other options are one of 'arraybuffer', 'blob', 'document', 'json', 'text'. Some newer browsers will throw NS_ERROR_DOM_INVALID_ACCESS_ERR if <code>responseType</code> is set while performing a synchronous request. </p>
-<p>See also: MDN responseType(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType)</p>
+<p>See also: <code>MDN responseType</code>(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType)</p>
 	</div>
 	<b><a id=responseXml></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19097,14 +19097,14 @@ context.fillRect(0, 0, 100, 100);
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#int>int</a> get status</b>
 	<div class=indent>
-		<p>The http result code from the request (200, 404, etc). See also: Http Status Codes(http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)</p>
+		<p>The http result code from the request (200, 404, etc). See also: <code>Http Status Codes</code>(http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)</p>
 	</div>
 	<b><a id=statusText></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#String>String</a> get statusText</b>
 	<div class=indent>
-		<p>The request response string (such as \"200 OK\"). See also: Http Status Codes(http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)</p>
+		<p>The request response string (such as \"200 OK\"). See also: <code>Http Status Codes</code>(http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)</p>
 	</div>
 	<b><a id=supportsCrossOrigin></a><i class=icon-circle-arrow-right></i> static <a href=dart.core.html#bool>bool</a> get supportsCrossOrigin</b>
 	<div class=indent>
@@ -19141,7 +19141,7 @@ context.fillRect(0, 0, 100, 100);
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#HttpRequestUpload>HttpRequestUpload</a> get upload</b>
 	<div class=indent>
-		<p>EventTarget that can hold listeners to track the progress of the request. The events fired will be members of HttpRequestUploadEvents.</p>
+		<p><code>EventTarget</code> that can hold listeners to track the progress of the request. The events fired will be members of <code>HttpRequestUploadEvents</code>.</p>
 	</div>
 	<b><a id=withCredentials></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19166,7 +19166,7 @@ context.fillRect(0, 0, 100, 100);
 	<i class=icon-plus-sign></i> factory HttpRequest()</b>
 	<div class=indent>
 		<p>General constructor for any type of request (GET, POST, etc). </p>
-<p>This call is used in conjunction with open: </p>
+<p>This call is used in conjunction with <code>open</code>: </p>
 <p><pre>var request = new HttpRequest();
 request.open('GET', 'http://dartlang.org');
 request.onLoad.listen((event) =&gt; print(
@@ -19194,7 +19194,7 @@ request.send();
 	<div class=indent>
 		<p>Retrieve all the response headers from a request. </p>
 <p><code>null</code> if no headers have been received. For multipart requests, <code>getAllResponseHeaders</code> will return the response headers for the current part of the request. </p>
-<p>See also HTTP response headers(http://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Responses) for a list of common response headers.</p>
+<p>See also <code>HTTP response headers</code>(http://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Responses) for a list of common response headers.</p>
 	</div>
 	<b><a id=HttpRequest.getResponseHeader></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19203,15 +19203,15 @@ request.send();
 	<i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> getResponseHeader(<a href=dart.core.html#String>String</a> header)</b>
 	<div class=indent>
 		<p>Return the response header named <code>header</code>, or <code>null</code> if not found. </p>
-<p>See also HTTP response headers(http://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Responses) for a list of common response headers.</p>
+<p>See also <code>HTTP response headers</code>(http://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Responses) for a list of common response headers.</p>
 	</div>
 	<b><a id=HttpRequest.getString></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; getString(<a href=dart.core.html#String>String</a> url, <a href=dart.core.html#bool>bool</a> withCredentials,  onProgress)</b>
 	<div class=indent>
-		<p>Creates a URL get request for the specified url. </p>
+		<p>Creates a URL get request for the specified <code>url</code>. </p>
 <p>The server response must be a <code>text/</code> mime type for this request to succeed. </p>
-<p>This is similar to request but specialized for HTTP GET requests which return text content. </p>
+<p>This is similar to <code>request</code> but specialized for HTTP GET requests which return text content. </p>
 <p>See also: </p>
-<p><ul><li>request</li></p>
+<p><ul><li><code>request</code></li></p>
 	</div>
 	<b><a id=HttpRequest.open></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19231,31 +19231,31 @@ request.send();
 	<i class=icon-ok-sign></i> void overrideMimeType(<a href=dart.core.html#String>String</a> override)</b>
 	<div class=indent>
 		<p>Specify a particular MIME type (such as <code>text/xml</code>) desired for the response. </p>
-<p>This value must be set before the request has been sent. See also the list of common MIME types(http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types)</p>
+<p>This value must be set before the request has been sent. See also the list of <code>common MIME types</code>(http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types)</p>
 	</div>
 	<b><a id=HttpRequest.postFormData></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.dom.html.html#HttpRequest>HttpRequest</a>&gt; postFormData(<a href=dart.core.html#String>String</a> url, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; data, <a href=dart.core.html#bool>bool</a> withCredentials, <a href=dart.core.html#String>String</a> responseType, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; requestHeaders,  onProgress)</b>
 	<div class=indent>
 		<p>Makes a server POST request with the specified data encoded as form data. </p>
 <p>This is similar to sending a FormData object with broader browser support but limited to string values. </p>
 <p>See also: </p>
-<p><ul><li>request</li></p>
+<p><ul><li><code>request</code></li></p>
 	</div>
 	<b><a id=HttpRequest.request></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.dom.html.html#HttpRequest>HttpRequest</a>&gt; request(<a href=dart.core.html#String>String</a> url, <a href=dart.core.html#String>String</a> method, <a href=dart.core.html#bool>bool</a> withCredentials, <a href=dart.core.html#String>String</a> responseType, <a href=dart.core.html#String>String</a> mimeType, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; requestHeaders, dynamic sendData,  onProgress)</b>
 	<div class=indent>
-		<p>Creates a URL request for the specified url. </p>
-<p>By default this will do an HTTP GET request, this can be overridden with method. </p>
+		<p>Creates a URL request for the specified <code>url</code>. </p>
+<p>By default this will do an HTTP GET request, this can be overridden with <code>method</code>. </p>
 <p>The Future is completed when the response is available. </p>
-<p>The withCredentials parameter specified that credentials such as a cookie (already) set in the header or authorization headers(http://tools.ietf.org/html/rfc1945#section-10.2) should be specified for the request. Details to keep in mind when using credentials: </p>
-<p><ul><li>Using credentials is only useful for cross-origin requests.</li><li>The <code>Access-Control-Allow-Origin</code> header of <code>url</code> cannot contain a wildcard (*).</li><li>The <code>Access-Control-Allow-Credentials</code> header of <code>url</code> must be set to true.</li><li>If <code>Access-Control-Expose-Headers</code> has not been set to true, only a subset of all the response headers will be returned when calling getAllRequestHeaders.</li></ul></p>
+<p>The <code>withCredentials</code> parameter specified that credentials such as a cookie (already) set in the header or <code>authorization headers</code>(http://tools.ietf.org/html/rfc1945#section-10.2) should be specified for the request. Details to keep in mind when using credentials: </p>
+<p><ul><li>Using credentials is only useful for cross-origin requests.</li><li>The <code>Access-Control-Allow-Origin</code> header of <code>url</code> cannot contain a wildcard (*).</li><li>The <code>Access-Control-Allow-Credentials</code> header of <code>url</code> must be set to true.</li><li>If <code>Access-Control-Expose-Headers</code> has not been set to true, only a subset of all the response headers will be returned when calling <code>getAllRequestHeaders</code>.</li></ul></p>
 <p>Note that requests for file:// URIs are only supported by Chrome extensions with appropriate permissions in their manifest. Requests to file:// URIs will also never fail- the Future will always complete successfully, even when the file cannot be found. </p>
-<p>See also: authorization headers(http://en.wikipedia.org/wiki/Basic_access_authentication).</p>
+<p>See also: <code>authorization headers</code>(http://en.wikipedia.org/wiki/Basic_access_authentication).</p>
 	</div>
 	<b><a id=HttpRequest.requestCrossOrigin></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; requestCrossOrigin(<a href=dart.core.html#String>String</a> url, <a href=dart.core.html#String>String</a> method, <a href=dart.core.html#String>String</a> sendData)</b>
 	<div class=indent>
 		<p>Makes a cross-origin request to the specified URL. </p>
-<p>This API provides a subset of request which works on IE9. If IE9 cross-origin support is not required then request should be used instead.</p>
+<p>This API provides a subset of <code>request</code> which works on IE9. If IE9 cross-origin support is not required then <code>request</code> should be used instead.</p>
 	</div>
 	<b><a id=HttpRequest.send></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19264,7 +19264,7 @@ request.send();
 	<div class=indent>
 		<p>Send the request with any given <code>data</code>. </p>
 <p>See also: </p>
-<p><ul><li>send(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#send%28%29)</li></ul>from MDN.</p>
+<p><ul><li><code>send</code>(https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#send%28%29)</li></ul>from MDN.</p>
 	</div>
 	<b><a id=HttpRequest.setRequestHeader></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -19889,65 +19889,65 @@ request.send();
 	<h4>Methods</h4>
 	<b><a id=ImmutableListMixin.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.add'><i title='Overrides List.add()' class='icon-circle-arrow-up'></i></a> void add(E value)</b>
 	<div class=indent>
-		<p>Adds value to the end of this list, extending the length by one. </p>
-<p>Throws an UnsupportedError if the list is fixed-length.</p>
+		<p>Adds <code>value</code> to the end of this list, extending the length by one. </p>
+<p>Throws an <code>UnsupportedError</code> if the list is fixed-length.</p>
 	</div>
 	<b><a id=ImmutableListMixin.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.addAll'><i title='Overrides List.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Appends all objects of iterable to the end of this list. </p>
-<p>Extends the length of the list by the number of objects in iterable. Throws an UnsupportedError if this list is fixed-length.</p>
+		<p>Appends all objects of <code>iterable</code> to the end of this list. </p>
+<p>Extends the length of the list by the number of objects in <code>iterable</code>. Throws an <code>UnsupportedError</code> if this list is fixed-length.</p>
 	</div>
 	<b><a id=ImmutableListMixin.fillRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.fillRange'><i title='Overrides List.fillRange()' class='icon-circle-arrow-up'></i></a> void fillRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, E fillValue)</b>
 	<div class=indent>
-		<p>Sets the objects in the range start inclusive to end exclusive to the given fillValue. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>.</p>
+		<p>Sets the objects in the range <code>start</code> inclusive to <code>end</code> exclusive to the given <code>fillValue</code>. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>.</p>
 	</div>
 	<b><a id=ImmutableListMixin.insert></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.insert'><i title='Overrides List.insert()' class='icon-circle-arrow-up'></i></a> void insert(<a href=dart.core.html#int>int</a> index, E element)</b>
 	<div class=indent>
-		<p>Inserts the object at position index in this list. </p>
+		<p>Inserts the object at position <code>index</code> in this list. </p>
 <p>This increases the length of the list by one and shifts all objects at or after the index towards the end of the list. </p>
-<p>An error occurs if the index is less than 0 or greater than length. An UnsupportedError occurs if the list is fixed-length.</p>
+<p>An error occurs if the <code>index</code> is less than 0 or greater than length. An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
 	</div>
 	<b><a id=ImmutableListMixin.insertAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.insertAll'><i title='Overrides List.insertAll()' class='icon-circle-arrow-up'></i></a> void insertAll(<a href=dart.core.html#int>int</a> index, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Inserts all objects of iterable at position index in this list. </p>
-<p>This increases the length of the list by the length of iterable and shifts all later objects towards the end of the list. </p>
-<p>An error occurs if the index is less than 0 or greater than length. An UnsupportedError occurs if the list is fixed-length.</p>
+		<p>Inserts all objects of <code>iterable</code> at position <code>index</code> in this list. </p>
+<p>This increases the length of the list by the length of <code>iterable</code> and shifts all later objects towards the end of the list. </p>
+<p>An error occurs if the <code>index</code> is less than 0 or greater than length. An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
 	</div>
 	<b><a id=ImmutableListMixin.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.remove'><i title='Overrides List.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
 	<div class=indent>
-		<p>Removes the first occurence of value from this list. </p>
-<p>Returns true if value was in the list. Returns false otherwise. </p>
-<p>The method has no effect if value was not in the list. </p>
-<p>An UnsupportedError occurs if the list is fixed-length.</p>
+		<p>Removes the first occurence of <code>value</code> from this list. </p>
+<p>Returns true if <code>value</code> was in the list. Returns false otherwise. </p>
+<p>The method has no effect if <code>value</code> was not in the list. </p>
+<p>An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
 	</div>
 	<b><a id=ImmutableListMixin.removeAt></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeAt'><i title='Overrides List.removeAt()' class='icon-circle-arrow-up'></i></a> E removeAt(<a href=dart.core.html#int>int</a> pos)</b>
 	<div class=indent>
-		<p>Removes the object at position index from this list. </p>
+		<p>Removes the object at position <code>index</code> from this list. </p>
 <p>This method reduces the length of <code>this</code> by one and moves all later objects down by one position. </p>
 <p>Returns the removed object. </p>
-<p><ul><li>Throws an ArgumentError if index is not an int.</li><li>Throws a RangeError if the index is out of range for this list.</li><li>Throws an UnsupportedError, and doesn't remove the object,</li></ul>if this is a fixed-length list.</p>
+<p><ul><li>Throws an <code>ArgumentError</code> if <code>index</code> is not an <code>int</code>.</li><li>Throws a <code>RangeError</code> if the <code>index</code> is out of range for this list.</li><li>Throws an <code>UnsupportedError</code>, and doesn't remove the object,</li></ul>if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ImmutableListMixin.removeLast></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeLast'><i title='Overrides List.removeLast()' class='icon-circle-arrow-up'></i></a> E removeLast()</b>
 	<div class=indent>
 		<p>Pops and returns the last object in this list. </p>
-<p>Throws an UnsupportedError if this is a fixed-length list.</p>
+<p>Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ImmutableListMixin.removeRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeRange'><i title='Overrides List.removeRange()' class='icon-circle-arrow-up'></i></a> void removeRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end)</b>
 	<div class=indent>
-		<p>Removes the objects in the range start inclusive to end exclusive. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>. Throws an UnsupportedError if this is a fixed-length list.</p>
+		<p>Removes the objects in the range <code>start</code> inclusive to <code>end</code> exclusive. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>. Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ImmutableListMixin.removeWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.removeWhere'><i title='Overrides List.removeWhere()' class='icon-circle-arrow-up'></i></a> void removeWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all objects from this list that satisfy test. </p>
-<p>An object <code>o</code> satisfies test if <code>test(o)</code> is true. </p>
-<p>Throws an UnsupportedError if this is a fixed-length list.</p>
+		<p>Removes all objects from this list that satisfy <code>test</code>. </p>
+<p>An object <code>o</code> satisfies <code>test</code> if <code>test(o)</code> is true. </p>
+<p>Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ImmutableListMixin.replaceRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.replaceRange'><i title='Overrides List.replaceRange()' class='icon-circle-arrow-up'></i></a> void replaceRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Removes the objects in the range start inclusive to end exclusive and replaces them with the contents of the iterable. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>. </p>
+		<p>Removes the objects in the range <code>start</code> inclusive to <code>end</code> exclusive and replaces them with the contents of the <code>iterable</code>. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>. </p>
 <p>Example: </p>
 <p><pre>var list = [1, 2, 3, 4, 5];
 list.replaceRange(1, 3, [6, 7, 8, 9]);
@@ -19956,21 +19956,21 @@ print(list);  // [1, 6, 7, 8, 9, 4, 5]
 	</div>
 	<b><a id=ImmutableListMixin.retainWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.retainWhere'><i title='Overrides List.retainWhere()' class='icon-circle-arrow-up'></i></a> void retainWhere(&lt;E&gt; test)</b>
 	<div class=indent>
-		<p>Removes all objects from this list that fail to satisfy test. </p>
-<p>An object <code>o</code> satisfies test if <code>test(o)</code> is true. </p>
-<p>Throws an UnsupportedError if this is a fixed-length list.</p>
+		<p>Removes all objects from this list that fail to satisfy <code>test</code>. </p>
+<p>An object <code>o</code> satisfies <code>test</code> if <code>test(o)</code> is true. </p>
+<p>Throws an <code>UnsupportedError</code> if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ImmutableListMixin.setAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.setAll'><i title='Overrides List.setAll()' class='icon-circle-arrow-up'></i></a> void setAll(<a href=dart.core.html#int>int</a> index, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent>
-		<p>Overwrites objects of <code>this</code> with the objects of iterable, starting at position index in this list. </p>
+		<p>Overwrites objects of <code>this</code> with the objects of <code>iterable</code>, starting at position <code>index</code> in this list. </p>
 <p>This operation does not increase the length of <code>this</code>. </p>
-<p>An error occurs if the index is less than 0 or greater than length. An error occurs if the iterable is longer than length - index.</p>
+<p>An error occurs if the <code>index</code> is less than 0 or greater than length. An error occurs if the <code>iterable</code> is longer than <code>length</code> - <code>index</code>.</p>
 	</div>
 	<b><a id=ImmutableListMixin.setRange></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.setRange'><i title='Overrides List.setRange()' class='icon-circle-arrow-up'></i></a> void setRange(<a href=dart.core.html#int>int</a> start, <a href=dart.core.html#int>int</a> end, <a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable, <a href=dart.core.html#int>int</a> skipCount)</b>
 	<div class=indent>
-		<p>Copies the objects of iterable, skipping skipCount objects first, into the range start inclusive to end exclusive of <code>this</code>. </p>
-<p>If start equals end and start..end represents a legal range, this method has no effect. </p>
-<p>An error occurs if start..end is not a valid range for <code>this</code>. An error occurs if the iterable does not have enough objects after skipping skipCount objects. </p>
+		<p>Copies the objects of <code>iterable</code>, skipping <code>skipCount</code> objects first, into the range <code>start</code> inclusive to <code>end</code> exclusive of <code>this</code>. </p>
+<p>If <code>start</code> equals <code>end</code> and <code>start</code>..<code>end</code> represents a legal range, this method has no effect. </p>
+<p>An error occurs if <code>start</code>..<code>end</code> is not a valid range for <code>this</code>. An error occurs if the <code>iterable</code> does not have enough objects after skipping <code>skipCount</code> objects. </p>
 <p>Example: </p>
 <p><pre>var list = [1, 2, 3, 4];
 var list2 = [5, 6, 7, 8, 9];
@@ -19980,9 +19980,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</div>
 	<b><a id=ImmutableListMixin.sort></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.sort'><i title='Overrides List.sort()' class='icon-circle-arrow-up'></i></a> void sort(&lt;E&gt; compare)</b>
 	<div class=indent>
-		<p>Sorts this list according to the order specified by the compare function. </p>
-<p>The compare function must act as a Comparator. </p>
-<p>The default List implementations use Comparable.compare if compare is omitted.</p>
+		<p>Sorts this list according to the order specified by the <code>compare</code> function. </p>
+<p>The <code>compare</code> function must act as a <code>Comparator</code>. </p>
+<p>The default List implementations use <code>Comparable.compare</code> if <code>compare</code> is omitted.</p>
 	</div>
 	<a id=InputElement></a><hr>
 	<h4>
@@ -21455,7 +21455,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</dl>
 	<div class=indent>
 		<p>A custom KeyboardEvent that attempts to eliminate cross-browser inconsistencies, and also provide both keyCode and charCode information for all key events (when such information can be determined). </p>
-<p>KeyEvent tries to provide a higher level, more polished keyboard event information on top of the "raw" KeyboardEvent. </p>
+<p>KeyEvent tries to provide a higher level, more polished keyboard event information on top of the "raw" <code>KeyboardEvent</code>. </p>
 <p>This class is very much a work in progress, and we'd love to get information on how we can make this class work with as many international keyboards as possible. Bugs welcome!</p>
 	</div>
 	<h4>Static Fields</h4>
@@ -21552,7 +21552,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<h4>Constructors</h4>
 	<b><a id=KeyEvent.></a><i class=icon-plus-sign></i> KeyEvent(<a href=dart.dom.html.html#KeyboardEvent>KeyboardEvent</a> parent)</b>
 	<div class=indent>
-		<p>Construct a KeyEvent with parent as the event we're emulating.</p>
+		<p>Construct a KeyEvent with <code>parent</code> as the event we're emulating.</p>
 	</div>
 	<a id=KeyLocation></a><hr>
 	<h4>
@@ -25380,7 +25380,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent>
 		<p>Checks if the MediaStream APIs are supported on the current platform. </p>
 <p>See also: </p>
-<p><ul><li>Navigator.getUserMedia</li></p>
+<p><ul><li><code>Navigator.getUserMedia</code></li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=MediaStream.></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -25730,7 +25730,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		<p>An HTML &lt;menu&gt; element. </p>
 <p>A &lt;menu&gt; element represents an unordered list of menu commands. </p>
 <p>See also: </p>
-<p><ul><li>Menu Element(https://developer.mozilla.org/en-US/docs/HTML/Element/menu) from MDN.</li></ul><ul><li>Menu Element(http://www.w3.org/TR/html5/the-menu-element.html#the-menu-element) from the W3C.</li></p>
+<p><ul><li><code>Menu Element</code>(https://developer.mozilla.org/en-US/docs/HTML/Element/menu) from MDN.</li></ul><ul><li><code>Menu Element</code>(http://www.w3.org/TR/html5/the-menu-element.html#the-menu-element) from the W3C.</li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=MenuElement.></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -26648,17 +26648,17 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<h4>Methods</h4>
 	<b><a id=MimeTypeArray.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#MimeType>MimeType</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=MimeTypeArray.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#MimeType>MimeType</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=MimeTypeArray.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#MimeType>MimeType</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=MimeTypeArray.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -27607,7 +27607,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.dom.html.html#MediaStream>MediaStream</a>&gt; getUserMedia(dynamic audio, dynamic video)</b>
 	<div class=indent>
 		<p>Gets a stream (video and or audio) from the local computer. </p>
-<p>Use MediaStream.supported to check if this is supported by the current platform. The arguments <code>audio</code> and <code>video</code> default to <code>false</code> (stream does not use audio or video, respectively). </p>
+<p>Use <code>MediaStream.supported</code> to check if this is supported by the current platform. The arguments <code>audio</code> and <code>video</code> default to <code>false</code> (stream does not use audio or video, respectively). </p>
 <p>Simple example usage: </p>
 <p><pre>window.navigator.getUserMedia(audio: true, video: true).then((stream) {
   var video = new VideoElement()
@@ -27624,7 +27624,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
                [{ 'minFrameRate': 60 },
                 { 'maxWidth': 640 }]
 });
-</pre>See also: <ul><li>MediaStream.supported</li></p>
+</pre>See also: <ul><li><code>MediaStream.supported</code></li></p>
 	</div>
 	<b><a id=Navigator.javaEnabled></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -28067,7 +28067,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<br>
 	<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Node>Node</a> append(<a href=dart.dom.html.html#Node>Node</a> newChild)</b>
 	<div class=indent>
-		<p>Adds a node to the end of the child nodes list of this node. </p>
+		<p>Adds a node to the end of the child <code>nodes</code> list of this node. </p>
 <p>If the node already exists in this document, it will be removed from its current parent node, then added to this node. </p>
 <p>This method is more efficient than <code>nodes.add</code>, and is the preferred way of appending a child node.</p>
 	</div>
@@ -28075,7 +28075,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<br>
 	<i class=icon-ok-sign></i> dynamic bind(<a href=dart.core.html#String>String</a> name, dynamic model, <a href=dart.core.html#String>String</a> path)</b>
 	<div class=indent>
-		<p>Binds the attribute name to the path of the model. Path is a String of accessors such as <code>foo.bar.baz</code>. Returns the <code>NodeBinding</code> instance.</p>
+		<p>Binds the attribute <code>name</code> to the <code>path</code> of the <code>model</code>. Path is a String of accessors such as <code>foo.bar.baz</code>. Returns the <code>NodeBinding</code> instance.</p>
 	</div>
 	<b><a id=Node.clone></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -28091,9 +28091,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<br>
 	<i class=icon-ok-sign></i> dynamic createBinding(<a href=dart.core.html#String>String</a> name, dynamic model, <a href=dart.core.html#String>String</a> path)</b>
 	<div class=indent>
-		<p>Creates a binding to the attribute name to the path of the model. </p>
-<p>This can be overridden by custom elements to provide the binding used in Node.bind. This will only create the binding; it will not add it to bindings. </p>
-<p>You should not need to call this directly except from Node.bind.</p>
+		<p>Creates a binding to the attribute <code>name</code> to the <code>path</code> of the <code>model</code>. </p>
+<p>This can be overridden by custom elements to provide the binding used in <code>Node.bind</code>. This will only create the binding; it will not add it to <code>bindings</code>. </p>
+<p>You should not need to call this directly except from <code>Node.bind</code>.</p>
 	</div>
 	<b><a id=Node.dispatchEvent></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -28109,7 +28109,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent>
 		<p>Inserts all of the nodes into this node directly before refChild. </p>
 <p>See also: </p>
-<p><ul><li>insertBefore</li></p>
+<p><ul><li><code>insertBefore</code></li></p>
 	</div>
 	<b><a id=Node.insertBefore></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -28136,7 +28136,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<br>
 	<i class=icon-ok-sign></i> void unbind(<a href=dart.core.html#String>String</a> name)</b>
 	<div class=indent>
-		<p>Unbinds the attribute name.</p>
+		<p>Unbinds the attribute <code>name</code>.</p>
 	</div>
 	<b><a id=Node.unbindAll></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
@@ -28411,17 +28411,17 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<h4>Methods</h4>
 	<b><a id=NodeList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Node>Node</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=NodeList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#Node>Node</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=NodeList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Node>Node</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<a id=NodeTreeSanitizer></a><hr>
 	<h4>
@@ -28468,7 +28468,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	</dl>
 	<div class=indent>
 		<p>Interface used to validate that only accepted elements and attributes are allowed while parsing HTML strings into DOM nodes. </p>
-<p>In general, customization of validation behavior should be done via the NodeValidatorBuilder class to mitigate the chances of incorrectly implementing validation rules.</p>
+<p>In general, customization of validation behavior should be done via the <code>NodeValidatorBuilder</code> class to mitigate the chances of incorrectly implementing validation rules.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=NodeValidator.></a><i class=icon-plus-sign></i> factory NodeValidator(<a href=dart.dom.html.html#UriPolicy>UriPolicy</a> uriPolicy)</b>
@@ -28483,7 +28483,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent>
 		<p>Returns true if the attribute is allowed. </p>
 <p>The attributeName parameter will always be in lowercase. </p>
-<p>See allowsElement for format of tagName.</p>
+<p>See <code>allowsElement</code> for format of tagName.</p>
 	</div>
 	<b><a id=NodeValidator.allowsElement></a><i class=icon-ok-sign></i> <a href=dart.core.html#bool>bool</a> allowsElement(<a href=dart.dom.html.html#Element>Element</a> element)</b>
 	<div class=indent>
@@ -28527,11 +28527,11 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=NodeValidatorBuilder.common></a><i class=icon-plus-sign></i> NodeValidatorBuilder.common()</b>
 	<div class=indent>
 		<p>Creates a new NodeValidatorBuilder which accepts common constructs. </p>
-<p>By default this will accept HTML5 elements and attributes with the default UriPolicy and templating elements. </p>
+<p>By default this will accept HTML5 elements and attributes with the default <code>UriPolicy</code> and templating elements. </p>
 <p>Notable syntax which is filtered: </p>
-<p><ul><li>Only known-good HTML5 elements and attributes are allowed.</li><li>All URLs must be same-origin, use allowNavigation and allowImages to</li></ul>specify additional URI policies. <ul><li>Inline-styles are not allowed.</li><li>Custom element tags are disallowed, use allowCustomElement.</li><li>Custom tags extensions are disallowed, use allowTagExtension.</li><li>SVG Elements are not allowed, use allowSvg.</li></ul></p>
-<p>For scenarios where the HTML should only contain formatted text allowTextElements is more appropriate. </p>
-<p>Use allowSvg to allow SVG elements.</p>
+<p><ul><li>Only known-good HTML5 elements and attributes are allowed.</li><li>All URLs must be same-origin, use <code>allowNavigation</code> and <code>allowImages</code> to</li></ul>specify additional URI policies. <ul><li>Inline-styles are not allowed.</li><li>Custom element tags are disallowed, use <code>allowCustomElement</code>.</li><li>Custom tags extensions are disallowed, use <code>allowTagExtension</code>.</li><li>SVG Elements are not allowed, use <code>allowSvg</code>.</li></ul></p>
+<p>For scenarios where the HTML should only contain formatted text <code>allowTextElements</code> is more appropriate. </p>
+<p>Use <code>allowSvg</code> to allow SVG elements.</p>
 	</div>
 	<h4>Methods</h4>
 	<b><a id=NodeValidatorBuilder.add></a><i class=icon-ok-sign></i> void add(<a href=dart.dom.html.html#NodeValidator>NodeValidator</a> validator)</b>
@@ -28542,7 +28542,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=NodeValidatorBuilder.allowCustomElement></a><i class=icon-ok-sign></i> void allowCustomElement(<a href=dart.core.html#String>String</a> tagName, <a href=dart.dom.html.html#UriPolicy>UriPolicy</a> uriPolicy, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; attributes, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; uriAttributes)</b>
 	<div class=indent>
 		<p>Allow custom elements with the specified tag name and specified attributes. </p>
-<p>This will allow the elements as custom tags (such as &lt;x-foo&gt;&lt;/x-foo&gt;), but will not allow tag extensions. Use allowTagExtension to allow tag extensions.</p>
+<p>This will allow the elements as custom tags (such as &lt;x-foo&gt;&lt;/x-foo&gt;), but will not allow tag extensions. Use <code>allowTagExtension</code> to allow tag extensions.</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowElement></a><i class=icon-ok-sign></i> void allowElement(<a href=dart.core.html#String>String</a> tagName, <a href=dart.dom.html.html#UriPolicy>UriPolicy</a> uriPolicy, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; attributes, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; uriAttributes)</b>
 	<div class=indent></div>
@@ -28555,17 +28555,17 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=NodeValidatorBuilder.allowImages></a><i class=icon-ok-sign></i> void allowImages(<a href=dart.dom.html.html#UriPolicy>UriPolicy</a> uriPolicy)</b>
 	<div class=indent>
 		<p>Allows image elements. </p>
-<p>The UriPolicy can be used to restrict the locations the images may be loaded from. By default this will use the default UriPolicy.</p>
+<p>The UriPolicy can be used to restrict the locations the images may be loaded from. By default this will use the default <code>UriPolicy</code>.</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowInlineStyles></a><i class=icon-ok-sign></i> void allowInlineStyles(<a href=dart.core.html#String>String</a> tagName)</b>
 	<div class=indent>
 		<p>Allow inline styles on elements. </p>
-<p>If tagName is not specified then this allows inline styles on all elements. Otherwise tagName limits the styles to the specified elements.</p>
+<p>If <code>tagName</code> is not specified then this allows inline styles on all elements. Otherwise tagName limits the styles to the specified elements.</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowNavigation></a><i class=icon-ok-sign></i> void allowNavigation(<a href=dart.dom.html.html#UriPolicy>UriPolicy</a> uriPolicy)</b>
 	<div class=indent>
 		<p>Allows navigation elements- Form and Anchor tags, along with common attributes. </p>
-<p>The UriPolicy can be used to restrict the locations the navigation elements are allowed to direct to. By default this will use the default UriPolicy.</p>
+<p>The UriPolicy can be used to restrict the locations the navigation elements are allowed to direct to. By default this will use the default <code>UriPolicy</code>.</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowSvg></a><i class=icon-ok-sign></i> void allowSvg()</b>
 	<div class=indent>
@@ -28574,12 +28574,12 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=NodeValidatorBuilder.allowTagExtension></a><i class=icon-ok-sign></i> void allowTagExtension(<a href=dart.core.html#String>String</a> tagName, <a href=dart.core.html#String>String</a> baseName, <a href=dart.dom.html.html#UriPolicy>UriPolicy</a> uriPolicy, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; attributes, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; uriAttributes)</b>
 	<div class=indent>
 		<p>Allow custom tag extensions with the specified type name and specified attributes. </p>
-<p>This will allow tag extensions (such as &lt;div is="x-foo"&gt;&lt;/div&gt;), but will not allow custom tags. Use allowCustomElement to allow custom tags.</p>
+<p>This will allow tag extensions (such as &lt;div is="x-foo"&gt;&lt;/div&gt;), but will not allow custom tags. Use <code>allowCustomElement</code> to allow custom tags.</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowTemplating></a><i class=icon-ok-sign></i> void allowTemplating()</b>
 	<div class=indent>
 		<p>Allow templating elements (such as &lt;template&gt; and template-related attributes. </p>
-<p>This still requires other validators to allow regular attributes to be bound (such as allowHtml5).</p>
+<p>This still requires other validators to allow regular attributes to be bound (such as <code>allowHtml5</code>).</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowTextElements></a><i class=icon-ok-sign></i> void allowTextElements()</b>
 	<div class=indent>
@@ -28591,7 +28591,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent>
 		<p>Returns true if the attribute is allowed. </p>
 <p>The attributeName parameter will always be in lowercase. </p>
-<p>See allowsElement for format of tagName.</p>
+<p>See <code>allowsElement</code> for format of tagName.</p>
 	</div>
 	<b><a id=NodeValidatorBuilder.allowsElement></a><i class=icon-ok-sign></i> <a href='dart.dom.html.html#NodeValidator.allowsElement'><i title='Overrides NodeValidator.allowsElement()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> allowsElement(<a href=dart.dom.html.html#Element>Element</a> element)</b>
 	<div class=indent>
@@ -30700,17 +30700,17 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<h4>Methods</h4>
 	<b><a id=PluginArray.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Plugin>Plugin</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=PluginArray.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#Plugin>Plugin</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=PluginArray.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Plugin>Plugin</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=PluginArray.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -30794,14 +30794,14 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=Point.==></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.=='><i title='Overrides Object.==()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> ==(dynamic other)</b>
 	<div class=indent>
 		<p>The equality operator. </p>
-<p>The default behavior for all Objects is to return true if and only if <code>this</code> and other are the same object. </p>
+<p>The default behavior for all <code>Object</code>s is to return true if and only if <code>this</code> and <code>other</code> are the same object. </p>
 <p>Override this method to specify a different equality relation on a class. The overriding method must still be an equivalence relation. That is, it must be: </p>
 <p><ul><li>Total: It must return a boolean for all arguments. It should never throw</li></ul>or return <code>null</code>. </p>
 <p><ul><li>Reflexive: For all objects <code>o</code>, <code>o == o</code> must be true.</li></ul></p>
 <p><ul><li>Symmetric: For all objects <code>o1</code> and <code>o2</code>, <code>o1 == o2</code> and <code>o2 == o1</code> must</li></ul>either both be true, or both be false. </p>
 <p><ul><li>Transitive: For all objects <code>o1</code>, <code>o2</code>, and <code>o3</code>, if <code>o1 == o2</code> and</li></ul><code>o2 == o3</code> are true, then <code>o1 == o3</code> must be true. </p>
 <p>The method should also be consistent over time, so equality of two objects should not change over time, or at least only change if one of the objects was modified. </p>
-<p>If a subclass overrides the equality operator it should override the hashCode method as well to maintain consistency.</p>
+<p>If a subclass overrides the equality operator it should override the <code>hashCode</code> method as well to maintain consistency.</p>
 	</div>
 	<b><a id=Point.ceil></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Point>Point</a> ceil()</b>
 	<div class=indent></div>
@@ -31293,9 +31293,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A control that when used with other ReadioButtonInputElement controls forms a radio button group in which only one control can be checked at a time. </p>
+		<p>A control that when used with other <code>ReadioButtonInputElement</code> controls forms a radio button group in which only one control can be checked at a time. </p>
 <p>Radio buttons are considered to be in the same radio button group if: </p>
-<p><ul><li>They are all of type 'radio'.</li><li>They all have either the same FormElement owner, or no owner.</li><li>Their name attributes contain the same name.</li></p>
+<p><ul><li>They are all of type 'radio'.</li><li>They all have either the same <code>FormElement</code> owner, or no owner.</li><li>Their name attributes contain the same name.</li></p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=RadioButtonInputElement.checked></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -31477,7 +31477,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent>
 		<p>Checks if createContextualFragment is supported. </p>
 <p>See also: </p>
-<p><ul><li>createContextualFragment</li></p>
+<p><ul><li><code>createContextualFragment</code></li></p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Range.></a><i class=icon-plus-sign></i> factory Range()</b>
@@ -31637,7 +31637,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Similar to NumberInputElement but the browser may provide more optimal styling (such as a slider control). </p>
+		<p>Similar to <code>NumberInputElement</code> but the browser may provide more optimal styling (such as a slider control). </p>
 <p>Use <a href=dart.dom.html.html#supported>supported</a> to check if this is supported on the current platform.</p>
 	</div>
 	<h4>Static Fields</h4>
@@ -31906,14 +31906,14 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=RectBase.==></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.=='><i title='Overrides Object.==()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> ==(dynamic other)</b>
 	<div class=indent>
 		<p>The equality operator. </p>
-<p>The default behavior for all Objects is to return true if and only if <code>this</code> and other are the same object. </p>
+<p>The default behavior for all <code>Object</code>s is to return true if and only if <code>this</code> and <code>other</code> are the same object. </p>
 <p>Override this method to specify a different equality relation on a class. The overriding method must still be an equivalence relation. That is, it must be: </p>
 <p><ul><li>Total: It must return a boolean for all arguments. It should never throw</li></ul>or return <code>null</code>. </p>
 <p><ul><li>Reflexive: For all objects <code>o</code>, <code>o == o</code> must be true.</li></ul></p>
 <p><ul><li>Symmetric: For all objects <code>o1</code> and <code>o2</code>, <code>o1 == o2</code> and <code>o2 == o1</code> must</li></ul>either both be true, or both be false. </p>
 <p><ul><li>Transitive: For all objects <code>o1</code>, <code>o2</code>, and <code>o3</code>, if <code>o1 == o2</code> and</li></ul><code>o2 == o3</code> are true, then <code>o1 == o3</code> must be true. </p>
 <p>The method should also be consistent over time, so equality of two objects should not change over time, or at least only change if one of the objects was modified. </p>
-<p>If a subclass overrides the equality operator it should override the hashCode method as well to maintain consistency.</p>
+<p>If a subclass overrides the equality operator it should override the <code>hashCode</code> method as well to maintain consistency.</p>
 	</div>
 	<b><a id=RectBase.ceil></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Rect>Rect</a> ceil()</b>
 	<div class=indent></div>
@@ -33323,7 +33323,7 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Similar to TextInputElement, but on platforms where search is styled differently this will get the search style. </p>
+		<p>Similar to <code>TextInputElement</code>, but on platforms where search is styled differently this will get the search style. </p>
 <p>Use <a href=dart.dom.html.html#supported>supported</a> to check if this is supported on the current platform.</p>
 	</div>
 	<h4>Static Fields</h4>
@@ -34528,11 +34528,11 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent></div>
 	<b><a id=SourceBufferList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#SourceBuffer>SourceBuffer</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=SourceBufferList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#SourceBuffer>SourceBuffer</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=SourceBufferList.dispatchEvent></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -34541,9 +34541,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent></div>
 	<b><a id=SourceBufferList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#SourceBuffer>SourceBuffer</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=SourceBufferList.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -34834,11 +34834,11 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<h4>Methods</h4>
 	<b><a id=SpeechGrammarList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#SpeechGrammar>SpeechGrammar</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=SpeechGrammarList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#SpeechGrammar>SpeechGrammar</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=SpeechGrammarList.addFromString></a><i class=icon-ok-sign></i> void addFromString(<a href=dart.core.html#String>String</a> string, <a href=dart.core.html#num>num</a> weight)</b>
 	<div class=indent></div>
@@ -34846,9 +34846,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<div class=indent></div>
 	<b><a id=SpeechGrammarList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#SpeechGrammar>SpeechGrammar</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=SpeechGrammarList.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -35929,17 +35929,17 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The type used by the Window.localStorage and Window.sessionStorage properties. Storage is implemented as a Map&amp;lt;String, String&gt;. </p>
+		<p>The type used by the <code>Window.localStorage</code> and <code>Window.sessionStorage</code> properties. Storage is implemented as a Map&amp;lt;String, String&gt;. </p>
 <p>To store and get values, use Dart's built-in map syntax: </p>
 <p><pre>window.localStorage['key1'] = 'val1';
 window.localStorage['key2'] = 'val2';
 window.localStorage['key3'] = 'val3';
 assert(window.localStorage['key3'] == 'val3');
-</pre>You can use Map(http://api.dartlang.org/dart_core/Map.html) APIs such as containsValue(), clear(), and length: </p>
+</pre>You can use <code>Map</code>(http://api.dartlang.org/dart_core/Map.html) APIs such as containsValue(), clear(), and length: </p>
 <p><pre>assert(window.localStorage.containsValue('does not exist') == false);
 window.localStorage.clear();
 assert(window.localStorage.length == 0);
-</pre>For more examples of using this API, see localstorage_test.dart(http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/tests/html/localstorage_test.dart). For details on using the Map API, see the Maps(http://www.dartlang.org/docs/library-tour/#maps-aka-dictionaries-or-hashes) section of the library tour.</p>
+</pre>For more examples of using this API, see <code>localstorage_test.dart</code>(http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/tests/html/localstorage_test.dart). For details on using the Map API, see the <code>Maps</code>(http://www.dartlang.org/docs/library-tour/#maps-aka-dictionaries-or-hashes) section of the library tour.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Storage.isEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isEmpty</b>
@@ -35969,11 +35969,11 @@ assert(window.localStorage.length == 0);
 	<h4>Methods</h4>
 	<b><a id=Storage.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]'><i title='Overrides Map.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> [](<a href=dart.core.html#String>String</a> key)</b>
 	<div class=indent>
-		<p>Returns the value for the given key or null if key is not in the map. Because null values are supported, one should either use containsKey to distinguish between an absent key and a null value, or use the putIfAbsent method.</p>
+		<p>Returns the value for the given <code>key</code> or null if <code>key</code> is not in the map. Because null values are supported, one should either use <code>containsKey</code> to distinguish between an absent key and a null value, or use the <code>putIfAbsent</code> method.</p>
 	</div>
 	<b><a id=Storage.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]='><i title='Overrides Map.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#String>String</a> key, <a href=dart.core.html#String>String</a> value)</b>
 	<div class=indent>
-		<p>Associates the key with the given value.</p>
+		<p>Associates the <code>key</code> with the given <code>value</code>.</p>
 	</div>
 	<b><a id=Storage.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.clear'><i title='Overrides Map.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
@@ -35989,17 +35989,17 @@ assert(window.localStorage.length == 0);
 	</div>
 	<b><a id=Storage.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.forEach'><i title='Overrides Map.forEach()' class='icon-circle-arrow-up'></i></a> void forEach( f)</b>
 	<div class=indent>
-		<p>Applies f to each {key, value} pair of the map. </p>
+		<p>Applies <code>f</code> to each {key, value} pair of the map. </p>
 <p>It is an error to add or remove keys from the map during iteration.</p>
 	</div>
 	<b><a id=Storage.putIfAbsent></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.putIfAbsent'><i title='Overrides Map.putIfAbsent()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> putIfAbsent(<a href=dart.core.html#String>String</a> key,  ifAbsent)</b>
 	<div class=indent>
-		<p>If key is not associated to a value, calls ifAbsent and updates the map by mapping key to the value returned by ifAbsent. Returns the value in the map. </p>
-<p>It is an error to add or remove keys from the map during the call to ifAbsent.</p>
+		<p>If <code>key</code> is not associated to a value, calls <code>ifAbsent</code> and updates the map by mapping <code>key</code> to the value returned by <code>ifAbsent</code>. Returns the value in the map. </p>
+<p>It is an error to add or remove keys from the map during the call to <code>ifAbsent</code>.</p>
 	</div>
 	<b><a id=Storage.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.remove'><i title='Overrides Map.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> remove(<a href=dart.core.html#String>String</a> key)</b>
 	<div class=indent>
-		<p>Removes the association for the given key. Returns the value for key in the map or null if key is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
+		<p>Removes the association for the given <code>key</code>. Returns the value for <code>key</code> in the map or null if <code>key</code> is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
 	</div>
 	<a id=StorageEvent></a><hr>
 	<h4>
@@ -36973,14 +36973,14 @@ main() {
 	<i class=icon-ok-sign></i> static void bootstrap(<a href=dart.dom.html.html#Node>Node</a> content)</b>
 	<div class=indent>
 		<p>This used to decorate recursively all templates from a given node. </p>
-<p>By default decorate will be called on templates lazily when certain properties such as model are accessed, but it can be run eagerly to decorate an entire tree recursively.</p>
+<p>By default <code>decorate</code> will be called on templates lazily when certain properties such as <code>model</code> are accessed, but it can be run eagerly to decorate an entire tree recursively.</p>
 	</div>
 	<b><a id=TemplateElement.decorate></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-ok-sign></i> static <a href=dart.core.html#bool>bool</a> decorate(<a href=dart.dom.html.html#Element>Element</a> template, <a href=dart.dom.html.html#Element>Element</a> instanceRef)</b>
 	<div class=indent>
 		<p>Ensures proper API and content model for template elements. </p>
-<p>instanceRef can be used to set the Element.ref property of template, and use the ref's content will be used as source when createInstance() is invoked. </p>
+<p><code>instanceRef</code> can be used to set the <code>Element.ref</code> property of <code>template</code>, and use the ref's content will be used as source when createInstance() is invoked. </p>
 <p>Returns true if this template was just decorated, or false if it was already decorated.</p>
 	</div>
 	<b><a id=TemplateElement.setInnerHtml></a><i class=icon-ok-sign></i> <a href='dart.dom.html.html#Element.setInnerHtml'><i title='Overrides Element.setInnerHtml()' class='icon-circle-arrow-up'></i></a> void setInnerHtml(<a href=dart.core.html#String>String</a> html, <a href=dart.dom.html.html#NodeValidator>NodeValidator</a> validator, <a href=dart.dom.html.html#NodeTreeSanitizer>NodeTreeSanitizer</a> treeSanitizer)</b>
@@ -37014,7 +37014,7 @@ main() {
 	</div>
 	<b><a id=TemplateInstance.lastNode></a><i class=icon-minus-sign></i> final <a href=dart.dom.html.html#Node>Node</a> lastNode</b>
 	<div class=indent>
-		<p>The last node of this template instantiation. This could be identical to firstNode if the template only expanded to a single node.</p>
+		<p>The last node of this template instantiation. This could be identical to <code>firstNode</code> if the template only expanded to a single node.</p>
 	</div>
 	<b><a id=TemplateInstance.model></a><i class=icon-minus-sign></i> final dynamic model</b>
 	<div class=indent>
@@ -38143,17 +38143,17 @@ main() {
 	<h4>Methods</h4>
 	<b><a id=TextTrackCueList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#TextTrackCue>TextTrackCue</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=TextTrackCueList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#TextTrackCue>TextTrackCue</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=TextTrackCueList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#TextTrackCue>TextTrackCue</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=TextTrackCueList.getCueById></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -38255,11 +38255,11 @@ main() {
 	<div class=indent></div>
 	<b><a id=TextTrackList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#TextTrack>TextTrack</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=TextTrackList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#TextTrack>TextTrack</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=TextTrackList.dispatchEvent></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -38268,9 +38268,9 @@ main() {
 	<div class=indent></div>
 	<b><a id=TextTrackList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#TextTrack>TextTrack</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=TextTrackList.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -38696,17 +38696,17 @@ main() {
 	<h4>Methods</h4>
 	<b><a id=TouchList.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]'><i title='Overrides List.[]()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Touch>Touch</a> [](<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the object at the given index in the list or throws a RangeError if index is out of bounds.</p>
+		<p>Returns the object at the given <code>index</code> in the list or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=TouchList.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.[]='><i title='Overrides List.[]=()' class='icon-circle-arrow-up'></i></a> void []=(<a href=dart.core.html#int>int</a> index, <a href=dart.dom.html.html#Touch>Touch</a> value)</b>
 	<div class=indent>
-		<p>Sets the value at the given index in the list to value or throws a RangeError if index is out of bounds.</p>
+		<p>Sets the value at the given <code>index</code> in the list to <code>value</code> or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
 	</div>
 	<b><a id=TouchList.elementAt></a><i class=icon-ok-sign></i> <a href='dart.collection.html#ListMixin.elementAt'><i title='Overrides ListMixin.elementAt()' class='icon-circle-arrow-up'></i></a> <a href=dart.dom.html.html#Touch>Touch</a> elementAt(<a href=dart.core.html#int>int</a> index)</b>
 	<div class=indent>
-		<p>Returns the indexth element. </p>
-<p>If <code>this</code> has fewer than index elements throws a RangeError. </p>
-<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least index elements in <code>this</code>.</p>
+		<p>Returns the <code>index</code>th element. </p>
+<p>If <code>this</code> has fewer than <code>index</code> elements throws a <code>RangeError</code>. </p>
+<p>Note: if <code>this</code> does not have a deterministic iteration order then the function may simply return any element without any iteration if there are at least <code>index</code> elements in <code>this</code>.</p>
 	</div>
 	<b><a id=TouchList.item></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -39700,8 +39700,8 @@ main() {
 <p><pre>webSocket.onMessage.listen((MessageEvent e) {
   receivedData(e.data);
 });
-</pre>The message event handler receives a MessageEvent object as its sole argument. You can also define open, close, and error handlers, as specified by WebSocketEvents. </p>
-<p>For more information, see the WebSockets(http://www.dartlang.org/docs/library-tour/#html-websockets) section of the library tour and Introducing WebSockets(http://www.html5rocks.com/en/tutorials/websockets/basics/), an HTML5Rocks.com tutorial.</p>
+</pre>The message event handler receives a <code>MessageEvent</code> object as its sole argument. You can also define open, close, and error handlers, as specified by <code>WebSocketEvents</code>. </p>
+<p>For more information, see the <code>WebSockets</code>(http://www.dartlang.org/docs/library-tour/#html-websockets) section of the library tour and <code>Introducing WebSockets</code>(http://www.html5rocks.com/en/tutorials/websockets/basics/), an HTML5Rocks.com tutorial.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=WebSocket.CLOSED></a><i class="icon-info-sign icon-hidden"></i> @ 
@@ -39865,7 +39865,7 @@ main() {
 	<i class=icon-ok-sign></i> void send(dynamic data)</b>
 	<div class=indent>
 		<p>Transmit data to the server over this connection. </p>
-<p>This method accepts data of type Blob, ByteBuffer, String, or TypedData. Named variants sendBlob, sendByteBuffer, sendString, or sendTypedData, in constrast, only accept data of the specified type.</p>
+<p>This method accepts data of type <code>Blob</code>, <code>ByteBuffer</code>, <code>String</code>, or <code>TypedData</code>. Named variants <code>sendBlob</code>, <code>sendByteBuffer</code>, <code>sendString</code>, or <code>sendTypedData</code>, in constrast, only accept data of the specified type.</p>
 	</div>
 	<b><a id=WebSocket.sendBlob></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -40020,17 +40020,17 @@ main() {
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#num>num</a> get deltaX</b>
 	<div class=indent>
-		<p>The amount that is expected to scroll horizontally, in units determined by deltaMode. </p>
+		<p>The amount that is expected to scroll horizontally, in units determined by <code>deltaMode</code>. </p>
 <p>See also: </p>
-<p><ul><li>WheelEvent.deltaX(http://dev.w3.org/2006/webapi/DOM-Level-3-Events/html/DOM3-Events.html#events-WheelEvent-deltaX) from the W3C.</li></p>
+<p><ul><li><code>WheelEvent.deltaX</code>(http://dev.w3.org/2006/webapi/DOM-Level-3-Events/html/DOM3-Events.html#events-WheelEvent-deltaX) from the W3C.</li></p>
 	</div>
 	<b><a id=deltaY></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
 	<i class=icon-circle-arrow-right></i> <a href=dart.core.html#num>num</a> get deltaY</b>
 	<div class=indent>
-		<p>The amount that is expected to scroll vertically, in units determined by deltaMode. </p>
+		<p>The amount that is expected to scroll vertically, in units determined by <code>deltaMode</code>. </p>
 <p>See also: </p>
-<p><ul><li>WheelEvent.deltaY(http://dev.w3.org/2006/webapi/DOM-Level-3-Events/html/DOM3-Events.html#events-WheelEvent-deltaY) from the W3C.</li></p>
+<p><ul><li><code>WheelEvent.deltaY</code>(http://dev.w3.org/2006/webapi/DOM-Level-3-Events/html/DOM3-Events.html#events-WheelEvent-deltaY) from the W3C.</li></p>
 	</div>
 	<b><a id=deltaZ></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -40680,9 +40680,9 @@ main() {
 	<b><a id=animationFrame></a><i class=icon-circle-arrow-right></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#num>num</a>&gt; get animationFrame</b>
 	<div class=indent>
 		<p>Returns a Future that completes just before the window is about to repaint so the user can draw an animation frame. </p>
-<p>If you need to later cancel this animation, use requestAnimationFrame instead. </p>
-<p>The Future completes to a timestamp that represents a floating point value of the number of milliseconds that have elapsed since the page started to load (which is also the timestamp at this call to animationFrame). </p>
-<p>Note: The code that runs when the future completes should call animationFrame again for the animation to continue.</p>
+<p>If you need to later cancel this animation, use <code>requestAnimationFrame</code> instead. </p>
+<p>The <code>Future</code> completes to a timestamp that represents a floating point value of the number of milliseconds that have elapsed since the page started to load (which is also the timestamp at this call to animationFrame). </p>
+<p>Note: The code that runs when the future completes should call <code>animationFrame</code> again for the animation to continue.</p>
 	</div>
 	<b><a id=applicationCache></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41247,7 +41247,7 @@ main() {
 	<div class=indent></div>
 	<b><a id=supportsPointConversions></a><i class=icon-circle-arrow-right></i> static <a href=dart.core.html#bool>bool</a> get supportsPointConversions</b>
 	<div class=indent>
-		<p>Checks whether convertPointFromNodeToPage and convertPointFromPageToNode are supported on the current platform.</p>
+		<p>Checks whether <code>convertPointFromNodeToPage</code> and <code>convertPointFromPageToNode</code> are supported on the current platform.</p>
 	</div>
 	<b><a id=toolbar></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41307,7 +41307,7 @@ main() {
 	<i class=icon-ok-sign></i> <a href='dart.dom.html.html#WindowBase.close'><i title='Overrides WindowBase.close()' class='icon-circle-arrow-up'></i></a> void close()</b>
 	<div class=indent>
 		<p>Closes the window. </p>
-<p>This method should only succeed if the WindowBase object is <i></i>script-closeable<i></i> and the window calling close is allowed to navigate the window. </p>
+<p>This method should only succeed if the <code>WindowBase</code> object is <i></i>script-closeable<i></i> and the window calling <code>close</code> is allowed to navigate the window. </p>
 <p>A window is script-closeable if it is either a window that was opened by another window, or if it is a window with only one document in its history. </p>
 <p>A window might not be allowed to navigate, and therefore close, another window due to browser security features. </p>
 <p><pre>var other = window.open('http://www.example.com', 'foo');
@@ -41320,7 +41320,7 @@ window.location('http://www.mysite.com', 'foo');
 window.close();
 print(window.closed()); // 'false'
 </pre>See also: </p>
-<p><ul><li>Window close discussion(http://www.w3.org/TR/html5/browsers.html#dom-window-close) from the W3C</li></p>
+<p><ul><li><code>Window close discussion</code>(http://www.w3.org/TR/html5/browsers.html#dom-window-close) from the W3C</li></p>
 	</div>
 	<b><a id=Window.confirm></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41343,7 +41343,7 @@ print(window.closed()); // 'false'
 	<div class=indent></div>
 	<b><a id=Window.deregisterPort></a><i class=icon-ok-sign></i> void deregisterPort(<a href=dart.core.html#String>String</a> name)</b>
 	<div class=indent>
-		<p>Deregister a port on this window under the given name.  This port may be retrieved by any isolate (or JavaScript script) running in this window.</p>
+		<p>Deregister a <code>port</code> on this window under the given <code>name</code>.  This port may be retrieved by any isolate (or JavaScript script) running in this window.</p>
 	</div>
 	<b><a id=Window.dispatchEvent></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41369,7 +41369,7 @@ print(window.closed()); // 'false'
 	<div class=indent></div>
 	<b><a id=Window.lookupPort></a><i class=icon-ok-sign></i> <a href=dart.isolate.html#SendPortSync>SendPortSync</a> lookupPort(<a href=dart.core.html#String>String</a> name)</b>
 	<div class=indent>
-		<p>Lookup a port by its name.  Return null if no port is registered under name.</p>
+		<p>Lookup a port by its <code>name</code>.  Return null if no port is registered under <code>name</code>.</p>
 	</div>
 	<b><a id=Window.matchMedia></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41409,7 +41409,7 @@ print(window.closed()); // 'false'
 	<div class=indent></div>
 	<b><a id=Window.registerPort></a><i class=icon-ok-sign></i> void registerPort(<a href=dart.core.html#String>String</a> name, dynamic port)</b>
 	<div class=indent>
-		<p>Register a port on this window under the given name.  This port may be retrieved by any isolate (or JavaScript script) running in this window.</p>
+		<p>Register a <code>port</code> on this window under the given <code>name</code>.  This port may be retrieved by any isolate (or JavaScript script) running in this window.</p>
 	</div>
 	<b><a id=Window.releaseEvents></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41424,7 +41424,7 @@ print(window.closed()); // 'false'
 	<div class=indent></div>
 	<b><a id=Window.requestFileSystem></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.dom.html.html#FileSystem>FileSystem</a>&gt; requestFileSystem(<a href=dart.core.html#int>int</a> size, <a href=dart.core.html#bool>bool</a> persistent)</b>
 	<div class=indent>
-		<p>Access a sandboxed file system of the specified <code>size</code>. If <code>persistent</code> is true, the application will request permission from the user to create lasting storage. This storage cannot be freed without the user's permission. Returns a Future whose value stores a reference to the sandboxed file system for use. Because the file system is sandboxed, applications cannot access file systems created in other web pages.</p>
+		<p>Access a sandboxed file system of the specified <code>size</code>. If <code>persistent</code> is true, the application will request permission from the user to create lasting storage. This storage cannot be freed without the user's permission. Returns a <code>Future</code> whose value stores a reference to the sandboxed file system for use. Because the file system is sandboxed, applications cannot access file systems created in other web pages.</p>
 	</div>
 	<b><a id=Window.resizeBy></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41455,8 +41455,8 @@ print(window.closed()); // 'false'
 	<div class=indent></div>
 	<b><a id=Window.setImmediate></a><i class=icon-ok-sign></i> void setImmediate(<a href=dart.dom.html.html#TimeoutHandler>TimeoutHandler</a> callback)</b>
 	<div class=indent>
-		<p>Executes a callback after the immediate execution stack has completed. </p>
-<p>This differs from using Timer.run(callback) because Timer will run in about 4-15 milliseconds, depending on browser, depending on load. setImmediate, in contrast, makes browser-specific changes in behavior to attempt to run immediately after the current frame unwinds, causing the future to complete after all processing has completed for the current event, but before any subsequent events.</p>
+		<p>Executes a <code>callback</code> after the immediate execution stack has completed. </p>
+<p>This differs from using Timer.run(callback) because Timer will run in about 4-15 milliseconds, depending on browser, depending on load. <code>setImmediate</code>, in contrast, makes browser-specific changes in behavior to attempt to run immediately after the current frame unwinds, causing the future to complete after all processing has completed for the current event, but before any subsequent events.</p>
 	</div>
 	<b><a id=Window.showModalDialog></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -41509,10 +41509,10 @@ print(window.closed()); // 'false'
 	</dl>
 	<div class=indent>
 		<p>An object representing the top-level context object for web scripting. </p>
-<p>In a web browser, a Window object represents the actual browser window. In a multi-tabbed browser, each tab has its own Window object. A Window is the container that displays a Document's content. All web scripting happens within the context of a Window object. </p>
-<p><i></i>Note:<i></i> This class represents any window, whereas Window is used to access the properties and content of the current window. </p>
+<p>In a web browser, a <code>Window</code> object represents the actual browser window. In a multi-tabbed browser, each tab has its own <code>Window</code> object. A <code>Window</code> is the container that displays a <code>Document</code>'s content. All web scripting happens within the context of a <code>Window</code> object. </p>
+<p><i></i>Note:<i></i> This class represents any window, whereas <code>Window</code> is used to access the properties and content of the current window. </p>
 <p>See also: </p>
-<p><ul><li>DOM Window(https://developer.mozilla.org/en-US/docs/DOM/window) from MDN.</li><li>Window(http://www.w3.org/TR/Window/) from the W3C.</li></p>
+<p><ul><li><code>DOM Window</code>(https://developer.mozilla.org/en-US/docs/DOM/window) from MDN.</li><li><code>Window</code>(http://www.w3.org/TR/Window/) from the W3C.</li></p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=WindowBase.closed></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> closed</b>
@@ -41556,7 +41556,7 @@ print(otherWindow.opener == thisWindow); // 'true'
 	<b><a id=parent></a><i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#WindowBase>WindowBase</a> get parent</b>
 	<div class=indent>
 		<p>A reference to the parent of this window. </p>
-<p>If this WindowBase has no parent, parent will return a reference to the WindowBase itself. </p>
+<p>If this <code>WindowBase</code> has no parent, <code>parent</code> will return a reference to the <code>WindowBase</code> itself. </p>
 <p><pre>IFrameElement myIFrame = new IFrameElement();
 window.document.body.elements.add(myIFrame);
 print(myIframe.contentWindow.parent == window) // 'true'
@@ -41567,7 +41567,7 @@ print(window.parent == window) // 'true'
 	<b><a id=top></a><i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#WindowBase>WindowBase</a> get top</b>
 	<div class=indent>
 		<p>A reference to the topmost window in the window hierarchy. </p>
-<p>If this WindowBase is the topmost WindowBase, top will return a reference to the WindowBase itself. </p>
+<p>If this <code>WindowBase</code> is the topmost <code>WindowBase</code>, <code>top</code> will return a reference to the <code>WindowBase</code> itself. </p>
 <p><pre>// Add an IFrame to the current window.
 IFrameElement myIFrame = new IFrameElement();
 window.document.body.elements.add(myIFrame);
@@ -41589,7 +41589,7 @@ print(window.top == window) // 'true'
 	<b><a id=WindowBase.close></a><i class=icon-ok-sign></i> void close()</b>
 	<div class=indent>
 		<p>Closes the window. </p>
-<p>This method should only succeed if the WindowBase object is <i></i>script-closeable<i></i> and the window calling close is allowed to navigate the window. </p>
+<p>This method should only succeed if the <code>WindowBase</code> object is <i></i>script-closeable<i></i> and the window calling <code>close</code> is allowed to navigate the window. </p>
 <p>A window is script-closeable if it is either a window that was opened by another window, or if it is a window with only one document in its history. </p>
 <p>A window might not be allowed to navigate, and therefore close, another window due to browser security features. </p>
 <p><pre>var other = window.open('http://www.example.com', 'foo');
@@ -41602,7 +41602,7 @@ window.location('http://www.mysite.com', 'foo');
 window.close();
 print(window.closed()); // 'false'
 </pre>See also: </p>
-<p><ul><li>Window close discussion(http://www.w3.org/TR/html5/browsers.html#dom-window-close) from the W3C</li></p>
+<p><ul><li><code>Window close discussion</code>(http://www.w3.org/TR/html5/browsers.html#dom-window-close) from the W3C</li></p>
 	</div>
 	<b><a id=WindowBase.postMessage></a><i class=icon-ok-sign></i> void postMessage(dynamic message, <a href=dart.core.html#String>String</a> targetOrigin, <a href=dart.core.html#List>List</a>&lt;dynamic&gt; messagePorts)</b>
 	<div class=indent></div>
