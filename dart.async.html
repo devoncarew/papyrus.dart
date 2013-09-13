@@ -443,7 +443,7 @@ future.then((int value) =&gt; bar(value))
 	<b><a id=Future.sync></a><i class=icon-plus-sign></i> factory Future.sync(&lt;T&gt; computation)</b>
 	<div class=indent>
 		<p>Creates a future containing the result of immediately calling <code>computation</code>. </p>
-<p>if the result of executing <code>computation</code> throws, the returned future is completed with the error. If a thrown value is an <code>AsyncError</code>, it is used directly, instead of wrapping this error again in another <code>AsyncError</code>. </p>
+<p>If calling <code>computation</code> throws, the returned future is completed with the error. If a thrown value is an <code>AsyncError</code>, it is used directly, instead of wrapping this error again in another <code>AsyncError</code>. </p>
 <p>If the returned value is itself a <code>Future</code>, completion of the created future will wait until the returned future completes, and will then complete with the same result.</p>
 	</div>
 	<b><a id=Future.value></a><i class=icon-plus-sign></i> factory Future.value(T value)</b>

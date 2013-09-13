@@ -2767,7 +2767,7 @@ Iterable&lt;Match&gt; matches = exp.allMatches(str);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A simple <code>Stopwatch</code> interface to measure elapsed time.</p>
+		<p>A simple stopwatch interface to measure elapsed time.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Stopwatch.elapsed></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Duration>Duration</a> elapsed</b>
@@ -3338,6 +3338,7 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#authority>authority</a>: <a href=dart.core.html#String>String</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#hasAuthority>hasAuthority</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#hashCode>hashCode</a>: <a href=dart.core.html#int>int</a><br>
+			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#host>host</a>: <a href=dart.core.html#String>String</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#isAbsolute>isAbsolute</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#origin>origin</a>: <a href=dart.core.html#String>String</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#path>path</a>: <a href=dart.core.html#String>String</a><br>
@@ -3347,7 +3348,7 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 		</dd>
 		<dt>Constructors</dt>
 		<dd>
-			<i class=icon-plus-sign></i> <a href=dart.core.html#Uri.>Uri</a>(dynamic scheme, <a href=dart.core.html#String>String</a> userInfo, <a href=dart.core.html#String>String</a> host, dynamic port, <a href=dart.core.html#String>String</a> path, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; pathSegments, <a href=dart.core.html#String>String</a> query, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; queryParameters, dynamic fragment)<br>
+			<i class=icon-plus-sign></i> <a href=dart.core.html#Uri.>Uri</a>(<a href=dart.core.html#String>String</a> scheme, <a href=dart.core.html#String>String</a> userInfo, <a href=dart.core.html#String>String</a> host, dynamic port, <a href=dart.core.html#String>String</a> path, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; pathSegments, <a href=dart.core.html#String>String</a> query, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; queryParameters, dynamic fragment)<br>
 			<i class=icon-plus-sign></i> <a href=dart.core.html#Uri.file>Uri.file</a>(<a href=dart.core.html#String>String</a> path, <a href=dart.core.html#bool>bool</a> windows)<br>
 			<i class=icon-plus-sign></i> <a href=dart.core.html#Uri.http>Uri.http</a>(<a href=dart.core.html#String>String</a> authority, <a href=dart.core.html#String>String</a> unencodedPath, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; queryParameters)<br>
 			<i class=icon-plus-sign></i> <a href=dart.core.html#Uri.https>Uri.https</a>(<a href=dart.core.html#String>String</a> authority, <a href=dart.core.html#String>String</a> unencodedPath, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; queryParameters)<br>
@@ -3357,14 +3358,16 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.==>==</a>(dynamic other): <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.decodeComponent>decodeComponent</a>(<a href=dart.core.html#String>String</a> encodedComponent): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.decodeFull>decodeFull</a>(<a href=dart.core.html#String>String</a> uri): <a href=dart.core.html#String>String</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.decodeQueryComponent>decodeQueryComponent</a>(<a href=dart.core.html#String>String</a> encodedComponent,  decode): <a href=dart.core.html#String>String</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.decodeQueryComponent>decodeQueryComponent</a>(<a href=dart.core.html#String>String</a> encodedComponent, <a href=dart.convert.html#Encoding>Encoding</a> encoding): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.encodeComponent>encodeComponent</a>(<a href=dart.core.html#String>String</a> component): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.encodeFull>encodeFull</a>(<a href=dart.core.html#String>String</a> uri): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.encodeQueryComponent>encodeQueryComponent</a>(<a href=dart.core.html#String>String</a> component): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.parse>parse</a>(<a href=dart.core.html#String>String</a> uri): <a href=dart.core.html#Uri>Uri</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.parseIPv4Address>parseIPv4Address</a>(<a href=dart.core.html#String>String</a> host): <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt;<br>
+			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.parseIPv6Address>parseIPv6Address</a>(<a href=dart.core.html#String>String</a> host): <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.resolve>resolve</a>(<a href=dart.core.html#String>String</a> reference): <a href=dart.core.html#Uri>Uri</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.resolveUri>resolveUri</a>(<a href=dart.core.html#Uri>Uri</a> reference): <a href=dart.core.html#Uri>Uri</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.splitQueryString>splitQueryString</a>(<a href=dart.core.html#String>String</a> query,  decode): <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt;<br>
+			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.splitQueryString>splitQueryString</a>(<a href=dart.core.html#String>String</a> query, <a href=dart.convert.html#Encoding>Encoding</a> encoding): <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.toFilePath>toFilePath</a>(<a href=dart.core.html#bool>bool</a> windows): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Uri.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
 		</dd>
@@ -3385,10 +3388,7 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 	<b><a id=Uri.hashCode></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> hashCode</b>
 	<div class=indent></div>
 	<b><a id=Uri.host></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> host</b>
-	<div class=indent>
-		<p>Returns the host part of the authority component. </p>
-<p>Returns the empty string if there is no authority component and hence no host.</p>
-	</div>
+	<div class=indent></div>
 	<b><a id=Uri.isAbsolute></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isAbsolute</b>
 	<div class=indent></div>
 	<b><a id=Uri.origin></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> origin</b>
@@ -3429,6 +3429,12 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 	</div>
 	<b><a id=hashCode></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#int>int</a> get hashCode</b>
 	<div class=indent></div>
+	<b><a id=host></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#String>String</a> get host</b>
+	<div class=indent>
+		<p>Returns the host part of the authority component. </p>
+<p>Returns the empty string if there is no authority component and hence no host. </p>
+<p>If the host is an IP version 6 address, the surrounding <code><code></code> and <code></code></code> is removed.</p>
+	</div>
 	<b><a id=isAbsolute></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isAbsolute</b>
 	<div class=indent>
 		<p>Returns whether the URI is absolute.</p>
@@ -3462,13 +3468,13 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 <p>The returned map is unmodifiable and will throw <code>UnsupportedError</code> on any calls that would mutate it.</p>
 	</div>
 	<h4>Constructors</h4>
-	<b><a id=Uri.></a><i class=icon-plus-sign></i> Uri(dynamic scheme, <a href=dart.core.html#String>String</a> userInfo, <a href=dart.core.html#String>String</a> host, dynamic port, <a href=dart.core.html#String>String</a> path, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; pathSegments, <a href=dart.core.html#String>String</a> query, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; queryParameters, dynamic fragment)</b>
+	<b><a id=Uri.></a><i class=icon-plus-sign></i> Uri(<a href=dart.core.html#String>String</a> scheme, <a href=dart.core.html#String>String</a> userInfo, <a href=dart.core.html#String>String</a> host, dynamic port, <a href=dart.core.html#String>String</a> path, <a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#String>String</a>&gt; pathSegments, <a href=dart.core.html#String>String</a> query, <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; queryParameters, dynamic fragment)</b>
 	<div class=indent>
 		<p>Creates a new URI from its components. </p>
 <p>Each component is set through a named argument. Any number of components can be provided. The default value for the components not provided is the empry string, except for <code>port</code> which has a default value of 0. The <code>path</code> and <code>query</code> components can be set using two different named arguments. </p>
 <p>The scheme component is set through <code>scheme</code>. The scheme is normalized to all lowercase letters. </p>
 <p>The user info part of the authority component is set through <code>userInfo</code>. </p>
-<p>The host part of the authority component is set through <code>host</code>. The host can either be a hostname, a IPv4 address or an IPv6 address, contained in '<code>' and '</code>'. If the host contains a ':' character, the '<code>' and '</code>' are added if not already provided. </p>
+<p>The host part of the authority component is set through <code>host</code>. The host can either be a hostname, an IPv4 address or an IPv6 address, contained in '<code>' and '</code>'. If the host contains a ':' character, the '<code>' and '</code>' are added if not already provided. </p>
 <p>The port part of the authority component is set through <code>port</code>. The port is normalized for scheme http and https where port 80 and port 443 respectively is set. </p>
 <p>The path component is set through either <code>path</code> or <code>pathSegments</code>. When <code>path</code> is used, the provided string is expected to be fully percent-encoded, and is used in its literal form. When <code>pathSegments</code> is used, each of the provided segments is percent-encoded and joined using the forward slash separator. The percent-encoding of the path segments encodes all characters except for the unreserved characters and the following list of characters: <code>!$&amp;'()*+,;=:@</code>. If the other components calls for an absolute path a leading slash <code>/</code> is prepended if not already there. </p>
 <p>The query component is set through either <code>query</code> or <code>queryParameters</code>. When <code>query</code> is used the provided string is expected to be fully percent-encoded and is used in its literal form. When <code>queryParameters</code> is used the query is built from the provided map. Each key and value in the map is percent-encoded and joined using equal and ampersand characters. The percent-encoding of the keys and values encodes all characters except for the unreserved characters. </p>
@@ -3546,15 +3552,15 @@ new Uri.http("example.org, "/a%2F");  // http://example.org/a%25%2F
 		<p>Decodes the percent-encoding in <code>uri</code>. </p>
 <p>Note that decoding a full URI might change its meaning as some of the decoded characters could be reserved characters. In most cases an encoded URI should be parsed into components using <code>Uri.parse</code> before decoding the separate components.</p>
 	</div>
-	<b><a id=Uri.decodeQueryComponent></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeQueryComponent(<a href=dart.core.html#String>String</a> encodedComponent,  decode)</b>
+	<b><a id=Uri.decodeQueryComponent></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> decodeQueryComponent(<a href=dart.core.html#String>String</a> encodedComponent, <a href=dart.convert.html#Encoding>Encoding</a> encoding)</b>
 	<div class=indent>
 		<p>Decodes the percent-encoding in <code>encodedComponent</code>, converting pluses to spaces. </p>
-<p>It will create a byte-list of the decoded characters, and then use <code>decode</code> to decode the byte-list to a String. Default is a UTF-8 decoder.</p>
+<p>It will create a byte-list of the decoded characters, and then use <code>encoding</code> to decode the byte-list to a String. The default encoding is UTF-8.</p>
 	</div>
 	<b><a id=Uri.encodeComponent></a><i class=icon-ok-sign></i> static <a href=dart.core.html#String>String</a> encodeComponent(<a href=dart.core.html#String>String</a> component)</b>
 	<div class=indent>
 		<p>Encode the string <code>component</code> using percent-encoding to make it safe for literal use as a URI component. </p>
-<p>All characters except uppercase and lowercase letters, digits and the characters <code>!$&amp;'()*+,;=:@</code> are percent-encoded. This is the set of characters specified in RFC 2396 and the which is specified for the encodeUriComponent in ECMA-262 version 5.1. </p>
+<p>All characters except uppercase and lowercase letters, digits and the characters <code>-_.!~*'()</code> are percent-encoded. This is the set of characters specified in RFC 2396 and the which is specified for the encodeUriComponent in ECMA-262 version 5.1. </p>
 <p>When manually encoding path segments or query components remember to encode each part separately before building the path or query string. </p>
 <p>For encoding the query part consider using <code>encodeQueryComponent</code>. </p>
 <p>To avoid the need for explicitly encoding use the <code>pathSegments</code> and <code>queryParameters</code> optional named arguments when constructing a <code>Uri</code>.</p>
@@ -3576,6 +3582,17 @@ new Uri.http("example.org, "/a%2F");  // http://example.org/a%25%2F
 	<div class=indent>
 		<p>Creates a new URI object by parsing a URI string.</p>
 	</div>
+	<b><a id=Uri.parseIPv4Address></a><i class=icon-ok-sign></i> static <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; parseIPv4Address(<a href=dart.core.html#String>String</a> host)</b>
+	<div class=indent>
+		<p>Parse the <code>host</code> as an IP version 4 (IPv4) address, returning the address as a list of 4 bytes in network byte order (big endian). </p>
+<p>Throws a <code>FormatException</code> if <code>host</code> is not a valid IPv4 address representation.</p>
+	</div>
+	<b><a id=Uri.parseIPv6Address></a><i class=icon-ok-sign></i> static <a href=dart.core.html#List>List</a>&lt;<a href=dart.core.html#int>int</a>&gt; parseIPv6Address(<a href=dart.core.html#String>String</a> host)</b>
+	<div class=indent>
+		<p>Parse the <code>host</code> as an IP version 6 (IPv6) address, returning the address as a list of 16 bytes in network byte order (big endian). </p>
+<p>Throws a <code>FormatException</code> if <code>host</code> is not a valid IPv6 address representation. </p>
+<p>Some examples of IPv6 addresses: <ul><li>::1</li></ul><ul><li>FEDC:BA98:7654:3210:FEDC:BA98:7654:3210</li></ul><ul><li>3ffe:2a00:100:7031::1</li></ul><ul><li>::FFFF:129.144.52.38</li></ul><ul><li>2010:836B:4179::836B:4179</li></p>
+	</div>
 	<b><a id=Uri.resolve></a><i class=icon-ok-sign></i> <a href=dart.core.html#Uri>Uri</a> resolve(<a href=dart.core.html#String>String</a> reference)</b>
 	<div class=indent>
 		<p>Resolve <code>reference</code> as an URI relative to <code>this</code>. </p>
@@ -3589,11 +3606,11 @@ new Uri.http("example.org, "/a%2F");  // http://example.org/a%25%2F
 <p>Returns the resolved URI. </p>
 <p>The algorithm for resolving a reference is described in <code>RFC-3986 Section 5</code> (http://tools.ietf.org/html/rfc3986#section-5 "RFC-1123").</p>
 	</div>
-	<b><a id=Uri.splitQueryString></a><i class=icon-ok-sign></i> static <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; splitQueryString(<a href=dart.core.html#String>String</a> query,  decode)</b>
+	<b><a id=Uri.splitQueryString></a><i class=icon-ok-sign></i> static <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#String>String</a>, <a href=dart.core.html#String>String</a>&gt; splitQueryString(<a href=dart.core.html#String>String</a> query, <a href=dart.convert.html#Encoding>Encoding</a> encoding)</b>
 	<div class=indent>
 		<p>Returns the <code>query</code> split into a map according to the rules specified for FORM post in the <code>HTML 4.01 specification section 17.13.4</code> (http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.4 "HTML 4.01 section 17.13.4"). Each key and value in the returned map has been decoded. If the <code>query</code> is the empty string an empty map is returned. </p>
 <p>Keys in the query string that have no value are mapped to the empty string. </p>
-<p>Each query component will be decoded using <code>decode</code>. Default is a UTF-8 decoder.</p>
+<p>Each query component will be decoded using <code>encoding</code>. The default encoding is UTF-8.</p>
 	</div>
 	<b><a id=Uri.toFilePath></a><i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> toFilePath(<a href=dart.core.html#bool>bool</a> windows)</b>
 	<div class=indent>
@@ -3687,7 +3704,8 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Representation of Dart doubles containing double specific constants and operations and specializations of operations inherited from <code>num</code>. Dart doubles are 64-bit floating-point numbers as specified in the IEEE 754 standard. </p>
+		<p>A double-precision floating point number. </p>
+<p>Representation of Dart doubles containing double specific constants and operations and specializations of operations inherited from <code>num</code>. Dart doubles are 64-bit floating-point numbers as specified in the IEEE 754 standard. </p>
 <p>The <code>double</code> type is contagious. Operations on <code>double</code>s return <code>double</code> results. </p>
 <p>It is a compile-time error for a class to attempt to extend or implement double.</p>
 	</div>
@@ -3820,11 +3838,13 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 	<dl class=dl-horizontal>
 		<dt>Fields</dt>
 		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.core.html#int.bitLength>bitLength</a>: <a href=dart.core.html#int>int</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.core.html#int.isEven>isEven</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.core.html#int.isOdd>isOdd</a>: <a href=dart.core.html#bool>bool</a><br>
 		</dd>
 		<dt>Getters and Setters</dt>
 		<dd>
+			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#bitLength>bitLength</a>: <a href=dart.core.html#int>int</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#isEven>isEven</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.core.html#isOdd>isOdd</a>: <a href=dart.core.html#bool>bool</a><br>
 		</dd>
@@ -3847,7 +3867,9 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.round>round</a>(): <a href=dart.core.html#int>int</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.roundToDouble>roundToDouble</a>(): <a href=dart.core.html#double>double</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.toRadixString>toRadixString</a>(<a href=dart.core.html#int>int</a> radix): <a href=dart.core.html#String>String</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.core.html#int.toSigned>toSigned</a>(<a href=dart.core.html#int>int</a> width): <a href=dart.core.html#int>int</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.core.html#int.toUnsigned>toUnsigned</a>(<a href=dart.core.html#int>int</a> width): <a href=dart.core.html#int>int</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.truncate>truncate</a>(): <a href=dart.core.html#int>int</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.truncateToDouble>truncateToDouble</a>(): <a href=dart.core.html#double>double</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.core.html#int.unary->unary-</a>(): <a href=dart.core.html#int>int</a><br>
@@ -3862,11 +3884,30 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 <p>It is a compile-time error for a class to attempt to extend or implement int.</p>
 	</div>
 	<h4>Fields</h4>
+	<b><a id=int.bitLength></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> bitLength</b>
+	<div class=indent></div>
 	<b><a id=int.isEven></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isEven</b>
 	<div class=indent></div>
 	<b><a id=int.isOdd></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isOdd</b>
 	<div class=indent></div>
 	<h4>Getters and Setters</h4>
+	<b><a id=bitLength></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#int>int</a> get bitLength</b>
+	<div class=indent>
+		<p>Returns the minimum number of bits required to store this integer. </p>
+<p>The number of bits excludes the sign bit, which gives the natural length for non-negative (unsigned) values.  Negative values are complemented to return the bit position of the first bit that differs from the sign bit. </p>
+<p>To find the the number of bits needed to store the value as a signed value, add one, i.e. use <code>x.bitLength + 1</code>. </p>
+<p><pre> x.bitLength == (-x-1).bitLength
+
+ 3.bitLength == 2;     // 00000011
+ 2.bitLength == 2;     // 00000010
+ 1.bitLength == 1;     // 00000001
+ 0.bitLength == 0;     // 00000000
+ (-1).bitLength == 0;  // 11111111
+ (-2).bitLength == 1;  // 11111110
+ (-3).bitLength == 2;  // 11111101
+ (-4).bitLength == 2;  // 11111100
+</pre></p>
+	</div>
 	<b><a id=isEven></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isEven</b>
 	<div class=indent>
 		<p>Returns true if and only if this integer is even.</p>
@@ -3949,10 +3990,35 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 <p>In the string representation, lower-case letters are used for digits above '9'. </p>
 <p>The <code>radix</code> argument must be an integer in the range 2 to 36.</p>
 	</div>
+	<b><a id=int.toSigned></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> toSigned(<a href=dart.core.html#int>int</a> width)</b>
+	<div class=indent>
+		<p>Returns the least significant <code>width</code> bits of this integer, extending the highest retained bit to the sign.  This is the same as truncating the value to fit in <code>width</code> bits using an signed 2-s complement representation.  The returned value has the same bit value in all positions higher than <code>width</code>. </p>
+<p><pre>                               V--sign bit-V
+16.toSigned(5) == -16   //  00010000 -&gt; 11110000
+239.toSigned(5) == 15   //  11101111 -&gt; 00001111
+                               ^           ^
+</pre>This operation can be used to simulate arithmetic from low level languages. For example, to increment an 8 bit signed quantity: </p>
+<p><pre>q = (q + 1).toSigned(8);
+</pre><code>q</code> will count from <code>0</code> up to <code>127</code>, wrap to <code>-128</code> and count back up to <code>127</code>. </p>
+<p>If the input value fits in <code>width</code> bits without truncation, the result is the same as the input.  The minimum width needed to avoid truncation of <code>x</code> is <code>x.bitLength + 1</code>, i.e. </p>
+<p><pre>x == x.toSigned(x.bitLength + 1);
+</pre></p>
+	</div>
 	<b><a id=int.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#num.toString'><i title='Overrides num.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
 		<p>Returns a String-representation of this integer. </p>
 <p>The returned string is parsable by <code>parse</code>. For any <code>int</code> <code>i</code>, it is guaranteed that <code>i == int.parse(i.toString())</code>.</p>
+	</div>
+	<b><a id=int.toUnsigned></a><i class=icon-ok-sign></i> <a href=dart.core.html#int>int</a> toUnsigned(<a href=dart.core.html#int>int</a> width)</b>
+	<div class=indent>
+		<p>Returns the least significant <code>width</code> bits of this integer as a non-negative number (i.e. unsigned representation).  The returned value has zeros in all bit positions higher than <code>width</code>. </p>
+<p><pre>(-1).toUnsigned(5) == 32   // 11111111  -&gt;  00011111
+</pre>This operation can be used to simulate arithmetic from low level languages. For example, to increment an 8 bit quantity: </p>
+<p><pre>q = (q + 1).toUnsigned(8);
+</pre><code>q</code> will count from <code>0</code> up to <code>255</code> and then wrap around to <code>0</code>. </p>
+<p>If the input fits in <code>width</code> bits without truncation, the result is the same as the input.  The minimum width needed to avoid truncation of <code>x</code> is given by <code>x.bitLength</code>, i.e. </p>
+<p><pre>x == x.toUnsigned(x.bitLength);
+</pre></p>
 	</div>
 	<b><a id=int.truncate></a><i class=icon-ok-sign></i> <a href='dart.core.html#num.truncate'><i title='Overrides num.truncate()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#int>int</a> truncate()</b>
 	<div class=indent>

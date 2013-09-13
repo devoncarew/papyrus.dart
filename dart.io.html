@@ -490,10 +490,12 @@
 		</dd>
 		<dt>Fields</dt>
 		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#Directory.absolute>absolute</a>: <a href=dart.io.html#Directory>Directory</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.io.html#Directory.path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
 		<dt>Getters and Setters</dt>
 		<dd>
+			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#absolute>absolute</a>: <a href=dart.io.html#Directory>Directory</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#current>current</a>: <a href=dart.io.html#Directory>Directory</a><br>
 			<i class=icon-circle-arrow-left></i> <a href=dart.io.html#current=>current=</a>(dynamic path)<br>
 		</dd>
@@ -521,11 +523,18 @@
 	<b><a id=Directory.current></a><i class=icon-minus-sign></i> static <a href=dart.io.html#Directory>Directory</a> current</b>
 	<div class=indent></div>
 	<h4>Fields</h4>
+	<b><a id=Directory.absolute></a><i class=icon-minus-sign></i> final <a href=dart.io.html#Directory>Directory</a> absolute</b>
+	<div class=indent></div>
 	<b><a id=Directory.path></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> path</b>
 	<div class=indent>
 		<p>Gets the path of this directory.</p>
 	</div>
 	<h4>Getters and Setters</h4>
+	<b><a id=absolute></a><i class=icon-circle-arrow-right></i> <a href=dart.io.html#Directory>Directory</a> get absolute</b>
+	<div class=indent>
+		<p>Returns a <code>Directory</code> instance whose path is the absolute path to <code>this</code>. </p>
+<p>The absolute path is computed by prefixing a relative path with the current working directory, and returning an absolute path unchanged.</p>
+	</div>
 	<b><a id=current></a><i class=icon-circle-arrow-right></i> static <a href=dart.io.html#Directory>Directory</a> get current</b>
 	<div class=indent>
 		<p>Creates a directory object pointing to the current working directory.</p>
@@ -633,11 +642,13 @@
 	<dl class=dl-horizontal>
 		<dt>Fields</dt>
 		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#File.absolute>absolute</a>: <a href=dart.io.html#File>File</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.io.html#File.directory>directory</a>: <a href=dart.io.html#Directory>Directory</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.io.html#File.path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
 		<dt>Getters and Setters</dt>
 		<dd>
+			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#absolute>absolute</a>: <a href=dart.io.html#File>File</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#directory>directory</a>: <a href=dart.io.html#Directory>Directory</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
@@ -680,11 +691,18 @@
 <p><ul><li>Use streaming: read the contents of the file from the <code>Stream</code></li></ul>this.<a href=dart.io.html#File.openRead>openRead()</a>() and write to the file by writing to the <code>IOSink</code> this.<a href=dart.io.html#File.openWrite>openWrite()</a>(). <ul><li>Open the file for random access operations using <a href=dart.io.html#File.open>open()</a>.</li></p>
 	</div>
 	<h4>Fields</h4>
+	<b><a id=File.absolute></a><i class=icon-minus-sign></i> final <a href=dart.io.html#File>File</a> absolute</b>
+	<div class=indent></div>
 	<b><a id=File.directory></a><i class=icon-minus-sign></i> final <a href=dart.io.html#Directory>Directory</a> directory</b>
 	<div class=indent></div>
 	<b><a id=File.path></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> path</b>
 	<div class=indent></div>
 	<h4>Getters and Setters</h4>
+	<b><a id=absolute></a><i class=icon-circle-arrow-right></i> <a href=dart.io.html#File>File</a> get absolute</b>
+	<div class=indent>
+		<p>Returns a <code>File</code> instance whose path is the absolute path to <code>this</code>. </p>
+<p>The absolute path is computed by prefixing a relative path with the current working directory, and returning an absolute path unchanged.</p>
+	</div>
 	<b><a id=directory></a><i class=icon-circle-arrow-right></i> <a href=dart.io.html#Directory>Directory</a> get directory</b>
 	<div class=indent>
 		<p>Get a <code>Directory</code> object for the directory containing this file.</p>
@@ -995,10 +1013,14 @@
 		</dd>
 		<dt>Fields</dt>
 		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEntity.absolute>absolute</a>: <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEntity.isAbsolute>isAbsolute</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.io.html#FileSystemEntity.path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
 		<dt>Getters and Setters</dt>
 		<dd>
+			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#absolute>absolute</a>: <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a><br>
+			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#isAbsolute>isAbsolute</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#isWatchSupported>isWatchSupported</a>: <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#path>path</a>: <a href=dart.core.html#String>String</a><br>
 		</dd>
@@ -1039,9 +1061,23 @@
 	<b><a id=FileSystemEntity.isWatchSupported></a><i class=icon-minus-sign></i> static final <a href=dart.core.html#bool>bool</a> isWatchSupported</b>
 	<div class=indent></div>
 	<h4>Fields</h4>
+	<b><a id=FileSystemEntity.absolute></a><i class=icon-minus-sign></i> final <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a> absolute</b>
+	<div class=indent></div>
+	<b><a id=FileSystemEntity.isAbsolute></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isAbsolute</b>
+	<div class=indent></div>
 	<b><a id=FileSystemEntity.path></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> path</b>
 	<div class=indent></div>
 	<h4>Getters and Setters</h4>
+	<b><a id=absolute></a><i class=icon-circle-arrow-right></i> <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a> get absolute</b>
+	<div class=indent>
+		<p>Returns a <code>FileSystemEntity</code> whose path is the absolute path to <code>this</code>. The type of the returned instance is the type of <code>this</code>. </p>
+<p>The absolute path is computed by prefixing a relative path with the current working directory, and returning an absolute path unchanged.</p>
+	</div>
+	<b><a id=isAbsolute></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isAbsolute</b>
+	<div class=indent>
+		<p>Returns a <code>bool</code> indicating whether this object's path is absolute. </p>
+<p>On Windows, a path is absolute if it starts with \\ or a drive letter between a and z (upper or lower case) followed by :\ or :/. On non-Windows, a path is absolute if it starts with /.</p>
+	</div>
 	<b><a id=isWatchSupported></a><i class=icon-circle-arrow-right></i> static <a href=dart.core.html#bool>bool</a> get isWatchSupported</b>
 	<div class=indent>
 		<p>Test if <code>watch</code> is supported on the current system. </p>
@@ -1461,7 +1497,8 @@ values.forEach((value) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The <code>HttpClient</code> class implements the client side of the HTTP protocol. It contains a number of methods to send a HTTP request to a HTTP server and receive a HTTP response back. </p>
+		<p>A client that receives content, such as web pages, from a server using the HTTP protocol. </p>
+<p>HttpClient contains a number of methods to send a HTTP request to a HTTP server and receive a HTTP response back. </p>
 <p>This is a two-step process, triggered by two futures. When the first future completes with a <code>HttpClientRequest</code> the underlying network connection has been established, but no data has yet been sent. The HTTP headers and body can be set on the request, and <code>close</code> is called to sent it to the server. </p>
 <p>The second future, which is returned by <code>close</code>, completes with an <code>HttpClientResponse</code> object when the response is received from the server. This object contains the headers and body of the response. </p>
 <p>The future for <code>HttpClientRequest</code> is created by methods such as <a href=dart.io.html#HttpClient.getUrl>getUrl()</a> and <a href=dart.io.html#HttpClient.open>open()</a>. </p>
@@ -2594,7 +2631,8 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The <code>HttpServer</code> class implements the server side of the HTTP protocol. The <code>HttpServer</code> is a <code>Stream</code> of <code>HttpRequest</code>s. Each <code>HttpRequest</code> has an associated <code>HttpResponse</code> object as its <code>HttpRequest.response</code> member, and the server responds to a request by writing to that <code>HttpResponse</code> object. </p>
+		<p>A server that delivers content, such as web pages, using the HTTP protocol. </p>
+<p>The <code>HttpServer</code> is a <code>Stream</code> of <code>HttpRequest</code>s. Each <code>HttpRequest</code> has an associated <code>HttpResponse</code> object as its <code>HttpRequest.response</code> member, and the server responds to a request by writing to that <code>HttpResponse</code> object. </p>
 <p>Incomplete requests where all or parts of the header is missing, are ignored and no exceptions or <code>HttpRequest</code> objects are generated for them. Likewise, when writing to a <code>HttpResponse</code>, any <code>Socket</code> exceptions are ignored and any future writes are ignored. </p>
 <p>The <code>HttpRequest</code> exposes the request headers, and provides the request body, if it exists, as a stream of data. If the body is unread, it'll be drained when the <code>HttpResponse</code> is being written to or closed. </p>
 <p>The following example shows how to bind a <code>HttpServer</code> to a IPv6 <code>InternetAddress</code> on port 80, and listening to requests. </p>
@@ -3103,6 +3141,14 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 	<h4>
 		<i class=icon-leaf></i> Abstract class Link implements <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a></h4>
 	<dl class=dl-horizontal>
+		<dt>Fields</dt>
+		<dd>
+			<i class=icon-minus-sign></i> <a href=dart.io.html#Link.absolute>absolute</a>: <a href=dart.io.html#Link>Link</a><br>
+		</dd>
+		<dt>Getters and Setters</dt>
+		<dd>
+			<i class=icon-circle-arrow-right></i> <a href=dart.io.html#absolute>absolute</a>: <a href=dart.io.html#Link>Link</a><br>
+		</dd>
 		<dt>Constructors</dt>
 		<dd>
 			<i class=icon-plus-sign></i> <a href=dart.io.html#Link.>Link</a>(<a href=dart.core.html#String>String</a> path)<br>
@@ -3121,6 +3167,15 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 	</dl>
 	<div class=indent>
 		<p><code>Link</code> objects are references to filesystem links.</p>
+	</div>
+	<h4>Fields</h4>
+	<b><a id=Link.absolute></a><i class=icon-minus-sign></i> final <a href=dart.io.html#Link>Link</a> absolute</b>
+	<div class=indent></div>
+	<h4>Getters and Setters</h4>
+	<b><a id=absolute></a><i class=icon-circle-arrow-right></i> <a href=dart.io.html#Link>Link</a> get absolute</b>
+	<div class=indent>
+		<p>Returns a <code>Link</code> instance whose path is the absolute path to <code>this</code>. </p>
+<p>The absolute path is computed by prefixing a relative path with the current working directory, and returning an absolute path unchanged.</p>
 	</div>
 	<h4>Constructors</h4>
 	<b><a id=Link.></a><i class=icon-plus-sign></i> factory Link(<a href=dart.core.html#String>String</a> path)</b>

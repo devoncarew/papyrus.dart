@@ -11481,8 +11481,8 @@ ctx.drawImageToRect(otherCanvas, new Rect(0, 0, 100, 20),
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Represents an HTML &lt;div&gt; element. </p>
-<p>The <code>DivElement</code> is a generic container for content and does not have any special significance. It is functionally similar to <code>SpanElement</code>. </p>
+		<p>A generic container for content on an HTML page; corresponds to the &amp;lt;div&amp;gt; tag. </p>
+<p>The <code>DivElement</code> is a generic container and does not have any semantic significance. It is functionally similar to <code>SpanElement</code>. </p>
 <p>The <code>DivElement</code> is a block-level element, as opposed to <code>SpanElement</code>, which is an inline-level element. </p>
 <p>Example usage: </p>
 <p><pre>DivElement div = new DivElement();
@@ -11647,11 +11647,11 @@ document.body.elements.add(elem);
 		</dd>
 		<dt>Methods</dt>
 		<dd>
-			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.$dom_createElement>$dom_createElement</a>(<a href=dart.core.html#String>String</a> localName_OR_tagName, <a href=dart.core.html#String>String</a> typeExtension): <a href=dart.dom.html.html#Element>Element</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.$dom_createElementNS>$dom_createElementNS</a>(<a href=dart.core.html#String>String</a> namespaceURI, <a href=dart.core.html#String>String</a> qualifiedName, <a href=dart.core.html#String>String</a> typeExtension): <a href=dart.dom.html.html#Element>Element</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.adoptNode>adoptNode</a>(<a href=dart.dom.html.html#Node>Node</a> source): <a href=dart.dom.html.html#Node>Node</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.createCDataSection>createCDataSection</a>(<a href=dart.core.html#String>String</a> data): <a href=dart.dom.html.html#CDataSection>CDataSection</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.createDocumentFragment>createDocumentFragment</a>(): <a href=dart.dom.html.html#DocumentFragment>DocumentFragment</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.createElement>createElement</a>(<a href=dart.core.html#String>String</a> localName_OR_tagName, <a href=dart.core.html#String>String</a> typeExtension): <a href=dart.dom.html.html#Element>Element</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.createElementNS>createElementNS</a>(<a href=dart.core.html#String>String</a> namespaceURI, <a href=dart.core.html#String>String</a> qualifiedName, <a href=dart.core.html#String>String</a> typeExtension): <a href=dart.dom.html.html#Element>Element</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.createRange>createRange</a>(): <a href=dart.dom.html.html#Range>Range</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.execCommand>execCommand</a>(<a href=dart.core.html#String>String</a> command, <a href=dart.core.html#bool>bool</a> userInterface, <a href=dart.core.html#String>String</a> value): <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#Document.getElementById>getElementById</a>(<a href=dart.core.html#String>String</a> elementId): <a href=dart.dom.html.html#Element>Element</a><br>
@@ -12177,10 +12177,6 @@ document.body.elements.add(elem);
 	<i class=icon-circle-arrow-right></i> <a href=dart.dom.html.html#WindowBase>WindowBase</a> get window</b>
 	<div class=indent></div>
 	<h4>Methods</h4>
-	<b><a id=Document.$dom_createElement></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Element>Element</a> $dom_createElement(<a href=dart.core.html#String>String</a> localName_OR_tagName, <a href=dart.core.html#String>String</a> typeExtension)</b>
-	<div class=indent></div>
-	<b><a id=Document.$dom_createElementNS></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Element>Element</a> $dom_createElementNS(<a href=dart.core.html#String>String</a> namespaceURI, <a href=dart.core.html#String>String</a> qualifiedName, <a href=dart.core.html#String>String</a> typeExtension)</b>
-	<div class=indent></div>
 	<b><a id=Document.adoptNode></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
 	<br>
@@ -12196,6 +12192,10 @@ document.body.elements.add(elem);
 	@ 
 	<br>
 	<i class=icon-ok-sign></i> <a href=dart.dom.html.html#DocumentFragment>DocumentFragment</a> createDocumentFragment()</b>
+	<div class=indent></div>
+	<b><a id=Document.createElement></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Element>Element</a> createElement(<a href=dart.core.html#String>String</a> localName_OR_tagName, <a href=dart.core.html#String>String</a> typeExtension)</b>
+	<div class=indent></div>
+	<b><a id=Document.createElementNS></a><i class=icon-ok-sign></i> <a href=dart.dom.html.html#Element>Element</a> createElementNS(<a href=dart.core.html#String>String</a> namespaceURI, <a href=dart.core.html#String>String</a> qualifiedName, <a href=dart.core.html#String>String</a> typeExtension)</b>
 	<div class=indent></div>
 	<b><a id=Document.createRange></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
@@ -13108,7 +13108,7 @@ var element2 = document.query('#id');
 			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.span>Element.span</a>()<br>
 			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.svg>Element.svg</a>()<br>
 			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.table>Element.table</a>()<br>
-			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.tag>Element.tag</a>(<a href=dart.core.html#String>String</a> tag)<br>
+			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.tag>Element.tag</a>(<a href=dart.core.html#String>String</a> tag, <a href=dart.core.html#String>String</a> typeExtention)<br>
 			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.td>Element.td</a>()<br>
 			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.textarea>Element.textarea</a>()<br>
 			<i class=icon-plus-sign></i> <a href=dart.dom.html.html#Element.th>Element.th</a>()<br>
@@ -14353,7 +14353,7 @@ element.classes.remove('selected');
 		<p>Creates a new <code>&lt;table&gt;</code> element. </p>
 <p>This is identical to calling <code>new Element.tag('table')</code>.</p>
 	</div>
-	<b><a id=Element.tag></a><i class=icon-plus-sign></i> factory Element.tag(<a href=dart.core.html#String>String</a> tag)</b>
+	<b><a id=Element.tag></a><i class=icon-plus-sign></i> factory Element.tag(<a href=dart.core.html#String>String</a> tag, <a href=dart.core.html#String>String</a> typeExtention)</b>
 	<div class=indent>
 		<p>Creates the HTML element specified by the tag name. </p>
 <p>This is similar to <code>Document.createElement</code>. <code>tag</code> should be a valid HTML tag name. If <code>tag</code> is an unknown tag then this will create an <code>UnknownElement</code>. </p>
@@ -18374,7 +18374,7 @@ htmlList.classes.remove('selected');
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#HtmlDocument.exitFullscreen>exitFullscreen</a>(): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#HtmlDocument.exitPointerLock>exitPointerLock</a>(): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#HtmlDocument.getCssCanvasContext>getCssCanvasContext</a>(<a href=dart.core.html#String>String</a> contextId, <a href=dart.core.html#String>String</a> name, <a href=dart.core.html#int>int</a> width, <a href=dart.core.html#int>int</a> height): <a href=dart.dom.html.html#CanvasRenderingContext>CanvasRenderingContext</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#HtmlDocument.register>register</a>(<a href=dart.core.html#String>String</a> tag, <a href=dart.core.html#Type>Type</a> custom): void<br>
+			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#HtmlDocument.register>register</a>(<a href=dart.core.html#String>String</a> tag, <a href=dart.core.html#Type>Type</a> customElementClass, <a href=dart.core.html#String>String</a> nativeTagName): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.dom.html.html#HtmlDocument.releaseEvents>releaseEvents</a>(): void<br>
 		</dd>
 	</dl>
@@ -18583,8 +18583,39 @@ context.fillRect(0, 0, 100, 100);
 	</div>
 	<b><a id=HtmlDocument.register></a><i class="icon-info-sign icon-hidden"></i> @ 
 	<br>
-	<i class=icon-ok-sign></i> void register(<a href=dart.core.html#String>String</a> tag, <a href=dart.core.html#Type>Type</a> custom)</b>
-	<div class=indent></div>
+	<i class=icon-ok-sign></i> void register(<a href=dart.core.html#String>String</a> tag, <a href=dart.core.html#Type>Type</a> customElementClass, <a href=dart.core.html#String>String</a> nativeTagName)</b>
+	<div class=indent>
+		<p>Register a custom subclass of Element to be instantiatable by the DOM. </p>
+<p>This is necessary to allow the construction of any custom elements. </p>
+<p>The class being registered must either subclass HtmlElement or SvgElement. If they subclass these directly then they can be used as: </p>
+<p><pre>class FooElement extends HtmlElement{
+   void created() {
+     print('FooElement created!');
+   }
+}
+
+main() {
+  document.register('x-foo', FooElement);
+  var myFoo = new Element.tag('x-foo');
+  // prints 'FooElement created!' to the console.
+}
+</pre>The custom element can also be instantiated via HTML using the syntax <code>&lt;x-foo&gt;&lt;/x-foo&gt;</code> </p>
+<p>Other elements can be subclassed as well: </p>
+<p><pre>class BarElement extends InputElement{
+   void created() {
+     print('BarElement created!');
+   }
+}
+
+main() {
+  document.register('x-bar', BarElement);
+  var myBar = new Element.tag('input', 'x-bar');
+  // prints 'BarElement created!' to the console.
+}
+</pre>This custom element can also be instantiated via HTML using the syntax <code>&lt;input is="x-bar"&gt;&lt;/input&gt;</code> </p>
+<p>The <code>nativeTagName</code> parameter is needed by platforms without native support when subclassing a native type other than: </p>
+<p><ul><li>HtmlElement</li><li>SvgElement</li><li>AnchorElement</li><li>AudioElement</li><li>ButtonElement</li><li>CanvasElement</li><li>DivElement</li><li>ImageElement</li><li>InputElement</li><li>LIElement</li><li>LabelElement</li><li>MenuElement</li><li>MeterElement</li><li>OListElement</li><li>OptionElement</li><li>OutputElement</li><li>ParagraphElement</li><li>PreElement</li><li>ProgressElement</li><li>SelectElement</li><li>SpanElement</li><li>UListElement</li><li>VideoElement</li></p>
+	</div>
 	<b><a id=HtmlDocument.releaseEvents></a><i class="icon-info-sign icon-hidden"></i> @ 
 	@ 
 	@deprecated 

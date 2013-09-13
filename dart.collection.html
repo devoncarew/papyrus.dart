@@ -291,7 +291,7 @@
 	<dl class=dl-horizontal>
 		<dt>Constructors</dt>
 		<dd>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashMap.>HashMap</a>(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode)<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashMap.>HashMap</a>(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode, &lt;K, V&gt; isValidKey)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashMap.from>HashMap.from</a>(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashMap.fromIterable>HashMap.fromIterable</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashMap.fromIterables>HashMap.fromIterables</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values)<br>
@@ -303,12 +303,13 @@
 <p>The map allows <code>null</code> as a key.</p>
 	</div>
 	<h4>Constructors</h4>
-	<b><a id=HashMap.></a><i class=icon-plus-sign></i> factory HashMap(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode)</b>
+	<b><a id=HashMap.></a><i class=icon-plus-sign></i> factory HashMap(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode, &lt;K, V&gt; isValidKey)</b>
 	<div class=indent>
 		<p>Creates a hash-table based <code>Map</code>. </p>
 <p>The created map is not ordered in any way. When iterating the keys or values, the iteration order is unspecified except that it will stay the same as long as the map isn't changed. </p>
 <p>If <code>equals</code> is provided, it is used to compare the keys in the table with new keys. If <code>equals</code> is omitted, the key's own <code>Object.operator==</code> is used instead. </p>
 <p>Similar, if <code>hashCode</code> is provided, it is used to produce a hash value for keys in order to place them in the hash table. If it is omitted, the key's own <code>Object.hashCode</code> is used. </p>
+<p>If using methods like <code>operator[</code>], <code>remove</code> and <code>containsKey</code> together with a custom equality and hashcode, an extra <code>isValidKey</code> function can be supplied. This function is called before calling <code>equals</code> or <code>hashCode</code> with an argument that may not be a <code>K</code> instance, and if the call returns false, the key is assumed to not be in the set. The <code>isValidKey</code> function defaults to just testing if the object is a <code>K</code> instance. </p>
 <p>The used <code>equals</code> and <code>hashCode</code> method should always be consistent, so that if <code>equals(a, b)</code> then <code>hashCode(a) == hashCode(b)</code>. The hash of an object, or what it compares equal to, should not change while the object is in the table. If it does change, the result is unpredictable. </p>
 <p>It is generally the case that if you supply one of <code>equals</code> and <code>hashCode</code>, you also want to supply the other. The only common exception is to pass <code>identical</code> as the equality and use the default hash code.</p>
 	</div>
@@ -809,43 +810,14 @@
 	</div>
 	<a id=LinkedHashMap></a><hr>
 	<h4>
-		<i class=icon-leaf></i> Class LinkedHashMap implements <a href=dart.collection.html#HashMap>HashMap</a>&lt;K, V&gt;</h4>
+		<i class=icon-leaf></i> Abstract class LinkedHashMap implements <a href=dart.collection.html#HashMap>HashMap</a>&lt;K, V&gt;</h4>
 	<dl class=dl-horizontal>
-		<dt>Fields</dt>
-		<dd>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashMap.isEmpty>isEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashMap.isNotEmpty>isNotEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashMap.keys>keys</a>: <a href=dart.core.html#Iterable>Iterable</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashMap.length>length</a>: <a href=dart.core.html#int>int</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashMap.values>values</a>: <a href=dart.core.html#Iterable>Iterable</a><br>
-		</dd>
-		<dt>Getters and Setters</dt>
-		<dd>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#isEmpty>isEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#isNotEmpty>isNotEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#keys>keys</a>: <a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt;<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#length>length</a>: <a href=dart.core.html#int>int</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#values>values</a>: <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt;<br>
-		</dd>
 		<dt>Constructors</dt>
 		<dd>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashMap.>LinkedHashMap</a>()<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashMap.>LinkedHashMap</a>(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode, &lt;K, V&gt; isValidKey)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashMap.from>LinkedHashMap.from</a>(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashMap.fromIterable>LinkedHashMap.fromIterable</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashMap.fromIterables>LinkedHashMap.fromIterables</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values)<br>
-		</dd>
-		<dt>Methods</dt>
-		<dd>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.[]>[]</a>(<a href=dart.core.html#Object>Object</a> key): V<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.[]=>[]=</a>(K key, V value): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.addAll>addAll</a>(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.clear>clear</a>(): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.containsKey>containsKey</a>(<a href=dart.core.html#Object>Object</a> key): <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.containsValue>containsValue</a>(<a href=dart.core.html#Object>Object</a> value): <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.forEach>forEach</a>(&lt;K, V&gt; action): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.putIfAbsent>putIfAbsent</a>(K key, &lt;K, V&gt; ifAbsent): V<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.remove>remove</a>(<a href=dart.core.html#Object>Object</a> key): V<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashMap.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
 		</dd>
 	</dl>
 	<div class=indent>
@@ -854,34 +826,8 @@
 <p>The keys of a <code>LinkedHashMap</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the keys (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
 <p>The map allows <code>null</code> as a key.</p>
 	</div>
-	<h4>Fields</h4>
-	<b><a id=LinkedHashMap.isEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isEmpty</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashMap.isNotEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isNotEmpty</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashMap.keys></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Iterable>Iterable</a> keys</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashMap.length></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> length</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashMap.values></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Iterable>Iterable</a> values</b>
-	<div class=indent></div>
-	<h4>Getters and Setters</h4>
-	<b><a id=isEmpty></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isEmpty</b>
-	<div class=indent></div>
-	<b><a id=isNotEmpty></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isNotEmpty</b>
-	<div class=indent></div>
-	<b><a id=keys></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; get keys</b>
-	<div class=indent>
-		<p>The keys of the map, in insertion order.</p>
-	</div>
-	<b><a id=length></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#int>int</a> get length</b>
-	<div class=indent></div>
-	<b><a id=values></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; get values</b>
-	<div class=indent>
-		<p>The values of the map, in the order of their corresponding <code>keys</code>.</p>
-	</div>
 	<h4>Constructors</h4>
-	<b><a id=LinkedHashMap.></a><i class=icon-plus-sign></i> LinkedHashMap()</b>
+	<b><a id=LinkedHashMap.></a><i class=icon-plus-sign></i> factory LinkedHashMap(&lt;K, V&gt; equals, &lt;K, V&gt; hashCode, &lt;K, V&gt; isValidKey)</b>
 	<div class=indent></div>
 	<b><a id=LinkedHashMap.from></a><i class=icon-plus-sign></i> factory LinkedHashMap.from(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)</b>
 	<div class=indent>
@@ -900,51 +846,6 @@
 <p>This constructor iterates over <code>keys</code> and <code>values</code> and maps each element of <code>keys</code> to the corresponding element of <code>values</code>. </p>
 <p>If <code>keys</code> contains the same object multiple times, the last occurrence overwrites the previous value. </p>
 <p>It is an error if the two <code>Iterable</code>s don't have the same length.</p>
-	</div>
-	<h4>Methods</h4>
-	<b><a id=LinkedHashMap.[]></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]'><i title='Overrides Map.[]()' class='icon-circle-arrow-up'></i></a> V [](<a href=dart.core.html#Object>Object</a> key)</b>
-	<div class=indent>
-		<p>Returns the value for the given <code>key</code> or null if <code>key</code> is not in the map. Because null values are supported, one should either use <code>containsKey</code> to distinguish between an absent key and a null value, or use the <code>putIfAbsent</code> method.</p>
-	</div>
-	<b><a id=LinkedHashMap.[]=></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.[]='><i title='Overrides Map.[]=()' class='icon-circle-arrow-up'></i></a> void []=(K key, V value)</b>
-	<div class=indent>
-		<p>Associates the <code>key</code> with the given <code>value</code>.</p>
-	</div>
-	<b><a id=LinkedHashMap.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.addAll'><i title='Overrides Map.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other)</b>
-	<div class=indent>
-		<p>Adds all key-value pairs of <code>other</code> to this map. </p>
-<p>If a key of <code>other</code> is already in this map, its value is overwritten. </p>
-<p>The operation is equivalent to doing <code>this<code>key</code> = value</code> for each key and associated value in other. It iterates over <code>other</code>, which must therefore not change during the iteration.</p>
-	</div>
-	<b><a id=LinkedHashMap.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.clear'><i title='Overrides Map.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
-	<div class=indent>
-		<p>Removes all pairs from the map.</p>
-	</div>
-	<b><a id=LinkedHashMap.containsKey></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.containsKey'><i title='Overrides Map.containsKey()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> containsKey(<a href=dart.core.html#Object>Object</a> key)</b>
-	<div class=indent>
-		<p>Returns true if this map contains the given key.</p>
-	</div>
-	<b><a id=LinkedHashMap.containsValue></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.containsValue'><i title='Overrides Map.containsValue()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> containsValue(<a href=dart.core.html#Object>Object</a> value)</b>
-	<div class=indent>
-		<p>Returns true if this map contains the given value.</p>
-	</div>
-	<b><a id=LinkedHashMap.forEach></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.forEach'><i title='Overrides Map.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;K, V&gt; action)</b>
-	<div class=indent>
-		<p>Applies <code>f</code> to each {key, value} pair of the map. </p>
-<p>It is an error to add or remove keys from the map during iteration.</p>
-	</div>
-	<b><a id=LinkedHashMap.putIfAbsent></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.putIfAbsent'><i title='Overrides Map.putIfAbsent()' class='icon-circle-arrow-up'></i></a> V putIfAbsent(K key, &lt;K, V&gt; ifAbsent)</b>
-	<div class=indent>
-		<p>If <code>key</code> is not associated to a value, calls <code>ifAbsent</code> and updates the map by mapping <code>key</code> to the value returned by <code>ifAbsent</code>. Returns the value in the map. </p>
-<p>It is an error to add or remove keys from the map during the call to <code>ifAbsent</code>.</p>
-	</div>
-	<b><a id=LinkedHashMap.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Map.remove'><i title='Overrides Map.remove()' class='icon-circle-arrow-up'></i></a> V remove(<a href=dart.core.html#Object>Object</a> key)</b>
-	<div class=indent>
-		<p>Removes the association for the given <code>key</code>. Returns the value for <code>key</code> in the map or null if <code>key</code> is not in the map. Note that values can be null and a returned null value does not always imply that the key is absent.</p>
-	</div>
-	<b><a id=LinkedHashMap.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
-	<div class=indent>
-		<p>Returns a string representation of this object.</p>
 	</div>
 	<a id=LinkedHashSet></a><hr>
 	<h4>
@@ -1901,10 +1802,10 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 		<dt>Constructors</dt>
 		<dd>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.>SplayTreeMap</a>(&lt;K, V&gt; compare)<br>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.from>SplayTreeMap.from</a>(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other, &lt;K, V&gt; compare)<br>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.fromIterable>SplayTreeMap.fromIterable</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value, &lt;K, V&gt; compare)<br>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.fromIterables>SplayTreeMap.fromIterables</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values, &lt;K, V&gt; compare)<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.>SplayTreeMap</a>(&lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.from>SplayTreeMap.from</a>(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other, &lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.fromIterable>SplayTreeMap.fromIterable</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value, &lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#SplayTreeMap.fromIterables>SplayTreeMap.fromIterables</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values, &lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)<br>
 		</dd>
 		<dt>Methods</dt>
 		<dd>
@@ -1948,20 +1849,20 @@ print(list);  // =&gt; [1, 8, 9, 4]
 	<b><a id=values></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; get values</b>
 	<div class=indent></div>
 	<h4>Constructors</h4>
-	<b><a id=SplayTreeMap.></a><i class=icon-plus-sign></i> SplayTreeMap(&lt;K, V&gt; compare)</b>
+	<b><a id=SplayTreeMap.></a><i class=icon-plus-sign></i> SplayTreeMap(&lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)</b>
 	<div class=indent></div>
-	<b><a id=SplayTreeMap.from></a><i class=icon-plus-sign></i> factory SplayTreeMap.from(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other, &lt;K, V&gt; compare)</b>
+	<b><a id=SplayTreeMap.from></a><i class=icon-plus-sign></i> factory SplayTreeMap.from(<a href=dart.core.html#Map>Map</a>&lt;K, V&gt; other, &lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)</b>
 	<div class=indent>
 		<p>Creates a <code>SplayTreeMap</code> that contains all key value pairs of <code>other</code>.</p>
 	</div>
-	<b><a id=SplayTreeMap.fromIterable></a><i class=icon-plus-sign></i> factory SplayTreeMap.fromIterable(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value, &lt;K, V&gt; compare)</b>
+	<b><a id=SplayTreeMap.fromIterable></a><i class=icon-plus-sign></i> factory SplayTreeMap.fromIterable(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; iterable, &lt;K, V&gt; key, &lt;K, V&gt; value, &lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)</b>
 	<div class=indent>
 		<p>Creates a <code>SplayTreeMap</code> where the keys and values are computed from the <code>iterable</code>. </p>
 <p>For each element of the <code>iterable</code> this constructor computes a key/value pair, by applying <code>key</code> and <code>value</code> respectively. </p>
 <p>The keys of the key/value pairs do not need to be unique. The last occurrence of a key will simply overwrite any previous value. </p>
 <p>If no values are specified for <code>key</code> and <code>value</code> the default is the identity function.</p>
 	</div>
-	<b><a id=SplayTreeMap.fromIterables></a><i class=icon-plus-sign></i> factory SplayTreeMap.fromIterables(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values, &lt;K, V&gt; compare)</b>
+	<b><a id=SplayTreeMap.fromIterables></a><i class=icon-plus-sign></i> factory SplayTreeMap.fromIterables(<a href=dart.core.html#Iterable>Iterable</a>&lt;K&gt; keys, <a href=dart.core.html#Iterable>Iterable</a>&lt;V&gt; values, &lt;K, V&gt; compare, &lt;K, V&gt; isValidKey)</b>
 	<div class=indent>
 		<p>Creates a <code>SplayTreeMap</code> associating the given <code>keys</code> to <code>values</code>. </p>
 <p>This constructor iterates over <code>keys</code> and <code>values</code> and maps each element of <code>keys</code> to the corresponding element of <code>values</code>. </p>
