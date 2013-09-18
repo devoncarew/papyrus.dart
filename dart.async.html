@@ -153,20 +153,25 @@ runZonedExperimental(body, onRunAsync: (callback) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <code>Completer</code> is used to produce <code>Future</code>s and to complete those futures with a value or error at a later time. </p>
-<p>A class that wants to return <code>Future</code>s can use a <code>Completer</code> as follows: </p>
-<p><pre>Class myAsyncOperation {
+		<p>A way to produce Future objects and to complete them later with a value or error. </p>
+<p>If you already have a Future, you probably don't need a Completer. Instead, you can usually use <code>Future.then</code>, which returns a Future: </p>
+<p><pre>Future doStuff(){
+  return someAsyncOperation().then((result) {
+    // Do something.
+  });
+}
+</pre>If you do need to create a Future from scratch—for example, when you're converting a callback-based API into a Future-based one—you can use a Completer as follows: </p>
+<p><pre>Class AsyncOperation {
   Completer _completer = new Completer();
 
-  Future&lt;T&gt; myOp() {
+  Future&lt;T&gt; doOperation() {
     _startOperation();
-    // send future object back to client...
-    return _completer.future;
+    return _completer.future; // Send future object back to client.
   }
 
   // Something calls this when the value is ready.
   _finishOperation(T result) {
-    _completer.complete(value);
+    _completer.complete(result);
   }
 
   // If something goes wrong, call this.
@@ -377,7 +382,8 @@ void onFooLoaded(_) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <code>Future</code> represents a delayed computation. It is used to obtain a not-yet available value, or error, sometime in the future.  Receivers of a <code>Future</code> can register callbacks that handle the value or error once it is available. For example: </p>
+		<p>An object representing a delayed computation. </p>
+<p>A <code>Future</code> is used to obtain a not yet available value, or error, sometime in the future.  Receivers of a <code>Future</code> can register callbacks that handle the value or error once it is available. For example: </p>
 <p><pre>Future&lt;int&gt; future = getFuture();
 future.then((value) =&gt; handleValue(value))
       .catchError((error) =&gt; handleError(error));

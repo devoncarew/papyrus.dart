@@ -517,7 +517,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p><code>Directory</code> objects are used for working with directories.</p>
+		<p>A reference to a directory (or _folder_) on the file system.</p>
 	</div>
 	<h4>Static Fields</h4>
 	<b><a id=Directory.current></a><i class=icon-minus-sign></i> static <a href=dart.io.html#Directory>Directory</a> current</b>
@@ -685,7 +685,7 @@
 		</dd>
 	</dl>
 	<div class=indent>
-		<p><code>File</code> objects are references to files. </p>
+		<p>A reference to a file on the file system. </p>
 <p>If <a href=dart.io.html#path>path</a> is a symbolic link, rather than a file, then the methods of <code>File</code> operate on the ultimate target of the link, except for File.delete and File.deleteSync, which operate on the link. </p>
 <p>To operate on the underlying file data there are two options: </p>
 <p><ul><li>Use streaming: read the contents of the file from the <code>Stream</code></li></ul>this.<a href=dart.io.html#File.openRead>openRead()</a>() and write to the file by writing to the <code>IOSink</code> this.<a href=dart.io.html#File.openWrite>openWrite()</a>(). <ul><li>Open the file for random access operations using <a href=dart.io.html#File.open>open()</a>.</li></p>
@@ -3186,7 +3186,7 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 	<b><a id=Link.create></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt; create(<a href=dart.core.html#String>String</a> target)</b>
 	<div class=indent>
 		<p>Creates a symbolic link. Returns a <code>Future&lt;Link&gt;</code> that completes with the link when it has been created. If the link exists, the future will complete with an error. </p>
-<p>On the Windows platform, this will only work with directories, and the target directory must exist. The link will be created as a Junction. Only absolute links will be created, and relative paths to the target will be converted to absolute paths. </p>
+<p>On the Windows platform, this will only work with directories, and the target directory must exist. The link will be created as a Junction. Only absolute links will be created, and relative paths to the target will be converted to absolute paths by joining them with the path of the directory the link is contained in. </p>
 <p>On other platforms, the posix symlink() call is used to make a symbolic link containing the string <code>target</code>.  If <code>target</code> is a relative path, it will be interpreted relative to the directory containing the link.</p>
 	</div>
 	<b><a id=Link.createSync></a><i class=icon-ok-sign></i> void createSync(<a href=dart.core.html#String>String</a> target)</b>

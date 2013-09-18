@@ -160,7 +160,7 @@ DateTime moonLanding = DateTime.parse("1969-07-20");
 <p><h5> Other documentation</h5> </p>
 <p>For more information about how to use the built-in types, refer to <code>Built-in Types</code>(http://www.dartlang.org/docs/dart-up-and-running/contents/ch02.html#built-in-types) in Chapter 2 of <code>Dart: Up and Running</code>(http://www.dartlang.org/docs/dart-up-and-running/). </p>
 <p>Also, see <code>dart:core - Numbers, Collections, Strings, and More</code>(http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-dartcore---strings-collections-and-more) for more coverage of classes in this package. </p>
-<p>The  <code>Dart Language Specification</code>(https://www.dartlang.org/docs/spec/) provides technical details.</p>
+<p>The  <code>Dart Language Specification</code>(http://www.dartlang.org/docs/spec/) provides technical details.</p>
 	</div>
 	<h4>Functions</h4>
 	<div class=indent>
@@ -1151,7 +1151,7 @@ assert(aLongWeekend.inDays == 3);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Super-type of all function types. </p>
+		<p>The base class for all function types. </p>
 <p>A function value, or an instance of a class with a "call" method, is a subtype of a function type, and as such, a subtype of <code>Function</code>.</p>
 	</div>
 	<h4>Constructors</h4>
@@ -1521,15 +1521,16 @@ for (var book in kidsBooks.keys) {
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>The <code>Iterator</code> class provides methods to iterate over an object. It is transparently used by the for-in construct to test for the end of the iteration, and to get the elements. </p>
+		<p>An interface for getting items, one at a time, from an object. </p>
+<p>The for-in construct transparently uses Iterator to test for the end of the iteration, and to get each item (or _element_). </p>
 <p>If the object iterated over is changed during the iteration, the behavior is unspecified. </p>
-<p>The <code>Iterator</code> is initially positioned before the first element. Before accessing the first element the iterator must thus be advanced (<a href=dart.core.html#Iterator.moveNext>moveNext()</a>) to point to the first element. If there is no element left, then <a href=dart.core.html#Iterator.moveNext>moveNext()</a> returns false. </p>
-<p>A typical usage of an <code>Iterator</code> looks as follows: </p>
+<p>The Iterator is initially positioned before the first element. Before accessing the first element the iterator must thus be advanced (<a href=dart.core.html#Iterator.moveNext>moveNext()</a>) to point to the first element. If no element is left, then <a href=dart.core.html#Iterator.moveNext>moveNext()</a> returns false. </p>
+<p>A typical usage of an Iterator looks as follows: </p>
 <p><pre>var it = obj.iterator;
 while (it.moveNext()) {
   use(it.current);
 }
-</pre></p>
+</pre><i></i>See also:<i></i> <code>Iteration</code> (http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-iteration) in the <code>library tour</code> (http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html)</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Iterator.current></a><i class=icon-minus-sign></i> final <a href=dart.core.html#E>E</a> current</b>
@@ -1981,9 +1982,9 @@ print(list);  // =&gt; [1, 8, 9, 4]
 		</dd>
 	</dl>
 	<div class=indent>
-		<p><code>Match</code> contains methods to manipulate a pattern match. </p>
-<p>A <code>Match</code> or and iterable of <code>Match</code> objects are returned from <code>Pattern</code> matching methods. </p>
-<p>The following example finds all matches of a <code>RegExp</code> in a <code>String</code> and iterates through the returned iterable of <code>Match</code> objects. </p>
+		<p>A result from searching within a string. </p>
+<p>A Match or an <code>Iterable</code> of Match objects is returned from <code>Pattern</code> matching methods. </p>
+<p>The following example finds all matches of a <code>RegExp</code> in a <code>String</code> and iterates through the returned iterable of Match objects. </p>
 <p><pre>RegExp exp = new RegExp(r"(\w+)");
 String str = "Parse my string";
 Iterable&lt;Match&gt; matches = exp.allMatches(str);
@@ -1995,7 +1996,7 @@ for (Match m in matches) {
 <p><pre>Parse
 my
 string
-</pre>Some patterns, regular expressions in particular, may record subtrings that were part of the matching. These are called "groups" in the <code>Match</code> object. Some patterns may never have any groups, and their matches always have zero <a href=dart.core.html#groupCount>groupCount</a>.</p>
+</pre>Some patterns, regular expressions in particular, may record subtrings that were part of the matching. These are called _groups_ in the Match object. Some patterns may never have any groups, and their matches always have zero <a href=dart.core.html#groupCount>groupCount</a>.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Match.end></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> end</b>
@@ -2159,7 +2160,9 @@ string
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Everything in Dart is an <code>Object</code>.</p>
+		<p>The base class for all Dart objects. </p>
+<p>Because Object is the root of the Dart class hierarchy, every other Dart class is a subclass of Object. </p>
+<p>When you define a class, you should override <a href=dart.core.html#Object.toString>toString()</a> to return a string describing an instance of that class. You might also need to define <a href=dart.core.html#hashCode>hashCode</a> and <a href=dart.core.html#Object.==>==()</a>, as described in the <code>Implementing map keys</code> (http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-implementing-map-keys) section of the <code>library tour</code> (http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html).</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Object.hashCode></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> hashCode</b>
@@ -2255,7 +2258,9 @@ string
 			<i class=icon-ok-sign></i> <a href=dart.core.html#Pattern.matchAsPrefix>matchAsPrefix</a>(<a href=dart.core.html#String>String</a> string, <a href=dart.core.html#int>int</a> start): <a href=dart.core.html#Match>Match</a><br>
 		</dd>
 	</dl>
-	<div class=indent></div>
+	<div class=indent>
+		<p>An interface for basic searches within strings.</p>
+	</div>
 	<h4>Constructors</h4>
 	<b><a id=Pattern.></a><i class=icon-plus-sign></i> Pattern()</b>
 	<div class=indent></div>
@@ -2562,9 +2567,9 @@ Iterable&lt;Match&gt; matches = exp.allMatches(str);
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A <code>Set</code> is a collection of elements where each element can occur only once. </p>
-<p>That is, for each object of the element type, the object is either considered to be in the set, or it is not in the set. </p>
-<p>Set implementations may consider some elements indistinguishable. These objects will be treated as being the same for any operation on the set. </p>
+		<p>A collection of objects in which each object can occur only once. </p>
+<p>That is, for each object of the element type, the object is either considered to be in the set, or to _not_ be in the set.  </p>
+<p>Set implementations may consider some elements indistinguishable. These elements are treated as being the same for any operation on the set. </p>
 <p>The default <code>Set</code> implementation, <code>HashSet</code>, considers objects indistinguishable if they are equal with regard to <code>Object.operator==</code>. </p>
 <p>Sets may be either ordered or unordered. <code>HashSet</code> is unordered and doesn't guarantee anything about the order that elements are accessed in by iteration. <code>LinkedHashSet</code> iterates in the insertion order of its elements.</p>
 	</div>
@@ -3373,7 +3378,10 @@ FEFF          ; BOM                ZERO WIDTH NO_BREAK SPACE
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>A parsed URI, as specified by RFC-3986, http://tools.ietf.org/html/rfc3986.</p>
+		<p>A parsed URI, such as a URL. </p>
+<p><i></i>See also:<i></i> </p>
+<p><ul><li><code>URIs</code><code>uris</code> in the <code>library tour</code><code>libtour</code></li><li><code>RFC-3986</code>(http://tools.ietf.org/html/rfc3986)</li></ul></p>
+<p><code>uris</code>: http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-uri <code>libtour</code>: http://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=Uri.authority></a><i class=icon-minus-sign></i> final <a href=dart.core.html#String>String</a> authority</b>
@@ -3878,9 +3886,8 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>Representation of Dart integers containing integer specific operations and specialization of operations inherited from <code>num</code>. </p>
-<p>Integers can be arbitrarily large in Dart. </p>
-<p>*Note however, that when compiling to JavaScript, integers are implemented as JavaScript numbers. When compiling to JavaScript, integers are therefore restricted to 53 significant bits because all JavaScript numbers are double-precision floating point values. The behavior of the operators and methods in the <code>int</code> class therefore sometimes differs between the Dart VM and Dart code compiled to JavaScript.* </p>
+		<p>An arbitrarily large integer. </p>
+<p><i></i>Note:<i></i> When compiling to JavaScript, integers are implemented as JavaScript numbers. When compiling to JavaScript, integers are therefore restricted to 53 significant bits because all JavaScript numbers are double-precision floating point values. The behavior of the operators and methods in the <code>int</code> class therefore sometimes differs between the Dart VM and Dart code compiled to JavaScript. </p>
 <p>It is a compile-time error for a class to attempt to extend or implement int.</p>
 	</div>
 	<h4>Fields</h4>
@@ -4098,8 +4105,8 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 		</dd>
 	</dl>
 	<div class=indent>
-		<p>All numbers in dart are instances of <code>num</code>. </p>
-<p>It is a compile-time error for any type other than the types int and double to attempt to extend or implement num.</p>
+		<p>An integer or floating-point number. </p>
+<p>It is a compile-time error for any type other than <code>int</code> or <code>double</code> to attempt to extend or implement num.</p>
 	</div>
 	<h4>Fields</h4>
 	<b><a id=num.isInfinite></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isInfinite</b>
