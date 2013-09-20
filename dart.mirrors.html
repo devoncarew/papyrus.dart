@@ -124,8 +124,8 @@
 			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.setters>setters</a>: <a href=dart.core.html#Map>Map</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.superclass>superclass</a>: <a href=dart.mirrors.html#ClassMirror>ClassMirror</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.superinterfaces>superinterfaces</a>: <a href=dart.core.html#List>List</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.typeArguments>typeArguments</a>: <a href=dart.core.html#Map>Map</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.typeVariables>typeVariables</a>: <a href=dart.core.html#Map>Map</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.typeArguments>typeArguments</a>: <a href=dart.core.html#List>List</a><br>
+			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.typeVariables>typeVariables</a>: <a href=dart.core.html#List>List</a><br>
 			<i class=icon-minus-sign></i> <a href=dart.mirrors.html#ClassMirror.variables>variables</a>: <a href=dart.core.html#Map>Map</a><br>
 		</dd>
 		<dt>Getters and Setters</dt>
@@ -141,8 +141,8 @@
 			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#setters>setters</a>: <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#MethodMirror>MethodMirror</a>&gt;<br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#superclass>superclass</a>: <a href=dart.mirrors.html#ClassMirror>ClassMirror</a><br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#superinterfaces>superinterfaces</a>: <a href=dart.core.html#List>List</a>&lt;<a href=dart.mirrors.html#ClassMirror>ClassMirror</a>&gt;<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#typeArguments>typeArguments</a>: <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#TypeMirror>TypeMirror</a>&gt;<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#typeVariables>typeVariables</a>: <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#TypeVariableMirror>TypeVariableMirror</a>&gt;<br>
+			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#typeArguments>typeArguments</a>: <a href=dart.core.html#List>List</a>&lt;<a href=dart.mirrors.html#TypeMirror>TypeMirror</a>&gt;<br>
+			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#typeVariables>typeVariables</a>: <a href=dart.core.html#List>List</a>&lt;<a href=dart.mirrors.html#TypeVariableMirror>TypeVariableMirror</a>&gt;<br>
 			<i class=icon-circle-arrow-right></i> <a href=dart.mirrors.html#variables>variables</a>: <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#VariableMirror>VariableMirror</a>&gt;<br>
 		</dd>
 		<dt>Constructors</dt>
@@ -182,9 +182,9 @@
 	<div class=indent></div>
 	<b><a id=ClassMirror.superinterfaces></a><i class=icon-minus-sign></i> final <a href=dart.core.html#List>List</a> superinterfaces</b>
 	<div class=indent></div>
-	<b><a id=ClassMirror.typeArguments></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Map>Map</a> typeArguments</b>
+	<b><a id=ClassMirror.typeArguments></a><i class=icon-minus-sign></i> final <a href=dart.core.html#List>List</a> typeArguments</b>
 	<div class=indent></div>
-	<b><a id=ClassMirror.typeVariables></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Map>Map</a> typeVariables</b>
+	<b><a id=ClassMirror.typeVariables></a><i class=icon-minus-sign></i> final <a href=dart.core.html#List>List</a> typeVariables</b>
 	<div class=indent></div>
 	<b><a id=ClassMirror.variables></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Map>Map</a> variables</b>
 	<div class=indent></div>
@@ -238,15 +238,17 @@
 	<div class=indent>
 		<p>A list of mirrors on the superinterfaces of the reflectee.</p>
 	</div>
-	<b><a id=typeArguments></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#TypeMirror>TypeMirror</a>&gt; get typeArguments</b>
+	<b><a id=typeArguments></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#List>List</a>&lt;<a href=dart.mirrors.html#TypeMirror>TypeMirror</a>&gt; get typeArguments</b>
 	<div class=indent>
-		<p>An immutable map from names to mirrors for all type arguments for this type.  The keys of the map are the names of the corresponding type variables. </p>
-<p>If the the reflectee is an invocation of a generic class, the type arguments are the bindings of its type parameters. If the reflectee is the original declaration of a generic, it has no type arguments and this method returns an empty map. If the reflectee is a not generic, then it has no type arguments and this method returns an empty map. This map preserves the order of declaration of the type variables.</p>
+		<p>An immutable list with mirrors for all type arguments for this type. </p>
+<p>If the the reflectee is an invocation of a generic class, the type arguments are the bindings of its type parameters. If the reflectee is the original declaration of a generic, it has no type arguments and this method returns an empty list. If the reflectee is a not generic, then it has no type arguments and this method returns an empty list. </p>
+<p>This list preserves the order of declaration of the type variables.</p>
 	</div>
-	<b><a id=typeVariables></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#TypeVariableMirror>TypeVariableMirror</a>&gt; get typeVariables</b>
+	<b><a id=typeVariables></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#List>List</a>&lt;<a href=dart.mirrors.html#TypeVariableMirror>TypeVariableMirror</a>&gt; get typeVariables</b>
 	<div class=indent>
-		<p>An immutable map from names to mirrors for all type variables for this type. If this type is a generic declaration or an invocation of a generic declaration, the returned map has the names of the formal type parameters of the original declaration as its keys, and each such key maps to a TypeVariableMirror on the corresponding type variable. Otherwise, the returned map is empty. </p>
-<p>This map preserves the order of declaration of the type variables.</p>
+		<p>An immutable list with mirrors for all type variables for this type. </p>
+<p>If this type is a generic declaration or an invocation of a generic declaration, the returned list contains mirrors on the type variables. Otherwise, the returned list is empty. </p>
+<p>This list preserves the order of declaration of the type variables.</p>
 	</div>
 	<b><a id=variables></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Map>Map</a>&lt;<a href=dart.core.html#Symbol>Symbol</a>, <a href=dart.mirrors.html#VariableMirror>VariableMirror</a>&gt; get variables</b>
 	<div class=indent>

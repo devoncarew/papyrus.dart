@@ -333,102 +333,33 @@
 	</div>
 	<a id=HashSet></a><hr>
 	<h4>
-		<i class=icon-leaf></i> Class HashSet extends _HashSetBase&lt;E&gt;</h4>
+		<i class=icon-leaf></i> Class HashSet implements <a href=dart.core.html#Set>Set</a>&lt;E&gt;</h4>
 	<dl class=dl-horizontal>
-		<dt>Fields</dt>
-		<dd>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#HashSet.isEmpty>isEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#HashSet.isNotEmpty>isNotEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#HashSet.iterator>iterator</a>: <a href=dart.core.html#Iterator>Iterator</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#HashSet.length>length</a>: <a href=dart.core.html#int>int</a><br>
-		</dd>
-		<dt>Getters and Setters</dt>
-		<dd>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#isEmpty>isEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#isNotEmpty>isNotEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#iterator>iterator</a>: <a href=dart.core.html#Iterator>Iterator</a>&lt;E&gt;<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#length>length</a>: <a href=dart.core.html#int>int</a><br>
-		</dd>
 		<dt>Constructors</dt>
 		<dd>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashSet.>HashSet</a>()<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashSet.>HashSet</a>(&lt;E&gt; equals, &lt;E&gt; hashCode, &lt;E&gt; isValidKey)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#HashSet.from>HashSet.from</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)<br>
-		</dd>
-		<dt>Methods</dt>
-		<dd>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.add>add</a>(E element): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.addAll>addAll</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; objects): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.clear>clear</a>(): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.contains>contains</a>(<a href=dart.core.html#Object>Object</a> object): <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.remove>remove</a>(<a href=dart.core.html#Object>Object</a> object): <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.removeAll>removeAll</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; objectsToRemove): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.removeWhere>removeWhere</a>(&lt;E&gt; test): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#HashSet.retainWhere>retainWhere</a>(&lt;E&gt; test): void<br>
 		</dd>
 	</dl>
 	<div class=indent>
 		<p>A <code>HashSet</code> is a hash-table based <code>Set</code> implementation. </p>
-<p>The elements of a <code>HashSet</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
+<p>The elements of a <code>HashSet</code> must have consistent equality and hashCode implementations. This means that the equals operation must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that the hashCode must consistent with equality, so that the same for objects that are considered equal. </p>
 <p>The set allows <code>null</code> as an element. </p>
-<p>Most simple operations on <code>HashSet</code> are done in constant time: <a href=dart.collection.html#HashSet.add>add()</a>, <a href=dart.collection.html#HashSet.contains>contains()</a>, <a href=dart.collection.html#HashSet.remove>remove()</a>, and <a href=dart.collection.html#length>length</a>.</p>
+<p>Most simple operations on <code>HashSet</code> are done in constant time: <code>add</code>, <code>contains</code>, <code>remove</code>, and <code>length</code>.</p>
 	</div>
-	<h4>Fields</h4>
-	<b><a id=HashSet.isEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isEmpty</b>
-	<div class=indent></div>
-	<b><a id=HashSet.isNotEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isNotEmpty</b>
-	<div class=indent></div>
-	<b><a id=HashSet.iterator></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Iterator>Iterator</a> iterator</b>
-	<div class=indent></div>
-	<b><a id=HashSet.length></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> length</b>
-	<div class=indent></div>
-	<h4>Getters and Setters</h4>
-	<b><a id=isEmpty></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isEmpty</b>
-	<div class=indent></div>
-	<b><a id=isNotEmpty></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isNotEmpty</b>
-	<div class=indent></div>
-	<b><a id=iterator></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Iterator>Iterator</a>&lt;E&gt; get iterator</b>
-	<div class=indent></div>
-	<b><a id=length></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#int>int</a> get length</b>
-	<div class=indent></div>
 	<h4>Constructors</h4>
-	<b><a id=HashSet.></a><i class=icon-plus-sign></i> HashSet()</b>
-	<div class=indent></div>
+	<b><a id=HashSet.></a><i class=icon-plus-sign></i> factory HashSet(&lt;E&gt; equals, &lt;E&gt; hashCode, &lt;E&gt; isValidKey)</b>
+	<div class=indent>
+		<p>Create a hash set using the provided <code>equals</code> as equality. </p>
+<p>The provided <code>equals</code> must define a stable equivalence relation, and <code>hashCode</code> must be consistent with <code>equals</code>. If the <code>equals</code> or <code>hashCode</code> methods won't work on all objects, but only to instances of E, the <code>isValidKey</code> predicate can be used to restrict the keys that they are applied to. Any key for which <code>isValidKey</code> returns false is automatically assumed to not be in the set. </p>
+<p>If <code>equals</code>, <code>hashCode</code> and <code>isValidKey</code> are omitted, the set uses the objects' intrinsic <code>Object.operator==</code> and <code>Object.hashCode</code>. </p>
+<p>If <code>isValidKey</code> is omitted, it defaults to testing if the object is an <code>E</code> instance. </p>
+<p>If <code>equals</code> is <code>identical</code>, this creates an identity set. Any hashCode is compatible with <code>identical</code>, and it applies to all objects, so <code>hashCode</code> and <code>isValidKey</code> can safely be omitted.</p>
+	</div>
 	<b><a id=HashSet.from></a><i class=icon-plus-sign></i> factory HashSet.from(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
-	<div class=indent></div>
-	<h4>Methods</h4>
-	<b><a id=HashSet.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.add'><i title='Overrides Set.add()' class='icon-circle-arrow-up'></i></a> void add(E element)</b>
 	<div class=indent>
-		<p>Adds <code>value</code> into the set. </p>
-<p>The method has no effect if <code>value</code> is already in the set.</p>
-	</div>
-	<b><a id=HashSet.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.addAll'><i title='Overrides Set.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; objects)</b>
-	<div class=indent>
-		<p>Adds all of <code>elements</code> to this Set. </p>
-<p>Equivalent to adding each element in <code>elements</code> using <code>add</code>, but some collections may be able to optimize it.</p>
-	</div>
-	<b><a id=HashSet.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.clear'><i title='Overrides Set.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
-	<div class=indent>
-		<p>Removes all elements in the set.</p>
-	</div>
-	<b><a id=HashSet.contains></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.contains'><i title='Overrides IterableBase.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> object)</b>
-	<div class=indent>
-		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
-	</div>
-	<b><a id=HashSet.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.remove'><i title='Overrides Set.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
-	<div class=indent>
-		<p>Removes <code>value</code> from the set. Returns true if <code>value</code> was in the set. Returns false otherwise. The method has no effect if <code>value</code> value was not in the set.</p>
-	</div>
-	<b><a id=HashSet.removeAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeAll'><i title='Overrides Set.removeAll()' class='icon-circle-arrow-up'></i></a> void removeAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;<a href=dart.core.html#Object>Object</a>&gt; objectsToRemove)</b>
-	<div class=indent>
-		<p>Removes each element of <code>elements</code> from this set.</p>
-	</div>
-	<b><a id=HashSet.removeWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeWhere'><i title='Overrides Set.removeWhere()' class='icon-circle-arrow-up'></i></a> void removeWhere(&lt;E&gt; test)</b>
-	<div class=indent>
-		<p>Removes all elements of this set that satisfy <code>test</code>.</p>
-	</div>
-	<b><a id=HashSet.retainWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.retainWhere'><i title='Overrides Set.retainWhere()' class='icon-circle-arrow-up'></i></a> void retainWhere(&lt;E&gt; test)</b>
-	<div class=indent>
-		<p>Removes all elements of this set that fail to satisfy <code>test</code>.</p>
+		<p>Create a hash set containing the elements of <code>iterable</code>. </p>
+<p>Creates a hash set as by <code>new HashSet&lt;E&gt;()</code> and adds each element of <code>iterable</code> to this set in the order they are iterated.</p>
 	</div>
 	<a id=IterableBase></a><hr>
 	<h4>
@@ -849,44 +780,12 @@
 	</div>
 	<a id=LinkedHashSet></a><hr>
 	<h4>
-		<i class=icon-leaf></i> Class LinkedHashSet extends _HashSetBase&lt;E&gt;</h4>
+		<i class=icon-leaf></i> Class LinkedHashSet implements <a href=dart.collection.html#HashSet>HashSet</a>&lt;E&gt;</h4>
 	<dl class=dl-horizontal>
-		<dt>Fields</dt>
-		<dd>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.first>first</a>: <a href=dart.collection.html#E>E</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.isEmpty>isEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.isNotEmpty>isNotEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.iterator>iterator</a>: <a href=dart.core.html#Iterator>Iterator</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.last>last</a>: <a href=dart.collection.html#E>E</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.length>length</a>: <a href=dart.core.html#int>int</a><br>
-			<i class=icon-minus-sign></i> <a href=dart.collection.html#LinkedHashSet.single>single</a>: <a href=dart.collection.html#E>E</a><br>
-		</dd>
-		<dt>Getters and Setters</dt>
-		<dd>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#first>first</a>: E<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#isEmpty>isEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#isNotEmpty>isNotEmpty</a>: <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#iterator>iterator</a>: <a href=dart.core.html#Iterator>Iterator</a>&lt;E&gt;<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#last>last</a>: E<br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#length>length</a>: <a href=dart.core.html#int>int</a><br>
-			<i class=icon-circle-arrow-right></i> <a href=dart.collection.html#single>single</a>: E<br>
-		</dd>
 		<dt>Constructors</dt>
 		<dd>
-			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashSet.>LinkedHashSet</a>()<br>
+			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashSet.>LinkedHashSet</a>(&lt;E&gt; equals, &lt;E&gt; hashCode, &lt;E&gt; isValidKey)<br>
 			<i class=icon-plus-sign></i> <a href=dart.collection.html#LinkedHashSet.from>LinkedHashSet.from</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)<br>
-		</dd>
-		<dt>Methods</dt>
-		<dd>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.add>add</a>(E element): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.addAll>addAll</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; objects): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.clear>clear</a>(): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.contains>contains</a>(<a href=dart.core.html#Object>Object</a> object): <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.forEach>forEach</a>(&lt;E&gt; action): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.remove>remove</a>(<a href=dart.core.html#Object>Object</a> object): <a href=dart.core.html#bool>bool</a><br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.removeAll>removeAll</a>(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; objectsToRemove): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.removeWhere>removeWhere</a>(&lt;E&gt; test): void<br>
-			<i class=icon-ok-sign></i> <a href=dart.collection.html#LinkedHashSet.retainWhere>retainWhere</a>(&lt;E&gt; test): void<br>
 		</dd>
 	</dl>
 	<div class=indent>
@@ -894,84 +793,13 @@
 <p>The <code>LinkedHashSet</code> also keep track of the order that elements were inserted in, and iteration happens in first-to-last insertion order. </p>
 <p>The elements of a <code>LinkedHashSet</code> must have consistent <code>Object.operator==</code> and <code>Object.hashCode</code> implementations. This means that the <code>==</code> operator must define a stable equivalence relation on the elements (reflexive, anti-symmetric, transitive, and consistent over time), and that <code>hashCode</code> must be the same for objects that are considered equal by <code>==</code>. </p>
 <p>The set allows <code>null</code> as an element. </p>
-<p>Most simple operations on <code>HashSet</code> are done in constant time: <a href=dart.collection.html#LinkedHashSet.add>add()</a>, <a href=dart.collection.html#LinkedHashSet.contains>contains()</a>, <a href=dart.collection.html#LinkedHashSet.remove>remove()</a>, and <a href=dart.collection.html#length>length</a>.</p>
+<p>Most simple operations on <code>HashSet</code> are done in constant time: <code>add</code>, <code>contains</code>, <code>remove</code>, and <code>length</code>.</p>
 	</div>
-	<h4>Fields</h4>
-	<b><a id=LinkedHashSet.first></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> first</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashSet.isEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isEmpty</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashSet.isNotEmpty></a><i class=icon-minus-sign></i> final <a href=dart.core.html#bool>bool</a> isNotEmpty</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashSet.iterator></a><i class=icon-minus-sign></i> final <a href=dart.core.html#Iterator>Iterator</a> iterator</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashSet.last></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> last</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashSet.length></a><i class=icon-minus-sign></i> final <a href=dart.core.html#int>int</a> length</b>
-	<div class=indent></div>
-	<b><a id=LinkedHashSet.single></a><i class=icon-minus-sign></i> final <a href=dart.collection.html#E>E</a> single</b>
-	<div class=indent></div>
-	<h4>Getters and Setters</h4>
-	<b><a id=first></a><i class=icon-circle-arrow-right></i> E get first</b>
-	<div class=indent></div>
-	<b><a id=isEmpty></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isEmpty</b>
-	<div class=indent></div>
-	<b><a id=isNotEmpty></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#bool>bool</a> get isNotEmpty</b>
-	<div class=indent></div>
-	<b><a id=iterator></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#Iterator>Iterator</a>&lt;E&gt; get iterator</b>
-	<div class=indent>
-		<p>Return an iterator that iterates over elements in insertion order.</p>
-	</div>
-	<b><a id=last></a><i class=icon-circle-arrow-right></i> E get last</b>
-	<div class=indent></div>
-	<b><a id=length></a><i class=icon-circle-arrow-right></i> <a href=dart.core.html#int>int</a> get length</b>
-	<div class=indent></div>
-	<b><a id=single></a><i class=icon-circle-arrow-right></i> E get single</b>
-	<div class=indent></div>
 	<h4>Constructors</h4>
-	<b><a id=LinkedHashSet.></a><i class=icon-plus-sign></i> LinkedHashSet()</b>
+	<b><a id=LinkedHashSet.></a><i class=icon-plus-sign></i> factory LinkedHashSet(&lt;E&gt; equals, &lt;E&gt; hashCode, &lt;E&gt; isValidKey)</b>
 	<div class=indent></div>
 	<b><a id=LinkedHashSet.from></a><i class=icon-plus-sign></i> factory LinkedHashSet.from(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; iterable)</b>
 	<div class=indent></div>
-	<h4>Methods</h4>
-	<b><a id=LinkedHashSet.add></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.add'><i title='Overrides Set.add()' class='icon-circle-arrow-up'></i></a> void add(E element)</b>
-	<div class=indent>
-		<p>Adds <code>value</code> into the set. </p>
-<p>The method has no effect if <code>value</code> is already in the set.</p>
-	</div>
-	<b><a id=LinkedHashSet.addAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.addAll'><i title='Overrides Set.addAll()' class='icon-circle-arrow-up'></i></a> void addAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;E&gt; objects)</b>
-	<div class=indent>
-		<p>Adds all of <code>elements</code> to this Set. </p>
-<p>Equivalent to adding each element in <code>elements</code> using <code>add</code>, but some collections may be able to optimize it.</p>
-	</div>
-	<b><a id=LinkedHashSet.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.clear'><i title='Overrides Set.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
-	<div class=indent>
-		<p>Removes all elements in the set.</p>
-	</div>
-	<b><a id=LinkedHashSet.contains></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.contains'><i title='Overrides IterableBase.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> object)</b>
-	<div class=indent>
-		<p>Returns true if the collection contains an element equal to <code>element</code>.</p>
-	</div>
-	<b><a id=LinkedHashSet.forEach></a><i class=icon-ok-sign></i> <a href='dart.collection.html#IterableBase.forEach'><i title='Overrides IterableBase.forEach()' class='icon-circle-arrow-up'></i></a> void forEach(&lt;E&gt; action)</b>
-	<div class=indent>
-		<p>Perform an operation on each element in insertion order.</p>
-	</div>
-	<b><a id=LinkedHashSet.remove></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.remove'><i title='Overrides Set.remove()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> remove(<a href=dart.core.html#Object>Object</a> object)</b>
-	<div class=indent>
-		<p>Removes <code>value</code> from the set. Returns true if <code>value</code> was in the set. Returns false otherwise. The method has no effect if <code>value</code> value was not in the set.</p>
-	</div>
-	<b><a id=LinkedHashSet.removeAll></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeAll'><i title='Overrides Set.removeAll()' class='icon-circle-arrow-up'></i></a> void removeAll(<a href=dart.core.html#Iterable>Iterable</a>&lt;dynamic&gt; objectsToRemove)</b>
-	<div class=indent>
-		<p>Removes each element of <code>elements</code> from this set.</p>
-	</div>
-	<b><a id=LinkedHashSet.removeWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.removeWhere'><i title='Overrides Set.removeWhere()' class='icon-circle-arrow-up'></i></a> void removeWhere(&lt;E&gt; test)</b>
-	<div class=indent>
-		<p>Removes all elements of this set that satisfy <code>test</code>.</p>
-	</div>
-	<b><a id=LinkedHashSet.retainWhere></a><i class=icon-ok-sign></i> <a href='dart.core.html#Set.retainWhere'><i title='Overrides Set.retainWhere()' class='icon-circle-arrow-up'></i></a> void retainWhere(&lt;E&gt; test)</b>
-	<div class=indent>
-		<p>Removes all elements of this set that fail to satisfy <code>test</code>.</p>
-	</div>
 	<a id=LinkedList></a><hr>
 	<h4>
 		<i class=icon-leaf></i> Class LinkedList extends <a href=dart.collection.html#IterableBase>IterableBase</a>&lt;E&gt; implements _LinkedListLink</h4>
@@ -1290,7 +1118,7 @@
 	<b><a id=ListMixin.clear></a><i class=icon-ok-sign></i> <a href='dart.core.html#List.clear'><i title='Overrides List.clear()' class='icon-circle-arrow-up'></i></a> void clear()</b>
 	<div class=indent>
 		<p>Removes all objects from this list; the length of the list becomes zero. </p>
-<p>Throws an <code>UnsupportedError</code>, and retains all objects, if this  is a fixed-length list.</p>
+<p>Throws an <code>UnsupportedError</code>, and retains all objects, if this is a fixed-length list.</p>
 	</div>
 	<b><a id=ListMixin.contains></a><i class=icon-ok-sign></i> <a href='dart.core.html#Iterable.contains'><i title='Overrides Iterable.contains()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#bool>bool</a> contains(<a href=dart.core.html#Object>Object</a> element)</b>
 	<div class=indent>

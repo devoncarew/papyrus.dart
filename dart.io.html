@@ -513,6 +513,8 @@
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.listSync>listSync</a>(<a href=dart.core.html#bool>bool</a> recursive, <a href=dart.core.html#bool>bool</a> followLinks): <a href=dart.core.html#List>List</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.rename>rename</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Directory>Directory</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.renameSync>renameSync</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.io.html#Directory>Directory</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.resolveSymbolicLinks>resolveSymbolicLinks</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt;<br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.resolveSymbolicLinksSync>resolveSymbolicLinksSync</a>(): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Directory.toString>toString</a>(): <a href=dart.core.html#String>String</a><br>
 		</dd>
 	</dl>
@@ -596,6 +598,18 @@
 	<div class=indent>
 		<p>Synchronously renames this directory. Returns a <code>Directory</code> instance for the renamed directory. </p>
 <p>If newPath identifies an existing directory, that directory is replaced. If newPath identifies an existing file the operation fails and an exception is thrown.</p>
+	</div>
+	<b><a id=Directory.resolveSymbolicLinks></a><i class=icon-ok-sign></i> <a href='dart.io.html#FileSystemEntity.resolveSymbolicLinks'><i title='Overrides FileSystemEntity.resolveSymbolicLinks()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; resolveSymbolicLinks()</b>
+	<div class=indent>
+		<p>Resolves the path of a file system object relative to the current working directory, resolving all symbolic links on the path and resolving all '..' and '.' path segments. <code>resolveSymbolicLinks</code> returns a <code>Future&lt;String&gt;</code> </p>
+<p><code>resolveSymbolicLinks</code> uses the operating system's native filesystem api to resolve the path, using the realpath function on linux and Mac OS, and the GetFinalPathNameByHandle function on Windows. If the path does not point to an existing file system object, <code>resolveSymbolicLinks</code> completes the returned Future with an FileException. </p>
+<p>On Windows, symbolic links are resolved to their target before applying a '..' that follows, and on other platforms, the '..' is applied to the symbolic link without resolving it.  The second behavior can be emulated on Windows by processing any '..' segments before calling <code>resolveSymbolicLinks</code>.  One way of doing this is with the URI class: <code>:new Uri.parse('.').resolveUri(new Uri.file(input)).toFilePath();</code>, since <code>resolve</code> removes '..' segments.</p>
+	</div>
+	<b><a id=Directory.resolveSymbolicLinksSync></a><i class=icon-ok-sign></i> <a href='dart.io.html#FileSystemEntity.resolveSymbolicLinksSync'><i title='Overrides FileSystemEntity.resolveSymbolicLinksSync()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> resolveSymbolicLinksSync()</b>
+	<div class=indent>
+		<p>Resolves the path of a file system object relative to the current working directory, resolving all symbolic links on the path and resolving all '..' and '.' path segments. </p>
+<p><code>resolveSymbolicLinksSync</code> uses the operating system's native filesystem api to resolve the path, using the realpath function on linux and Mac OS, and the GetFinalPathNameByHandle function on Windows. If the path does not point to an existing file system object, <code>resolveSymbolicLinksSync</code> throws a FileException. </p>
+<p>On Windows, symbolic links are resolved to their target before applying a '..' that follows, and on other platforms, the '..' is applied to the symbolic link without resolving it.  The second behavior can be emulated on Windows by processing any '..' segments before calling <code>resolveSymbolicLinks</code>.  One way of doing this is with the URI class: <code>:new Uri.parse('.').resolveUri(new Uri.file(input)).toFilePath();</code>, since <code>resolve</code> removes '..' segments.</p>
 	</div>
 	<b><a id=Directory.toString></a><i class=icon-ok-sign></i> <a href='dart.core.html#Object.toString'><i title='Overrides Object.toString()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> toString()</b>
 	<div class=indent>
@@ -727,14 +741,20 @@
 		<p>Synchronously create the file. Existing files are left untouched by <code>createSync</code>. Calling <code>createSync</code> on an existing file might fail if there are restrictive permissions on the file. </p>
 <p>Throws a <code>FileException</code> if the operation fails.</p>
 	</div>
-	<b><a id=File.fullPath></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; fullPath()</b>
+	<b><a id=File.fullPath></a><i class="icon-info-sign icon-hidden"></i> @deprecated 
+	<br>
+	<i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; fullPath()</b>
 	<div class=indent>
-		<p>Get the canonical full path corresponding to the file path. Returns a <code>Future&lt;String&gt;</code> that completes with the path.</p>
+		<p>Get the canonical full path corresponding to the file path. Returns a <code>Future&lt;String&gt;</code> that completes with the path. </p>
+<p>*FullPath is deprecated.  Use absolutePath or resolveSymbolicLinks instead.  FullPath will be removed the 23rd of September, 2013.*</p>
 	</div>
-	<b><a id=File.fullPathSync></a><i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> fullPathSync()</b>
+	<b><a id=File.fullPathSync></a><i class="icon-info-sign icon-hidden"></i> @deprecated 
+	<br>
+	<i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> fullPathSync()</b>
 	<div class=indent>
 		<p>Synchronously get the canonical full path corresponding to the file path. </p>
-<p>Throws a <code>FileException</code> if the operation fails.</p>
+<p>Throws a <code>FileException</code> if the operation fails. </p>
+<p>*FullPathSync is deprecated.  Use absolutePathSync or resolveSymbolicLinksSync instead.  FullPathSync will be removed the 23rd of September, 2013.*</p>
 	</div>
 	<b><a id=File.lastModified></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#DateTime>DateTime</a>&gt; lastModified()</b>
 	<div class=indent>
@@ -1044,6 +1064,8 @@
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.isLinkSync>isLinkSync</a>(<a href=dart.core.html#String>String</a> path): <a href=dart.core.html#bool>bool</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.rename>rename</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileSystemEntity>FileSystemEntity</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.renameSync>renameSync</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.io.html#FileSystemEntity>FileSystemEntity</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.resolveSymbolicLinks>resolveSymbolicLinks</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt;<br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.resolveSymbolicLinksSync>resolveSymbolicLinksSync</a>(): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.stat>stat</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileStat>FileStat</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.statSync>statSync</a>(): <a href=dart.io.html#FileStat>FileStat</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#FileSystemEntity.type>type</a>(<a href=dart.core.html#String>String</a> path, <a href=dart.core.html#bool>bool</a> followLinks): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileSystemEntityType>FileSystemEntityType</a>&gt;<br>
@@ -1115,7 +1137,7 @@
 	</div>
 	<b><a id=FileSystemEntity.identical></a><i class=icon-ok-sign></i> static <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#bool>bool</a>&gt; identical(<a href=dart.core.html#String>String</a> path1, <a href=dart.core.html#String>String</a> path2)</b>
 	<div class=indent>
-		<p>Synchronously checks whether two paths refer to the same object in the file system. Returns a <code>Future&lt;bool&gt;</code> that completes with the result. </p>
+		<p>Checks whether two paths refer to the same object in the file system. Returns a <code>Future&lt;bool&gt;</code> that completes with the result. </p>
 <p>Comparing a link to its target returns false, as does comparing two links that point to the same target.  To check the target of a link, use Link.target explicitly to fetch it.  Directory links appearing inside a path are followed, though, to find the file system object. </p>
 <p>Completes the returned Future with an error if one of the paths points to an object that does not exist.</p>
 	</div>
@@ -1158,6 +1180,18 @@
 	<div class=indent>
 		<p>Synchronously renames this file system entity. Returns a <code>FileSystemEntity</code> instance for the renamed entity. </p>
 <p>If <code>newPath</code> identifies an existing entity of the same type, that entity is replaced. If <code>newPath</code> identifies an existing entity of a different type, the operation fails and an exception is thrown.</p>
+	</div>
+	<b><a id=FileSystemEntity.resolveSymbolicLinks></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; resolveSymbolicLinks()</b>
+	<div class=indent>
+		<p>Resolves the path of a file system object relative to the current working directory, resolving all symbolic links on the path and resolving all '..' and '.' path segments. <code>resolveSymbolicLinks</code> returns a <code>Future&lt;String&gt;</code> </p>
+<p><code>resolveSymbolicLinks</code> uses the operating system's native filesystem api to resolve the path, using the realpath function on linux and Mac OS, and the GetFinalPathNameByHandle function on Windows. If the path does not point to an existing file system object, <code>resolveSymbolicLinks</code> completes the returned Future with an FileException. </p>
+<p>On Windows, symbolic links are resolved to their target before applying a '..' that follows, and on other platforms, the '..' is applied to the symbolic link without resolving it.  The second behavior can be emulated on Windows by processing any '..' segments before calling <code>resolveSymbolicLinks</code>.  One way of doing this is with the URI class: <code>:new Uri.parse('.').resolveUri(new Uri.file(input)).toFilePath();</code>, since <code>resolve</code> removes '..' segments.</p>
+	</div>
+	<b><a id=FileSystemEntity.resolveSymbolicLinksSync></a><i class=icon-ok-sign></i> <a href=dart.core.html#String>String</a> resolveSymbolicLinksSync()</b>
+	<div class=indent>
+		<p>Resolves the path of a file system object relative to the current working directory, resolving all symbolic links on the path and resolving all '..' and '.' path segments. </p>
+<p><code>resolveSymbolicLinksSync</code> uses the operating system's native filesystem api to resolve the path, using the realpath function on linux and Mac OS, and the GetFinalPathNameByHandle function on Windows. If the path does not point to an existing file system object, <code>resolveSymbolicLinksSync</code> throws a FileException. </p>
+<p>On Windows, symbolic links are resolved to their target before applying a '..' that follows, and on other platforms, the '..' is applied to the symbolic link without resolving it.  The second behavior can be emulated on Windows by processing any '..' segments before calling <code>resolveSymbolicLinks</code>.  One way of doing this is with the URI class: <code>:new Uri.parse('.').resolveUri(new Uri.file(input)).toFilePath();</code>, since <code>resolve</code> removes '..' segments.</p>
 	</div>
 	<b><a id=FileSystemEntity.stat></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#FileStat>FileStat</a>&gt; stat()</b>
 	<div class=indent>
@@ -3159,6 +3193,8 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.createSync>createSync</a>(<a href=dart.core.html#String>String</a> target): void<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.rename>rename</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.renameSync>renameSync</a>(<a href=dart.core.html#String>String</a> newPath): <a href=dart.io.html#Link>Link</a><br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.resolveSymbolicLinks>resolveSymbolicLinks</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt;<br>
+			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.resolveSymbolicLinksSync>resolveSymbolicLinksSync</a>(): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.target>target</a>(): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt;<br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.targetSync>targetSync</a>(): <a href=dart.core.html#String>String</a><br>
 			<i class=icon-ok-sign></i> <a href=dart.io.html#Link.update>update</a>(<a href=dart.core.html#String>String</a> target): <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.io.html#Link>Link</a>&gt;<br>
@@ -3204,6 +3240,18 @@ response.write(...);  // Strings written will be ISO-8859-1 encoded.
 	<div class=indent>
 		<p>Synchronously renames this link. Returns a <code>Link</code> instance for the renamed link. </p>
 <p>If <code>newPath</code> identifies an existing link, that link is replaced. If <code>newPath</code> identifies an existing file or directory the operation fails and an exception is thrown.</p>
+	</div>
+	<b><a id=Link.resolveSymbolicLinks></a><i class=icon-ok-sign></i> <a href='dart.io.html#FileSystemEntity.resolveSymbolicLinks'><i title='Overrides FileSystemEntity.resolveSymbolicLinks()' class='icon-circle-arrow-up'></i></a> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; resolveSymbolicLinks()</b>
+	<div class=indent>
+		<p>Resolves the path of a file system object relative to the current working directory, resolving all symbolic links on the path and resolving all '..' and '.' path segments. <code>resolveSymbolicLinks</code> returns a <code>Future&lt;String&gt;</code> </p>
+<p><code>resolveSymbolicLinks</code> uses the operating system's native filesystem api to resolve the path, using the realpath function on linux and Mac OS, and the GetFinalPathNameByHandle function on Windows. If the path does not point to an existing file system object, <code>resolveSymbolicLinks</code> completes the returned Future with an FileException. </p>
+<p>On Windows, symbolic links are resolved to their target before applying a '..' that follows, and on other platforms, the '..' is applied to the symbolic link without resolving it.  The second behavior can be emulated on Windows by processing any '..' segments before calling <code>resolveSymbolicLinks</code>.  One way of doing this is with the URI class: <code>:new Uri.parse('.').resolveUri(new Uri.file(input)).toFilePath();</code>, since <code>resolve</code> removes '..' segments.</p>
+	</div>
+	<b><a id=Link.resolveSymbolicLinksSync></a><i class=icon-ok-sign></i> <a href='dart.io.html#FileSystemEntity.resolveSymbolicLinksSync'><i title='Overrides FileSystemEntity.resolveSymbolicLinksSync()' class='icon-circle-arrow-up'></i></a> <a href=dart.core.html#String>String</a> resolveSymbolicLinksSync()</b>
+	<div class=indent>
+		<p>Resolves the path of a file system object relative to the current working directory, resolving all symbolic links on the path and resolving all '..' and '.' path segments. </p>
+<p><code>resolveSymbolicLinksSync</code> uses the operating system's native filesystem api to resolve the path, using the realpath function on linux and Mac OS, and the GetFinalPathNameByHandle function on Windows. If the path does not point to an existing file system object, <code>resolveSymbolicLinksSync</code> throws a FileException. </p>
+<p>On Windows, symbolic links are resolved to their target before applying a '..' that follows, and on other platforms, the '..' is applied to the symbolic link without resolving it.  The second behavior can be emulated on Windows by processing any '..' segments before calling <code>resolveSymbolicLinks</code>.  One way of doing this is with the URI class: <code>:new Uri.parse('.').resolveUri(new Uri.file(input)).toFilePath();</code>, since <code>resolve</code> removes '..' segments.</p>
 	</div>
 	<b><a id=Link.target></a><i class=icon-ok-sign></i> <a href=dart.async.html#Future>Future</a>&lt;<a href=dart.core.html#String>String</a>&gt; target()</b>
 	<div class=indent>
