@@ -1,7 +1,9 @@
+// Copyright (c) 2013, Devon Carew. All rights reserved. Use of this source code
+// is governed by a BSD-style license that can be found in the LICENSE file.
 
 library img;
 
-class Img {    
+class Img {
 
 //  String getLeafCss() {
 //    return """.icon-leaf {
@@ -12,7 +14,7 @@ class Img {
 //}
 //""";
 //  }
-//  
+//
 //  String getFireCss() {
 //    return """.icon-fire{
 //width: 16px;
@@ -22,7 +24,7 @@ class Img {
 //}
 //""";
 //  }
-//  
+//
 //  String getRNavCss() {
 //    return """.icon-rnav {
 //width: 16px;
@@ -32,7 +34,7 @@ class Img {
 //}
 //""";
 //  }
-//  
+//
 //  String getUpCss() {
 //    return """.icon-up {
 //width: 16px;
@@ -42,10 +44,10 @@ class Img {
 //}
 //""";
 //  }
-//  
+//
 //  String getNoneCss() {
 //    return """.icon-none { width: 16px; height: 16px; }
 //""";
 //  }
-  
+
 }
