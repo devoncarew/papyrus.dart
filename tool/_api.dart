@@ -4,7 +4,7 @@ library _papyrus_api;
 import "dart:io";
 
 import 'package:_internal/libraries.dart';
-import '../lib/papyrus.dart' as papyrus;
+import 'package:papyrus/papyrus.dart' as papyrus;
 
 void main() {
   String sdkPath = Platform.environment['DART_SDK'];

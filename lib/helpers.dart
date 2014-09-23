@@ -141,7 +141,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
 
     buf.write('${generator.createLinkedName(_var)}');
 
-    String type = generator.createLinkedName(_var.type.element);
+    String type = generator.createLinkedName(_var.type == null ? null : _var.type.element);
 
     if (!type.isEmpty) {
       buf.write(': $type');
@@ -163,7 +163,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
       buf.write('const ');
     }
 
-    buf.write(generator.createLinkedName(_var.type.element));
+    buf.write(generator.createLinkedName(_var.type == null ? null : _var.type.element));
     buf.write(' ${_var.name}');
 
     // write out any constant value
@@ -171,7 +171,7 @@ abstract class PropertyInducingHelper extends ElementHelper {
 
     if (value != null) {
       if (value is String) {
-        String str = stringEscape(value as String, "'");
+        String str = stringEscape(value, "'");
         buf.write(" = '${str}'");
       } else if (value is num) {
         buf.write(" = ${value}");
@@ -281,13 +281,13 @@ class TypedefHelper extends ElementHelper {
     StringBuffer buf = new StringBuffer();
 
     buf.write(generator.createLinkedName(element));
-    if (!_typedef.typeVariables.isEmpty) {
+    if (!_typedef.typeParameters.isEmpty) {
       buf.write('&lt;');
-      for (int i = 0; i < _typedef.typeVariables.length; i++) {
+      for (int i = 0; i < _typedef.typeParameters.length; i++) {
         if (i > 0) {
           buf.write(', ');
         }
-        buf.write(_typedef.typeVariables[i].name);
+        buf.write(_typedef.typeParameters[i].name);
       }
       buf.write('&gt;');
     }
@@ -303,13 +303,13 @@ class TypedefHelper extends ElementHelper {
     StringBuffer buf = new StringBuffer();
 
     buf.write('typedef ${generator.createLinkedReturnTypeName(_typedef.type)} ${_typedef.name}');
-    if (!_typedef.typeVariables.isEmpty) {
+    if (!_typedef.typeParameters.isEmpty) {
       buf.write('&lt;');
-      for (int i = 0; i < _typedef.typeVariables.length; i++) {
+      for (int i = 0; i < _typedef.typeParameters.length; i++) {
         if (i > 0) {
           buf.write(', ');
         }
-        buf.write(_typedef.typeVariables[i].name);
+        buf.write(_typedef.typeParameters[i].name);
       }
       buf.write('&gt;');
     }

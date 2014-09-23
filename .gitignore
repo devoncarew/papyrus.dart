@@ -3,7 +3,8 @@
 *.dart.js.map
 *.dart.js
 .DS_Store
-out
+.pub/
+build/
 packages
 pubspec.lock
 docs/

@@ -1,12 +1,12 @@
 
 library model_utils;
 
-import 'package:analyzer_experimental/src/generated/element.dart';
-import 'package:analyzer_experimental/src/generated/constant.dart';
+import 'package:analyzer/src/generated/element.dart';
+import 'package:analyzer/src/generated/constant.dart';
 
 Element getOverriddenElement(Element element) {
   if (element is MethodElement) {
-    return getOverriddenElementMethod(element as MethodElement);
+    return getOverriddenElementMethod(element);
   } else {
     // TODO: ctors, fields, accessors -
 
@@ -16,10 +16,10 @@ Element getOverriddenElement(Element element) {
 
 Object getConstantValue(PropertyInducingElement element) {
   if (element is ConstFieldElementImpl) {
-    ConstFieldElementImpl e = element as ConstFieldElementImpl;
+    ConstFieldElementImpl e = element;
     return _valueFor(e.evaluationResult);
   } else if (element is ConstTopLevelVariableElementImpl) {
-    ConstTopLevelVariableElementImpl e = element as ConstTopLevelVariableElementImpl;
+    ConstTopLevelVariableElementImpl e = element;
     return _valueFor(e.evaluationResult);
   } else {
     return null;
@@ -28,9 +28,7 @@ Object getConstantValue(PropertyInducingElement element) {
 
 Object _valueFor(EvaluationResultImpl result) {
   if (result is ValidResult) {
-    ValidResult r = result as ValidResult;
-
-    return r.value;
+    return result.value;
   } else {
     return null;
   }
@@ -52,7 +50,7 @@ bool canOverride(Element e) => e is ClassMemberElement;
 
 ClassElement getEnclosingElement(Element e) {
   if (e is ClassMemberElement) {
-    return (e as ClassMemberElement).enclosingElement;
+    return e.enclosingElement;
   } else {
     return null;
   }

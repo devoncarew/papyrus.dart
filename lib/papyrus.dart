@@ -3,13 +3,13 @@ library papyrus;
 
 import 'dart:io';
 
-import 'package:analyzer_experimental/src/generated/ast.dart';
-import 'package:analyzer_experimental/src/generated/element.dart';
-import 'package:analyzer_experimental/src/generated/engine.dart';
-import 'package:analyzer_experimental/src/generated/java_io.dart';
-import 'package:analyzer_experimental/src/generated/sdk.dart';
-import 'package:analyzer_experimental/src/generated/sdk_io.dart';
-import 'package:analyzer_experimental/src/generated/source_io.dart';
+import 'package:analyzer/src/generated/ast.dart';
+import 'package:analyzer/src/generated/element.dart';
+import 'package:analyzer/src/generated/engine.dart';
+import 'package:analyzer/src/generated/java_io.dart';
+import 'package:analyzer/src/generated/sdk.dart';
+import 'package:analyzer/src/generated/sdk_io.dart';
+import 'package:analyzer/src/generated/source_io.dart';
 import 'package:args/args.dart';
 
 import 'css.dart';
@@ -29,10 +29,10 @@ part 'helpers.dart';
 
 // TODO: generate an element index
 
-void main() {
+void main(List<String> args) {
   Papyrus generator = new Papyrus();
 
-  if (generator.parseArgs(new Options().arguments)) {
+  if (generator.parseArgs(args)) {
     generator.generate();
   }
 }
@@ -365,7 +365,7 @@ class Papyrus implements Generator {
 
   String createIconFor(Element e) {
     if (e is PropertyAccessorElement) {
-      PropertyAccessorElement a = (e as PropertyAccessorElement);
+      PropertyAccessorElement a = e;
 
       if (a.isGetter) {
         return '<i class=icon-circle-arrow-right></i> ';
@@ -540,14 +540,14 @@ class Papyrus implements Generator {
 //    }
 //  }
 //
-//  String printLinkedTypeArgs(List<Type2> typeArguments) {
+//  String printLinkedTypeArgs(List<DartType> typeArguments) {
 //    StringBuffer buf = new StringBuffer();
 //    buf.write('&lt;');
 //    for (int i = 0; i < typeArguments.length; i++) {
 //      if (i > 0) {
 //        buf.write(', ');
 //      }
-//      Type2 t = typeArguments[i];
+//      DartType t = typeArguments[i];
 //
 //      //if (t.bound != null) {
 //        buf.write(createLinkedName(t.element));
@@ -601,17 +601,17 @@ class Papyrus implements Generator {
     }
   }
 
-  String createLinkedTypeName(Type2 type) {
+  String createLinkedTypeName(DartType type) {
     StringBuffer buf = new StringBuffer();
 
-    if (type is TypeVariableType) {
+    if (type is TypeParameterType) {
       buf.write(type.element.name);
     } else {
       buf.write(createLinkedName(type.element));
     }
 
     if (type is ParameterizedType) {
-      ParameterizedType pType = type as ParameterizedType;
+      ParameterizedType pType = type;
 
       if (!pType.typeArguments.isEmpty) {
         buf.write('&lt;');
@@ -619,7 +619,7 @@ class Papyrus implements Generator {
           if (i > 0) {
             buf.write(', ');
           }
-          Type2 t = pType.typeArguments[i];
+          DartType t = pType.typeArguments[i];
           buf.write(createLinkedTypeName(t));
         }
         buf.write('&gt;');
@@ -685,7 +685,8 @@ class PapyrusResolver extends CodeResolver {
   String resolveCodeReference(String reference) {
     Element e = (element as ElementImpl).getChild(reference);
 
-    if (e is LocalElement || e is TypeVariableElement) {
+    // TODO:
+    if (e is LocalElement /*|| e is TypeVariableElement*/) {
       e = null;
     }
 
@@ -699,20 +700,20 @@ class PapyrusResolver extends CodeResolver {
 }
 
 Directory getSdkDir() {
-  // look for --dart-sdk on the command line
-  List<String> args = new Options().arguments;
+  // Look for --dart-sdk on the command line.
+  // TODO:
+  List<String> args = []; //new Options().arguments;
   if (args.contains('--dart-sdk')) {
     return new Directory(args[args.indexOf('dart-sdk') + 1]);
   }
 
-  // look in env['DART_SDK']
+  // Look in env['DART_SDK'].
   if (Platform.environment['DART_SDK'] != null) {
     return new Directory(Platform.environment['DART_SDK']);
   }
 
-  // look relative to the dart executable
-  // TODO: file a bug re: the path to the executable and the cwd
-  return getParent(new File(Platform.executable).directory);
+  // Look relative to the dart executable.
+  return new File(Platform.executable).parent.parent;
 }
 
 String getFileNameFor(LibraryElement library) {
@@ -734,7 +735,7 @@ List<LibraryElement> parseLibraries(List<String> files) {
     resolvers.add(new PackageUriResolver([packagesDir]));
   }
 
-  SourceFactory sourceFactory = new SourceFactory.con1(contentCache, resolvers);
+  SourceFactory sourceFactory = new SourceFactory(/*contentCache,*/ resolvers);
 
   AnalysisContext context = AnalysisEngine.instance.createAnalysisContext();
   context.sourceFactory = sourceFactory;
@@ -744,8 +745,7 @@ List<LibraryElement> parseLibraries(List<String> files) {
   for (String filePath in files) {
     print('parsing ${filePath}...');
 
-    Source librarySource = new FileBasedSource.con1(
-        contentCache, new JavaFile(filePath));
+    Source librarySource = new FileBasedSource.con1(new JavaFile(filePath));
     LibraryElement library = context.computeLibraryElement(librarySource);
     CompilationUnit unit = context.resolveCompilationUnit(librarySource, library);
 
