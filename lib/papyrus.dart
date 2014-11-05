@@ -122,7 +122,7 @@ class Papyrus implements Generator {
     print('usage: dart papyrus <options> path/to/library1 path/to/library2');
     print('');
     print('where <options> is one or more of:');
-    print(parser.getUsage().replaceAll('\n\n', '\n'));
+    print(parser.usage.replaceAll('\n\n', '\n'));
   }
 
   void generate() {

@@ -4,10 +4,15 @@ library _papyrus_api;
 import "dart:io";
 
 import 'package:_internal/libraries.dart';
+import 'package:grinder/grinder.dart';
 import 'package:papyrus/papyrus.dart' as papyrus;
 
 void main() {
-  String sdkPath = Platform.environment['DART_SDK'];
+  Directory dir = sdkDir;
+
+  if (dir == null) {
+    throw "Can't locate the Dart SDK";
+  }
 
   papyrus.Papyrus generator = new papyrus.Papyrus();
 
@@ -18,7 +23,7 @@ void main() {
 
   for (LibraryInfo library in LIBRARIES.values) {
     if (library.documented) {
-      args.add("${sdkPath}/lib/${library.path}");
+      args.add("${dir.path}/lib/${library.path}");
     }
   }
 
