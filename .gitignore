@@ -4,6 +4,7 @@
 *.dart.js
 .DS_Store
 .pub/
+.packages
 build/
 packages
 pubspec.lock

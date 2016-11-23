@@ -3,7 +3,6 @@ library papyrus;
 
 import 'dart:io';
 
-import 'package:analyzer/src/generated/ast.dart';
 import 'package:analyzer/src/generated/element.dart';
 import 'package:analyzer/src/generated/engine.dart';
 import 'package:analyzer/src/generated/java_io.dart';
@@ -725,7 +724,7 @@ String getFileNameFor(LibraryElement library) {
 List<LibraryElement> parseLibraries(List<String> files) {
   DartSdk sdk = new DirectoryBasedDartSdk(new JavaFile(getSdkDir().path));
 
-  ContentCache contentCache = new ContentCache();
+  // ContentCache contentCache = new ContentCache();
 
   List<UriResolver> resolvers = [new DartUriResolver(sdk), new FileUriResolver()];
 
@@ -747,7 +746,7 @@ List<LibraryElement> parseLibraries(List<String> files) {
 
     Source librarySource = new FileBasedSource.con1(new JavaFile(filePath));
     LibraryElement library = context.computeLibraryElement(librarySource);
-    CompilationUnit unit = context.resolveCompilationUnit(librarySource, library);
+    /*CompilationUnit unit =*/ context.resolveCompilationUnit(librarySource, library);
 
     libraries.add(library);
     libraries.addAll(library.exportedLibraries);

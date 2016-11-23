@@ -103,7 +103,7 @@ class ClassHelper extends ElementHelper {
     return _cls.fields.toList()..removeWhere(isPrivate)..sort(elementCompare);
   }
 
-  List<FieldHelper> getStaticFields() {
+  List<StaticFieldHelper> getStaticFields() {
     List<FieldElement> fields = _getAllfields()..removeWhere((e) => !isStatic(e));
     return fields.map((e) => new StaticFieldHelper(e)).toList();
   }

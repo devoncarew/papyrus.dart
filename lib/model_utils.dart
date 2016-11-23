@@ -57,7 +57,7 @@ ClassElement getEnclosingElement(Element e) {
 }
 
 List<InterfaceType> getAllSupertypes(ClassElement c) {
-  InterfaceType t = c.type;
+  // InterfaceType t = c.type;
 
   return c.allSupertypes;
 
